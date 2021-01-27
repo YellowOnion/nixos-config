@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+let secrets = import ./secrets;
+
+in 
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -74,7 +77,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.daniel = {
     isNormalUser = true;
-    initialPassword = "hello123";
+    initialPassword = secrets.daniel.initialPass;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
@@ -111,6 +114,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.extraConfig = "TrustedUserCAKeys ${secrets.userCA}";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
