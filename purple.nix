@@ -11,20 +11,11 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./common.nix
     ];
 
-  services.udev.extraRules = ''
-    ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
-  '';
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Set your time zone.
-  time.timeZone = "Pacific/Auckland";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -36,12 +27,7 @@ in
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_NZ.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "dvorak";
-  };
+
 
   # Enable the GNOME 3 Desktop Environment.
   services.xserver.enable = true;
@@ -63,7 +49,9 @@ in
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.daemon.config = {
    default-sample-rate = "48000";
-   default-sample-format = "s32le"; 
+   default-sample-format = "float32le"; 
+   remixing-produce-lfe = "no";
+   remixing-consume-lfe = "no";
    default-fragments = "3";
    default-fragment-size-msec = "10";
    realtime-scheduling = "yes";
@@ -75,33 +63,25 @@ in
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.daniel = {
-    isNormalUser = true;
-    initialPassword = secrets.daniel.initialPass;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    wget
-    vim
-    htop
-    rclone
-    git
-    git-crypt
+  environment.systemPackages = with pkgs; [  
     
     keepassxc
     firefox
     discord
+    spotify
+    deadbeef
     steam
-    pavucontrol
   ];
   
   #hax for steam to launch
   #hardware.opengl.driSupport32Bit = true;
   programs.steam.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -110,11 +90,6 @@ in
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.openssh.extraConfig = "TrustedUserCAKeys ${secrets.userCA}";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
