@@ -14,13 +14,15 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/nvme0n1p3:/dev/sdc:/dev/sde";
+    { device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_500GB_S5H7NS0NA78631F-part3:/dev/disk/by-id/ata-WDC_WD40EFRX-68N32N0_WD-WCC7K6SAF6KD:/dev/disk/by-id/ata-WDC_WD40EFRX-68N32N0_WD-WCC7K7RT8J22";
       fsType = "bcachefs";
+      options = [ "noatime" "nodiratime" ];
     };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/D147-EA04";
       fsType = "vfat";
+      options = [ "noatime" "nodiratime" ];
     };
 
   swapDevices =
@@ -30,18 +32,18 @@
   fileSystems."/media/old/share" =
     { device = "/dev/disk/by-label/Share";
       fsType = "ntfs";
-      options = [ "rw" "uid=1000" ];
+      options = [ "noatime" "nodiratime" "rw" "uid=1000" ];
     };
 
   fileSystems."/media/old/gamma" =
     { device = "/dev/disk/by-label/Gamma";
       fsType = "ntfs";
-      options = [ "rw" "uid=1000" ];
+      options = [ "noatime" "nodiratime" "rw" "uid=1000" ];
     };
 
   fileSystems."/media/old/Windows" =
     { device = "/dev/disk/by-id/ata-Corsair_Neutron_XTI_SSD_163080960001203421AD-part2";
       fsType = "ntfs";
-      options = [ "rw" "uid=1000" ];
+      options = [ "noatime" "nodiratime" "rw" "uid=1000" ];
     };
 }

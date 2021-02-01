@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 
 let secrets = import ./secrets;
+  vendor-reset = config.boot.kernelPackages.callPackage ./vendor-reset {};
 
 in 
 {
@@ -23,16 +24,28 @@ in
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-
+  boot.kernelPatches = [ {
+    name = "vendor-reset-reqs";
+    patch = null;
+    extraConfig = ''
+      FTRACE y
+      KPROBES y
+      PCI_QUIRKS y
+      KALLSYMS y
+      KALLSYMS_ALL y
+      FUNCTION_TRACER y
+    ''; } ];
 
   # Enable the GNOME 3 Desktop Environment.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true;
+  services.xserver = { 
+    enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = false;
+    };
+
+    desktopManager.gnome3.enable = true;
+  };
   
 
   # Configure keymap in X11
@@ -68,19 +81,51 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [  
-    
+  environment.systemPackages = with pkgs; [      
     keepassxc
     firefox
     discord
+
     spotify
     deadbeef
     steam
-  ];
+    spacevim
+    
+    element-desktop
+    signal-desktop
+    
+    virt-manager
+   ];
   
   #hax for steam to launch
-  #hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.driSupport32Bit = true;
   programs.steam.enable = true;
+
+  # KVM stuff
+  # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
+  boot.extraModulePackages = [ vendor-reset ];
+  #boot.initrd.kernelModules = [ vfio-pci ];
+  boot.kernelModules = [ "vendor-reset" ];
+  boot.kernelParams = [
+    "amd_iommu=on"
+    "vfio_virqfd"
+    "vfio_pci"
+    "vfio_iommu_type1"
+    "vfio"
+    "hugepagesz=2MB"
+    "hugepages=8192"
+    ];
+  boot.extraModprobeConfig = ''
+#    softdep amdgpu pre: vfio-pci
+    options vfio-pci ids=1002:67df,1002:aaf0
+  '';
+  
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemuOvmf = true;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
