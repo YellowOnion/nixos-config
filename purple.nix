@@ -6,13 +6,15 @@
 
 let secrets = import ./secrets;
   vendor-reset = config.boot.kernelPackages.callPackage ./vendor-reset {};
-
+  scream = pkgs.callPackage /home/daniel/dev/nix/scream {} ;
+  latest = import <nixpkgs-master> { config.allowUnfree = true; };
 in 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./common.nix
+      ./haskell-dev.nix
     ];
 
 
@@ -22,7 +24,9 @@ in
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
+  networking.bridges.br0.interfaces = [ "enp4s0" ];
+  networking.interfaces.br0.useDHCP = true;
+  
 
   boot.kernelPatches = [ {
     name = "vendor-reset-reqs";
@@ -39,6 +43,7 @@ in
   # Enable the GNOME 3 Desktop Environment.
   services.xserver = { 
     enable = true;
+  #    videoDrivers = ["amdgpu"];
     displayManager.gdm = {
       enable = true;
       wayland = false;
@@ -46,7 +51,10 @@ in
 
     desktopManager.gnome3.enable = true;
   };
-  
+
+  # Configure wacom tablet  
+  services.udev.packages = [ pkgs.libwacom ];
+  services.xserver.wacom.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -56,18 +64,22 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = with pkgs; [ 
+    hplip ] ;
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.daemon.config = {
-   default-sample-rate = "48000";
-   default-sample-format = "float32le"; 
-   remixing-produce-lfe = "no";
-   remixing-consume-lfe = "no";
-   default-fragments = "3";
-   default-fragment-size-msec = "10";
-   realtime-scheduling = "yes";
+    flat-volumes = "no";
+    default-sample-rate = "48000";
+    default-sample-format = "float32le";
+    remixing-produce-lfe = "no";
+    remixing-consume-lfe = "no";
+    default-fragments = "3";
+    default-fragment-size-msec = "10";
+    realtime-scheduling = "yes";
+    resample-method = "soxr-hq";
    };
   # help pulse audio use realtime scheduling
   security.rtkit.enable = true; 
@@ -81,29 +93,61 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [      
+  environment.systemPackages = with pkgs; [
     keepassxc
     firefox
-    discord
+    latest.discord
+    emacs
 
-    spotify
-    deadbeef
-    steam
-    spacevim
-    
+    calibre
+
+    latest.spotify
+    kodi
+
+    rtorrent
+
+    obs-studio
+    obs-v4l2sink
+
+    anki-bin
+    mpv
+
+    mpd
+    cantata
+
+    libwacom
+    krita
+    xournalpp
+
+    (texlive.combine { inherit (texlive) scheme-medium standalone; })
+
     element-desktop
     signal-desktop
     
     virt-manager
+    scream
+
+    legendary-gl
+    protontricks
    ];
   
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk    
+    ];
   #hax for steam to launch
-  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl = {
+    driSupport32Bit = true;
+    extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+    setLdLibraryPath = true;
+    extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime rocm-runtime ];
+  };
+
   programs.steam.enable = true;
 
   # KVM stuff
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
-  boot.extraModulePackages = [ vendor-reset ];
+  boot.extraModulePackages = [ vendor-reset config.boot.kernelPackages.v4l2loopback ];
   #boot.initrd.kernelModules = [ vfio-pci ];
   boot.kernelModules = [ "vendor-reset" ];
   boot.kernelParams = [
@@ -112,8 +156,6 @@ in
     "vfio_pci"
     "vfio_iommu_type1"
     "vfio"
-    "hugepagesz=2MB"
-    "hugepages=8192"
     ];
   boot.extraModprobeConfig = ''
 #    softdep amdgpu pre: vfio-pci
@@ -124,9 +166,28 @@ in
     libvirtd = {
       enable = true;
       qemuOvmf = true;
+      onBoot = "ignore";
+      qemuVerbatimConfig = ''
+      user = "daniel"
+      '';
     };
   };
 
+  services.samba = {
+    enable = true;
+    securityType = "user";
+    extraConfig = ''
+    
+    '';
+    shares = {
+      oldMedia = {
+        "guest okay" = "yes";
+        path = "/media/old";
+        browseable = "yes";
+        "valid users" = "daniel";
+      };
+    };
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -140,7 +201,7 @@ in
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

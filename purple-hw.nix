@@ -42,8 +42,8 @@
     };
 
   fileSystems."/media/old/Windows" =
-    { device = "/dev/disk/by-id/ata-Corsair_Neutron_XTI_SSD_163080960001203421AD-part2";
+    { device = "/media/img/windows.img";
       fsType = "ntfs";
-      options = [ "noatime" "nodiratime" "rw" "uid=1000" ];
+      options = [ "loop" "noatime" "nodiratime" "rw" "uid=1000" ];
     };
 }
