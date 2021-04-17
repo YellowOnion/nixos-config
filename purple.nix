@@ -14,6 +14,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./common.nix
+      ./common-gui.nix
       ./haskell-dev.nix
     ];
 
@@ -27,12 +28,42 @@ in
   networking.bridges.br0.interfaces = [ "enp4s0" ];
   networking.interfaces.br0.useDHCP = true;
   
+  nixpkgs.config.packageOverrides = pkgs: { 
+    linux_testing_bcachefs = (pkgs.linux_testing_bcachefs.override {
+      argsOverride = rec {
+        src = pkgs.fetchFromGitHub {
+             owner = "koverstreet";
+             repo  = "bcachefs";
+             rev   = "6a3927a96b2f362deccc7ee36e20e03f193a9e00";
+             sha256 = "07m0b28nl3ysz32lrsn75rlysz6z2m2m8d9z5d4rpxnvjym1ksvf";
+        };
+        version = "5.10.29-bcachefs-git-6a3927a";
+        modDirVersion = "5.10.0";
+        extraConfig = ''
+          BCACHEFS_FS m
+          '';
+      };
+    });
+    bcachefs-tools = pkgs.bcachefs-tools.overrideDerivation ( oldAttrs: {
+        version = "2021-05-05";
+        src = pkgs.fetchFromGitHub {
+              owner = "koverstreet";
+              repo = "bcachefs-tools";
+              rev = "e9909cee527acd58d0776d00eb73d487abcd5bb9";
+              sha256 = "163zw1c3qijns7jjx7j04bbmgx35bg8z38mvwdqspgflgvmzdrbv";
+        };
+     });
+   };
+      
+
 
   boot.kernelPatches = [ {
     name = "vendor-reset-reqs";
     patch = null;
     extraConfig = ''
       FTRACE y
+      LATENCYTOP y 
+      SCHEDSTATS y
       KPROBES y
       PCI_QUIRKS y
       KALLSYMS y
@@ -40,49 +71,13 @@ in
       FUNCTION_TRACER y
     ''; } ];
 
-  # Enable the GNOME 3 Desktop Environment.
-  services.xserver = { 
-    enable = true;
-  #    videoDrivers = ["amdgpu"];
-    displayManager.gdm = {
-      enable = true;
-      wayland = false;
-    };
 
-    desktopManager.gnome3.enable = true;
-  };
-
-  # Configure wacom tablet  
-  services.udev.packages = [ pkgs.libwacom ];
-  services.xserver.wacom.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.layout = "us";
-  services.xserver.xkbVariant = "dvorak";
-  # services.xserver.xkbOptions = "eurosign:e";
-   
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ 
     hplip ] ;
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.daemon.config = {
-    flat-volumes = "no";
-    default-sample-rate = "48000";
-    default-sample-format = "float32le";
-    remixing-produce-lfe = "no";
-    remixing-consume-lfe = "no";
-    default-fragments = "3";
-    default-fragment-size-msec = "10";
-    realtime-scheduling = "yes";
-    resample-method = "soxr-hq";
-   };
-  # help pulse audio use realtime scheduling
-  security.rtkit.enable = true; 
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -94,10 +89,6 @@ in
   # $ nix search wget
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    keepassxc
-    firefox
-    latest.discord
-    emacs
 
     calibre
 
@@ -112,29 +103,18 @@ in
     anki-bin
     mpv
 
-    mpd
-    cantata
-
-    libwacom
-    krita
-    xournalpp
 
     (texlive.combine { inherit (texlive) scheme-medium standalone; })
 
-    element-desktop
-    signal-desktop
-    
     virt-manager
     scream
 
     legendary-gl
     protontricks
+    
+    latencytop
    ];
   
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk    
-    ];
   #hax for steam to launch
   hardware.opengl = {
     driSupport32Bit = true;
@@ -142,8 +122,6 @@ in
     setLdLibraryPath = true;
     extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime rocm-runtime ];
   };
-
-  programs.steam.enable = true;
 
   # KVM stuff
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
@@ -198,7 +176,7 @@ in
 
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;

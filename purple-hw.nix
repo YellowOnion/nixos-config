@@ -40,10 +40,4 @@
       fsType = "ntfs";
       options = [ "noatime" "nodiratime" "rw" "uid=1000" ];
     };
-
-  fileSystems."/media/old/Windows" =
-    { device = "/media/img/windows.img";
-      fsType = "ntfs";
-      options = [ "loop" "noatime" "nodiratime" "rw" "uid=1000" ];
-    };
 }

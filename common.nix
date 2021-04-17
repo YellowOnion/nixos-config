@@ -28,7 +28,7 @@ in
     users.users.daniel = {
     isNormalUser = true;
     initialPassword = secrets.daniel.initialPass;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "audio" ]; # Enable ‘sudo’ for the user.
   };
   
   nixpkgs.config.allowUnfree = true;
@@ -44,13 +44,30 @@ in
     git-crypt
     python
     syncthing
+    steam-run
   ];
   
   services.openssh.enable = true;
   services.openssh.extraConfig = "TrustedUserCAKeys ${secrets.userCA}";
   
-  services.zerotierone.enable = true;
-  services.zerotierone.joinNetworks = [ secrets.zt.wanabe ]; 
+  #services.zerotierone.enable = true;
+  #services.zerotierone.joinNetworks = [ secrets.zt.wanabe ]; 
+
+
+  system.autoUpgrade = {
+    enable = true;
+    dates = "Sun *-*-* 05:00:00";
+    };
   
+  nix.gc = {
+    automatic = true;
+    dates = "Mon *-*-* 05:00:00";
+    options = "--delete-older-than 14d";
+  };
+  
+  nix.optimise = {
+    automatic = true;
+    dates = [ "Mon *-*-* 5:30:00" ];
+  };
   
 }
