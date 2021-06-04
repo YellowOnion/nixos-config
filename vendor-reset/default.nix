@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   name = "vendor-reset";
-  version = "0.1.0";
+  version = "0.1.1";
 
   src = fetchFromGitHub {
     owner = "gnif";
     repo  = "vendor-reset";
-    rev   = "v${version}";
-    sha256  = "04n5z338hw48v0skk23j4pmmzzk8ka0hb5qwvrwhjbp24x0aykh7";
+    rev   = "225a49a40941e350899e456366265cf82b87ad25";
+    sha256  = "071zd8slra0iqsvzqpp6lcvg5dql5hkn161gh9aq34wix7pwzbn5";
   };
   
   sourceRoot = "source";

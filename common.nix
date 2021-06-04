@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 let secrets = import ./secrets;
 
@@ -35,6 +35,7 @@ in
   
   environment.systemPackages = with pkgs; [
     pciutils
+    killall
     wget
     screen
     vim
@@ -50,8 +51,8 @@ in
   services.openssh.enable = true;
   services.openssh.extraConfig = "TrustedUserCAKeys ${secrets.userCA}";
   
-  #services.zerotierone.enable = true;
-  #services.zerotierone.joinNetworks = [ secrets.zt.wanabe ]; 
+  services.zerotierone.enable = true;
+  services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
 
 
   system.autoUpgrade = {

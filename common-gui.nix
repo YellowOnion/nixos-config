@@ -6,7 +6,10 @@ let
   gnome-hide-top-bar = pkgs.callPackage /home/daniel/dev/nix/gnome-hide-top-bar {} ;
 in 
 
-{  
+{
+  imports = [
+    ./nur.nix
+  ];
     # Enable the GNOME 3 Desktop Environment.
   services.xserver = {
     enable = true;
@@ -16,7 +19,7 @@ in
       wayland = false;
     };
 
-    desktopManager.gnome3.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
   # Configure wacom tablet
@@ -66,12 +69,14 @@ in
 
     gnomeExtensions.draw-on-your-screen
     gnome-hide-top-bar
-
+    gnomeExtensions.appindicator
   ];
   programs.steam.enable = true;
 
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk
+    corefonts
+    vistafonts
     ];
 }
