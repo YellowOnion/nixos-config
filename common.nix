@@ -14,6 +14,9 @@ in
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [
+    "hid_apple.fnmode=0"
+  ];
   
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
@@ -42,6 +45,7 @@ in
     htop
     rclone
     git
+    age
     git-crypt
     python
     syncthing

@@ -7,22 +7,10 @@
 let secrets = import ./secrets;
   vendor-reset = config.boot.kernelPackages.callPackage ./vendor-reset {};
   scream = pkgs.callPackage /home/daniel/dev/nix/scream {} ;
+  dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
   latest = import <nixpkgs-master> { config.allowUnfree = true; };
-  mesa-patched = (pkgs.mesa.overrideAttrs (oldAttrs: rec {
-    patches = [( pkgs.fetchurl {
-      url = "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/9995.diff";
-      sha256 = "0m7lrqjf4d79sppx7800wkwpyk9axwrch0l5v6lpc5arald77lab";
-    })] ++ oldAttrs.patches;
-  })).override {
-    # fix for builds on 64bit inodes file systems
-    ninja = pkgs.ninja.overrideAttrs (oldAttrs: rec {
-      NIX_CFLAGS_COMPILE = pkgs.lib.optionals (pkgs.stdenv.hostPlatform.system == "i686-linux") [
-        "-D_LARGEFILE_SOURCE"
-        "-D_FILE_OFFSET_BITS=64"
-      ];
-    });
-  };
-in 
+  unstable = import <nixos-unstable> { config.allowUnfree = true; };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -44,57 +32,6 @@ in
   networking.interfaces.br0.useDHCP = true;
 
 
-#  nixpkgs.config.packageOverrides = pkgs: {
-#    gnome3 = pkgs.gnome3.overrideScope' (
-#      gself: gsuper: {
-#        mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
-#          patches = oldAttrs.patches ++ [
-#            (builtins.fetchurl "https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/168.diff")
-#          ];
-#        });
-#      });
-#      mesa = (pkgs.mesa.overrideAttrs (oldAttrs: rec {
-#        patches = [( pkgs.fetchurl {
-#          url = "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/9995.diff";
-#          sha256 = "0m7lrqjf4d79sppx7800wkwpyk9axwrch0l5v6lpc5arald77lab";
-#        })] ++ oldAttrs.patches;
-#      })).override {
-#        # fix for builds on 64bit inodes file systems
-#        ninja = pkgs.ninja.overrideAttrs (oldAttrs: rec {
-#          NIX_CFLAGS_COMPILE = pkgs.lib.optionals (pkgs.stdenv.hostPlatform.system == "i686-linux") [
-#            "-D_LARGEFILE_SOURCE"
-#            "-D_FILE_OFFSET_BITS=64"
-#          ];
-#        });
-#      };
-#  };
- # nixpkgs.config.packageOverrides = pkgs: {
- #   linux_testing_bcachefs = pkgs.linux.override ( {
- #     argsOverride = rec {
- #       src = pkgs.fetchgit {
- #         url = "https://evilpiepirate.org/git/bcachefs.git/";
- #         rev = "999b621250d158ddfada12485a08d8223996be6e";
- #         sha256 = "16qjz8jh0fjzb4cv6j03ach12j9jsjchbwb25kwyw43plc3bj8kd";
- #       };
- #       extraConfig = ''
- #         BCACHEFS_FS m
- #         '';
- #       version = "5.10";
- #       modDirVersion = "5.10.0";
- #   };});
- #   bcachefs-tools = pkgs.bcachefs-tools.overrideDerivation ( oldAttrs: {
- #       version = "2021-05-05";
- #       src = pkgs.fetchFromGitHub {
- #             owner = "koverstreet";
- #             repo = "bcachefs-tools";
- #             rev = "e9909cee527acd58d0776d00eb73d487abcd5bb9";
- #             sha256 = "163zw1c3qijns7jjx7j04bbmgx35bg8z38mvwdqspgflgvmzdrbv";
- #       };
- #    });
- #  };
-      
-
-
   boot.kernelPatches = [ {
     name = "vendor-reset-reqs";
     patch = null;
@@ -107,8 +44,15 @@ in
       FUNCTION_TRACER y
     ''; } ];
 
+  boot.kernel.sysctl = {
+    "sched_latency_ns" = "1000000";
+    "sched_min_granularity_ns" = "100000";
+    "sched_migration_cost_ns"  = "7000000";
+  };
 
-
+  environment.variables = {
+    __GL_SYNC_DISPLAY_DEVICE = "DisplayPort-0";
+  };
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ 
@@ -136,20 +80,32 @@ in
 
     obs-studio
     v4l-utils
+    libstrangle
 
     anki-bin
     mpv
     piper
 
+    dsp
+    lsp-plugins
+    audacity
+    carla
 
     (texlive.combine { inherit (texlive) scheme-medium standalone; })
 
     virt-manager
     scream
 
+    haskell-language-server
+    stack
+    ghc
+
     legendary-gl
+    libstrangle
     protontricks
     mangohud
+    lutris
+    wine-staging
 
     ipset
    ];
@@ -164,9 +120,9 @@ in
   #hax for steam to launch
   hardware.opengl = {
     driSupport32Bit = true;
-    extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ libva pipewire ];
     setLdLibraryPath = true;
-    package = mesa-patched.drivers;
+    #package = unstable.mesa.drivers;
     extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime rocm-runtime ];
   };
 
@@ -220,7 +176,13 @@ in
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
+  environment.variables = {
+    VST_PATH    = "/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst";
+    LXVST_PATH  = "/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst";
+    LADSPA_PATH = "/nix/var/nix/profiles/default/lib/ladspa:/var/run/current-system/sw/lib/ladspa:~/.ladspa";
+    LV2_PATH    = "/nix/var/nix/profiles/default/lib/lv2:/var/run/current-system/sw/lib/lv2:~/.lv2";
+    DSSI_PATH   = "/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 22 ];

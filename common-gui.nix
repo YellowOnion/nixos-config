@@ -31,6 +31,10 @@ in
   services.xserver.xkbVariant = "dvorak";
   # services.xserver.xkbOptions = "eurosign:e";
 
+  services.xserver.libinput.mouse.middleEmulation = false;
+
+  hardware.bluetooth.enable = true;
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -40,11 +44,28 @@ in
     default-sample-format = "float32le";
     remixing-produce-lfe = "no";
     remixing-consume-lfe = "no";
-    default-fragments = "3";
-    default-fragment-size-msec = "10";
+    #default-fragments = "3";
+    #default-fragment-size-msec = "30";
     realtime-scheduling = "yes";
     resample-method = "soxr-hq";
    };
+ # services.pipewire = {
+ #   enable = true;
+ #   alsa.enable = true;
+ #   alsa.support32Bit = true;
+ #   pulse.enable = true;
+ #   jack.enable = true;
+ #   config.pipewire = {
+ #     "context.properties" = {
+ #       "default.clock.rate" = 48000;
+ #       "default.clock.quantum" = 256;
+ #     };
+ #     "stream.properties" = {
+ #       "resample.quality" = 10;
+ #    };
+ #   };
+ #};
+
   # help pulse audio use realtime scheduling
   security.rtkit.enable = true;
 

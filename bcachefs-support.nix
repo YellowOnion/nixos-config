@@ -2,19 +2,18 @@
 
 let
   kernel = {
-    date = "2021-04-29";
-    commit = "a5c0e1bb306e79b40b2432a22f164697c8b22110";
-    base = "f40ddce88593482919761f74910f42f4b84c004b";
-    hash = "17gg5dzwb0y6vsa8wa2llqxspp94chcdb3w7f0mb5jrhxqcvpygw";
-    version = "5.11";
+    date = "2021-06-15";
+    commit = "ca3cfad39f91";
+    hash = "0kvfg9rxjhf70kvgj3qb1a0j696xykg0w6aybfiykajncc4riqwb";
+    version = "5.12";
   };
 
   tools = {
-    date = "2021-04-30";
-    commit = "bb74624daa138837d04c2a9931723115b9b6d645";
-    hash   = "0pfx3by9kq3r13c4xb8jyhas52wk5m2v72zk27b93g9w2ffzcjg2";
+    date = "2021-06-23";
+    commit = "55142cd0b5ef2a2150d4708dad0c3fd54a3ffd39";
+    hash   = "1nipvm61kdfzh9aqrb7z2xm32gg6rl18jvfy8kk5gz9983s6br2s";
   };
-  nixkernel = "linux_${lib.versions.major kernel.version}_${lib.versions.minor kernel.version}";
+  nixkernel = "linux_5_12";
 in
 {
 
@@ -27,7 +26,7 @@ in
           name = "bcachefs-${kernel.date}";
           patch = oldpkgs.fetchurl {
             name = "bcachefs-${kernel.commit}-v${kernel.version}.patch";
-            url = "https://evilpiepirate.org/git/bcachefs.git/rawdiff/?id=${kernel.commit}&id2=${kernel.base}";
+            url = "https://raw.githubusercontent.com/YellowOnion/bcachefs-patches/master/v${kernel.version}/bcachefs-v${kernel.version}-${kernel.date}-${kernel.commit}.patch";
             sha256 = kernel.hash;
            };
         })];
