@@ -5,11 +5,13 @@ let secrets = import ./secrets;
 in 
 
 {  
+  imports = [ ./cachix.nix ];
+
   # use bfq on all spinning disks
   # TODO: add rules for Sata SSDs (mq-deadline or "none")
-  services.udev.extraRules = ''
-  ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
-  '';
+#  services.udev.extraRules = ''
+#  ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+#  '';
   
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -27,11 +29,19 @@ in
     font = "Lat2-Terminus16";
     keyMap = "dvorak";
   };
-  
-    users.users.daniel = {
+
+  users.defaultUserShell = pkgs.zsh;
+
+  users.users.daniel = {
     isNormalUser = true;
     initialPassword = secrets.daniel.initialPass;
-    extraGroups = [ "wheel" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "audio" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    };
+  users.users.kent = {
+    isNormalUser = true;
+    initialPassword = secrets.kent.initialPass;
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [ secrets.kent.sshKey ];
   };
   
   nixpkgs.config.allowUnfree = true;
@@ -39,6 +49,16 @@ in
   environment.systemPackages = with pkgs; [
     pciutils
     killall
+    schedtool
+    nix-prefetch-github
+    usbutils
+
+    direnv
+    starship
+    cachix
+
+    aspell
+
     wget
     screen
     vim
@@ -47,24 +67,35 @@ in
     git
     age
     git-crypt
-    python
     syncthing
     steam-run
   ];
-  
+
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+  };
+
   services.openssh.enable = true;
   services.openssh.extraConfig = "TrustedUserCAKeys ${secrets.userCA}";
   
   services.zerotierone.enable = true;
   services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
 
-
+  /*
   system.autoUpgrade = {
     enable = true;
     dates = "Sun *-*-* 05:00:00";
     };
-  
-  nix.gc = {
+  */
+  nix = {
+    autoOptimiseStore = true;
+    daemonCPUSchedPolicy = "idle";
+    #daemonIOSchedPriority = 7;
+  };
+ /* nix.gc = {
     automatic = true;
     dates = "Mon *-*-* 05:00:00";
     options = "--delete-older-than 14d";
@@ -73,6 +104,6 @@ in
   nix.optimise = {
     automatic = true;
     dates = [ "Mon *-*-* 5:30:00" ];
-  };
+  }; */
   
 }

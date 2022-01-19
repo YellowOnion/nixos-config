@@ -2,14 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let secrets = import ./secrets;
-  vendor-reset = config.boot.kernelPackages.callPackage ./vendor-reset {};
-  scream = pkgs.callPackage /home/daniel/dev/nix/scream {} ;
-  dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
-  latest = import <nixpkgs-master> { config.allowUnfree = true; };
-  unstable = import <nixos-unstable> { config.allowUnfree = true; };
+  #vendor-reset = config.boot.kernelPackages.callPackage ./vendor-reset {};
+  #scream = pkgs.callPackage /home/daniel/dev/nix/scream {} ;
+  #dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
+  #latest     = import <nixpkgs-master> { config.allowUnfree = true; };
+  unstable   = import <nixos-unstable> { config.allowUnfree = true; };
+  futex      = import ./futex.nix pkgs;
+  lru        = import ./lru.nix pkgs;
+  my-nur     = import /home/daniel/dev/nur-bcachefs {pkgs = pkgs;};
+  #my-nur     = import (builtins.fetchTarball "https://github.com/YellowOnion/nur-bcachefs/archive/master.tar.gz") {};
+  nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
 in
 {
   imports =
@@ -17,10 +22,15 @@ in
       ./hardware-configuration.nix
       ./common.nix
       ./common-gui.nix
-      ./haskell-dev.nix
-      ./bcachefs-support.nix
+      #./haskell-dev.nix
+      #./bcachefs-support.nix
+      # ./amd-pstate.nix
     ];
 
+
+  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel);
+  nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools;})];
+  nixpkgs.config.allowBroken = true;
 
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
 
@@ -28,21 +38,26 @@ in
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.bridges.br0.interfaces = [ "enp4s0" ];
+  networking.bridges.br0.interfaces = [ "enp6s0" ];
   networking.interfaces.br0.useDHCP = true;
 
-
-  boot.kernelPatches = [ {
-    name = "vendor-reset-reqs";
-    patch = null;
-    extraConfig = ''
+  boot.kernelPatches = [
+    {
+      name = "vendor-reset-reqs-and-other-stuff";
+      patch = null;
+      extraConfig = ''
       FTRACE y
       KPROBES y
+      FUNCTION_TRACER y
+      HWLAT_TRACER y
+      TIMERLAT_TRACER y
+      IRQSOFF_TRACER y
+      OSNOISE_TRACER y
       PCI_QUIRKS y
       KALLSYMS y
       KALLSYMS_ALL y
-      FUNCTION_TRACER y
-    ''; } ];
+    ''; }
+  ]; # ++ futex.kernelPatches ++ lru.kernelPatches;
 
   boot.kernel.sysctl = {
     "sched_latency_ns" = "1000000";
@@ -73,7 +88,7 @@ in
 
     calibre
 
-    latest.spotify
+    spotify
     kodi
 
     rtorrent
@@ -86,49 +101,43 @@ in
     mpv
     piper
 
-    dsp
+    #dsp
     lsp-plugins
+    calf
+    #swh-plugins
+    swh_lv2
+    helvum
+    tap-plugins
     audacity
     carla
 
-    (texlive.combine { inherit (texlive) scheme-medium standalone; })
+    texlive.combined.scheme-full
 
     virt-manager
     scream
 
-    haskell-language-server
-    stack
-    ghc
+    qjackctl
 
     legendary-gl
     libstrangle
     protontricks
     mangohud
     lutris
-    wine-staging
+    nix-gaming.packages.x86_64-linux.wine-tkg
+    nix-gaming.packages.x86_64-linux.winestreamproxy
 
     ipset
    ];
 
-  hardware.firmware =
-    [
-      (pkgs.edid-generator.override
-        { modelines = [ "Modeline 1920x1200RB2 148.20 1920 1928 2000 2000 1200 1221 1229 1235 +Hsync -Vsync" ];
-        }
-      )
-    ];
-  #hax for steam to launch
-  hardware.opengl = {
-    driSupport32Bit = true;
-    extraPackages32 = with pkgs.pkgsi686Linux; [ libva pipewire ];
-    setLdLibraryPath = true;
-    #package = unstable.mesa.drivers;
-    extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime rocm-runtime ];
-  };
+   #hax for steam to launch
+#  hardware.opengl = {
+#    driSupport  = true;
+  #  driSupport32Bit = true;
+#  };
 
   # KVM stuff
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
-  boot.extraModulePackages = [ vendor-reset config.boot.kernelPackages.v4l2loopback ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];
   #boot.initrd.kernelModules = [ vfio-pci ];
   boot.kernelModules = [ "vendor-reset" ];
   boot.kernelParams = [
@@ -137,6 +146,8 @@ in
     "vfio_pci"
     "vfio_iommu_type1"
     "vfio"
+    "trace_event=kmem:kmalloc,kmem:kmem_cache_alloc,kmem:kfree,kmem:kmem_cache_free"
+    "trace_buf_size=128M"
     ];
   boot.extraModprobeConfig = ''
 #    softdep amdgpu pre: vfio-pci
@@ -146,14 +157,15 @@ in
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemuOvmf = true;
+      qemu.ovmf.enable = true;
       onBoot = "ignore";
-      qemuVerbatimConfig = ''
+      qemu.verbatimConfig = ''
       user = "daniel"
       '';
     };
   };
 
+  services.xrdp.enable = true;
   services.samba = {
     enable = true;
     securityType = "user";
@@ -190,6 +202,16 @@ in
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
+  nix.trustedUsers = [ "@wheel" ];
+  nix = {
+    binaryCaches = [
+      "https://nix-gaming.cachix.org"
+    ];
+    binaryCachePublicKeys = [
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+    ];
+  };
+  # security.sudo.wheelNeedsPassword = false;
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
