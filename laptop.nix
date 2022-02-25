@@ -7,7 +7,7 @@
 let secrets = import ./secrets;
   latest = import <nixpkgs-master> { config.allowUnfree = true; };
   unstable = import <nixos-unstable> { config.allowUnfree = true; };
-  my-nur     = import /home/daniel/nur-bcachefs {pkgs = pkgs;};
+  my-nur     = import ../../home/daniel/nur-bcachefs {pkgs = pkgs;};
 in
 {
   imports =
@@ -35,7 +35,7 @@ in
     "sched_migration_cost_ns"  = "7000000";
   };
  
- boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel);
+ #boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel);
  
  nixpkgs.overlays = [
    (final: super:

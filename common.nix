@@ -52,6 +52,8 @@ in
     schedtool
     nix-prefetch-github
     usbutils
+    lsof
+    smem
 
     direnv
     starship
@@ -72,10 +74,14 @@ in
   ];
 
 
-  programs.zsh = {
+  programs.zsh = with pkgs; {
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
+    promptInit = ''
+     eval "$(${direnv}/bin/direnv hook zsh)"
+     eval "$(${starship}/bin/starship init zsh)"
+     '';
   };
 
   services.openssh.enable = true;

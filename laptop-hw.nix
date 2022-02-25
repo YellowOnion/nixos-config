@@ -11,12 +11,12 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" "bcache" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel"  "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/sda1";
-      fsType = "bcachefs";
+    { device = "/dev/disk/by-uuid/fd588396-85fe-49b0-a6bf-870008f59a60";
+      fsType = "xfs";
     };
 
   fileSystems."/boot" =
