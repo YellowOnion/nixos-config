@@ -14,6 +14,7 @@ in
 #  '';
   
   # Use the systemd-boot EFI boot loader.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
@@ -49,19 +50,25 @@ in
   environment.systemPackages = with pkgs; [
     pciutils
     killall
+    file
     schedtool
     nix-prefetch-github
     usbutils
     lsof
     smem
+    sysstat
+    wget
+    gnupg
 
     direnv
     starship
+    tmux
+    gist
+
     cachix
 
-    aspell
+    (aspellWithDicts (d: [d.en d.en-computers d.en-science]))
 
-    wget
     screen
     vim
     htop
@@ -100,6 +107,9 @@ in
     autoOptimiseStore = true;
     daemonCPUSchedPolicy = "idle";
     #daemonIOSchedPriority = 7;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
  /* nix.gc = {
     automatic = true;
