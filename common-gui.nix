@@ -30,7 +30,7 @@ in
       gnome.enable = true;
     };
   };
-
+  #services.packagekit.enable = false;
   networking.networkmanager.enable = true;
 
   # Configure wacom tablet
