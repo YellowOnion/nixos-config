@@ -2,7 +2,7 @@
 
 let
   secrets = import ./secrets;
-  ##latest = import <nixpkgs-master> { config.allowUnfree = true; };
+  latest = import <nixpkgs-master> { config.allowUnfree = true; };
   vkc = import /home/daniel/dev/obs-vkcapture/default.nix {pkgs = pkgs;};
   nix-gaming = (import (builtins.fetchTarball {
       url = https://github.com/fufexan/nix-gaming/archive/master.tar.gz;
@@ -30,6 +30,52 @@ in
       gnome.enable = true;
     };
   };
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      swaylock
+      waybar
+      sway-contrib.grimshot
+      pulseaudio
+      grim
+      slurp
+      swayidle
+      wl-clipboard
+      dmenu
+    ];
+    extraSessionCommands =
+      let
+        schema = pkgs.gsettings-desktop-schemas;
+        gschema = "org.gnome.desktop.interface";
+        in ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+      export OBS_USE_EGL=1
+      export XDG_DATA_DIRS=${schema}/share/gsettings-schemas/${schema.name}:$XDG_DATA_DIRS
+      gsettings set ${gschema} icon-theme 'Papirus'
+      gsettings set ${gschema} cursor-theme 'Adwaita'
+      gsettings set ${gschema} gtk-theme 'Materia-Dark'
+    '';
+  };
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+      ];
+      gtkUsePortal = true;
+    };
+  };
+
+
+  programs.waybar.enable = true;
+
   #services.packagekit.enable = false;
   networking.networkmanager.enable = true;
 
@@ -86,13 +132,13 @@ in
 
     keepassxc
     firefox
-    discord
-    gitFull
+    latest.discord
 
     mpv
     anki-bin
 
-    emacsNativeComp
+    # emacsNativeComp
+    emacsPgtkNativeComp
     ripgrep # needed for doom emacs
     fd      # ditto
     nixfmt  # ..
@@ -103,8 +149,12 @@ in
     spotify
     qjackctl
 
-    element-desktop
+    element-desktop-wayland
     signal-desktop
+
+    papirus-icon-theme
+    gnome.adwaita-icon-theme
+    materia-theme
 
     libwacom
     krita
@@ -112,7 +162,8 @@ in
 
     vkc.obs-vkcapture
     vkc.obs-vkcapture-lib32
-    (wrapOBS { plugins = [ vkc.obs-vkcapture ]; } )
+    mangohud
+    (wrapOBS { plugins = [ vkc.obs-vkcapture obs-studio-plugins.wlrobs]; } )
 
     # tkg
     nix-gaming.wine-tkg
@@ -131,7 +182,7 @@ in
   ];
   programs.steam.enable = true;
   programs.gamemode.enable = true;
-  services.flatpak.enable = true;
+  #services.flatpak.enable = true;
 
   fonts.fonts = with pkgs; [
     noto-fonts

@@ -70,6 +70,8 @@ in
     (aspellWithDicts (d: [d.en d.en-computers d.en-science]))
 
     screen
+    weechat
+    irssi
     vim
     htop
     rclone
@@ -77,7 +79,6 @@ in
     age
     git-crypt
     syncthing
-    steam-run
   ];
 
 
@@ -107,6 +108,7 @@ in
     autoOptimiseStore = true;
     daemonCPUSchedPolicy = "idle";
     #daemonIOSchedPriority = 7;
+    trustedUsers = [ "@wheel" ];
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
