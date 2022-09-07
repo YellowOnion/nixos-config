@@ -50,13 +50,14 @@ in
         schema = pkgs.gsettings-desktop-schemas;
         gschema = "org.gnome.desktop.interface";
         in ''
-      export SDL_VIDEODRIVER=wayland
+      export SDL_VIDEODRIVER=x11
       export QT_QPA_PLATFORM=wayland
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       export _JAVA_AWT_WM_NONREPARENTING=1
       export MOZ_ENABLE_WAYLAND=1
       export OBS_USE_EGL=1
       export XDG_DATA_DIRS=${schema}/share/gsettings-schemas/${schema.name}:$XDG_DATA_DIRS
+      export GTK_USE_PORTAL=1
       gsettings set ${gschema} icon-theme 'Papirus'
       gsettings set ${gschema} cursor-theme 'Adwaita'
       gsettings set ${gschema} gtk-theme 'Materia-Dark'
@@ -67,9 +68,7 @@ in
       enable = true;
       wlr.enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
       ];
-      gtkUsePortal = true;
     };
   };
 
@@ -164,6 +163,7 @@ in
     vkc.obs-vkcapture-lib32
     mangohud
     (wrapOBS { plugins = [ vkc.obs-vkcapture obs-studio-plugins.wlrobs]; } )
+    yquake2
 
     # tkg
     nix-gaming.wine-tkg

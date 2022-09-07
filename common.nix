@@ -105,10 +105,12 @@ in
     };
   */
   nix = {
-    autoOptimiseStore = true;
     daemonCPUSchedPolicy = "idle";
     #daemonIOSchedPriority = 7;
-    trustedUsers = [ "@wheel" ];
+    settings = {
+      auto-optimise-store = true;
+      trusted-users = [ "@wheel" ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

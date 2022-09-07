@@ -96,12 +96,14 @@ in
     extraOptions = ''
       extra-sandbox-paths = /var/cache/ccache
     '';
-    binaryCaches = [
-        "https://yo-nur.cachix.org"
-    ];
-    binaryCachePublicKeys = [
-      "yo-nur.cachix.org-1:E/RHfQMAZ90mPhvsaqo/GrQ3M1xzXf5Ztt0o+1X3+Bs="
-    ];
+    settings = {
+      substituters = [
+          "https://yo-nur.cachix.org"
+      ];
+      trusted-public-keys = [
+        "yo-nur.cachix.org-1:E/RHfQMAZ90mPhvsaqo/GrQ3M1xzXf5Ztt0o+1X3+Bs="
+      ];
+    };
   };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
