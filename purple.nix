@@ -9,12 +9,12 @@ let secrets = import ./secrets;
   #scream = pkgs.callPackage /home/daniel/dev/nix/scream {} ;
   #dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
   #latest     = import <nixpkgs-master> { config.allowUnfree = true; };
-  unstable   = import <nixos-unstable> { config.allowUnfree = true; };
-  futex      = import ./futex.nix pkgs;
-  lru        = import ./lru.nix pkgs;
-  my-nur     = import /home/daniel/dev/nur-bcachefs {pkgs = pkgs;};
-  #my-nur     = import (builtins.fetchTarball "https://github.com/YellowOnion/nur-bcachefs/archive/master.tar.gz") {};
-  nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
+  #unstable   = import <nixos-unstable> { config.allowUnfree = true; };
+  #futex      = import ./futex.nix pkgs;
+  #lru        = import ./lru.nix pkgs;
+  #my-nur     = import /home/daniel/dev/nur-bcachefs {pkgs = pkgs;};
+  my-nur     = import (builtins.fetchTarball "https://github.com/YellowOnion/nur-bcachefs/archive/master.tar.gz") {};
+  #nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
 in
 {
   imports =
@@ -28,7 +28,7 @@ in
     ];
 
 
-  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel);
+  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-yo-testing);
   nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools;})];
   nixpkgs.config.allowBroken = true;
 
@@ -41,23 +41,23 @@ in
   networking.bridges.br0.interfaces = [ "enp6s0" ];
   networking.interfaces.br0.useDHCP = true;
 
-  boot.kernelPatches = [
-    {
-      name = "vendor-reset-reqs-and-other-stuff";
-      patch = null;
-      extraConfig = ''
-      FTRACE y
-      KPROBES y
-      FUNCTION_TRACER y
-      HWLAT_TRACER y
-      TIMERLAT_TRACER y
-      IRQSOFF_TRACER y
-      OSNOISE_TRACER y
-      PCI_QUIRKS y
-      KALLSYMS y
-      KALLSYMS_ALL y
-    ''; }
-  ]; # ++ futex.kernelPatches ++ lru.kernelPatches;
+  #boot.kernelPatches = [
+  #  {
+  #    name = "vendor-reset-reqs-and-other-stuff";
+  #    patch = null;
+  #    extraConfig = ''
+  #    FTRACE y
+  #    KPROBES y
+  #    FUNCTION_TRACER y
+  #    HWLAT_TRACER y
+  #    TIMERLAT_TRACER y
+  #    IRQSOFF_TRACER y
+  #    OSNOISE_TRACER y
+  #    PCI_QUIRKS y
+  #    KALLSYMS y
+  #    KALLSYMS_ALL y
+  #  ''; }
+  #]; # ++ futex.kernelPatches ++ lru.kernelPatches;
 
   boot.kernel.sysctl = {
     "sched_latency_ns" = "1000000";
@@ -65,9 +65,9 @@ in
     "sched_migration_cost_ns"  = "7000000";
   };
 
-  environment.variables = {
-    __GL_SYNC_DISPLAY_DEVICE = "DisplayPort-0";
-  };
+  #environment.variables = {
+  #  __GL_SYNC_DISPLAY_DEVICE = "DisplayPort-0";
+  #};
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ 
@@ -86,45 +86,45 @@ in
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
 
-    calibre
+    #calibre
 
-    spotify
-    kodi
+    #spotify
+    #kodi
 
     rtorrent
 
-    obs-studio
-    v4l-utils
-    libstrangle
+    #obs-studio
+    #v4l-utils
+    #libstrangle
 
-    anki-bin
+    #anki-bin
     mpv
-    piper
+    #piper
 
     #dsp
-    lsp-plugins
-    calf
+    #lsp-plugins
+    #calf
     #swh-plugins
-    swh_lv2
-    helvum
-    tap-plugins
-    audacity
-    carla
+    #swh_lv2
+    #helvum
+    #tap-plugins
+    #audacity
+    #carla
 
-    texlive.combined.scheme-full
+    #texlive.combined.scheme-full
 
-    virt-manager
-    scream
+    #virt-manager
+    #scream
 
     qjackctl
 
-    legendary-gl
-    libstrangle
-    protontricks
-    mangohud
-    lutris
-    nix-gaming.packages.x86_64-linux.wine-tkg
-    nix-gaming.packages.x86_64-linux.winestreamproxy
+    #legendary-gl
+    #libstrangle
+    #protontricks
+    #mangohud
+    #lutris
+    #nix-gaming.packages.x86_64-linux.wine-tkg
+    #nix-gaming.packages.x86_64-linux.winestreamproxy
 
     ipset
    ];
@@ -137,22 +137,22 @@ in
 
   # KVM stuff
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];
+  #boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];
   #boot.initrd.kernelModules = [ vfio-pci ];
-  boot.kernelModules = [ "vendor-reset" ];
-  boot.kernelParams = [
-    "amd_iommu=on"
-    "vfio_virqfd"
-    "vfio_pci"
-    "vfio_iommu_type1"
-    "vfio"
-    "trace_event=kmem:kmalloc,kmem:kmem_cache_alloc,kmem:kfree,kmem:kmem_cache_free"
-    "trace_buf_size=128M"
-    ];
-  boot.extraModprobeConfig = ''
+  #boot.kernelModules = [ "vendor-reset" ];
+  #boot.kernelParams = [
+  #  "amd_iommu=on"
+  #  "vfio_virqfd"
+  #  "vfio_pci"
+  #  "vfio_iommu_type1"
+  #  "vfio"
+  #  "trace_event=kmem:kmalloc,kmem:kmem_cache_alloc,kmem:kfree,kmem:kmem_cache_free"
+  #  "trace_buf_size=128M"
+  #  ];
+  #boot.extraModprobeConfig = ''
 #    softdep amdgpu pre: vfio-pci
-    options vfio-pci ids=1002:67df,1002:aaf0
-  '';
+  #  options vfio-pci ids=1002:67df,1002:aaf0
+  #'';
   
   virtualisation = {
     libvirtd = {
@@ -165,7 +165,7 @@ in
     };
   };
 
-  services.xrdp.enable = true;
+  #services.xrdp.enable = true;
   services.samba = {
     enable = true;
     securityType = "user";
@@ -188,13 +188,13 @@ in
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  environment.variables = {
-    VST_PATH    = "/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst";
-    LXVST_PATH  = "/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst";
-    LADSPA_PATH = "/nix/var/nix/profiles/default/lib/ladspa:/var/run/current-system/sw/lib/ladspa:~/.ladspa";
-    LV2_PATH    = "/nix/var/nix/profiles/default/lib/lv2:/var/run/current-system/sw/lib/lv2:~/.lv2";
-    DSSI_PATH   = "/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi";
-  };
+  #environment.variables = {
+  #  VST_PATH    = "/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst";
+  #  LXVST_PATH  = "/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst";
+  #  LADSPA_PATH = "/nix/var/nix/profiles/default/lib/ladspa:/var/run/current-system/sw/lib/ladspa:~/.ladspa";
+  #  LV2_PATH    = "/nix/var/nix/profiles/default/lib/lv2:/var/run/current-system/sw/lib/lv2:~/.lv2";
+  #  DSSI_PATH   = "/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi";
+  #};
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 22 ];

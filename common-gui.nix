@@ -2,11 +2,11 @@
 
 let
   secrets = import ./secrets;
-  latest = import <nixpkgs-master> { config.allowUnfree = true; };
-  vkc = import /home/daniel/dev/obs-vkcapture/default.nix {pkgs = pkgs;};
+  # latest = import <nixpkgs-master> { config.allowUnfree = true; };
+  #vkc = import /home/daniel/dev/obs-vkcapture/default.nix {pkgs = pkgs;};
   nix-gaming = (import (builtins.fetchTarball {
-      url = https://github.com/fufexan/nix-gaming/archive/master.tar.gz;
-    })).packages.x86_64-linux;
+    url = https://github.com/fufexan/nix-gaming/archive/master.tar.gz;
+  })).packages.x86_64-linux;
 in
 
 {
@@ -120,7 +120,7 @@ in
   # GCCEmacs FAST AS FUCK BOI
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+      url = https://github.com/nix-community/emacs-overlay/archive/7627a31cb49b9dfafe0ecf21ac2734374730d06a.tar.gz;
     }))
 
   ];
@@ -131,7 +131,7 @@ in
 
     keepassxc
     firefox
-    latest.discord
+    discord
 
     mpv
     anki-bin
@@ -159,14 +159,14 @@ in
     krita
     xournalpp
 
-    vkc.obs-vkcapture
-    vkc.obs-vkcapture-lib32
+    #vkc.obs-vkcapture
+    #vkc.obs-vkcapture-lib32
     mangohud
-    (wrapOBS { plugins = [ vkc.obs-vkcapture obs-studio-plugins.wlrobs]; } )
+    # (wrapOBS { plugins = [ vkc.obs-vkcapture obs-studio-plugins.wlrobs]; } )
     yquake2
 
     # tkg
-    nix-gaming.wine-tkg
+    # nix-gaming.wine-tkg
     nix-gaming.wine-discord-ipc-bridge
 
 
@@ -179,9 +179,16 @@ in
     }))
     rnnoise-plugin
     lsp-plugins
+    (pkgs.writeShellScriptBin "runWithDiscordBridge"
+      ''
+        export PROTON_REMOTE_DEBUG_CMD="${nix-gaming.wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe"
+        export PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0"
+        "$@"
+      ''
+    )
   ];
   programs.steam.enable = true;
-  programs.gamemode.enable = true;
+  #programs.gamemode.enable = true;
   #services.flatpak.enable = true;
 
   fonts.fonts = with pkgs; [
@@ -195,8 +202,8 @@ in
     ];
 
   environment.variables = {
-    PROTON_REMOTE_DEBUG_CMD="${nix-gaming.wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe";
-    PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0";
+    #PROTON_REMOTE_DEBUG_CMD="${nix-gaming.wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe";
+    #PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0";
     OBS_USE_EGL="1";
   };
   nix.settings = {
