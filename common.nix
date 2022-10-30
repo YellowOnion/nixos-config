@@ -97,19 +97,6 @@ in
   
   services.zerotierone.enable = true;
   services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
-  services.zerotierone = {
-    package = with pkgs; zerotierone.overrideAttrs (old: {
-      cargoDeps = rustPlatform.importCargoLock {
-        lockFile = fetchurl {
-          url = "https://raw.githubusercontent.com/zerotier/ZeroTierOne/${old.version}/zeroidc/Cargo.lock";
-          sha256 = "sha256-pn7t7udZ8A72WC9svaIrmqXMBiU2meFIXv/GRDPYloc=";
-        };
-        outputHashes = {
-          "jwt-0.16.0" = "sha256-P5aJnNlcLe9sBtXZzfqHdRvxNfm6DPBcfcKOVeLZxcM=";
-        };
-      };
-    });
-  };
 
   /*
   system.autoUpgrade = {
