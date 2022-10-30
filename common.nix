@@ -37,6 +37,7 @@ in
     isNormalUser = true;
     initialPassword = secrets.daniel.initialPass;
     extraGroups = [ "wheel" "audio" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    openssh.authorizedKeys.keys = [ secrets.daniel.sshKey ];
     };
   users.users.kent = {
     isNormalUser = true;
