@@ -19,7 +19,7 @@ in
     ];
 
 
-  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-yo-testing);
+  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel-woob-debug);
   nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools;})];
   nixpkgs.config.allowBroken = true;
 

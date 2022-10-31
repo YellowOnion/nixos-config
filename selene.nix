@@ -6,14 +6,22 @@
 let
   secrets = import ./secrets;
   factorio-mods = (builtins.fetchTarball "https://github.com/YellowOnion/factorio-mods/archive/master.tar.gz");
-  mods = (import "${factorio-mods}/mods.nix") (secrets.factorio // { inherit lib; fetchurl = pkgs.fetchurl; factorio-utils = pkgs.factorio-utils; });
+  factorio-nixpkgs-dir = builtins.fetchTarball "http://github.com/YellowOnion/nixpkgs/archive/factorio-patch.tar.gz";
+  factorio-nixpkgs = import factorio-nixpkgs-dir { config.allowUnfree = true; };
+  mods = (import "${factorio-mods}/mods.nix") ({
+    inherit lib;
+    inherit (secrets.factorio) username token;
+    inherit (pkgs) fetchurl factorio-utils;
+  });
 in
 {
+  disabledModules = [ "services/games/factorio.nix" ];
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./selene-hw.nix
       ./common.nix
       ./common-server.nix
+      "${factorio-nixpkgs-dir}/nixos/modules/services/games/factorio.nix"
     ];
 
   # Use the GRUB 2 boot loader.
@@ -31,14 +39,34 @@ in
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.ens3.useDHCP = true;
+  networking.useDHCP = true;
+  # networking.interfaces.ens3.useDHCP = true;
 
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+    (self: super: {
+      factorio-headless = factorio-nixpkgs.factorio-headless.override ({ versionsJson = "${factorio-mods}/versions.json" ;});
+      factorio-utils    = factorio-nixpkgs.factorio-utils;
+    })
+  ];
   services.factorio = secrets.factorio // {
     enable = true;
-    mods = with mods; [ factoryplanner ] ;
+    game-name = "Gluo Factorio Server" ;
+    admins = [ "woobilicious" ];
+    lan = true;
+    mods = with mods; [
+      AfraidOfTheDark
+      even-distribution
+      factoryplanner
+      QuickItemSearch
+      RateCalculator
+      sonaxaton-research-queue
+      StatsGui
+      TaskList
+    ];
+    mods-dat = ./mod-settings.dat ;
+    requireUserVerification = false ;
   };
 
   # services.openssh.enable = true;
