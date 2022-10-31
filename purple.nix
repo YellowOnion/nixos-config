@@ -5,16 +5,10 @@
 { config, pkgs, lib, ... }:
 
 let secrets = import ./secrets;
-  #vendor-reset = config.boot.kernelPackages.callPackage ./vendor-reset {};
-  #scream = pkgs.callPackage /home/daniel/dev/nix/scream {} ;
   #dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
   #latest     = import <nixpkgs-master> { config.allowUnfree = true; };
   #unstable   = import <nixos-unstable> { config.allowUnfree = true; };
-  #futex      = import ./futex.nix pkgs;
-  #lru        = import ./lru.nix pkgs;
-  #my-nur     = import /home/daniel/dev/nur-bcachefs {pkgs = pkgs;};
   my-nur     = import (builtins.fetchTarball "https://github.com/YellowOnion/nur-bcachefs/archive/master.tar.gz") {};
-  #nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
 in
 {
   imports =
@@ -22,9 +16,6 @@ in
       ./hardware-configuration.nix
       ./common.nix
       ./common-gui.nix
-      #./haskell-dev.nix
-      #./bcachefs-support.nix
-      # ./amd-pstate.nix
     ];
 
 

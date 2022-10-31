@@ -3,7 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib,... }:
-
+let
+  secrets = import ./secrets;
+  factorio-mods = (builtins.fetchTarball "https://github.com/YellowOnion/factorio-mods/archive/master.tar.gz");
+  mods = (import "${factorio-mods}/mods.nix") (secrets.factorio // { inherit lib; fetchurl = pkgs.fetchurl; factorio-utils = pkgs.factorio-utils; });
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -29,6 +33,13 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.ens3.useDHCP = true;
+
+
+  nixpkgs.config.allowUnfree = true;
+  services.factorio = secrets.factorio // {
+    enable = true;
+    mods = with mods; [ factoryplanner ] ;
+  };
 
   # services.openssh.enable = true;
 
