@@ -80,55 +80,8 @@ in
   services.ratbagd.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-
-    #calibre
-
-    #spotify
-    #kodi
-
     rtorrent
-
-    #obs-studio
-    #v4l-utils
-    #libstrangle
-
-    #anki-bin
-    mpv
-    #piper
-
-    #dsp
-    #lsp-plugins
-    #calf
-    #swh-plugins
-    #swh_lv2
-    #helvum
-    #tap-plugins
-    #audacity
-    #carla
-
-    #texlive.combined.scheme-full
-
-    #virt-manager
-    #scream
-
-    qjackctl
-
-    #legendary-gl
-    #libstrangle
-    #protontricks
-    #mangohud
-    #lutris
-    #nix-gaming.packages.x86_64-linux.wine-tkg
-    #nix-gaming.packages.x86_64-linux.winestreamproxy
-
-    ipset
    ];
-
-   #hax for steam to launch
-#  hardware.opengl = {
-#    driSupport  = true;
-  #  driSupport32Bit = true;
-#  };
 
   # KVM stuff
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
@@ -198,13 +151,6 @@ in
   networking.firewall.enable = false;
 
   nix.trustedUsers = [ "@wheel" ];
-  nix = {
-    binaryCaches = [
-      "https://nix-gaming.cachix.org"
-    ];
-    binaryCachePublicKeys = [
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-    ];
   };
   # security.sudo.wheelNeedsPassword = false;
   # This value determines the NixOS release from which the default
