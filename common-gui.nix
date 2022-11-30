@@ -43,7 +43,9 @@ in
       slurp
       swayidle
       wl-clipboard
+      brightnessctl
       dmenu
+      xdotool
     ];
     extraSessionCommands =
       let
@@ -122,7 +124,6 @@ in
     (import (builtins.fetchTarball {
       url = https://github.com/nix-community/emacs-overlay/archive/7627a31cb49b9dfafe0ecf21ac2734374730d06a.tar.gz;
     }))
-
   ];
 
   environment.systemPackages = with pkgs; [
@@ -144,6 +145,7 @@ in
 
     mpd
     cantata
+    pavucontrol
     vlc
     spotify
     qjackctl
@@ -158,16 +160,17 @@ in
     libwacom
     krita
     xournalpp
+    inkscape
 
-    #vkc.obs-vkcapture
-    #vkc.obs-vkcapture-lib32
+    obs-studio-plugins.obs-vkcapture
     mangohud
-    # (wrapOBS { plugins = [ vkc.obs-vkcapture obs-studio-plugins.wlrobs]; } )
+    (wrapOBS { plugins = [ obs-studio-plugins.obs-vkcapture obs-studio-plugins.wlrobs ]; } )
     yquake2
 
     # tkg
-    # nix-gaming.wine-tkg
+    nix-gaming.wine-tkg
     nix-gaming.wine-discord-ipc-bridge
+    steamcmd
 
 
     gnomeExtensions.appindicator

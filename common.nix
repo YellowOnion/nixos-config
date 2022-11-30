@@ -65,6 +65,7 @@ in
     starship
     tmux
     gist
+    home-manager
 
     cachix
 

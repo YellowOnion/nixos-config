@@ -9,18 +9,22 @@ let secrets = import ./secrets;
   #latest     = import <nixpkgs-master> { config.allowUnfree = true; };
   #unstable   = import <nixos-unstable> { config.allowUnfree = true; };
   my-nur     = import (builtins.fetchTarball "https://github.com/YellowOnion/nur-bcachefs/archive/master.tar.gz") {};
+  bcachefs-nixpkgs-dir = builtins.fetchTarball "http://github.com/YellowOnion/nixpkgs/archive/bcachefs-fix.tar.gz";
 in
 {
+
+  disabledModules = [ "tasks/filesystems/bcachefs.nix" ];
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./common.nix
       ./common-gui.nix
+      "${bcachefs-nixpkgs-dir}/nixos/modules/tasks/filesystems/bcachefs.nix"
     ];
 
 
   boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel-woob-debug);
-  nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools;})];
+  nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools-woob;})];
   nixpkgs.config.allowBroken = true;
 
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
