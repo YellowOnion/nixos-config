@@ -119,13 +119,6 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  # GCCEmacs FAST AS FUCK BOI
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/7627a31cb49b9dfafe0ecf21ac2734374730d06a.tar.gz;
-    }))
-  ];
-
   environment.systemPackages = with pkgs; [
     xsel
     alacritty
@@ -138,7 +131,6 @@ in
     anki-bin
 
     # emacsNativeComp
-    emacsPgtkNativeComp
     ripgrep # needed for doom emacs
     fd      # ditto
     nixfmt  # ..

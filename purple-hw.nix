@@ -26,10 +26,11 @@
       options = [  "noatime" "nodiratime" ];
     };
 
-  filesystems."/mnt" =
+  fileSystems."/mnt" =
     { device = "/dev/disk/by-label/laptop-nixos";
       fsType = "xfs";
-      options = [ "noatime" "dirnoatime" ];
+      options = [ "noatime" ];
+    };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/65946d23-8ff5-4505-98bd-e9a039304d2c"; }

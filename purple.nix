@@ -23,7 +23,7 @@ in
     ];
 
 
-  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel-woob-debug);
+  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel-kent-debug);
   nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools-woob;})];
   nixpkgs.config.allowBroken = true;
 
@@ -145,13 +145,9 @@ in
   #};
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ 22 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  nix.trustedUsers = [ "@wheel" ];
-  };
   # security.sudo.wheelNeedsPassword = false;
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
