@@ -119,7 +119,7 @@ in
         "home.gluo.nz"
     ];
     jails.DEFAULT = lib.mkAfter ''
-      bantime 3mo
+      bantime = 3mo
     '';
   };
   services.zerotierone.enable = true;
