@@ -4,5 +4,9 @@
 
   environment.systemPackages = with pkgs; [
     steamcmd
+<<<<<<< Updated upstream
+=======
+    steam-run
+>>>>>>> Stashed changes
   ];
 }

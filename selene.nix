@@ -70,6 +70,35 @@ in
   };
 
   # services.openssh.enable = true;
+  services.owncast.enable = true;
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "daniel@gluo.nz";
+  };
+  services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedTlsSettings = true;
+    virtualHosts."owncast.gluo.nz" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+          proxyPass = "http://127.0.0.1:8080/";
+          proxyWebsockets = true;
+          priority = 1150;
+          extraConfig = ''
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          '';
+      };
+    };
+  };
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

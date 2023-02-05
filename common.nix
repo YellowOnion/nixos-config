@@ -106,8 +106,22 @@ in
   };
 
   services.openssh.enable = true;
-  services.openssh.extraConfig = "TrustedUserCAKeys ${secrets.userCA}";
-  
+  services.openssh.extraConfig = ''
+  PerSourceMaxStartups 2
+  PerSourceNetBlockSize 24:56
+  TrustedUserCAKeys ${secrets.userCA}
+    '';
+  services.fail2ban = {
+    enable = true;
+    ignoreIP = [
+        "127.0.0.0/8"
+        "::1"
+        "home.gluo.nz"
+    ];
+    jails.DEFAULT = lib.mkAfter ''
+      bantime 3mo
+    '';
+  };
   services.zerotierone.enable = true;
   services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
 
