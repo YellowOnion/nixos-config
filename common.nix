@@ -83,6 +83,17 @@ in
     syncthing
   ];
 
+  systemd.network.enable = true;
+  systemd.network.wait-online.timeout = 5;
+
+  systemd.network.networks."wired" =  {
+    enable = true;
+    name = "en*";
+    DHCP = "yes";
+    networkConfig = {
+      IPv6PrivacyExtensions = "yes";
+    };
+  };
 
   programs.zsh = with pkgs; {
     enable = true;

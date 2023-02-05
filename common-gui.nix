@@ -78,7 +78,6 @@ in
   programs.waybar.enable = true;
 
   #services.packagekit.enable = false;
-  networking.networkmanager.enable = true;
 
   # Configure wacom tablet
   services.udev.packages = [ pkgs.libwacom ];
@@ -131,6 +130,7 @@ in
     anki-bin
 
     # emacsNativeComp
+    emacsPgtk
     ripgrep # needed for doom emacs
     fd      # ditto
     nixfmt  # ..

@@ -6,7 +6,6 @@
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
-      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/lenovo/thinkpad/x220"
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" "bcache" ];
