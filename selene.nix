@@ -5,7 +5,7 @@
 { config, pkgs, lib,... }:
 let
   secrets = import ./secrets;
-  factorio-mods = (builtins.fetchTarball "https://github.com/YellowOnion/factorio-mods/archive/master.tar.gz");
+  factorio-mods = builtins.fetchTarball "https://github.com/YellowOnion/factorio-mods/archive/master.tar.gz";
   factorio-nixpkgs-dir = builtins.fetchTarball "http://github.com/YellowOnion/nixpkgs/archive/factorio-patch.tar.gz";
   factorio-nixpkgs = import factorio-nixpkgs-dir { config.allowUnfree = true; };
   mods = (import "${factorio-mods}/mods.nix") ({
@@ -13,6 +13,7 @@ let
     inherit (secrets.factorio) username token;
     inherit (pkgs) fetchurl factorio-utils;
   });
+  dstd = pkgs.callPackage ../../home/daniel/dev/nix-dstd/default.nix {};
 in
 {
   disabledModules = [ "services/games/factorio.nix" ];
@@ -42,6 +43,9 @@ in
   networking.useDHCP = true;
   # networking.interfaces.ens3.useDHCP = true;
 
+  environment.systemPackages = [
+    dstd
+  ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
