@@ -23,8 +23,8 @@ in
     ];
 
 
-  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel-kent-debug);
-  nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools-woob;})];
+  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel-woob);
+  nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools;})];
   nixpkgs.config.allowBroken = true;
 
   networking.hostName = "Purple-Sunrise"; # Define your hostname.

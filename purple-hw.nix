@@ -23,11 +23,11 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/D147-EA04";
       fsType = "vfat";
-      options = [  "noatime" "nodiratime" ];
+      options = [  "noatime" "nodiratime" "flush" ];
     };
 
   fileSystems."/mnt" =
-    { device = "/dev/disk/by-label/laptop-nixos";
+    { device = "/dev/disk/by-uuid/fd588396-85fe-49b0-a6bf-870008f59a60";
       fsType = "xfs";
       options = [ "noatime" ];
     };

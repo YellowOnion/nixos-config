@@ -19,17 +19,17 @@ in
   boot.kernelModules = [ "v4l2loopback" ];
 
     # Enable the GNOME 3 Desktop Environment.
-  services.xserver = {
-    enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = false;
-    };
+  # services.xserver = {
+  # enable = true;
+  #  displayManager.gdm = {
+  #    enable = true;
+  #    wayland = false;
+  #  };
 
-    desktopManager = {
-      gnome.enable = true;
-    };
-  };
+  #  desktopManager = {
+  #    gnome.enable = true;
+  #  };
+  #};
 
   programs.sway = {
     enable = true;
@@ -47,8 +47,9 @@ in
       dmenu
       xdotool
     ];
-    extraSessionCommands =
+    extraSessionCommands = 
       let
+	gsettings = "${pkgs.glib}/bin/gsettings";
         schema = pkgs.gsettings-desktop-schemas;
         gschema = "org.gnome.desktop.interface";
         in ''
@@ -60,9 +61,9 @@ in
       export OBS_USE_EGL=1
       export XDG_DATA_DIRS=${schema}/share/gsettings-schemas/${schema.name}:$XDG_DATA_DIRS
       export GTK_USE_PORTAL=1
-      gsettings set ${gschema} icon-theme 'Papirus'
-      gsettings set ${gschema} cursor-theme 'Adwaita'
-      gsettings set ${gschema} gtk-theme 'Materia-Dark'
+      ${gsettings} set ${gschema} icon-theme 'Papirus'
+      ${gsettings} set ${gschema} cursor-theme 'Adwaita'
+      ${gsettings} set ${gschema} gtk-theme 'Materia-Dark'
     '';
   };
   xdg = {
@@ -102,15 +103,6 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    config.pipewire = {
-      "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.quantum" = 256;
-      };
-      "stream.properties" = {
-        "resample.quality" = 10;
-     };
-    };
  };
 
   # help pulse audio use realtime scheduling
@@ -127,7 +119,7 @@ in
     discord
 
     mpv
-    anki-bin
+    #anki-bin
 
     # emacsNativeComp
     emacsPgtk
@@ -162,16 +154,8 @@ in
     # tkg
     nix-gaming.wine-tkg
     nix-gaming.wine-discord-ipc-bridge
-    steamcmd
+    heroic
 
-
-    gnomeExtensions.appindicator
-    (gnomeExtensions.audio-output-switcher.overrideAttrs (old: {
-      buildInputs = [jq moreutils];
-      postPatch = ''
-        jq '."shell-version" += ["41"] ' metadata.json | sponge metadata.json
-      '';
-    }))
     rnnoise-plugin
     lsp-plugins
     (pkgs.writeShellScriptBin "runWithDiscordBridge"
@@ -194,6 +178,7 @@ in
     corefonts
     vistafonts
     (nerdfonts.override {fonts = [ "Monoid" "FiraCode" "CascadiaCode" ];})
+    google-fonts
     ];
 
   environment.variables = {
