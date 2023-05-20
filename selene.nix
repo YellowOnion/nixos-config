@@ -14,6 +14,7 @@ let
     inherit (pkgs) fetchurl factorio-utils;
   });
   dstd = pkgs.callPackage ../../home/daniel/dev/nix-dstd/default.nix {};
+  auth-server = pkgs.haskellPackages.callPackage (builtins.fetchTarball "https://github.com/YellowOnion/auth-server/archive/master.tar.gz") {};
 in
 {
   disabledModules = [ "services/games/factorio.nix" ];
@@ -40,10 +41,11 @@ in
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = true;
+  # networking.useDHCP = true;
   # networking.interfaces.ens3.useDHCP = true;
 
   environment.systemPackages = [
+    auth-server
     dstd
   ];
 
@@ -54,6 +56,7 @@ in
       factorio-utils    = factorio-nixpkgs.factorio-utils;
     })
   ];
+
   services.factorio = secrets.factorio // {
     enable = true;
     game-name = "Gluo Factorio Server" ;
@@ -79,32 +82,68 @@ in
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [ secrets.andrew.sshKey ];
   };
+
   # services.openssh.enable = true;
-  services.owncast.enable = true;
+  services.stunnel =
+    let
+      CAdir = config.security.acme.certs."gluo.nz".directory;
+    in
+    {
+    enable = true;
+    user = "nginx";
+    group = "nginx";
+    servers.rtmps-relay = {
+      accept = 1935;
+      connect = 1936;
+      cert = "${CAdir}/full.pem";
+    };
+    clients."yt-live" = {
+      accept = "localhost:19350";
+      connect = "a.rtmp.youtube.com:443";
+    };
+  };
+  services.owncast = {
+    enable = true;
+    rtmp-port = 1937;
+  };
   security.acme = {
     acceptTerms = true;
     defaults.email = "daniel@gluo.nz";
   };
   services.nginx = {
     enable = true;
+    additionalModules = builtins.attrValues { inherit (pkgs.nginxModules) rtmp; };
+    appendConfig = ''
+                 include /etc/nginx-rtmp/rtmp.conf;
+    '';
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedTlsSettings = true;
-    virtualHosts."owncast.gluo.nz" = {
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-          proxyPass = "http://127.0.0.1:8080/";
-          proxyWebsockets = true;
-          priority = 1150;
-          extraConfig = ''
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-Host $host;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          '';
+    virtualHosts = {
+      "gluo.nz" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          root = "/var/www/";
+        };
+      };
+      "owncast.gluo.nz" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+            proxyPass = "http://127.0.0.1:8080/";
+            proxyWebsockets = true;
+            priority = 1150;
+            extraConfig = ''
+          proxy_set_header Host $host;
+          proxy_set_header X-Forwarded-Host $host;
+          proxy_set_header X-Forwarded-Server $host;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            '';
+        };
+    };
       "dead-suns.gluo.nz" = {
         forceSSL = true;
         enableACME = true;
@@ -123,8 +162,45 @@ in
         };
       };
     };
+    appendHttpConfig = let
+      lua-resty-core =  pkgs.fetchFromGitHub {
+        owner = "openresty";
+        repo = "lua-resty-core";
+        rev = "c48e90a8fc9d974d8a6a369e031940cedf473789";
+        sha256 = "obwyxHSot1Lb2c1dNqJor3inPou+UIBrqldbkNBCQQk=";
+      };
+      in
+     # ''
+     # lua_package_path "${lua-resty-core}/lib/?.lua;;";
+     # init_by_lua_block {
+     #   require "resty.core"
+     #   collectgarbage("collect")
+     # }
+     ''
+       include /etc/nginx-rtmp/http.conf;
+     '';
   };
 
+  systemd.services.auth-server = {
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = let dir = "/var/lib/auth-server"; in {
+          User = "auth-server";
+          Group = "auth-server";
+          WorkingDirectory = dir;
+          ExecStart = "${auth-server}/bin/auth-server";
+          Restart = "on-failure";
+          StateDirectory = dir;
+      };
+    };
+
+
+  users.users.auth-server = {
+    isSystemUser = true;
+    group = "auth-server";
+  };
+
+  users.groups.auth-server = { };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
