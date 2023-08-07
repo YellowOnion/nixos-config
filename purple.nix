@@ -8,33 +8,24 @@ let secrets = import ./secrets;
   #dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
   #latest     = import <nixpkgs-master> { config.allowUnfree = true; };
   #unstable   = import <nixos-unstable> { config.allowUnfree = true; };
-  my-nur     = import (builtins.fetchTarball "https://github.com/YellowOnion/nur-bcachefs/archive/master.tar.gz") {};
-  bcachefs-nixpkgs-dir = builtins.fetchTarball "http://github.com/YellowOnion/nixpkgs/archive/bcachefs-fix.tar.gz";
+    my-nur     = (import (builtins.fetchTarball "https://github.com/YellowOnion/nur-bcachefs/archive/master.tar.gz")).packages.x86_64-linux;
 in
 {
-
-  disabledModules = [ "tasks/filesystems/bcachefs.nix" ];
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./common.nix
       ./common-gui.nix
-      "${bcachefs-nixpkgs-dir}/nixos/modules/tasks/filesystems/bcachefs.nix"
     ];
 
-
-  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel-woob);
+  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel);
   nixpkgs.overlays = [(super: final: { bcachefs-tools = my-nur.bcachefs-tools;})];
   nixpkgs.config.allowBroken = true;
 
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.bridges.br0.interfaces = [ "enp6s0" ];
-  networking.interfaces.br0.useDHCP = true;
+  # networking.bridges.br0.interfaces = [ "enp6s0" ];
+  # networking.interfaces.br0.useDHCP = true;
 
   #boot.kernelPatches = [
   #  {
@@ -113,7 +104,6 @@ in
     };
   };
 
-  #services.xrdp.enable = true;
   services.samba = {
     enable = true;
     securityType = "user";

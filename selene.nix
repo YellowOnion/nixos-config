@@ -8,11 +8,23 @@ let
   factorio-mods = builtins.fetchTarball "https://github.com/YellowOnion/factorio-mods/archive/master.tar.gz";
   factorio-nixpkgs-dir = builtins.fetchTarball "http://github.com/YellowOnion/nixpkgs/archive/factorio-patch.tar.gz";
   factorio-nixpkgs = import factorio-nixpkgs-dir { config.allowUnfree = true; };
-  mods = (import "${factorio-mods}/mods.nix") ({
-    inherit lib;
-    inherit (secrets.factorio) username token;
-    inherit (pkgs) fetchurl factorio-utils;
-  });
+  factorio-mods =
+    let mods = (import "${factorio-mods}/mods.nix") ({
+          inherit lib;
+          inherit (secrets.factorio) username token;
+          inherit (pkgs) fetchurl factorio-utils;
+        });
+    in builtins.attrValues
+      { inherit (mods)
+        AfraidOfTheDark
+        even-distribution
+        factoryplanner
+        QuickItemSearch
+        RateCalculator
+        sonaxaton-research-queue
+        StatsGui
+        TaskList
+      };
   dstd = pkgs.callPackage ../../home/daniel/dev/nix-dstd/default.nix {};
   auth-server = pkgs.haskellPackages.callPackage (builtins.fetchTarball "https://github.com/YellowOnion/auth-server/archive/master.tar.gz") {};
 in

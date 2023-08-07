@@ -15,7 +15,7 @@
 
   fileSystems."/" =
     #{ device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_500GB_S5H7NS0NA78631F-part3:/dev/disk/by-id/ata-WDC_WD40EFRX-68N32N0_WD-WCC7K6SAF6KD:/dev/disk/by-id/ata-WDC_WD40EFRX-68N32N0_WD-WCC7K7RT8J22:/dev/disk/by-id/ata-WDC_WD30EFRX-68EUZN0_WD-WCC4N0998010";
-    { device = "927137d3-8864-4756-9c7e-3b9d1efff07b";
+    { device = "UUID=927137d3-8864-4756-9c7e-3b9d1efff07b";
       fsType = "bcachefs";
       options = [ "errors=ro" "noatime" "nodiratime" ];
     };

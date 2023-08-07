@@ -5,40 +5,26 @@ let
   # latest = import <nixpkgs-master> { config.allowUnfree = true; };
   #vkc = import /home/daniel/dev/obs-vkcapture/default.nix {pkgs = pkgs;};
   nix-gaming = (import (builtins.fetchTarball {
-    url = https://github.com/fufexan/nix-gaming/archive/master.tar.gz;
+    url =
+      "https://github.com/fufexan/nix-gaming/archive/42e53a36cd1ee7a0e0d21687bdd7b13941d37595.tar.gz";
   })).packages.x86_64-linux;
-in
 
-{
-
-  imports = [
-  #  ./nur.nix
-  ];
-
+in {
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   boot.kernelModules = [ "v4l2loopback" ];
-
-    # Enable the GNOME 3 Desktop Environment.
-  # services.xserver = {
-  # enable = true;
-  #  displayManager.gdm = {
-  #    enable = true;
-  #    wayland = false;
-  #  };
-
-  #  desktopManager = {
-  #    gnome.enable = true;
-  #  };
-  #};
 
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
+      xdg-utils
+      gnome.nautilus
+      evince
+      # basic sway stuff
       swaylock
       waybar
       sway-contrib.grimshot
-      pulseaudio
+      pulseaudio # pipewire is still heavily controlled via pulseaudio apps.
       grim
       slurp
       swayidle
@@ -47,12 +33,11 @@ in
       dmenu
       xdotool
     ];
-    extraSessionCommands = 
-      let
-	gsettings = "${pkgs.glib}/bin/gsettings";
-        schema = pkgs.gsettings-desktop-schemas;
-        gschema = "org.gnome.desktop.interface";
-        in ''
+    extraSessionCommands = let
+      gsettings = "${pkgs.glib}/bin/gsettings";
+      schema = pkgs.gsettings-desktop-schemas;
+      gschema = "org.gnome.desktop.interface";
+    in ''
       export SDL_VIDEODRIVER=x11
       export QT_QPA_PLATFORM=wayland
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
@@ -66,15 +51,14 @@ in
       ${gsettings} set ${gschema} gtk-theme 'Materia-Dark'
     '';
   };
+
   xdg = {
     portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = with pkgs; [
-      ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
   };
-
 
   programs.waybar.enable = true;
 
@@ -95,15 +79,17 @@ in
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  systemd.user.services.pipewire.environment.LADSPA_PATH = with pkgs; "/run/current-system/sw/lib/ladspa";
-  systemd.services.pipewire.environment.LADSPA_PATH = with pkgs; "/run/current-system/sw/lib/ladspa";
+  systemd.user.services.pipewire.environment.LADSPA_PATH = with pkgs;
+    "/run/current-system/sw/lib/ladspa";
+  systemd.services.pipewire.environment.LADSPA_PATH = with pkgs;
+    "/run/current-system/sw/lib/ladspa";
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
- };
+  };
 
   # help pulse audio use realtime scheduling
   security.rtkit.enable = true;
@@ -121,11 +107,11 @@ in
     mpv
     #anki-bin
 
-    # emacsNativeComp
-    emacsPgtk
-    ripgrep # needed for doom emacs
-    fd      # ditto
-    nixfmt  # ..
+    # These are needed system-wide for editing root files with doom emacs
+    ripgrep
+    fd
+    nixfmt
+    rnix-lsp
 
     mpd
     cantata
@@ -148,27 +134,27 @@ in
 
     obs-studio-plugins.obs-vkcapture
     mangohud
-    (wrapOBS { plugins = [ obs-studio-plugins.obs-vkcapture obs-studio-plugins.wlrobs ]; } )
+    (wrapOBS {
+      plugins = [ obs-studio-plugins.obs-vkcapture obs-studio-plugins.wlrobs ];
+    })
     yquake2
 
-    # tkg
-    nix-gaming.wine-tkg
-    nix-gaming.wine-discord-ipc-bridge
+    # TODO, migrate to home-manager, not needed system wide.
+    # nix-gaming.wine-tkg
+    #nix-gaming.wine-discord-ipc-bridge
     heroic
 
     rnnoise-plugin
     lsp-plugins
-    (pkgs.writeShellScriptBin "runWithDiscordBridge"
-      ''
-        export PROTON_REMOTE_DEBUG_CMD="${nix-gaming.wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe"
-        export PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0"
-        "$@"
-      ''
-    )
+    # TODO move to home manager
+    (pkgs.writeShellScriptBin "runWithDiscordBridge" ''
+      export PROTON_REMOTE_DEBUG_CMD="${nix-gaming.wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe"
+      export PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0"
+      "$@"
+    '')
   ];
   programs.steam.enable = true;
   #programs.gamemode.enable = true;
-  #services.flatpak.enable = true;
 
   fonts.fonts = with pkgs; [
     noto-fonts
@@ -177,23 +163,9 @@ in
     fira-code
     corefonts
     vistafonts
-    (nerdfonts.override {fonts = [ "Monoid" "FiraCode" "CascadiaCode" ];})
+    (nerdfonts.override { fonts = [ "Monoid" "FiraCode" "CascadiaCode" ]; })
     google-fonts
-    ];
+  ];
 
-  environment.variables = {
-    #PROTON_REMOTE_DEBUG_CMD="${nix-gaming.wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe";
-    #PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0";
-    OBS_USE_EGL="1";
-  };
-  nix.settings = {
-    substituters = [
-      "https://nix-community.cachix.org"
-      "https://nix-gaming.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-    ];
- };
+  environment.variables = { OBS_USE_EGL = "1"; };
 }
