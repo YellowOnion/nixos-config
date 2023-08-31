@@ -5,11 +5,11 @@
 { config, pkgs, lib,... }:
 let
   secrets = import ./secrets;
-  factorio-mods = builtins.fetchTarball "https://github.com/YellowOnion/factorio-mods/archive/master.tar.gz";
+  factorio-mods-repo = builtins.fetchTarball "https://github.com/YellowOnion/factorio-mods/archive/master.tar.gz";
   factorio-nixpkgs-dir = builtins.fetchTarball "http://github.com/YellowOnion/nixpkgs/archive/factorio-patch.tar.gz";
   factorio-nixpkgs = import factorio-nixpkgs-dir { config.allowUnfree = true; };
   factorio-mods =
-    let mods = (import "${factorio-mods}/mods.nix") ({
+    let mods = (import "${factorio-mods-repo}/mods.nix") ({
           inherit lib;
           inherit (secrets.factorio) username token;
           inherit (pkgs) fetchurl factorio-utils;
@@ -18,13 +18,24 @@ let
       { inherit (mods)
         AfraidOfTheDark
         even-distribution
-        factoryplanner
         QuickItemSearch
         RateCalculator
         sonaxaton-research-queue
         StatsGui
         TaskList
       };
+  factorio-mods-dl = let
+    recursiveDeps = mod: [mod] ++ map recursiveDeps mod.deps;
+    mods = unique (flattern (map recursiveDeps mods));
+    in
+      pkgs.stdenv.mkDerivation {
+        name = "FactorioServerModPack.zip";
+        buildCommand = ''
+          for mod in ${toString mods}
+        '';
+      }
+
+
   dstd = pkgs.callPackage ../../home/daniel/dev/nix-dstd/default.nix {};
   auth-server = pkgs.haskellPackages.callPackage (builtins.fetchTarball "https://github.com/YellowOnion/auth-server/archive/master.tar.gz") {};
 in
@@ -77,7 +88,6 @@ in
     mods = with mods; [
       AfraidOfTheDark
       even-distribution
-      factoryplanner
       QuickItemSearch
       RateCalculator
       sonaxaton-research-queue
@@ -137,6 +147,13 @@ in
         enableACME = true;
         locations."/" = {
           root = "/var/www/";
+        };
+      };
+      "factorio.gluo.nz" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          root = factorio-mods-dl;
         };
       };
       "owncast.gluo.nz" = {

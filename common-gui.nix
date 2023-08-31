@@ -47,7 +47,6 @@ in {
       export XDG_DATA_DIRS=${schema}/share/gsettings-schemas/${schema.name}:$XDG_DATA_DIRS
       export GTK_USE_PORTAL=1
       ${gsettings} set ${gschema} icon-theme 'Papirus'
-      ${gsettings} set ${gschema} cursor-theme 'Adwaita'
       ${gsettings} set ${gschema} gtk-theme 'Materia-Dark'
     '';
   };
@@ -108,10 +107,10 @@ in {
     #anki-bin
 
     # These are needed system-wide for editing root files with doom emacs
+    nil
     ripgrep
     fd
     nixfmt
-    rnix-lsp
 
     mpd
     cantata
@@ -120,7 +119,6 @@ in {
     spotify
     qjackctl
 
-    element-desktop-wayland
     signal-desktop
 
     papirus-icon-theme

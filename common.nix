@@ -58,7 +58,6 @@ in {
     sysstat
     wget
     gnupg
-    rnix-lsp
 
     direnv
     starship
@@ -134,11 +133,13 @@ in {
         "https://yo-nur.cachix.org"
         "https://nix-community.cachix.org"
         "https://nix-gaming.cachix.org"
+        "https://cache.garnix.io"
       ];
       trusted-public-keys = [
         "yo-nur.cachix.org-1:E/RHfQMAZ90mPhvsaqo/GrQ3M1xzXf5Ztt0o+1X3+Bs="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       ];
     };
     extraOptions = ''
