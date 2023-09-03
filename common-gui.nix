@@ -1,13 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-gaming, ... }:
 
 let
   secrets = import ./secrets;
   # latest = import <nixpkgs-master> { config.allowUnfree = true; };
   #vkc = import /home/daniel/dev/obs-vkcapture/default.nix {pkgs = pkgs;};
-  nix-gaming = (import (builtins.fetchTarball {
-    url =
-      "https://github.com/fufexan/nix-gaming/archive/42e53a36cd1ee7a0e0d21687bdd7b13941d37595.tar.gz";
-  })).packages.x86_64-linux;
 
 in {
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];

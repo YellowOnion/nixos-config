@@ -2,17 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib,... }:
+{ config, pkgs, lib, factorio-nixpkgs, factorio-mods, auth-server, ... }:
 let
   secrets = import ./secrets;
-  factorio-mods-repo = builtins.fetchTarball "https://github.com/YellowOnion/factorio-mods/archive/master.tar.gz";
-  factorio-nixpkgs-dir = builtins.fetchTarball "http://github.com/YellowOnion/nixpkgs/archive/factorio-patch.tar.gz";
-  factorio-nixpkgs = import factorio-nixpkgs-dir { config.allowUnfree = true; };
-  factorio-mods =
-    let mods = (import "${factorio-mods-repo}/mods.nix") ({
-          inherit lib;
-          inherit (secrets.factorio) username token;
-          inherit (pkgs) fetchurl factorio-utils;
+  fmods =
+    let mods = (import "${factorio-mods}/mods.nix") ({
+          inherit (factorio-nixpkgs.factorio-utils) filterMissing;
+          inherit (lib) fix;
+          factorioMod = (factorio-nixpkgs.factorio-utils.factorioMod "/fpd.json");
         });
     in builtins.attrValues
       { inherit (mods)
@@ -23,21 +20,8 @@ let
         sonaxaton-research-queue
         StatsGui
         TaskList
-      };
-  factorio-mods-dl = let
-    recursiveDeps = mod: [mod] ++ map recursiveDeps mod.deps;
-    mods = unique (flattern (map recursiveDeps mods));
-    in
-      pkgs.stdenv.mkDerivation {
-        name = "FactorioServerModPack.zip";
-        buildCommand = ''
-          for mod in ${toString mods}
-        '';
-      }
-
-
-  dstd = pkgs.callPackage ../../home/daniel/dev/nix-dstd/default.nix {};
-  auth-server = pkgs.haskellPackages.callPackage (builtins.fetchTarball "https://github.com/YellowOnion/auth-server/archive/master.tar.gz") {};
+      ;};
+  # dstd = pkgs.callPackage ../../home/daniel/dev/nix-dstd/default.nix {};
 in
 {
   disabledModules = [ "services/games/factorio.nix" ];
@@ -46,7 +30,7 @@ in
       ./selene-hw.nix
       ./common.nix
       ./common-server.nix
-      "${factorio-nixpkgs-dir}/nixos/modules/services/games/factorio.nix"
+      "${factorio-nixpkgs.path}/nixos/modules/services/games/factorio.nix"
     ];
 
   # Use the GRUB 2 boot loader.
@@ -68,14 +52,12 @@ in
   # networking.interfaces.ens3.useDHCP = true;
 
   environment.systemPackages = [
-    auth-server
-    dstd
   ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (self: super: {
-      factorio-headless = factorio-nixpkgs.factorio-headless.override ({ versionsJson = "${factorio-mods}/versions.json" ;});
+      factorio-headless = super.factorio-headless.override ({ versionsJson = "${factorio-mods}/versions.json" ;});
       factorio-utils    = factorio-nixpkgs.factorio-utils;
     })
   ];
@@ -85,15 +67,7 @@ in
     game-name = "Gluo Factorio Server" ;
     admins = [ "woobilicious" ];
     lan = true;
-    mods = with mods; [
-      AfraidOfTheDark
-      even-distribution
-      QuickItemSearch
-      RateCalculator
-      sonaxaton-research-queue
-      StatsGui
-      TaskList
-    ];
+    mods = fmods;
     mods-dat = ./mod-settings.dat ;
     requireUserVerification = false ;
   };
@@ -149,13 +123,6 @@ in
           root = "/var/www/";
         };
       };
-      "factorio.gluo.nz" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          root = factorio-mods-dl;
-        };
-      };
       "owncast.gluo.nz" = {
         forceSSL = true;
         enableACME = true;
@@ -188,6 +155,21 @@ in
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             '';
+        };
+      };
+      "factorio.gluo.nz" = {
+        forceSSL = true;
+        enableACME = true;
+        root = lib.strings.storeDir;
+        locations =
+          let zipFile = lib.strings.removePrefix lib.strings.storeDir config.services.factorio.modsZipPackage;
+          in {
+            "=/ModPack" = {
+              extraConfig = ''
+              rewrite ^/ModPack$ ${zipFile} redirect;
+              '';
+            };
+            "/" = { tryFiles = "${zipFile} =404"; };
         };
       };
     };

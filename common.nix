@@ -5,8 +5,6 @@ let
   ms2ns = a: a * 1000 * 1000;
 
 in {
-  imports = [ ./cachix.nix ];
-
   # use bfq on all spinning disks
   # TODO: add rules for Sata SSDs (mq-deadline or "none")
   services.udev.extraRules = ''

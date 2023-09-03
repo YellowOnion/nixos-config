@@ -2,40 +2,27 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nur-bcachefs, bcachefs-nixpkgs, ... }:
 
 let secrets = import ./secrets;
   #dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
   #latest     = import <nixpkgs-master> { config.allowUnfree = true; };
   #unstable   = import <nixos-unstable> { config.allowUnfree = true; };
-    system =  "x86_64-linux";
-    my-nur     = (import (builtins.fetchTarball "https://github.com/YellowOnion/nur-bcachefs/archive/master.tar.gz")).packages.${system};
-    bcachefs-nixpkgs-dir = builtins.fetchTarball "http://github.com/YellowOnion/nixpkgs/archive/bcachefs-fix.tar.gz";
-    sway-nix   = import (
-                    pkgs.fetchFromGitHub {
-                      owner = "YellowOnion";
-                      repo = "sway-nix";
-                      rev = "e27f11c1da5f6923b9917de9baecd9d2df9e262d";
-                      sha256 = "hymigo2KJy8wBnWWCLAs4yboarAtQpof5ARl8ud8GbY=";
-                    });
 in
 {
   disabledModules = [ "tasks/filesystems/bcachefs.nix" ];
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./purple-hw.nix
       ./common.nix
       ./common-gui.nix
-      "${bcachefs-nixpkgs-dir}/nixos/modules/tasks/filesystems/bcachefs.nix"
+      "${bcachefs-nixpkgs}/nixos/modules/tasks/filesystems/bcachefs.nix"
     ];
 
-  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor my-nur.bcachefs-kernel);
+  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor nur-bcachefs.bcachefs-kernel);
   nixpkgs.overlays = [
-    (sway-nix.overlays.default)
-    (super: final: { bcachefs-tools = my-nur.bcachefs-tools;})
+    (super: final: { bcachefs-tools = nur-bcachefs.bcachefs-tools;})
   ];
-  nixpkgs.config.allowBroken = true;
-
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
 
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
