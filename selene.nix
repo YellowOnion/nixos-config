@@ -94,7 +94,7 @@ in
 
   services.factorio = secrets.factorio // {
     enable = true;
-    game-name = "Gluo Factorio Server" ;
+    game-name = "Gluo NZ: Vanila+" ;
     admins = [ "woobilicious" ];
     lan = true;
     mods = fmods;
@@ -112,7 +112,7 @@ in
   # services.openssh.enable = true;
   services.stunnel =
     let
-      CAdir = config.security.acme.certs."gluo.nz".directory;
+      CAdir = config.security.acme.certs."${secrets.domain}".directory;
     in
     {
     enable = true;
@@ -134,7 +134,7 @@ in
   };
   security.acme = {
     acceptTerms = true;
-    defaults.email = "daniel@gluo.nz";
+    defaults.email = secrets.email;
   };
   services.nginx = {
     enable = true;
@@ -146,14 +146,14 @@ in
     recommendedOptimisation = true;
     recommendedTlsSettings = true;
     virtualHosts = {
-      "gluo.nz" = {
+      "${secrets.domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
           root = "/var/www/";
         };
       };
-      "owncast.gluo.nz" = {
+      "owncast.${secrets.domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -170,7 +170,7 @@ in
             '';
         };
     };
-      "dead-suns.gluo.nz" = {
+      "dead-suns.${secrets.domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -187,7 +187,7 @@ in
             '';
         };
       };
-      "factorio.gluo.nz" = {
+      "factorio.${secrets.domain}" = {
         forceSSL = true;
         enableACME = true;
         root = lib.strings.storeDir;
@@ -203,20 +203,6 @@ in
         };
       };
     };
-    appendHttpConfig = let
-      lua-resty-core =  pkgs.fetchFromGitHub {
-        owner = "openresty";
-        repo = "lua-resty-core";
-        rev = "c48e90a8fc9d974d8a6a369e031940cedf473789";
-        sha256 = "obwyxHSot1Lb2c1dNqJor3inPou+UIBrqldbkNBCQQk=";
-      };
-      in
-     # ''
-     # lua_package_path "${lua-resty-core}/lib/?.lua;;";
-     # init_by_lua_block {
-     #   require "resty.core"
-     #   collectgarbage("collect")
-     # }
      ''
        include /etc/nginx-rtmp/http.conf;
      '';
@@ -234,7 +220,6 @@ in
           StateDirectory = dir;
       };
     };
-
 
   users.users.auth-server = {
     isSystemUser = true;
