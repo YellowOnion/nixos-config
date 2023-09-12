@@ -16,15 +16,15 @@
     let
       systems = [
         { name = "Purple-Sunrise";
-          module = ./purple.nix;
+          modules = [ ./purple.nix ];
           system = "x86_64-linux";
         }
         { name = "Selene";
-          module = ./selene.nix;
+          modules = [ ./selene.nix ];
           system = "x86_64-linux";
         }
       ];
-      mkConfig = system: module:
+      mkConfig = system: modules:
         let
           pkgs = import nixpkgs {
             inherit system;
@@ -41,10 +41,10 @@
             inherit system;
             specialArgs = {
               inherit nix-gaming nur-bcachefs factorio-nixpkgs;
-              inherit (inputs) factorio-mods;
+              inherit (inputs) factorio-mods bcachefs-nixpkgs;
               auth-server = pkgs.haskellPackages.callPackage auth-server {};
             };
-            modules = [ module
+            modules = modules ++ [
                         ({...}: {
                           nix.registry.nixpkgs.flake = inputs.nixpkgs;
                           nix.registry.nix-gaming.flake = inputs.nix-gaming;
@@ -53,6 +53,6 @@
           };
       in
         {
-          nixosConfigurations = nixpkgs.lib.foldr (a: b: b // { ${a.name} = mkConfig a.system a.module; } ) {} systems;
+          nixosConfigurations = nixpkgs.lib.foldr (a: b: b // { ${a.name} = mkConfig a.system a.modules; } ) {} systems;
         };
 }

@@ -13,13 +13,43 @@ let
         });
     in builtins.attrValues
       { inherit (mods)
-        AfraidOfTheDark
-        even-distribution
-        QuickItemSearch
-        RateCalculator
-        sonaxaton-research-queue
-        StatsGui
-        TaskList
+          "AfraidOfTheDark"
+          "ArmouredBiters"
+          "BetterAlertArrows"
+          "BottleneckLite"
+          "calculator-ui"
+          "ColorCodedPlanners"
+          "compaktcircuit"
+          "CursorEnhancements"
+          "Dectorio"
+          "DiscoScience"
+          "DisplayPlates"
+          "equipment-gantry"
+          "even-distribution"
+          "fcpu"
+          "grappling-gun"
+          "GUI_Unifyer"
+          "helmod"
+          "informatron"
+          "jetpack"
+          "ModuleInserter"
+          "PipeVisualizer"
+          "PlacementGuide"
+          "pushbutton"
+          "QuickbarTemplates"
+          "QuickItemSearch"
+          "RateCalculator"
+          "RecipeBook"
+          "SantasNixieTubeDisplay"
+          "sonaxaton-research-queue"
+          "StatsGui"
+          "Tapeline"
+          "TaskList"
+          "textplates"
+          "TintedGhosts"
+          "VehicleSnap"
+          "visual_tracers"
+          "YARM"
       ;};
   # dstd = pkgs.callPackage ../../home/daniel/dev/nix-dstd/default.nix {};
 in

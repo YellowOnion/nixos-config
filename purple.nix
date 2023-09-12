@@ -28,14 +28,6 @@ in
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
   # networking.interfaces.br0.useDHCP = true;
 
-  # this doesn't work tsskk
-  boot.kernelPatches = [{
-    name = "change-pipe-policy-for-dcn2";
-    patch = pkgs.fetchurl {
-      url = "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/patch/?id=6ecc10295abb2fdd9c21dd17b34e4cacfd829cd4";
-      sha256 = "sha256-BmNpw3Vpd84Jpb+Ngix8mDg4S4xF2SAbkgq0U8QZWaY=";
-    };
-  }];
   #boot.kernelPatches = [
   #  {
   #    name = "vendor-reset-reqs-and-other-stuff";
@@ -128,14 +120,8 @@ in
       };
     };
   };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-  #environment.variables = {
+
+    #environment.variables = {
   #  VST_PATH    = "/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst";
   #  LXVST_PATH  = "/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst";
   #  LADSPA_PATH = "/nix/var/nix/profiles/default/lib/ladspa:/var/run/current-system/sw/lib/ladspa:~/.ladspa";

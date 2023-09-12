@@ -55,11 +55,11 @@
     "factorio-mods": {
       "flake": false,
       "locked": {
-        "lastModified": 1693732416,
-        "narHash": "sha256-v8GrA5tULGf9WTaSmCrPFaSqoBIL67K8rriFTq+so2A=",
+        "lastModified": 1694448036,
+        "narHash": "sha256-dVMc81LHqqinmc33v+U+019z7jrXx8rBm4ZRToLiZT0=",
         "owner": "YellowOnion",
         "repo": "factorio-mods",
-        "rev": "a92e6531cb86e2d1371c48829153c24cca93bd79",
+        "rev": "5c00d024bc6487f69c6d932615cd4d659a09b7bd",
         "type": "github"
       },
       "original": {
@@ -70,11 +70,11 @@
     },
     "factorio-nixpkgs": {
       "locked": {
-        "lastModified": 1693801357,
-        "narHash": "sha256-PBrfF2P8eGGxd2YUWmbxCD4sjmP+W6gNjxEq9FHs57g=",
+        "lastModified": 1694487590,
+        "narHash": "sha256-wuK5TQwPTGFL1CsckPpkXmDGqjYBjDSuZb0JmQ2T9Iw=",
         "owner": "YellowOnion",
         "repo": "nixpkgs",
-        "rev": "f58d5d329293e63c79454a4334577f084e643c2b",
+        "rev": "7172223355ced7c085e04afbcc397f03aa03b05d",
         "type": "github"
       },
       "original": {
@@ -205,11 +205,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1693341273,
-        "narHash": "sha256-wrsPjsIx2767909MPGhSIOmkpGELM9eufqLQOPxmZQg=",
+        "lastModified": 1694048570,
+        "narHash": "sha256-PEQptwFCVaJ+jLFJgrZll2shQ9VI/7xVhrCYkJo8iIw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2ab91c8d65c00fd22a441c69bbf1bc9b420d5ea1",
+        "rev": "4f77ea639305f1de0a14d9d41eef83313360638c",
         "type": "github"
       },
       "original": {
@@ -237,11 +237,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1692734709,
-        "narHash": "sha256-SCFnyHCyYjwEmgUsHDDuU0TsbVMKeU1vwkR+r7uS2Rg=",
+        "lastModified": 1693985761,
+        "narHash": "sha256-K5b+7j7Tt3+AqbWkcw+wMeqOAWyCD1MH26FPZyWXpdo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b85ed9dcbf187b909ef7964774f8847d554fab3b",
+        "rev": "0bffda19b8af722f8069d09d8b6a24594c80b352",
         "type": "github"
       },
       "original": {
@@ -275,11 +275,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1692855481,
-        "narHash": "sha256-pov4R6XINhkwI2gIp+KfJEebWIsXoNtI/hDIMuJm02w=",
+        "lastModified": 1694104104,
+        "narHash": "sha256-wsh0lDjhFm4Bd2uDkjS1B7f9Nua/x1MwHlbBb2NTmSM=",
         "owner": "YellowOnion",
         "repo": "nur-bcachefs",
-        "rev": "4ef625efc27f1b85a98f74f10f6f3c854d8a280a",
+        "rev": "8463c32cc2cbc3b16a2dd9470529d01b959cb95d",
         "type": "github"
       },
       "original": {
