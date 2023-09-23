@@ -2,8 +2,7 @@
   description = "Woobilicious' NixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    nur-bcachefs.url = "github:YellowOnion/nur-bcachefs";
-    bcachefs-nixpkgs.url = "github:YellowOnion/nixpkgs/bcachefs-fix";
+    bcachefs-nixpkgs.url = "github:YellowOnion/nixpkgs/bump-bcachefs";
     factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
     sway-nix.url = "github:YellowOnion/sway-nix/";
     nix-gaming.url = "github:fufexan/nix-gaming/";
@@ -11,8 +10,12 @@
                       flake = false; };
     auth-server = { url = "github:YellowOnion/auth-server";
                     flake = false; };
+    conduit = {
+        url = "gitlab:famedly/conduit";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = {self, nixpkgs, nur-bcachefs, auth-server, sway-nix, nix-gaming, ... }@inputs:
+  outputs = {self, nixpkgs, auth-server, sway-nix, nix-gaming, ... }@inputs:
     let
       systems = [
         { name = "Purple-Sunrise";
@@ -30,8 +33,8 @@
             inherit system;
             overlays = [ sway-nix.overlays.default ];
           };
-          nur-bcachefs = inputs.nur-bcachefs.packages.${system};
           nix-gaming   = inputs.nix-gaming.packages.${system};
+          bcachefs-nixpkgs   = inputs.bcachefs-nixpkgs.legacyPackages.${system};
           factorio-nixpkgs = (import inputs.factorio-nixpkgs {
             inherit system;
             config.allowUnfree = true;
@@ -40,9 +43,10 @@
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit nix-gaming nur-bcachefs factorio-nixpkgs;
-              inherit (inputs) factorio-mods bcachefs-nixpkgs;
+              inherit nix-gaming factorio-nixpkgs bcachefs-nixpkgs;
+              inherit (inputs) factorio-mods;
               auth-server = pkgs.haskellPackages.callPackage auth-server {};
+              conduit = inputs.conduit.packages.${system};
             };
             modules = modules ++ [
                         ({...}: {

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, nur-bcachefs, bcachefs-nixpkgs, ... }:
+{ config, pkgs, lib, bcachefs-nixpkgs, ... }:
 
 let secrets = import ./secrets;
   #dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
@@ -16,12 +16,16 @@ in
       ./purple-hw.nix
       ./common.nix
       ./common-gui.nix
-      "${bcachefs-nixpkgs}/nixos/modules/tasks/filesystems/bcachefs.nix"
+      "${bcachefs-nixpkgs.path}/nixos/modules/tasks/filesystems/bcachefs.nix"
     ];
 
-  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackagesFor nur-bcachefs.bcachefs-kernel);
+  boot.kernelPackages = lib.mkOverride 0 bcachefs-nixpkgs.linuxPackages_testing_bcachefs;
   nixpkgs.overlays = [
-    (super: final: { bcachefs-tools = nur-bcachefs.bcachefs-tools;})
+    (super: final: {
+      inherit (bcachefs-nixpkgs) systemdBcachefs;
+      bcachefs-tools = let bt = bcachefs-nixpkgs.bcachefs-tools;
+                           in bt.override (lib.getAttrs (lib.attrNames (lib.filterAttrs (_:a: !a) bt.override.__functionArgs)) final);
+      })
   ];
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
 

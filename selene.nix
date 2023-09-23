@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, factorio-nixpkgs, factorio-mods, auth-server, ... }:
+{ config, pkgs, lib, factorio-nixpkgs, factorio-mods, auth-server, conduit, ... }:
 let
   secrets = import ./secrets;
   fmods =
@@ -92,6 +92,13 @@ in
     })
   ];
 
+  users.users.andrew = {
+    isNormalUser = true;
+    initialPassword = secrets.andrew.initialPass;
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [ secrets.andrew.sshKey ];
+  };
+
   services.factorio = secrets.factorio // {
     enable = true;
     game-name = "Gluo NZ: Vanila+" ;
@@ -101,15 +108,21 @@ in
     mods-dat = ./mod-settings.dat ;
     requireUserVerification = false ;
   };
-
-  users.users.andrew = {
-    isNormalUser = true;
-    initialPassword = secrets.andrew.initialPass;
-    extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [ secrets.andrew.sshKey ];
+  services.matrix-conduit = {
+    enable = true;
+    package = conduit.default;
+    settings.global = {
+      server_name = "matrix.${secrets.domain}";
+      allow_registration = false;
+    };
   };
 
-  # services.openssh.enable = true;
+  services.heisenbridge = {
+    enable = true;
+    owner = secrets.matrix;
+    homeserver = "http://[::1]:${toString config.services.matrix-conduit.settings.global.port}/";
+  };
+
   services.stunnel =
     let
       CAdir = config.security.acme.certs."${secrets.domain}".directory;
@@ -128,14 +141,17 @@ in
       connect = "a.rtmp.youtube.com:443";
     };
   };
+
   services.owncast = {
     enable = true;
     rtmp-port = 1937;
   };
+
   security.acme = {
     acceptTerms = true;
     defaults.email = secrets.email;
   };
+
   services.nginx = {
     enable = true;
     additionalModules = builtins.attrValues { inherit (pkgs.nginxModules) rtmp; };
@@ -157,7 +173,45 @@ in
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-            proxyPass = "http://127.0.0.1:8080/";
+          proxyPass = "http://127.0.0.1:${toString config.services.owncast.port}/";
+            proxyWebsockets = true;
+            priority = 1150;
+            extraConfig = ''
+          proxy_set_header Host $host;
+          proxy_set_header X-Forwarded-Host $host;
+          proxy_set_header X-Forwarded-Server $host;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            '';
+        };
+    };
+      "matrix.${secrets.domain}" = {
+        forceSSL = true;
+        enableACME = true;
+        listen = [
+          {
+            addr = "0.0.0.0";
+            port = 443;
+            ssl = true;
+          }
+          {
+            addr = "[::]";
+            port = 443;
+            ssl = true;
+          }          {
+            addr = "0.0.0.0";
+            port = 8448;
+            ssl = true;
+          }
+          {
+            addr = "[::]";
+            port = 8448;
+            ssl = true;
+          }
+        ];
+        locations."/_matrix/" = {
+          proxyPass = "http://[::1]:${toString config.services.matrix-conduit.settings.global.port}$request_uri";
             proxyWebsockets = true;
             priority = 1150;
             extraConfig = ''
@@ -203,9 +257,6 @@ in
         };
       };
     };
-     ''
-       include /etc/nginx-rtmp/http.conf;
-     '';
   };
 
   systemd.services.auth-server = {

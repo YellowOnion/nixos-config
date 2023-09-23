@@ -134,9 +134,9 @@ in {
     yquake2
 
     # TODO, migrate to home-manager, not needed system wide.
-    # nix-gaming.wine-tkg
-    #nix-gaming.wine-discord-ipc-bridge
-    heroic
+    (nix-gaming.wine-ge) #.override { supportFlags.waylandSupport = false; })
+    # nix-gaming.wine-discord-ipc-bridge
+    (heroic.override { heroic-unwrapped = heroic-unwrapped.override { electron = electron_24 ;};})
 
     rnnoise-plugin
     lsp-plugins
