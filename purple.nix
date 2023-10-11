@@ -29,15 +29,28 @@ in
   ];
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
 
+  boot.kernelParams = [
+    "amd_pstate=active"
+  ];
+
+  boot.tmp = {
+    useTmpfs = true;
+    tmpfsSize = "50%";
+  };
+
+  boot.initrd.kernelModules = [ "nct6775" ];
+
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
   # networking.interfaces.br0.useDHCP = true;
 
-  #boot.kernelPatches = [
-  #  {
+  boot.kernelPatches = [
+    {
+      name = "ftrace";
+      patch = null;
+      extraConfig = ''
+      FTRACE y
+    ''; }];
   #    name = "vendor-reset-reqs-and-other-stuff";
-  #    patch = null;
-  #    extraConfig = ''
-  #    FTRACE y
   #    KPROBES y
   #    FUNCTION_TRACER y
   #    HWLAT_TRACER y
@@ -47,7 +60,6 @@ in
   #    PCI_QUIRKS y
   #    KALLSYMS y
   #    KALLSYMS_ALL y
-  #  ''; }
   #]; # ++ futex.kernelPatches ++ lru.kernelPatches;
 
   boot.kernel.sysctl = {
@@ -77,13 +89,13 @@ in
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     rtorrent
+    config.boot.kernelPackages.perf
    ];
 
   # KVM stuff
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
   #boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];
   #boot.initrd.kernelModules = [ vfio-pci ];
-  #boot.kernelModules = [ "vendor-reset" ];
   #boot.kernelParams = [
   #  "amd_iommu=on"
   #  "vfio_virqfd"

@@ -20,7 +20,7 @@ in {
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "hid_apple.fnmode=0" ];
+  boot.kernelParams = [ "zswap.enabled=1" "zswap.compressor=lz4" "zswap.max_pool_percent=15" "zswap.zpool=z3fold" "hid_apple.fnmode=0" ];
 
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
@@ -122,7 +122,6 @@ in {
 
   nix = {
     daemonCPUSchedPolicy = "idle";
-    #daemonIOSchedPriority = 7;
     settings = {
       max-jobs = 1;
       auto-optimise-store = true;

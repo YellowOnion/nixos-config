@@ -12,7 +12,7 @@
                     flake = false; };
     conduit = {
         url = "gitlab:famedly/conduit";
-        inputs.nixpkgs.follows = "nixpkgs";
+        # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = {self, nixpkgs, auth-server, sway-nix, nix-gaming, ... }@inputs:
@@ -52,6 +52,7 @@
                         ({...}: {
                           nix.registry.nixpkgs.flake = inputs.nixpkgs;
                           nix.registry.nix-gaming.flake = inputs.nix-gaming;
+                          nix.registry.self.flake = self;
                           nixpkgs.overlays = [ sway-nix.overlays.default ];
                         }) ];
           };
