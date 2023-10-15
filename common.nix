@@ -21,6 +21,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "zswap.enabled=1" "zswap.compressor=lz4" "zswap.max_pool_percent=15" "zswap.zpool=z3fold" "hid_apple.fnmode=0" ];
+  boot.initrd.kernelModules = [ "z3fold" "lz4" ];
 
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
@@ -45,6 +46,7 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    lm_sensors
     pciutils
     killall
     file

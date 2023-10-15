@@ -4,6 +4,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     bcachefs-nixpkgs.url = "github:YellowOnion/nixpkgs/bump-bcachefs";
     factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
+    ryzen_smu-nixpkgs.url = "github:YellowOnion/nixpkgs/ryzen-smu";
     sway-nix.url = "github:YellowOnion/sway-nix/";
     nix-gaming.url = "github:fufexan/nix-gaming/";
     factorio-mods = { url = "github:YellowOnion/factorio-mods";
@@ -26,15 +27,21 @@
           modules = [ ./selene.nix ];
           system = "x86_64-linux";
         }
+        { name = "Kawasaki-Lemon";
+          modules = [ ./laptop2.nix ];
+          system = "x86_64-linux";
+        }
       ];
       mkConfig = system: modules:
         let
           pkgs = import nixpkgs {
             inherit system;
+            config.allowUnfree = true;
             overlays = [ sway-nix.overlays.default ];
           };
           nix-gaming   = inputs.nix-gaming.packages.${system};
           bcachefs-nixpkgs   = inputs.bcachefs-nixpkgs.legacyPackages.${system};
+          ryzen_smu-nixpkgs   = inputs.ryzen_smu-nixpkgs.legacyPackages.${system};
           factorio-nixpkgs = (import inputs.factorio-nixpkgs {
             inherit system;
             config.allowUnfree = true;
@@ -43,7 +50,7 @@
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit nix-gaming factorio-nixpkgs bcachefs-nixpkgs;
+              inherit nix-gaming factorio-nixpkgs bcachefs-nixpkgs ryzen_smu-nixpkgs;
               inherit (inputs) factorio-mods;
               auth-server = pkgs.haskellPackages.callPackage auth-server {};
               conduit = inputs.conduit.packages.${system};

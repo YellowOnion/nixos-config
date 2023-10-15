@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, bcachefs-nixpkgs, ... }:
+{ config, pkgs, lib, bcachefs-nixpkgs, ... }@args:
 
-let secrets = import ./secrets;
-  #dsp = pkgs.callPackage /home/daniel/dev/bmc0-dsp/default.nix {} ;
-  #latest     = import <nixpkgs-master> { config.allowUnfree = true; };
-  #unstable   = import <nixos-unstable> { config.allowUnfree = true; };
+let
+  secrets = import ./secrets;
+  ryzen_smu = args.ryzen_smu-nixpkgs.linuxPackages.ryzen_smu.override {
+    kernel = config.boot.kernelPackages.kernel;
+  };
 in
 {
   disabledModules = [ "tasks/filesystems/bcachefs.nix" ];
@@ -16,6 +17,7 @@ in
       ./purple-hw.nix
       ./common.nix
       ./common-gui.nix
+      ./zen.nix
       "${bcachefs-nixpkgs.path}/nixos/modules/tasks/filesystems/bcachefs.nix"
     ];
 
@@ -29,17 +31,12 @@ in
   ];
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
 
-  boot.kernelParams = [
-    "amd_pstate=active"
-  ];
-
   boot.tmp = {
     useTmpfs = true;
     tmpfsSize = "50%";
   };
 
-  boot.initrd.kernelModules = [ "nct6775" ];
-
+  boot.extraModulePackages = [ ryzen_smu ];
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
   # networking.interfaces.br0.useDHCP = true;
 
@@ -73,8 +70,7 @@ in
   #};
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = with pkgs; [ 
-    hplip ] ;
+  services.printing.drivers = [ pkgs.hplip ] ;
 
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -110,16 +106,16 @@ in
   #  options vfio-pci ids=1002:67df,1002:aaf0
   #'';
   
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu.ovmf.enable = true;
-      onBoot = "ignore";
-      qemu.verbatimConfig = ''
-      user = "daniel"
-      '';
-    };
-  };
+  #virtualisation = {
+  #  libvirtd = {
+  #    enable = true;
+  #    qemu.ovmf.enable = true;
+  #    onBoot = "ignore";
+  #    qemu.verbatimConfig = ''
+  #    user = "daniel"
+  #    '';
+  #  };
+  #};
 
   services.samba = {
     enable = true;
@@ -137,7 +133,7 @@ in
     };
   };
 
-    #environment.variables = {
+  #environment.variables = {
   #  VST_PATH    = "/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst";
   #  LXVST_PATH  = "/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst";
   #  LADSPA_PATH = "/nix/var/nix/profiles/default/lib/ladspa:/var/run/current-system/sw/lib/ladspa:~/.ladspa";

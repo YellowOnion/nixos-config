@@ -312,6 +312,7 @@
         "factorio-nixpkgs": "factorio-nixpkgs",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_3",
+        "ryzen_smu-nixpkgs": "ryzen_smu-nixpkgs",
         "sway-nix": "sway-nix"
       }
     },
@@ -356,6 +357,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "ryzen_smu-nixpkgs": {
+      "locked": {
+        "lastModified": 1697286119,
+        "narHash": "sha256-Lyf+s7ARTTeKVQvcxr3+dGAiKh1AObaGzhczl1v1PuI=",
+        "owner": "YellowOnion",
+        "repo": "nixpkgs",
+        "rev": "fec473fd13f89f2301399f4997468f04eb731875",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YellowOnion",
+        "ref": "ryzen-smu",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
