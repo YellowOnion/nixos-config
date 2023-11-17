@@ -21,7 +21,9 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "zswap.enabled=1" "zswap.compressor=lz4" "zswap.max_pool_percent=15" "zswap.zpool=z3fold" "hid_apple.fnmode=0" ];
-  boot.initrd.kernelModules = [ "z3fold" "lz4" ];
+  boot.extraModprobeConfig = ''
+    softdep zswap pre: z3fold lz4
+  '';
 
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
@@ -42,8 +44,6 @@ in {
       [ "wheel" "audio" "networkmanager" ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [ secrets.daniel.sshKey ];
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     lm_sensors
@@ -125,6 +125,8 @@ in {
   nix = {
     daemonCPUSchedPolicy = "idle";
     settings = {
+      # generally we don't need more than one build running at once
+      # can sometimes cause OOM when jobs demand too much memory
       max-jobs = 1;
       auto-optimise-store = true;
       trusted-users = [ "@wheel" ];

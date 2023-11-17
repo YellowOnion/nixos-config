@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, bcachefs-nixpkgs, ... }@args:
+{ config, pkgs, lib, ... }@args:
 
 let
   secrets = import ./secrets;
@@ -11,24 +11,15 @@ let
   };
 in
 {
-  disabledModules = [ "tasks/filesystems/bcachefs.nix" ];
   imports =
     [ # Include the results of the hardware scan.
       ./purple-hw.nix
       ./common.nix
       ./common-gui.nix
       ./zen.nix
-      "${bcachefs-nixpkgs.path}/nixos/modules/tasks/filesystems/bcachefs.nix"
+      ./bcachefs.nix
     ];
 
-  boot.kernelPackages = lib.mkOverride 0 bcachefs-nixpkgs.linuxPackages_testing_bcachefs;
-  nixpkgs.overlays = [
-    (super: final: {
-      inherit (bcachefs-nixpkgs) systemdBcachefs;
-      bcachefs-tools = let bt = bcachefs-nixpkgs.bcachefs-tools;
-                           in bt.override (lib.getAttrs (lib.attrNames (lib.filterAttrs (_:a: !a) bt.override.__functionArgs)) final);
-      })
-  ];
   networking.hostName = "Purple-Sunrise"; # Define your hostname.
 
   boot.tmp = {
@@ -46,7 +37,12 @@ in
       patch = null;
       extraConfig = ''
       FTRACE y
-    ''; }];
+    ''; }
+    {
+      name = "dp-fix.patch";
+      patch = ./dp-fix.patch;
+    }
+  ];
   #    name = "vendor-reset-reqs-and-other-stuff";
   #    KPROBES y
   #    FUNCTION_TRACER y

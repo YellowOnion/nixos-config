@@ -2,6 +2,7 @@
   description = "Woobilicious' NixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    unstable-nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     bcachefs-nixpkgs.url = "github:YellowOnion/nixpkgs/bump-bcachefs";
     factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
     ryzen_smu-nixpkgs.url = "github:YellowOnion/nixpkgs/ryzen-smu";
@@ -31,6 +32,11 @@
           modules = [ ./laptop2.nix ];
           system = "x86_64-linux";
         }
+        {
+          name = "NixOS-installer";
+          modules = [ ./iso.nix ];
+          system = "x86_64-linux";
+        }
       ];
       mkConfig = system: modules:
         let
@@ -39,10 +45,11 @@
             config.allowUnfree = true;
             overlays = [ sway-nix.overlays.default ];
           };
-          nix-gaming   = inputs.nix-gaming.packages.${system};
-          bcachefs-nixpkgs   = inputs.bcachefs-nixpkgs.legacyPackages.${system};
-          ryzen_smu-nixpkgs   = inputs.ryzen_smu-nixpkgs.legacyPackages.${system};
-          factorio-nixpkgs = (import inputs.factorio-nixpkgs {
+          nix-gaming        = inputs.nix-gaming.packages.${system};
+          unstable-nixpkgs  = inputs.unstable-nixpkgs.legacyPackages.${system};
+          bcachefs-nixpkgs  = inputs.bcachefs-nixpkgs.legacyPackages.${system};
+          ryzen_smu-nixpkgs = inputs.ryzen_smu-nixpkgs.legacyPackages.${system};
+          factorio-nixpkgs  = (import inputs.factorio-nixpkgs {
             inherit system;
             config.allowUnfree = true;
           });
@@ -50,7 +57,7 @@
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit nix-gaming factorio-nixpkgs bcachefs-nixpkgs ryzen_smu-nixpkgs;
+              inherit nix-gaming factorio-nixpkgs bcachefs-nixpkgs ryzen_smu-nixpkgs unstable-nixpkgs;
               inherit (inputs) factorio-mods;
               auth-server = pkgs.haskellPackages.callPackage auth-server {};
               conduit = inputs.conduit.packages.${system};

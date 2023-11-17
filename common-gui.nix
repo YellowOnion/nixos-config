@@ -1,10 +1,11 @@
-{ config, pkgs, nix-gaming, ... }:
+{ config, pkgs, nix-gaming, unstable-nixpkgs, ... }:
 
 let
   secrets = import ./secrets;
-  # latest = import <nixpkgs-master> { config.allowUnfree = true; };
-  #vkc = import /home/daniel/dev/obs-vkcapture/default.nix {pkgs = pkgs;};
-
+  audio_env = {
+    LADSPA_PATH = "/run/current-system/sw/lib/ladspa";
+    LV2_PATH    = "/run/current-system/sw/lib/lv2";
+  };
 in {
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   boot.kernelModules = [ "v4l2loopback" ];
@@ -74,12 +75,15 @@ in {
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  systemd.user.services.pipewire.environment.LADSPA_PATH = with pkgs;
-    "/run/current-system/sw/lib/ladspa";
-  systemd.services.pipewire.environment.LADSPA_PATH = with pkgs;
-    "/run/current-system/sw/lib/ladspa";
+  systemd.user.services.pipewire.environment = audio_env;
+  systemd.services.pipewire.environment = audio_env;
   services.pipewire = {
     enable = true;
+    package = unstable-nixpkgs.pipewire;
+    wireplumber = {
+      enable = true;
+      package = unstable-nixpkgs.wireplumber;
+    };
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;

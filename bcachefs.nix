@@ -1,5 +1,8 @@
 { config, lib, pkgs, bcachefs-nixpkgs, ... }:
 
+let
+  overrideAllInputs = final: p: p.override (lib.getAttrs (lib.attrNames (lib.filterAttrs (_:a: !a) p.override.__functionArgs)) final);
+in
 {
   disabledModules = [ "tasks/filesystems/bcachefs.nix" ];
   imports = [
@@ -10,14 +13,15 @@
 
   # We need custom util-linux inside systemd to boot from UUID.
 
-  systemd.package = bcachefs-nixpkgs.systemd;
+  systemd.package = pkgs.systemdBcachefs;
 
   # compile bcachefs tools with pkgs from nixpkgs, not bcacehfs-nixpkgs.
   #
   nixpkgs.overlays = [
     (super: final: {
-      bcachefs-tools = let bt = bcachefs-nixpkgs.bcachefs-tools;
-                           in bt.override (lib.getAttrs (lib.attrNames (lib.filterAttrs (_:a: !a) bt.override.__functionArgs)) final);
+      bcachefs-tools = overrideAllInputs final bcachefs-nixpkgs.bcachefs-tools;
+      util-linuxMinimalBcachefs = overrideAllInputs final bcachefs-nixpkgs.util-linuxMinimal;
+      systemdBcachefs = super.systemd.override { util-linux = super.util-linuxMinimalBcachefs; };
       })
   ];
 
@@ -27,7 +31,7 @@
       patch = null;
       extraConfig = ''
       FTRACE y
-      CONFIG_BCACHEFS_DEBUG_TRANSACTIONS n
+      BCACHEFS_DEBUG_TRANSACTIONS n
     ''; }
   ];
 }
