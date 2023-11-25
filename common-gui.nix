@@ -79,10 +79,10 @@ in {
   systemd.services.pipewire.environment = audio_env;
   services.pipewire = {
     enable = true;
-    package = unstable-nixpkgs.pipewire;
+    #package = unstable-nixpkgs.pipewire;
     wireplumber = {
       enable = true;
-      package = unstable-nixpkgs.wireplumber;
+      #package = unstable-nixpkgs.wireplumber;
     };
     alsa.enable = true;
     alsa.support32Bit = true;
@@ -96,6 +96,7 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    # TODO, migrate to home-manager, not needed system wide.
     xsel
     alacritty
 
@@ -123,7 +124,8 @@ in {
 
     papirus-icon-theme
     gnome.adwaita-icon-theme
-    materia-theme
+    # Fails to build check in a few weeks
+    #materia-theme
 
     libwacom
     krita
@@ -137,10 +139,9 @@ in {
     })
     yquake2
 
-    # TODO, migrate to home-manager, not needed system wide.
     (nix-gaming.wine-ge) #.override { supportFlags.waylandSupport = false; })
     # nix-gaming.wine-discord-ipc-bridge
-    (heroic.override { heroic-unwrapped = heroic-unwrapped.override { electron = electron_24 ;};})
+    heroic #.override { heroic-unwrapped = heroic-unwrapped.override { electron = electron_24 ;};})
 
     rnnoise-plugin
     lsp-plugins
@@ -154,7 +155,7 @@ in {
   programs.steam.enable = true;
   #programs.gamemode.enable = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji

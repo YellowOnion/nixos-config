@@ -1,7 +1,7 @@
 {
   description = "Woobilicious' NixOS configuration";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     unstable-nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     bcachefs-nixpkgs.url = "github:YellowOnion/nixpkgs/bump-bcachefs";
     factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";

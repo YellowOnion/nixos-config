@@ -31,29 +31,6 @@ in
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
   # networking.interfaces.br0.useDHCP = true;
 
-  boot.kernelPatches = [
-    {
-      name = "ftrace";
-      patch = null;
-      extraConfig = ''
-      FTRACE y
-    ''; }
-    {
-      name = "dp-fix.patch";
-      patch = ./dp-fix.patch;
-    }
-  ];
-  #    name = "vendor-reset-reqs-and-other-stuff";
-  #    KPROBES y
-  #    FUNCTION_TRACER y
-  #    HWLAT_TRACER y
-  #    TIMERLAT_TRACER y
-  #    IRQSOFF_TRACER y
-  #    OSNOISE_TRACER y
-  #    PCI_QUIRKS y
-  #    KALLSYMS y
-  #    KALLSYMS_ALL y
-  #]; # ++ futex.kernelPatches ++ lru.kernelPatches;
 
   boot.kernel.sysctl = {
     "sched_latency_ns" = "1000000";
@@ -64,6 +41,7 @@ in
   #environment.variables = {
   #  __GL_SYNC_DISPLAY_DEVICE = "DisplayPort-0";
   #};
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ] ;
