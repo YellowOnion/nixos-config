@@ -13,14 +13,10 @@ in
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./purple-hw.nix
       ./common.nix
       ./common-gui.nix
       ./zen.nix
-      ./bcachefs.nix
     ];
-
-  networking.hostName = "Purple-Sunrise"; # Define your hostname.
 
   boot.tmp = {
     useTmpfs = true;

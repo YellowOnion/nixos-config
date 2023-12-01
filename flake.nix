@@ -21,7 +21,11 @@
     let
       systems = [
         { name = "Purple-Sunrise";
-          modules = [ ./purple.nix ];
+          modules = [ ./purple.nix ./bcachefs.nix ./purple-hw.nix ];
+          system = "x86_64-linux";
+        }
+        { name = "Purple-Sunrise2";
+          modules = [ ./purple.nix ./purple2-hw.nix ];
           system = "x86_64-linux";
         }
         { name = "Selene";
@@ -38,7 +42,7 @@
           system = "x86_64-linux";
         }
       ];
-      mkConfig = system: modules:
+      mkConfig = name: system: modules:
         let
           pkgs = import nixpkgs {
             inherit system;
@@ -72,6 +76,6 @@
           };
       in
         {
-          nixosConfigurations = nixpkgs.lib.foldr (a: b: b // { ${a.name} = mkConfig a.system a.modules; } ) {} systems;
+          nixosConfigurations = nixpkgs.lib.foldr (a: b: b // { ${a.name} = mkConfig a.name a.system a.modules; } ) {} systems;
         };
 }
