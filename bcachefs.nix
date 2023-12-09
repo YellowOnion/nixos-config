@@ -9,19 +9,22 @@ let
   customKernelPackages = (pkgs.linuxKernel.packagesFor
     (let kernel = pkgs.linuxKernel.kernels.linux_testing;
          info = lib.importJSON ./bcachefs.json;
-         version = "6.7.0-rc2";
+         version = "6.7.0-rc4";
+         versionSuffix = "-bcachefs-unstable-${shorthash info.rev}";
      in kernel.override {
     argsOverride = {
       src = pkgs.fetchFromGitHub info;
-      version = "${version}-bcachefs-unstable-${shorthash info.rev}";
-      modDirVersion = version;
+      version = version + versionSuffix;
+      modDirVersion = version + versionSuffix;
       structuredExtraConfig = with lib.kernel; {
-        BCACHEFS_FS = option yes;
+        LOCALVERSION = freeform versionSuffix;
+        BCACHEFS_FS = option module;
         BCACHEFS_QUOTA = option yes;
         BCACHEFS_POSIX_ACL = option yes;
         # useful for bug reports
         FTRACE = option yes;
-        BCACHEFS_DEBUG_TRANSACTIONS = option no;
+        BCACHEFS_DEBUG_TRANSACTIONS = option yes;
+        BCACHEFS_LOCK_TIME_STATS = yes;
       };
     };
   }));
@@ -53,6 +56,10 @@ in
               "bindgen-0.64.0" = "sha256-GNG8as33HLRYJGYe0nw6qBzq86aHiGonyynEM7gaEE4=";
             };
           };
+          makeFlags = attrs.makeFlags ++ [
+          "PKGCONFIG_UDEVRULESDIR=${placeholder "out"}/etc/udev/rules.d"
+          "PKGCONFIG_SERVICEDIR=${placeholder "out"}/share/systemd-disabled/"
+          ];
       });
       # util-linuxMinimalBcachefs = overrideAllInputs final bcachefs-nixpkgs.util-linuxMinimal;
       # systemdBcachefs = super.systemd.override { util-linux = super.util-linuxMinimalBcachefs; };

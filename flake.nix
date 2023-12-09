@@ -68,6 +68,7 @@
             };
             modules = modules ++ [
                         ({...}: {
+                          networking.hostName = name;
                           nix.registry.nixpkgs.flake = inputs.nixpkgs;
                           nix.registry.nix-gaming.flake = inputs.nix-gaming;
                           nix.registry.self.flake = self;
