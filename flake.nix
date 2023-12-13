@@ -16,33 +16,39 @@
         url = "gitlab:famedly/conduit";
         # inputs.nixpkgs.follows = "nixpkgs";
     };
+    typed-systems = {
+      url = "github:YellowOnion/nix-typed-systems";
+      flake = false;
+    };
   };
-  outputs = {self, nixpkgs, auth-server, sway-nix, nix-gaming, ... }@inputs:
+  outputs = {self, nixpkgs, auth-server, sway-nix, nix-gaming, typed-systems, ... }@inputs:
     let
+      inherit (import typed-systems) genAttrsMapBy systems' id;
+
       systems = [
         { name = "Purple-Sunrise";
           modules = [ ./purple.nix ./bcachefs.nix ./purple-hw.nix ];
-          system = "x86_64-linux";
+          system = systems'.x86_64-linux;
         }
         { name = "Purple-Sunrise2";
           modules = [ ./purple.nix ./purple2-hw.nix ];
-          system = "x86_64-linux";
+          system = systems'.x86_64-linux;
         }
         { name = "Selene";
           modules = [ ./selene.nix ];
-          system = "x86_64-linux";
+          system = systems'.x86_64-linux;
         }
         { name = "Kawasaki-Lemon";
           modules = [ ./laptop2.nix ];
-          system = "x86_64-linux";
+          system = systems'.x86_64-linux;
         }
         {
           name = "NixOS-installer";
           modules = [ ./iso.nix ];
-          system = "x86_64-linux";
+          system = systems'.x86_64-linux;
         }
       ];
-      mkConfig = name: system: modules:
+      mkConfig = { name, system, modules }:
         let
           pkgs = import nixpkgs {
             inherit system;
@@ -77,6 +83,6 @@
           };
       in
         {
-          nixosConfigurations = nixpkgs.lib.foldr (a: b: b // { ${a.name} = mkConfig a.name a.system a.modules; } ) {} systems;
+          nixosConfigurations = genAttrsMapBy (a: a.name) mkConfig systems id;
         };
 }

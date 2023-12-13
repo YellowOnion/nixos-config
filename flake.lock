@@ -314,6 +314,7 @@
         "nixpkgs": "nixpkgs_3",
         "ryzen_smu-nixpkgs": "ryzen_smu-nixpkgs",
         "sway-nix": "sway-nix",
+        "typed-systems": "typed-systems",
         "unstable-nixpkgs": "unstable-nixpkgs"
       }
     },
@@ -443,6 +444,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "typed-systems": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1701901890,
+        "narHash": "sha256-lCwEwvpGFICqSmGYDXyVOYsmVwm2wQ49LPRW1lweHsw=",
+        "owner": "YellowOnion",
+        "repo": "nix-typed-systems",
+        "rev": "fd51341655c082211c1292670ed9043cd580d716",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YellowOnion",
+        "repo": "nix-typed-systems",
         "type": "github"
       }
     },
