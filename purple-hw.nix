@@ -32,6 +32,12 @@
       options = [ "noatime" ];
     };
 
+  fileSystems."/home/daniel/.local/share/Steam/steamapps/common/.inodes32_mnt" =
+    { device = "/home/daniel/.local/share/Steam/steamapps/common/.inodes32_xfs";
+      fsType = "xfs";
+      options = [ "inode32,noatime" ];
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/65946d23-8ff5-4505-98bd-e9a039304d2c"; }
     ];
