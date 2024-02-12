@@ -1,11 +1,9 @@
 {
   description = "Woobilicious' NixOS configuration";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    unstable-nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    bcachefs-nixpkgs.url = "github:YellowOnion/nixpkgs/bump-bcachefs";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
-    ryzen_smu-nixpkgs.url = "github:YellowOnion/nixpkgs/ryzen-smu";
     sway-nix.url = "github:YellowOnion/sway-nix/";
     nix-gaming.url = "github:fufexan/nix-gaming/";
     factorio-mods = { url = "github:YellowOnion/factorio-mods";
@@ -21,7 +19,7 @@
       flake = false;
     };
   };
-  outputs = {self, nixpkgs, auth-server, sway-nix, nix-gaming, typed-systems, ... }@inputs:
+  outputs = {self, nixpkgs-stable, nixpkgs-unstable, auth-server, sway-nix, nix-gaming, typed-systems, ... }@inputs:
     let
       inherit (import typed-systems) genAttrsMapBy systems' id;
 
@@ -37,6 +35,7 @@
         { name = "Selene";
           modules = [ ./selene.nix ];
           system = systems'.x86_64-linux;
+          nixpkgs = nixpkgs-stable;
         }
         { name = "Kawasaki-Lemon";
           modules = [ ./laptop2.nix ];
@@ -48,7 +47,7 @@
           system = systems'.x86_64-linux;
         }
       ];
-      mkConfig = { name, system, modules }:
+      mkConfig = { nixpkgs ? nixpkgs-unstable, name, system, modules }:
         let
           pkgs = import nixpkgs {
             inherit system;
@@ -56,9 +55,6 @@
             overlays = [ sway-nix.overlays.default ];
           };
           nix-gaming        = inputs.nix-gaming.packages.${system};
-          unstable-nixpkgs  = inputs.unstable-nixpkgs.legacyPackages.${system};
-          bcachefs-nixpkgs  = inputs.bcachefs-nixpkgs.legacyPackages.${system};
-          ryzen_smu-nixpkgs = inputs.ryzen_smu-nixpkgs.legacyPackages.${system};
           factorio-nixpkgs  = (import inputs.factorio-nixpkgs {
             inherit system;
             config.allowUnfree = true;
@@ -67,7 +63,7 @@
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit nix-gaming factorio-nixpkgs bcachefs-nixpkgs ryzen_smu-nixpkgs unstable-nixpkgs;
+              inherit nix-gaming factorio-nixpkgs nixpkgs nixpkgs-unstable;
               inherit (inputs) factorio-mods;
               auth-server = pkgs.haskellPackages.callPackage auth-server {};
               conduit = inputs.conduit.packages.${system};
@@ -75,7 +71,7 @@
             modules = modules ++ [
                         ({...}: {
                           networking.hostName = name;
-                          nix.registry.nixpkgs.flake = inputs.nixpkgs;
+                          nix.registry.nixpkgs.flake = nixpkgs;
                           nix.registry.nix-gaming.flake = inputs.nix-gaming;
                           nix.registry.self.flake = self;
                           nixpkgs.overlays = [ sway-nix.overlays.default ];

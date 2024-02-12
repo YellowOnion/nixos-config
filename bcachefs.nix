@@ -9,7 +9,7 @@ let
   customKernelPackages = (pkgs.linuxKernel.packagesFor
     (let kernel = pkgs.linuxKernel.kernels.linux_testing;
          info = lib.importJSON ./bcachefs.json;
-         version = "6.7.0-rc4";
+         version = "6.8.0-rc1";
          versionSuffix = "-bcachefs-unstable-${shorthash info.rev}";
      in kernel.override {
     argsOverride = {
@@ -50,13 +50,12 @@ in
         in rec {
           version = "git-${shorthash info.rev}";
           src = final.fetchFromGitHub info;
+          cargoRoot = ".";
           cargoDeps = final.rustPlatform.importCargoLock {
-            lockFile = "${src}/rust-src/Cargo.lock";
-            outputHashes = {
-              "bindgen-0.64.0" = "sha256-GNG8as33HLRYJGYe0nw6qBzq86aHiGonyynEM7gaEE4=";
-            };
+            lockFile = "${src}/Cargo.lock";
           };
-          makeFlags = attrs.makeFlags ++ [
+          makeFlags = builtins.filter (s: !lib.strings.hasPrefix "BCACHEFS_FUSE=" s) attrs.makeFlags
+                      ++ [
           "PKGCONFIG_UDEVRULESDIR=${placeholder "out"}/etc/udev/rules.d"
           "PKGCONFIG_SERVICEDIR=${placeholder "out"}/share/systemd-disabled/"
           ];

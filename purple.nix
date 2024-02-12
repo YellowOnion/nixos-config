@@ -6,9 +6,6 @@
 
 let
   secrets = import ./secrets;
-  ryzen_smu = args.ryzen_smu-nixpkgs.linuxPackages.ryzen_smu.override {
-    kernel = config.boot.kernelPackages.kernel;
-  };
 in
 {
   imports =
@@ -23,7 +20,7 @@ in
     tmpfsSize = "50%";
   };
 
-  boot.extraModulePackages = [ ryzen_smu ];
+  boot.extraModulePackages = [ ];
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
   # networking.interfaces.br0.useDHCP = true;
 

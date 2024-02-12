@@ -7,9 +7,9 @@ let
     LV2_PATH    = "/run/current-system/sw/lib/lv2";
   };
 in {
-  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-  boot.kernelModules = [ "v4l2loopback" ];
-
+  #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  #boot.kernelModules = [ "v4l2loopback" ];
+  boot.supportedFilesystems = [ "ntfs" ];
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -65,8 +65,8 @@ in {
   services.xserver.wacom.enable = true;
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
-  services.xserver.xkbVariant = "dvorak";
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.variant = "dvorak";
 
   services.xserver.libinput.mouse.middleEmulation = false;
 
@@ -79,10 +79,8 @@ in {
   systemd.services.pipewire.environment = audio_env;
   services.pipewire = {
     enable = true;
-    #package = unstable-nixpkgs.pipewire;
     wireplumber = {
       enable = true;
-      #package = unstable-nixpkgs.wireplumber;
     };
     alsa.enable = true;
     alsa.support32Bit = true;
