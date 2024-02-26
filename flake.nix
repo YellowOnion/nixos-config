@@ -75,6 +75,7 @@
                           nix.registry.nix-gaming.flake = inputs.nix-gaming;
                           nix.registry.self.flake = self;
                           nixpkgs.overlays = [ sway-nix.overlays.default ];
+                          nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ];
                         }) ];
           };
       in
