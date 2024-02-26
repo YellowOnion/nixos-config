@@ -36,6 +36,7 @@ in
   ];
 
   boot.kernelPackages = lib.mkOverride 0 (customKernelPackages);
+  boot.kernelParams = [ "boot.shell_on_fail" ];
 
   # We need custom util-linux inside systemd to boot from UUID.
 
