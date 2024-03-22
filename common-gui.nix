@@ -71,6 +71,7 @@ in {
   services.xserver.libinput.mouse.middleEmulation = false;
 
   hardware.bluetooth.enable = true;
+  hardware.onlykey.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -110,6 +111,9 @@ in {
     ripgrep
     fd
     nixfmt
+
+    onlykey
+    onlykey-cli
 
     mpd
     cantata
@@ -160,8 +164,8 @@ in {
     fira-code
     corefonts
     vistafonts
-    (nerdfonts.override { fonts = [ "Monoid" "FiraCode" "CascadiaCode" ]; })
-    google-fonts
+    (nerdfonts.override { fonts = [ "Monoid" "FiraCode" "CascadiaCode" "NerdFontsSymbolsOnly" ]; })
+    (google-fonts.override { fonts = [ "Kode Mono" "EB Garamond" "Titillium Web" "Cutive Mono" "Orbit" "Varela Round" "Zilla Slab" ]; })
   ];
 
   environment.variables = { OBS_USE_EGL = "1"; };
