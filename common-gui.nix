@@ -5,6 +5,7 @@ let
   audio_env = {
     LADSPA_PATH = "/run/current-system/sw/lib/ladspa";
   };
+  libshoutSsl = pkgs.libshout.overrideAttrs (a : { propagatedBuildInputs = a.propagatedBuildInputs ++ [pkgs.openssl ]; });
 in {
   #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   #boot.kernelModules = [ "v4l2loopback" ];
@@ -117,7 +118,7 @@ in {
     onlykey
     onlykey-cli
 
-    mpd
+    (mpd.override {libshout = libshoutSsl;})
     cantata
     pavucontrol
     vlc
