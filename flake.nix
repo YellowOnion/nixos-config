@@ -12,7 +12,7 @@
                     flake = false; };
     conduit = {
         url = "gitlab:famedly/conduit";
-        # inputs.nixpkgs.follows = "nixpkgs";
+        inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     typed-systems = {
       url = "github:YellowOnion/nix-typed-systems";
@@ -25,7 +25,7 @@
 
       systems = [
         { name = "Purple-Sunrise";
-          modules = [ ./purple.nix ./bcachefs.nix ./purple-hw.nix ];
+          modules = [ ./purple.nix  ./purple-hw.nix ];
           system = systems'.x86_64-linux;
         }
         { name = "Purple-Sunrise2";
@@ -52,7 +52,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
-            overlays = [ sway-nix.overlays.default ];
+            # overlays = [ sway-nix.overlays.default ];
           };
           nix-gaming        = inputs.nix-gaming.packages.${system};
           factorio-nixpkgs  = (import inputs.factorio-nixpkgs {
@@ -74,7 +74,7 @@
                           nix.registry.nixpkgs.flake = nixpkgs;
                           nix.registry.nix-gaming.flake = inputs.nix-gaming;
                           nix.registry.self.flake = self;
-                          nixpkgs.overlays = [ sway-nix.overlays.default ];
+                          #nixpkgs.overlays = [ sway-nix.overlays.default ];
                           nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ];
                         }) ];
           };

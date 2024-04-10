@@ -4,7 +4,6 @@ let
   secrets = import ./secrets;
   audio_env = {
     LADSPA_PATH = "/run/current-system/sw/lib/ladspa";
-    LV2_PATH    = "/run/current-system/sw/lib/lv2";
   };
 in {
   #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
@@ -87,6 +86,9 @@ in {
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    extraLv2Packages = with pkgs; [
+      lsp-plugins
+    ];
   };
 
   # help pulse audio use realtime scheduling
