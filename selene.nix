@@ -4,6 +4,7 @@
 
 { config, pkgs, lib, factorio-nixpkgs, factorio-mods, auth-server, conduit, ... }:
 let
+  icecastSSLPort = 8443;
   secrets = import ./secrets;
   fmods =
     let mods = (import "${factorio-mods}/mods.nix") ({
@@ -74,6 +75,7 @@ in
   boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
 
   networking.hostName = "Selene"; # Define your hostname.
+  networking.domain = secrets.domain;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -108,24 +110,25 @@ in
     mods-dat = ./mod-settings.dat ;
     requireUserVerification = false ;
   };
-  services.matrix-conduit = {
-    enable = true;
-    package = conduit.default;
-    settings.global = {
-      server_name = "matrix.${secrets.domain}";
-      allow_registration = false;
-    };
-  };
 
-  services.heisenbridge = {
-    enable = true;
-    owner = secrets.matrix;
-    homeserver = "http://[::1]:${toString config.services.matrix-conduit.settings.global.port}/";
-  };
+#  services.matrix-conduit = {
+#    enable = true;
+#    package = conduit.default;
+#    settings.global = {
+#      server_name = "matrix.${config.networking.domain}";
+#      allow_registration = false;
+#    };
+#  };
+#
+#  services.heisenbridge = {
+#    enable = true;
+#    owner = secrets.matrix;
+#    homeserver = "http://[::1]:${toString config.services.matrix-conduit.settings.global.port}/";
+#  };
 
   services.stunnel =
     let
-      CAdir = config.security.acme.certs."${secrets.domain}".directory;
+      CAdir = config.security.acme.certs."${config.networking.domain}".directory;
     in
     {
     enable = true;
@@ -147,6 +150,29 @@ in
     rtmp-port = 1937;
   };
 
+  services.icecast = let CADir = config.security.acme.certs."ice.${config.networking.domain}".directory; in
+    {
+    enable = true;
+    listen.port = 64419;
+    group = "nginx";
+    hostname = "ice.${config.networking.domain}";
+    admin = {
+      password = secrets.icecast.password;
+    };
+    extraConf = ''
+      <authentication>
+        <source-password>${secrets.icecast.source-password}</source-password>
+      </authentication>
+      <listen-socket>
+        <port>${toString icecastSSLPort}</port>
+        <ssl>1</ssl>
+      </listen-socket>
+      <paths>
+        <ssl-certificate>${CADir}/full.pem</ssl-certificate>
+      </paths>
+    '';
+  };
+
   security.acme = {
     acceptTerms = true;
     defaults.email = secrets.email;
@@ -161,15 +187,15 @@ in
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedTlsSettings = true;
-    virtualHosts = {
-      "${secrets.domain}" = {
+    
+      virtualHosts."${config.networking.domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
           root = "/var/www/";
         };
       };
-      "owncast.${secrets.domain}" = {
+      virtualHosts."owncast.${config.networking.domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -186,7 +212,7 @@ in
             '';
         };
     };
-      "matrix.${secrets.domain}" = {
+      virtualHosts."matrix.${config.networking.domain}" = {
         forceSSL = true;
         enableACME = true;
         listen = [
@@ -224,7 +250,7 @@ in
             '';
         };
     };
-      "dead-suns.${secrets.domain}" = {
+      virtualHosts."dead-suns.${config.networking.domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -241,7 +267,7 @@ in
             '';
         };
       };
-      "factorio.${secrets.domain}" = {
+      virtualHosts."factorio.${config.networking.domain}" = {
         forceSSL = true;
         enableACME = true;
         root = lib.strings.storeDir;
@@ -256,7 +282,15 @@ in
             "/" = { tryFiles = "${zipFile} =404"; };
         };
       };
-    };
+      virtualHosts."ice.${config.networking.domain}" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          return = "302 https://ice.${config.networking.domain}:${toString icecastSSLPort}$request_uri";
+          priority = 1150;
+        };
+      };
+    
   };
 
   systemd.services.auth-server = {
