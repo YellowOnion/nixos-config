@@ -9,7 +9,7 @@ let
   customKernelPackages = (pkgs.linuxKernel.packagesFor
     (let kernel = pkgs.linuxKernel.kernels.linux_testing;
          info = lib.importJSON ./bcachefs.json;
-         version = "6.8.0-rc1";
+         version = "6.9.0-rc2";
          versionSuffix = "-bcachefs-unstable-${shorthash info.rev}";
      in kernel.override {
     argsOverride = {
@@ -18,7 +18,7 @@ let
       modDirVersion = version + versionSuffix;
       structuredExtraConfig = with lib.kernel; {
         LOCALVERSION = freeform versionSuffix;
-        BCACHEFS_FS = option module;
+        BCACHEFS_FS = module;
         BCACHEFS_QUOTA = option yes;
         BCACHEFS_POSIX_ACL = option yes;
         # useful for bug reports

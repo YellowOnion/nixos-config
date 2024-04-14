@@ -25,7 +25,7 @@
 
       systems = [
         { name = "Purple-Sunrise";
-          modules = [ ./purple.nix  ./purple-hw.nix ];
+          modules = [ ./purple.nix  ./purple-hw.nix ./bcachefs.nix ];
           system = systems'.x86_64-linux;
         }
         { name = "Purple-Sunrise2";

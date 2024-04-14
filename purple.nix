@@ -12,7 +12,8 @@ in
     [ # Include the results of the hardware scan.
       ./common.nix
       ./common-gui.nix
-      ./zen.nix
+      # broken in kernel v6.9-rc2
+      # ./zen.nix
     ];
 
   boot.tmp = {
@@ -52,7 +53,8 @@ in
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     rtorrent
-    config.boot.kernelPackages.perf
+      # broken in kernel v6.9-rc2
+      # config.boot.kernelPackages.perf
    ];
 
   # KVM stuff
