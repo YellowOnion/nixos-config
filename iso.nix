@@ -8,6 +8,6 @@
 
   isoImage.edition = lib.mkOverride 40 "bchfs-minimal";
 
-  boot.supportedFilesystems = pkgs.lib.mkForce [ "bcachefs" "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" ];
+  boot.supportedFilesystems = pkgs.lib.mkForce [ "bcachefs" "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" "exfat" ];
   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [ "multi-user.target" ];
 }
