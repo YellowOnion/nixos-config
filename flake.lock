@@ -112,11 +112,11 @@
     "factorio-mods": {
       "flake": false,
       "locked": {
-        "lastModified": 1712672007,
-        "narHash": "sha256-B3hB1R0+kTlvsXA3Nd6b1pA30PP+ZekUhD7KZxJiVWs=",
+        "lastModified": 1714233667,
+        "narHash": "sha256-UMB1RXGcfQWIGTz4zPUlkVCnnx3poPHhPvv4ibZnAYM=",
         "owner": "YellowOnion",
         "repo": "factorio-mods",
-        "rev": "cae42605e4260f5f96875e2c9ea783a284d06579",
+        "rev": "402baca22afa8c70ea478c3d4e6e0d56e796c1d6",
         "type": "github"
       },
       "original": {
@@ -198,11 +198,11 @@
     "flake-compat_3": {
       "flake": false,
       "locked": {
-        "lastModified": 1673956053,
-        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
         "owner": "edolstra",
         "repo": "flake-compat",
-        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
         "type": "github"
       },
       "original": {
@@ -394,22 +394,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1693341273,
-        "narHash": "sha256-wrsPjsIx2767909MPGhSIOmkpGELM9eufqLQOPxmZQg=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2ab91c8d65c00fd22a441c69bbf1bc9b420d5ea1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-23.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "auth-server": "auth-server",
@@ -420,7 +404,7 @@
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sway-nix": "sway-nix",
-        "typed-systems": "typed-systems"
+        "typed-systems": "typed-systems_2"
       }
     },
     "rust-analyzer-src": {
@@ -443,17 +427,19 @@
     "sway-nix": {
       "inputs": {
         "flake-compat": "flake-compat_3",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ],
         "sway-src": "sway-src",
-        "utils": "utils",
+        "typed-systems": "typed-systems",
         "wlroots-src": "wlroots-src"
       },
       "locked": {
-        "lastModified": 1696072378,
-        "narHash": "sha256-c7ztFPtldnorUFlqzmU4efdVg6lTM4KBTbj2fKpuqPQ=",
+        "lastModified": 1714021900,
+        "narHash": "sha256-xd06EqGk6hHolwC/BcJ1djtJg2gz5oTc6NRozYD0O4c=",
         "owner": "YellowOnion",
         "repo": "sway-nix",
-        "rev": "8df5775524d5bc6fe8e875c969014b00ff83a2b6",
+        "rev": "266db66adf213a43e8c9dd8c13f591e05e3429f5",
         "type": "github"
       },
       "original": {
@@ -465,11 +451,11 @@
     "sway-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1693365083,
-        "narHash": "sha256-ZcSBieBYogZUEoLFFjeQkb63Dn48cRj0DMbjweaT+w4=",
+        "lastModified": 1714021677,
+        "narHash": "sha256-uBPtDDJg0vK58eTe2JR9/td2I1WHf59NvHKBkXwvg7U=",
         "owner": "YellowOnion",
         "repo": "sway",
-        "rev": "8fad3962290c15c4a6c997e33a352c7bdf2de4a6",
+        "rev": "7c95cb88328be7f3dfdbdf9eb63a11a40f3a2aae",
         "type": "github"
       },
       "original": {
@@ -480,21 +466,6 @@
       }
     },
     "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
-    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -525,32 +496,30 @@
         "type": "github"
       }
     },
-    "utils": {
-      "inputs": {
-        "systems": "systems_2"
-      },
+    "typed-systems_2": {
+      "flake": false,
       "locked": {
-        "lastModified": 1692799911,
-        "narHash": "sha256-3eihraek4qL744EvQXsK1Ha6C3CR7nnT8X2qWap4RNk=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "f9e7cf818399d17d347f847525c5a5a8032e4e44",
+        "lastModified": 1701901890,
+        "narHash": "sha256-lCwEwvpGFICqSmGYDXyVOYsmVwm2wQ49LPRW1lweHsw=",
+        "owner": "YellowOnion",
+        "repo": "nix-typed-systems",
+        "rev": "fd51341655c082211c1292670ed9043cd580d716",
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
+        "owner": "YellowOnion",
+        "repo": "nix-typed-systems",
         "type": "github"
       }
     },
     "wlroots-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1696072111,
-        "narHash": "sha256-8slcgdDQLjLuZOdXidmwN+8moEekWAHGqMlrVtQaM+o=",
+        "lastModified": 1713952813,
+        "narHash": "sha256-C7cJNM8B/q6Xvqzb4+q94cbC96yeIbRAKdmf2UOjET0=",
         "owner": "YellowOnion",
         "repo": "wlroots",
-        "rev": "a90d4b3167ef8eb45a2131b35d66af3a3a031c29",
+        "rev": "a601eafb7a82f2b939899f71fb2a654428a782cf",
         "type": "github"
       },
       "original": {

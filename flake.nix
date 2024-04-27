@@ -4,7 +4,10 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
-    sway-nix.url = "github:YellowOnion/sway-nix/";
+    sway-nix = {
+      url = "github:YellowOnion/sway-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     nix-gaming.url = "github:fufexan/nix-gaming/";
     factorio-mods = { url = "github:YellowOnion/factorio-mods";
                       flake = false; };
@@ -49,10 +52,11 @@
       ];
       mkConfig = { nixpkgs ? nixpkgs-unstable, name, system, modules }:
         let
+          factorioOverlay = self: super: { factorio = super.factorio.override ({ versionsJson = "${inputs.factorio-mods}/versions.json" ;}); };
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
-            # overlays = [ sway-nix.overlays.default ];
+            overlays = [ factorioOverlay sway-nix.overlays.default ];
           };
           nix-gaming        = inputs.nix-gaming.packages.${system};
           factorio-nixpkgs  = (import inputs.factorio-nixpkgs {
@@ -74,7 +78,8 @@
                           nix.registry.nixpkgs.flake = nixpkgs;
                           nix.registry.nix-gaming.flake = inputs.nix-gaming;
                           nix.registry.self.flake = self;
-                          #nixpkgs.overlays = [ sway-nix.overlays.default ];
+                          nixpkgs.overlays = [ factorioOverlay sway-nix.overlays.default ];
+                          nixpkgs.config.allowUnfree = true;
                           nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ];
                         }) ];
           };
