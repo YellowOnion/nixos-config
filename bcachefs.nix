@@ -9,7 +9,7 @@ let
   customKernelPackages = (pkgs.linuxKernel.packagesFor
     (let kernel = pkgs.linuxKernel.kernels.linux_testing;
          info = lib.importJSON ./bcachefs.json;
-         version = "6.9.0-rc2";
+         version = "6.10.0-rc4";
          versionSuffix = "-bcachefs-unstable-${shorthash info.rev}";
      in kernel.override {
     argsOverride = {
@@ -49,6 +49,7 @@ in
       bcachefs-tools = final.bcachefs-tools.overrideAttrs (attrs:
         let info = lib.importJSON ./bcachefs-tools.json;
         in rec {
+          patches = [];
           version = "git-${shorthash info.rev}";
           src = final.fetchFromGitHub info;
           cargoRoot = ".";

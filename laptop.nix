@@ -43,7 +43,7 @@ in
     hplip ] ;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # services.tlp.enable = true;
   hardware.fancontrol = {
