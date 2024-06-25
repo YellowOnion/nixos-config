@@ -6,53 +6,7 @@
 let
   icecastSSLPort = 8443;
   secrets = import ./secrets;
-  fmods =
-    let mods = (import "${factorio-mods}/mods.nix") ({
-          inherit (factorio-nixpkgs.factorio-utils) filterMissing;
-          inherit (lib) fix;
-          factorioMod = (factorio-nixpkgs.factorio-utils.factorioMod "/fpd.json");
-        });
-    in builtins.attrValues
-      { inherit (mods)
-          "AfraidOfTheDark"
-          "ArmouredBiters"
-          "BetterAlertArrows"
-          "BottleneckLite"
-          "calculator-ui"
-          "ColorCodedPlanners"
-          "compaktcircuit"
-          "CursorEnhancements"
-          "Dectorio"
-          "DiscoScience"
-          "DisplayPlates"
-          "equipment-gantry"
-          "even-distribution"
-          "fcpu"
-          "grappling-gun"
-          "GUI_Unifyer"
-          "helmod"
-          "informatron"
-          "jetpack"
-          "ModuleInserter"
-          "PipeVisualizer"
-          "PlacementGuide"
-          "pushbutton"
-          "QuickbarTemplates"
-          "QuickItemSearch"
-          "RateCalculator"
-          "RecipeBook"
-          "SantasNixieTubeDisplay"
-          "sonaxaton-research-queue"
-          "StatsGui"
-          "Tapeline"
-          "TaskList"
-          "textplates"
-          "TintedGhosts"
-          "VehicleSnap"
-          "visual_tracers"
-          "YARM"
-      ;};
-  # dstd = pkgs.callPackage ../../home/daniel/dev/nix-dstd/default.nix {};
+
 in
 {
   disabledModules = [ "services/games/factorio.nix" ];
@@ -61,7 +15,7 @@ in
       ./selene-hw.nix
       ./common.nix
       ./common-server.nix
-      "${factorio-nixpkgs.path}/nixos/modules/services/games/factorio.nix"
+      factorio-mods.nixosModules.default
     ];
 
   # Use the GRUB 2 boot loader.
@@ -88,10 +42,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    (self: super: {
-      factorio-headless = super.factorio-headless.override ({ versionsJson = "${factorio-mods}/versions.json" ;});
-      factorio-utils    = factorio-nixpkgs.factorio-utils;
-    })
+    factorio-mods.overlays.default
   ];
 
   users.users.andrew = {
@@ -106,7 +57,56 @@ in
     game-name = "Gluo NZ: Vanila+" ;
     admins = [ "woobilicious" ];
     lan = true;
-    mods = fmods;
+    mods = builtins.attrValues {
+      inherit (factorio-mods.packages.${pkgs.system})
+          # QOL
+          "GUI_Unifyer"
+          "BottleneckLite"
+          "BetterAlertArrows"
+          "calculator-ui"
+          "ColorCodedPlanners"
+          "CursorEnhancements"
+          "even-distribution"
+          "informatron"
+          "ModuleInserter"
+          "PipeVisualizer"
+          "PlacementGuide"
+          "QuickbarTemplates"
+          "QuickItemSearch"
+          "RateCalculator"
+          "RecipeBook"
+          "StatsGui"
+          "Tapeline"
+          "TaskList"
+          "UltimateResearchQueue"
+          "TintedGhosts"
+          "VehicleSnap"
+          "YARM"
+          "pushbutton"
+          "SantasNixieTubeDisplay"
+          "Milestones"
+
+          # gameplay addons
+          "ArmouredBiters"
+          "compaktcircuit"
+          "equipment-gantry"
+          "grappling-gun"
+          "jetpack"
+          "bobwarfare"
+          "LogisticTrainNetwork"
+          "rso-mod"
+
+          # costemics / flare
+          "CleanedConcrete"
+          "textplates"
+          "DiscoScience"
+          "DisplayPlates"
+          "visual_tracers"
+          "light-overhaul"
+          "alien-biomes"
+          "alien-biomes-hr-terrain"
+      ;
+    };
     mods-dat = ./mod-settings.dat ;
     requireUserVerification = false ;
   };

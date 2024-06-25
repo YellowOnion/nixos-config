@@ -9,8 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nix-gaming.url = "github:fufexan/nix-gaming/";
-    factorio-mods = { url = "github:YellowOnion/factorio-mods";
-                      flake = false; };
+    factorio-mods = { url = "github:YellowOnion/factorio-mods-nix"; };
     auth-server = { url = "github:YellowOnion/auth-server";
                     flake = false; };
     conduit = {
