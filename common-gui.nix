@@ -35,7 +35,6 @@ in {
       schema = pkgs.gsettings-desktop-schemas;
       gschema = "org.gnome.desktop.interface";
     in ''
-      export SDL_VIDEODRIVER=x11
       export QT_QPA_PLATFORM=wayland
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       export _JAVA_AWT_WM_NONREPARENTING=1
@@ -158,6 +157,7 @@ in {
     '')
   ];
   programs.steam.enable = true;
+  programs.gamescope.enable = true;
   #programs.gamemode.enable = true;
 
   fonts.packages = with pkgs; [
