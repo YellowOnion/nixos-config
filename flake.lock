@@ -116,11 +116,11 @@
         "typed-systems": "typed-systems"
       },
       "locked": {
-        "lastModified": 1717171381,
-        "narHash": "sha256-VrzAwUfaJEWTiB0CvCHgkNcKfhgkLq5I7r/E1Fhv0gk=",
+        "lastModified": 1719244876,
+        "narHash": "sha256-6j7Q0KZDjuLbppIAmJeqZdu78ErA1f+Ec4QAibU0smQ=",
         "owner": "YellowOnion",
         "repo": "factorio-mods-nix",
-        "rev": "8360306b4a95c6a0422cd80d66cdce6a693df154",
+        "rev": "657eac1407e5e3be3473a06ea98e889405db64a8",
         "type": "github"
       },
       "original": {
@@ -360,11 +360,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1718835956,
-        "narHash": "sha256-wM9v2yIxClRYsGHut5vHICZTK7xdrUGfrLkXvSuv6s4=",
+        "lastModified": 1719145550,
+        "narHash": "sha256-K0i/coxxTEl30tgt4oALaylQfxqbotTSNb1/+g+mKMQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "dd457de7e08c6d06789b1f5b88fc9327f4d96309",
+        "rev": "e4509b3a560c87a8d4cb6f9992b8915abf9e36d8",
         "type": "github"
       },
       "original": {

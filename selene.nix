@@ -54,7 +54,7 @@ in
 
   services.factorio = secrets.factorio // {
     enable = true;
-    game-name = "Gluo NZ: Vanila+" ;
+    game-name = "Gluo NZ: Vanilla+" ;
     admins = [ "woobilicious" ];
     lan = true;
     mods = builtins.attrValues {
@@ -85,6 +85,7 @@ in
           "pushbutton"
           "SantasNixieTubeDisplay"
           "Milestones"
+          "helmod"
 
           # gameplay addons
           "ArmouredBiters"

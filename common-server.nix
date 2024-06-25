@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  security.pam.enableSSHAgentAuth = true;
+  security.pam.sshAgentAuth.enable = true;
 
   environment.systemPackages = with pkgs; [
     steamcmd
