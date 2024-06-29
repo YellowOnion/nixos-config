@@ -136,11 +136,6 @@ in {
     xournalpp
     inkscape
 
-    obs-studio-plugins.obs-vkcapture
-    mangohud
-    (wrapOBS {
-      plugins = [ obs-studio-plugins.obs-vkcapture obs-studio-plugins.wlrobs ];
-    })
     yquake2
 
     (nix-gaming.wine-ge) #.override { supportFlags.waylandSupport = false; })
