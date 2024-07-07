@@ -67,7 +67,7 @@ in {
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.variant = "dvorak";
 
-  services.xserver.libinput.mouse.middleEmulation = false;
+  services.libinput.mouse.middleEmulation = false;
 
   hardware.bluetooth.enable = true;
   hardware.onlykey.enable = true;
