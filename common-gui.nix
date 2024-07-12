@@ -68,6 +68,18 @@ in {
   services.xserver.xkb.variant = "dvorak";
 
   services.libinput.mouse.middleEmulation = false;
+  services.ratbagd = {
+    enable = true;
+    package = let
+      v = {  owner = "libratbag";
+             repo = "libratbag";
+             rev  = "1c9662043f4a11af26537e394bbd90e38994066a";
+             hash = "sha256-IpN97PPn9p1y+cAh9qJAi5f4zzOlm6bjCxRrUTSXNqM=";};
+    in pkgs.libratbag.overrideAttrs (a: {
+      version = "unstable-git-${builtins.substring 0 7 (v.rev)}";
+      src = pkgs.fetchFromGitHub v;
+    });
+  };
 
   hardware.bluetooth.enable = true;
   hardware.onlykey.enable = true;
