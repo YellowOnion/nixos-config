@@ -122,6 +122,8 @@ in {
   services.zerotierone.enable = true;
   services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
 
+  services.smartd.enable = true;
+  services.smartd.defaults.autodetected = "-a -o off -s (O/../.././(01|07|13|19)|S/../.././04|L/../../0/05)";
   nix = {
     daemonCPUSchedPolicy = "idle";
     settings = {
