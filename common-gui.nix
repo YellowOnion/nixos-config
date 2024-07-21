@@ -7,8 +7,8 @@ let
   };
   libshoutSsl = pkgs.libshout.overrideAttrs (a : { propagatedBuildInputs = a.propagatedBuildInputs ++ [pkgs.openssl ]; });
 in {
-  #boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-  #boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  boot.kernelModules = [ "v4l2loopback" ];
   boot.supportedFilesystems = [ "ntfs" ];
   programs.sway = {
     enable = true;
@@ -85,7 +85,6 @@ in {
   hardware.onlykey.enable = true;
 
   # Enable sound.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   systemd.user.services.pipewire.environment = audio_env;
   systemd.services.pipewire.environment = audio_env;
