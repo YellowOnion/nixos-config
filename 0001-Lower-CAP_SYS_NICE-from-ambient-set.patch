@@ -1,0 +1,36 @@
+From 6a02065b1c74415ce87c07ad9819ba2dfd0c15b7 Mon Sep 17 00:00:00 2001
+From: Daniel Hill <daniel@gluo.nz>
+Date: Tue, 23 Jul 2024 00:33:31 +1200
+Subject: [PATCH] Lower CAP_SYS_NICE from ambient set
+
+This prevents sway launching apps with CAP_SYS_NICE that is inherited
+from the NixOS security wrapper.
+---
+ sway/main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/sway/main.c b/sway/main.c
+index 85bc2f1c..533a7260 100644
+--- a/sway/main.c
++++ b/sway/main.c
+@@ -26,6 +26,9 @@
+ #include "stringop.h"
+ #include "util.h"
+ 
++#include <linux/capability.h>
++#include <sys/prctl.h>
++
+ static bool terminate_request = false;
+ static int exit_value = 0;
+ static struct rlimit original_nofile_rlimit = {0};
+@@ -255,6 +258,7 @@ static const char usage[] =
+ 	"\n";
+ 
+ int main(int argc, char **argv) {
++	prctl(PR_CAP_AMBIENT, PR_CAP_AMBIENT_LOWER, CAP_SYS_NICE, 0, 0);
+ 	static bool verbose = false, debug = false, validate = false, allow_unsupported_gpu = false;
+ 
+ 	char *config_path = NULL;
+-- 
+2.45.1
+

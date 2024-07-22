@@ -47,6 +47,19 @@ in {
     '';
   };
 
+  security.wrappers.sway = {
+            owner = "root";
+            group = "root";
+            source = "${pkgs.sway}/bin/sway";
+            capabilities = "cap_sys_nice+ep";
+  };
+
+  nixpkgs.overlays = [ (self: super : {
+    sway-unwrapped = super.sway-unwrapped.overrideAttrs (attrs :{
+      patches = attrs.patches ++ [ ./0001-Lower-CAP_SYS_NICE-from-ambient-set.patch ];
+    });
+  })];
+
   xdg = {
     portal = {
       enable = true;
