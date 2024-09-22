@@ -376,11 +376,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1719254875,
-        "narHash": "sha256-ECni+IkwXjusHsm9Sexdtq8weAq/yUyt1TWIemXt3Ko=",
+        "lastModified": 1723637854,
+        "narHash": "sha256-med8+5DSWa2UnOqtdICndjDAEjxr5D7zaIiK4pn0Q7c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2893f56de08021cffd9b6b6dfc70fd9ccd51eb60",
+        "rev": "c3aa7b8938b17aebd2deecf7be0636000d62a2b9",
         "type": "github"
       },
       "original": {
@@ -462,11 +462,11 @@
         "wlroots-src": "wlroots-src"
       },
       "locked": {
-        "lastModified": 1714021900,
-        "narHash": "sha256-xd06EqGk6hHolwC/BcJ1djtJg2gz5oTc6NRozYD0O4c=",
+        "lastModified": 1723728706,
+        "narHash": "sha256-1svt9cyVGOCRN/RNjGQTEaEXAE80Hl4GckxfT0BFYfY=",
         "owner": "YellowOnion",
         "repo": "sway-nix",
-        "rev": "266db66adf213a43e8c9dd8c13f591e05e3429f5",
+        "rev": "cab223cbc940d7a020e8097c6cac96f04e7cf94d",
         "type": "github"
       },
       "original": {
@@ -558,11 +558,11 @@
     "wlroots-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1713952813,
-        "narHash": "sha256-C7cJNM8B/q6Xvqzb4+q94cbC96yeIbRAKdmf2UOjET0=",
+        "lastModified": 1723728562,
+        "narHash": "sha256-Tp13ikHCUITiGEzXrHpXO5tclVEjfHljGQTP6+gNk0Y=",
         "owner": "YellowOnion",
         "repo": "wlroots",
-        "rev": "a601eafb7a82f2b939899f71fb2a654428a782cf",
+        "rev": "1d5107d0dbd072cee06340803b46bb48851d3e25",
         "type": "github"
       },
       "original": {

@@ -118,6 +118,14 @@ in {
   # help pulse audio use realtime scheduling
   security.rtkit.enable = true;
 
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -141,7 +149,7 @@ in {
     onlykey
     onlykey-cli
 
-    (mpd.override {libshout = libshoutSsl;})
+    mpd
     cantata
     pavucontrol
     vlc

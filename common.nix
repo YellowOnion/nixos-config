@@ -21,10 +21,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "zswap.enabled=1" "zswap.compressor=lz4" "zswap.max_pool_percent=15" "zswap.zpool=z3fold" "hid_apple.fnmode=0" ];
-  boot.extraModprobeConfig = ''
-    softdep zswap pre: z3fold lz4
-  '';
-
+  boot.kernelModules = [ "z3fold" "lz4" ];
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
 
@@ -108,19 +105,18 @@ in {
 
   services.openssh.enable = true;
   services.openssh.extraConfig = ''
-    PerSourceMaxStartups 2
-    PerSourceNetBlockSize 24:56
     TrustedUserCAKeys ${secrets.userCA}
   '';
   services.fail2ban = {
-    enable = true;
+    enable = false;
     ignoreIP = [ "127.0.0.0/8" "::1" "home.gluo.nz" ];
     #    jails.DEFAULT = lib.mkAfter ''
     #      bantime = 3mo
     #    '';
   };
-  services.zerotierone.enable = true;
-  services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
+
+  #services.zerotierone.enable = true;
+  #services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
 
   services.smartd.enable = true;
   services.smartd.defaults.autodetected = "-a -o off -s (O/../.././(01|07|13|19)|S/../.././04|L/../../0/05)";

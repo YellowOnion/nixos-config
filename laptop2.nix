@@ -17,6 +17,7 @@ in
 
 
   networking.hostName = "Kawasaki-Lemon"; # Define your hostname.
+  hardware.cpu.amd.updateMicrocode = true;
 
   boot.initrd.luks.devices.root = {
      device = "/dev/disk/by-partuuid/bd81633a-6a8c-4f66-b217-e7d89365d5ac";

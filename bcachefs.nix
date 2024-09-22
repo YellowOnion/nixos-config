@@ -35,7 +35,7 @@ in
    #"${bcachefs-nixpkgs.path}/nixos/modules/tasks/filesystems/bcachefs.nix"
   ];
 
-  boot.kernelPackages = lib.mkOverride 0 (customKernelPackages);
+  boot.kernelPackages = lib.mkOverride 0 (pkgs.linuxPackages_latest);
   boot.kernelParams = [ "boot.shell_on_fail" ];
 
   # We need custom util-linux inside systemd to boot from UUID.

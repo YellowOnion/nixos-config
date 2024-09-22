@@ -13,7 +13,7 @@ in
       ./common.nix
       ./common-gui.nix
       # broken in kernel v6.9-rc2
-      # ./zen.nix
+      ./zen.nix
     ];
 
   boot.tmp = {
@@ -21,11 +21,13 @@ in
     tmpfsSize = "50%";
   };
 
+  hardware.cpu.amd.updateMicrocode = true;
   boot.extraModulePackages = [ ];
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
   # networking.interfaces.br0.useDHCP = true;
 
-
+  programs.corectrl.enable = true;
+  security.polkit.enable = true;
   boot.kernel.sysctl = {
     "sched_latency_ns" = "1000000";
     "sched_min_granularity_ns" = "100000";
@@ -56,6 +58,8 @@ in
       # config.boot.kernelPackages.perf
    ];
 
+  hardware.cpu.amd.ryzen-smu.enable = true;
+  programs.ryzen-monitor-ng.enable = true;
   # KVM stuff
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
   #boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];

@@ -128,22 +128,20 @@ in
 #  };
 
   services.stunnel =
-    let
-      CAdir = config.security.acme.certs."${config.networking.domain}".directory;
-    in
-    {
-    enable = true;
-    user = "nginx";
-    group = "nginx";
-    servers.rtmps-relay = {
-      accept = 1935;
-      connect = 1936;
-      cert = "${CAdir}/full.pem";
-    };
-    clients."yt-live" = {
-      accept = "localhost:19350";
-      connect = "a.rtmp.youtube.com:443";
-    };
+    let CAdir = config.security.acme.certs."${config.networking.domain}".directory;
+    in {
+      enable = true;
+      user = "nginx";
+      group = "nginx";
+      servers.rtmps-relay = {
+        accept = 1935;
+        connect = 1936;
+        cert = "${CAdir}/full.pem";
+      };
+      clients."yt-live" = {
+        accept = "localhost:19350";
+        connect = "a.rtmp.youtube.com:443";
+      };
   };
 
   services.owncast = {
@@ -179,7 +177,16 @@ in
     defaults.email = secrets.email;
   };
 
-  services.nginx = {
+  services.nginx =
+    let proxySetHeaders = ''
+          proxy_set_header Host $host;
+          proxy_set_header X-Forwarded-Host $host;
+          proxy_set_header X-Forwarded-Server $host;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            '';
+    in {
     enable = true;
     additionalModules = builtins.attrValues { inherit (pkgs.nginxModules) rtmp; };
     appendConfig = ''
@@ -203,14 +210,7 @@ in
           proxyPass = "http://127.0.0.1:${toString config.services.owncast.port}/";
             proxyWebsockets = true;
             priority = 1150;
-            extraConfig = ''
-          proxy_set_header Host $host;
-          proxy_set_header X-Forwarded-Host $host;
-          proxy_set_header X-Forwarded-Server $host;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            '';
+            extraConfig = proxySetHeaders;
         };
     };
       virtualHosts."matrix.${config.networking.domain}" = {
@@ -241,14 +241,7 @@ in
           proxyPass = "http://[::1]:${toString config.services.matrix-conduit.settings.global.port}$request_uri";
             proxyWebsockets = true;
             priority = 1150;
-            extraConfig = ''
-          proxy_set_header Host $host;
-          proxy_set_header X-Forwarded-Host $host;
-          proxy_set_header X-Forwarded-Server $host;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            '';
+            extraConfig = proxySetHeaders;
         };
     };
       virtualHosts."dead-suns.${config.networking.domain}" = {
@@ -258,14 +251,7 @@ in
             proxyPass = "http://127.0.0.1:30000/";
             proxyWebsockets = true;
             priority = 1150;
-            extraConfig = ''
-          proxy_set_header Host $host;
-          proxy_set_header X-Forwarded-Host $host;
-          proxy_set_header X-Forwarded-Server $host;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            '';
+            extraConfig = proxySetHeaders;
         };
       };
       virtualHosts."factorio.${config.networking.domain}" = {
