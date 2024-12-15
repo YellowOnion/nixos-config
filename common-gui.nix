@@ -15,7 +15,7 @@ in {
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
       xdg-utils
-      gnome.nautilus
+      nautilus
       evince
       # basic sway stuff
       swaylock
@@ -119,7 +119,7 @@ in {
   security.rtkit.enable = true;
 
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
@@ -159,7 +159,7 @@ in {
     signal-desktop
 
     papirus-icon-theme
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     # Fails to build check in a few weeks
     #materia-theme
 
@@ -189,14 +189,27 @@ in {
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     fira-code
     corefonts
     vistafonts
-    (nerdfonts.override { fonts = [ "Monoid" "FiraCode" "CascadiaCode" "NerdFontsSymbolsOnly" ]; })
-    (google-fonts.override { fonts = [ "Kode Mono" "EB Garamond" "Titillium Web" "Cutive Mono" "Orbit" "Varela Round" "Zilla Slab" ]; })
-  ];
-
-  environment.variables = { OBS_USE_EGL = "1"; };
+    (google-fonts.override {
+      fonts = [ "Kode Mono"
+                "EB Garamond"
+                "Titillium Web"
+                "Cutive Mono"
+                "Orbit"
+                "Varela Round"
+                "Zilla Slab"
+              ];
+    })
+  ] ++ builtins.attrValues {
+    inherit (pkgs.nerd-fonts)
+      monoid
+      fira-code
+      caskaydia-cove
+      symbols-only
+      ;
+  };
 }

@@ -89,21 +89,18 @@ in
   #  };
   #};
 
-  services.samba = {
-    enable = true;
-    securityType = "user";
-    extraConfig = ''
-    
-    '';
-    shares = {
-      oldMedia = {
-        "guest okay" = "yes";
-        path = "/media/old";
-        browseable = "yes";
-        "valid users" = "daniel";
-      };
-    };
-  };
+  #services.samba = {
+  #  enable = true;
+  #  securityType = "user";
+  #  shares = {
+  #    oldMedia = {
+  #      "guest okay" = "yes";
+  #      path = "/media/old";
+  #      browseable = "yes";
+  #      "valid users" = "daniel";
+  #    };
+  #  };
+  #};
 
   #environment.variables = {
   #  VST_PATH    = "/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst";
