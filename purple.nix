@@ -77,18 +77,43 @@ in
 #    softdep amdgpu pre: vfio-pci
   #  options vfio-pci ids=1002:67df,1002:aaf0
   #'';
-  
-  #virtualisation = {
-  #  libvirtd = {
-  #    enable = true;
-  #    qemu.ovmf.enable = true;
+
+  programs.virt-manager.enable = true;
+
+  virtualisation.spiceUSBRedirection.enable = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu.ovmf.enable = true;
   #    onBoot = "ignore";
   #    qemu.verbatimConfig = ''
   #    user = "daniel"
   #    '';
-  #  };
-  #};
+    };
+  };
 
+  services.nginx = {
+    enable = true;
+    recommendedOptimisation = true;
+    defaultHTTPListenPort = 9999;
+    virtualHosts."home.gluo.nz" = {
+          extraConfig = ''
+            autoindex on;
+          '';
+        locations."/xml/" = {
+          alias = "/var/www/";
+          extraConfig = ''
+            autoindex_format xml;
+          '';
+        };
+        locations."/" = {
+          root = "/var/www/";
+          extraConfig = ''
+            add_before_body /.header.html;
+          '';
+        };
+      };
+  };
   #services.samba = {
   #  enable = true;
   #  securityType = "user";

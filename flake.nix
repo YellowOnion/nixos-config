@@ -4,10 +4,10 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
-    sway-nix = {
-      url = "github:YellowOnion/sway-nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+#    sway-nix = {
+#      url = "github:YellowOnion/sway-nix";
+#      inputs.nixpkgs.follows = "nixpkgs-unstable";
+#    };
     nix-gaming.url = "github:fufexan/nix-gaming/";
     factorio-mods = { url = "github:YellowOnion/factorio-mods-nix"; };
     auth-server = { url = "github:YellowOnion/auth-server";
@@ -21,7 +21,7 @@
       flake = false;
     };
   };
-  outputs = {self, nixpkgs-stable, nixpkgs-unstable, auth-server, sway-nix, nix-gaming, typed-systems, ... }@inputs:
+  outputs = {self, nixpkgs-stable, nixpkgs-unstable, auth-server, nix-gaming, typed-systems, ... }@inputs:
     let
       inherit (import typed-systems) genAttrsMapBy systems' id;
 
@@ -55,7 +55,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
-            overlays = [ factorioOverlay sway-nix.overlays.default ];
+            overlays = [ factorioOverlay ];
           };
           nix-gaming        = inputs.nix-gaming.packages.${system};
           factorio-nixpkgs  = (import inputs.factorio-nixpkgs {
@@ -77,7 +77,7 @@
                           nix.registry.nixpkgs.flake = nixpkgs;
                           nix.registry.nix-gaming.flake = inputs.nix-gaming;
                           nix.registry.self.flake = self;
-                          nixpkgs.overlays = [ factorioOverlay sway-nix.overlays.default ];
+                          nixpkgs.overlays = [ factorioOverlay ];
                           nixpkgs.config.allowUnfree = true;
                           nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ];
                         }) ];

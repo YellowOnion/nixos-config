@@ -21,7 +21,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "zswap.enabled=1" "zswap.compressor=lz4" "zswap.max_pool_percent=15" "zswap.zpool=z3fold" "hid_apple.fnmode=0" ];
-  boot.kernelModules = [ "z3fold" "lz4" ];
+  boot.initrd.kernelModules = [ "z3fold" "lz4" ];
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
 
@@ -38,7 +38,7 @@ in {
     isNormalUser = true;
     initialPassword = secrets.daniel.initialPass;
     extraGroups =
-      [ "wheel" "audio" "networkmanager" ]; # Enable ‘sudo’ for the user.
+      [ "wheel" "audio" "networkmanager" "libvirtd" ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [ secrets.daniel.sshKey ];
   };
 
@@ -114,6 +114,8 @@ in {
     #      bantime = 3mo
     #    '';
   };
+
+  services.tailscale.enable = true;
 
   #services.zerotierone.enable = true;
   #services.zerotierone.joinNetworks = lib.attrValues secrets.zt;

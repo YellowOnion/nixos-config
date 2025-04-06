@@ -1,15 +1,12 @@
-{ config, pkgs, nix-gaming, unstable-nixpkgs, ... }:
+{ config, pkgs, nix-gaming, ... }:
 
 let
-  secrets = import ./secrets;
   audio_env = {
     LADSPA_PATH = "/run/current-system/sw/lib/ladspa";
   };
-  libshoutSsl = pkgs.libshout.overrideAttrs (a : { propagatedBuildInputs = a.propagatedBuildInputs ++ [pkgs.openssl ]; });
 in {
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   boot.kernelModules = [ "v4l2loopback" ];
-  boot.supportedFilesystems = [ "ntfs" ];
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -47,18 +44,18 @@ in {
     '';
   };
 
-  security.wrappers.sway = {
-            owner = "root";
-            group = "root";
-            source = "${pkgs.sway}/bin/sway";
-            capabilities = "cap_sys_nice+ep";
-  };
+  #security.wrappers.sway = {
+  #          owner = "root";
+  #          group = "root";
+  #          source = "${pkgs.sway}/bin/sway";
+  #          capabilities = "cap_sys_nice+ep";
+  #};
 
-  nixpkgs.overlays = [ (self: super : {
-    sway-unwrapped = super.sway-unwrapped.overrideAttrs (attrs :{
-      patches = attrs.patches ++ [ ./0001-Lower-CAP_SYS_NICE-from-ambient-set.patch ];
-    });
-  })];
+#  nixpkgs.overlays = [ (self: super : {
+#    sway-unwrapped = super.sway-unwrapped.overrideAttrs (attrs :{
+#      patches = attrs.patches ++ [ ./0001-Lower-CAP_SYS_NICE-from-ambient-set.patch ];
+#    });
+#  })];
 
   xdg = {
     portal = {
@@ -98,7 +95,7 @@ in {
   hardware.onlykey.enable = true;
 
   # Enable sound.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   systemd.user.services.pipewire.environment = audio_env;
   systemd.services.pipewire.environment = audio_env;
   services.pipewire = {
@@ -144,7 +141,7 @@ in {
     nil
     ripgrep
     fd
-    nixfmt
+    nixfmt-rfc-style
 
     onlykey
     onlykey-cli
@@ -170,12 +167,13 @@ in {
 
     yquake2
 
-    (nix-gaming.wine-ge) #.override { supportFlags.waylandSupport = false; })
+    # (nix-gaming.wine-ge) #.override { supportFlags.waylandSupport = false; })
     # nix-gaming.wine-discord-ipc-bridge
     heroic #.override { heroic-unwrapped = heroic-unwrapped.override { electron = electron_24 ;};})
 
     rnnoise-plugin
     lsp-plugins
+    pipewire.jack
     # TODO move to home manager
     (pkgs.writeShellScriptBin "runWithDiscordBridge" ''
       export PROTON_REMOTE_DEBUG_CMD="${nix-gaming.wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe"
@@ -194,6 +192,7 @@ in {
     fira-code
     corefonts
     vistafonts
+    monaspace
     (google-fonts.override {
       fonts = [ "Kode Mono"
                 "EB Garamond"
