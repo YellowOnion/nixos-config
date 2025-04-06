@@ -1,14 +1,13 @@
 {
   description = "Woobilicious' NixOS configuration";
   inputs = {
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
 #    sway-nix = {
 #      url = "github:YellowOnion/sway-nix";
 #      inputs.nixpkgs.follows = "nixpkgs-unstable";
 #    };
-    nix-gaming.url = "github:fufexan/nix-gaming/";
     factorio-mods = { url = "github:YellowOnion/factorio-mods-nix"; };
     auth-server = { url = "github:YellowOnion/auth-server";
                     flake = false; };

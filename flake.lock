@@ -116,11 +116,11 @@
         "typed-systems": "typed-systems"
       },
       "locked": {
-        "lastModified": 1719244876,
-        "narHash": "sha256-6j7Q0KZDjuLbppIAmJeqZdu78ErA1f+Ec4QAibU0smQ=",
+        "lastModified": 1741532473,
+        "narHash": "sha256-8ockVi6cSqbJHZ6DxCuzyIV33bpA9BKoyVzi40LgCZA=",
         "owner": "YellowOnion",
         "repo": "factorio-mods-nix",
-        "rev": "657eac1407e5e3be3473a06ea98e889405db64a8",
+        "rev": "6343f91cf1cd09c6fe34601e50f77cadb0fa6107",
         "type": "github"
       },
       "original": {
@@ -287,15 +287,13 @@
       "locked": {
         "lastModified": 1718501202,
         "narHash": "sha256-waFNDJ4PFrZfFP0xSKY3+/85rejNev+RO/aYRHUIHdg=",
-        "owner": "fufexan",
-        "repo": "nix-gaming",
+        "path": "/nix/store/v1f4h6f83w1a0147dvc3p7p2nb9mnb01-source",
         "rev": "afc7bf542d35cccbba3263edbd40768ca63f798e",
-        "type": "github"
+        "type": "path"
       },
       "original": {
-        "owner": "fufexan",
-        "repo": "nix-gaming",
-        "type": "github"
+        "id": "nix-gaming",
+        "type": "indirect"
       }
     },
     "nixpkgs": {
@@ -344,16 +342,16 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1733220138,
-        "narHash": "sha256-Yh5XZ9yVurrcYdNTSWxYgW4+EJ0pcOqgM1043z9JaRc=",
+        "lastModified": 1743703532,
+        "narHash": "sha256-s1KLDALEeqy+ttrvqV3jx9mBZEvmthQErTVOAzbjHZs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "bcb68885668cccec12276bbb379f8f2557aa06ce",
+        "rev": "bdb91860de2f719b57eef819b5617762f7120c70",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-24.05",
+        "ref": "nixos-24.11",
         "repo": "nixpkgs",
         "type": "github"
       }

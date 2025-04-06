@@ -1,4 +1,4 @@
-{ config, pkgs, nix-gaming, ... }:
+{ config, pkgs, ... }:
 
 let
   audio_env = {
@@ -44,6 +44,7 @@ in {
     '';
   };
 
+  ## Why do I need this again???
   #security.wrappers.sway = {
   #          owner = "root";
   #          group = "root";
@@ -167,19 +168,18 @@ in {
 
     yquake2
 
-    # (nix-gaming.wine-ge) #.override { supportFlags.waylandSupport = false; })
-    # nix-gaming.wine-discord-ipc-bridge
-    heroic #.override { heroic-unwrapped = heroic-unwrapped.override { electron = electron_24 ;};})
+    heroic
 
     rnnoise-plugin
     lsp-plugins
     pipewire.jack
     # TODO move to home manager
-    (pkgs.writeShellScriptBin "runWithDiscordBridge" ''
-      export PROTON_REMOTE_DEBUG_CMD="${nix-gaming.wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe"
-      export PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0"
-      "$@"
-    '')
+    # TODO is a windows package, figure out how to build/include on linux
+    # (pkgs.writeShellScriptBin "runWithDiscordBridge" ''
+    #  export PROTON_REMOTE_DEBUG_CMD="${wine-discord-ipc-bridge}/bin/winediscordipcbridge.exe"
+    #  export PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0"
+    #  "$@"
+    #'')
   ];
   programs.steam.enable = true;
   programs.gamescope.enable = true;
