@@ -19,12 +19,18 @@ in
   networking.hostName = "Kawasaki-Lemon"; # Define your hostname.
   hardware.cpu.amd.updateMicrocode = true;
 
+  boot.initrd.systemd.enable = true;
   boot.initrd.luks.devices.root = {
-     device = "/dev/disk/by-partuuid/bd81633a-6a8c-4f66-b217-e7d89365d5ac";
-     preLVM = true;
-     allowDiscards = true;
-     bypassWorkqueues = true;
+    # crypttabExtraOpts = [ "fido2-device=auto" ];
+    device = "/dev/disk/by-partuuid/bd81633a-6a8c-4f66-b217-e7d89365d5ac";
+    preLVM = true;
+    allowDiscards = true;
+    bypassWorkqueues = true;
   };  
+
+  boot.kernelParams = [
+      "amd_pstate=passive"
+    ];
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -43,9 +49,6 @@ in
     HandlePowerKeyLongPress=poweroff
     '';
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
 
   # services.tlp.enable = true;
 
