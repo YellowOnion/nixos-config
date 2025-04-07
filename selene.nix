@@ -21,7 +21,6 @@ in
   # Use the GRUB 2 boot loader.
   boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -149,8 +148,9 @@ in
     rtmp-port = 1937;
   };
 
-  services.icecast = let CADir = config.security.acme.certs."ice.${config.networking.domain}".directory; in
-    {
+  services.icecast =
+    let CADir = config.security.acme.certs."ice.${config.networking.domain}".directory;
+    in {
     enable = true;
     listen.port = 64419;
     group = "nginx";
@@ -277,7 +277,16 @@ in
           priority = 1150;
         };
       };
-    
+      virtualHosts."share.${config.networking.domain}" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+            proxyPass = "http://purple-sunrise.tail31b4f8.ts.net:9999/";
+            proxyWebsockets = true;
+            priority = 1150;
+            extraConfig = proxySetHeaders;
+        };
+      };
   };
 
   systemd.services.auth-server = {

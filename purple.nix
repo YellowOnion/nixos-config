@@ -97,22 +97,23 @@ in
     recommendedOptimisation = true;
     defaultHTTPListenPort = 9999;
     virtualHosts."home.gluo.nz" = {
-          extraConfig = ''
-            autoindex on;
-          '';
-        locations."/xml/" = {
-          alias = "/var/www/";
-          extraConfig = ''
-            autoindex_format xml;
-          '';
-        };
-        locations."/" = {
-          root = "/var/www/";
-          extraConfig = ''
-            add_before_body /.header.html;
-          '';
-        };
+      serverAliases = [ "share.gluo.nz" ];
+      extraConfig = ''
+        autoindex on;
+      '';
+      locations."/xml/" = {
+        alias = "/var/www/";
+        extraConfig = ''
+          autoindex_format xml;
+        '';
       };
+      locations."/" = {
+        root = "/var/www/";
+        extraConfig = ''
+          add_before_body /.header.html;
+        '';
+      };
+    };
   };
   #services.samba = {
   #  enable = true;
