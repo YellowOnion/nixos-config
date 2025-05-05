@@ -1,0 +1,41 @@
+From 766a228da4eaea221470c2b939ce3db20a9d1600 Mon Sep 17 00:00:00 2001
+From: tokyo4j <hrak1529@gmail.com>
+Date: Sat, 15 Feb 2025 16:47:52 +0900
+Subject: [PATCH 1/4] wlr_keyboard_group: fix leak of wlr_keyboard_group->keys
+
+If the underlying wlr_keyboard emits duplicated key-presses,
+wlr_keyboard_group->keys might not be empty even after calling
+wlr_keyboard_group_remove_keyboard() for all of the keyboards.
+---
+ types/wlr_keyboard_group.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/types/wlr_keyboard_group.c b/types/wlr_keyboard_group.c
+index ef557a95..6917d5da 100644
+--- a/types/wlr_keyboard_group.c
++++ b/types/wlr_keyboard_group.c
+@@ -307,10 +307,19 @@ void wlr_keyboard_group_remove_keyboard(struct wlr_keyboard_group *group,
+ }
+ 
+ void wlr_keyboard_group_destroy(struct wlr_keyboard_group *group) {
+-	struct keyboard_group_device *device, *tmp;
+-	wl_list_for_each_safe(device, tmp, &group->devices, link) {
++	struct keyboard_group_device *device, *tmp_device;
++	wl_list_for_each_safe(device, tmp_device, &group->devices, link) {
+ 		wlr_keyboard_group_remove_keyboard(group, device->keyboard);
+ 	}
++
++	// Now group->keys might not be empty if a wlr_keyboard has emitted
++	// duplicated key presses
++	struct keyboard_group_key *key, *tmp_key;
++	wl_list_for_each_safe(key, tmp_key, &group->keys, link) {
++		wl_list_remove(&key->link);
++		free(key);
++	}
++
+ 	wlr_keyboard_finish(&group->keyboard);
+ 	wl_list_remove(&group->events.enter.listener_list);
+ 	wl_list_remove(&group->events.leave.listener_list);
+-- 
+2.49.0
+

@@ -1,0 +1,27 @@
+From 8cefceca644be6657d7f21760d1226c9649f090f Mon Sep 17 00:00:00 2001
+From: Daniel Hill <daniel@gluo.nz>
+Date: Tue, 29 Aug 2023 18:28:21 +1200
+Subject: [PATCH 3/4] Set wlr_output_cursor.max_latency from wlr_cursor
+
+I currently cannot find a better place to put this.
+Ideally this should only be set when output_cursor is created, or
+set_max_latency is called. But I had problems getting it working.
+---
+ types/wlr_cursor.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/types/wlr_cursor.c b/types/wlr_cursor.c
+index f7f3ed35..40221f89 100644
+--- a/types/wlr_cursor.c
++++ b/types/wlr_cursor.c
+@@ -293,6 +293,7 @@ static void cursor_warp_unchecked(struct wlr_cursor *cur,
+ 
+ 	struct wlr_cursor_output_cursor *output_cursor;
+ 	wl_list_for_each(output_cursor, &cur->state->output_cursors, link) {
++		output_cursor->output_cursor->max_latency = cur->max_latency;
+ 		output_cursor_move(output_cursor);
+ 	}
+ }
+-- 
+2.49.0
+

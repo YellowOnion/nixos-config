@@ -4,11 +4,38 @@ let
   audio_env = {
     LADSPA_PATH = "/run/current-system/sw/lib/ladspa";
   };
+  wlrVersion = "wlroots";
+  overlay = self: super: {
+    sway-untouched = super.sway-unwrapped;
+    swayfx-unwrapped = (super.swayfx-unwrapped.override { wlroots_0_18 = self."${wlrVersion}"; }).overrideAttrs (a: {
+      version = "${a.version}-deferred-cursor";
+      patches = [
+        ./sway/0001-Deferred-cursor-support.patch
+      ];
+    });
+    sway-unwrapped = (super.sway-unwrapped.override { wlroots = self."${wlrVersion}"; }).overrideAttrs (a: {
+      version = "${a.version}-deferred-cursor";
+      patches = [
+        ./sway/0001-Deferred-cursor-support.patch
+      ];
+    });
+    "${wlrVersion}" = super.${wlrVersion}.overrideAttrs (a: {
+      version = "${a.version}-deferred-cursor";
+      patches = [
+        ./sway/0001-wlr_keyboard_group-fix-leak-of-wlr_keyboard_group-ke.patch
+        ./sway/0002-output-cursor-deferred-cursor-move.patch
+        ./sway/0003-Set-wlr_output_cursor.max_latency-from-wlr_cursor.patch
+        ./sway/0004-deferred-cursors-add-a-max_cursor_latency-for-output.patch
+      ];
+    });
+  };
 in {
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   boot.kernelModules = [ "v4l2loopback" ];
+  nixpkgs.overlays = [ overlay ];
   programs.sway = {
     enable = true;
+    package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
       xdg-utils
@@ -16,7 +43,6 @@ in {
       evince
       # basic sway stuff
       swaylock
-      waybar
       sway-contrib.grimshot
       pulseaudio # pipewire is still heavily controlled via pulseaudio apps.
       grim
@@ -65,8 +91,6 @@ in {
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
   };
-
-  programs.waybar.enable = true;
 
   #services.packagekit.enable = false;
 

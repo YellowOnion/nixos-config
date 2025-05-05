@@ -1,0 +1,54 @@
+From 31a53b7af174ddfe610acb1d0a5fb7819e03e935 Mon Sep 17 00:00:00 2001
+From: Daniel Hill <daniel@gluo.nz>
+Date: Tue, 29 Aug 2023 23:03:35 +1200
+Subject: [PATCH 4/4] deferred cursors: add a max_cursor_latency for output
+
+---
+ include/wlr/types/wlr_output.h | 3 +++
+ types/output/cursor.c          | 9 +++++++--
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/include/wlr/types/wlr_output.h b/include/wlr/types/wlr_output.h
+index 380daf16..57ce636b 100644
+--- a/include/wlr/types/wlr_output.h
++++ b/include/wlr/types/wlr_output.h
+@@ -162,6 +162,9 @@ struct wlr_output {
+ 	// true, changes may either succeed or fail.
+ 	bool adaptive_sync_supported;
+ 
++	// the amount we defer cursor updates
++	int max_cursor_latency;
++
+ 	bool needs_frame;
+ 	// damage for cursors and fullscreen surface, in output-local coordinates
+ 	bool frame_pending;
+diff --git a/types/output/cursor.c b/types/output/cursor.c
+index 808d8e84..a3afee6f 100644
+--- a/types/output/cursor.c
++++ b/types/output/cursor.c
+@@ -451,7 +451,12 @@ static bool output_cursor_move(struct wlr_output_cursor *cursor,
+ 
+ static bool output_cursor_move_should_defer(struct wlr_output_cursor *cursor,
+ 		struct timespec *now) {
+-	if (!cursor->max_latency
++	int max_latency = cursor->max_latency;
++
++	if (!max_latency)
++		max_latency = cursor->output->max_cursor_latency;
++
++	if (!max_latency
+ 		|| !cursor->output->refresh // avoid divide by zero
+ 		|| cursor->output->adaptive_sync_status != WLR_OUTPUT_ADAPTIVE_SYNC_ENABLED)
+ 		return false;
+@@ -460,7 +465,7 @@ static bool output_cursor_move_should_defer(struct wlr_output_cursor *cursor,
+ 	int32_t vrr_min = NSEC_PER_SEC / 30; // edid? enforce 30fps minimum for now.
+ 	timespec_sub(&delta, now, &cursor->last_presentation);
+ 	if (delta.tv_sec
+-		|| delta.tv_nsec >= cursor->max_latency
++		|| delta.tv_nsec >= max_latency
+         || delta.tv_nsec >= vrr_min)
+ 		return false;
+ 
+-- 
+2.49.0
+
