@@ -20,8 +20,7 @@ in {
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "zswap.enabled=1" "zswap.compressor=lz4" "zswap.max_pool_percent=15" "zswap.zpool=z3fold" "hid_apple.fnmode=0" ];
-  boot.initrd.kernelModules = [ "z3fold" "lz4" ];
+  boot.kernelParams = [ "hid_apple.fnmode=0" ];
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
 
@@ -134,7 +133,7 @@ in {
         "https://yo-nur.cachix.org"
         "https://nix-community.cachix.org"
         "https://nix-gaming.cachix.org"
-        "https://cache.garnix.io"
+#        "https://cache.garnix.io"
       ];
       trusted-public-keys = [
         "yo-nur.cachix.org-1:E/RHfQMAZ90mPhvsaqo/GrQ3M1xzXf5Ztt0o+1X3+Bs="

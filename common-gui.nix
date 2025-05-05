@@ -172,7 +172,6 @@ in {
 
     rnnoise-plugin
     lsp-plugins
-    pipewire.jack
     # TODO move to home manager
     # TODO is a windows package, figure out how to build/include on linux
     # (pkgs.writeShellScriptBin "runWithDiscordBridge" ''
@@ -193,14 +192,27 @@ in {
     corefonts
     vistafonts
     monaspace
+    commit-mono
+    (let font = google-fonts.override { fonts = [ "Kode Mono" ] ; };
+     in stdenv.mkDerivation {
+      name = "KodeMono-nerd-font-patched";
+      src = font;
+      nativeBuildInputs = [ nerd-font-patcher ];
+      buildPhase = ''
+        find \( -name \*.ttf -o -name \*.otf \) -execdir nerd-font-patcher -c {} \;
+      '';
+      installPhase = "cp -a . $out";
+    })
     (google-fonts.override {
-      fonts = [ "Kode Mono"
-                "EB Garamond"
+      fonts = [ "EB Garamond"
                 "Titillium Web"
                 "Cutive Mono"
                 "Orbit"
                 "Varela Round"
                 "Zilla Slab"
+                "Montserrat"
+                "IBM Plex Sans"
+                "IBM Plex Mono"
               ];
     })
   ] ++ builtins.attrValues {
