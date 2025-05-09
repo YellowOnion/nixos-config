@@ -7,21 +7,22 @@ let
   wlrVersion = "wlroots";
   overlay = self: super: {
     sway-untouched = super.sway-unwrapped;
-    swayfx-unwrapped = (super.swayfx-unwrapped.override { wlroots_0_18 = self."${wlrVersion}"; }).overrideAttrs (a: {
-      version = "${a.version}-deferred-cursor";
-      patches = [
-        ./sway/0001-Deferred-cursor-support.patch
+    scenefx = super.scenefx.override { wlroots_0_18 =  self."${wlrVersion}"; };
+    swayfx-unwrapped = (super.swayfx-unwrapped.override { wlroots_0_18 = self."${wlrVersion}"; scenefx = self.scenefx; }).overrideAttrs (a: {
+#      version = "${a.version}-deferred-cursor";
+      patches = a.patches ++ [
+        ./swayfx/0001-Deferred-cursor-support.patch
       ];
     });
     sway-unwrapped = (super.sway-unwrapped.override { wlroots = self."${wlrVersion}"; }).overrideAttrs (a: {
       version = "${a.version}-deferred-cursor";
-      patches = [
+      patches = a.patches ++ [
         ./sway/0001-Deferred-cursor-support.patch
       ];
     });
     "${wlrVersion}" = super.${wlrVersion}.overrideAttrs (a: {
       version = "${a.version}-deferred-cursor";
-      patches = [
+      patches = a.patches ++ [
         ./sway/0001-wlr_keyboard_group-fix-leak-of-wlr_keyboard_group-ke.patch
         ./sway/0002-output-cursor-deferred-cursor-move.patch
         ./sway/0003-Set-wlr_output_cursor.max_latency-from-wlr_cursor.patch
