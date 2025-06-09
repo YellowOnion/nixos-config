@@ -119,10 +119,18 @@ in {
   #services.zerotierone.enable = true;
   #services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
 
+  services.journald.extraConfig = ''
+  MaxRetentionSec=90day
+  '';
   services.smartd.enable = true;
   services.smartd.defaults.autodetected = "-a -o off -s (O/../.././(01|07|13|19)|S/../.././04|L/../../0/05)";
   nix = {
     daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 90d";
+    };
     settings = {
       # generally we don't need more than one build running at once
       # can sometimes cause OOM when jobs demand too much memory

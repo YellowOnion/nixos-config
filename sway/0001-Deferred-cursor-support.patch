@@ -1,4 +1,4 @@
-From 170e26a1c088bcd8cddf27b215a93c21ee9fb228 Mon Sep 17 00:00:00 2001
+From 1aac4cb9bc837083d314338aa978f5bba7911036 Mon Sep 17 00:00:00 2001
 From: Daniel Hill <daniel@gluo.nz>
 Date: Mon, 28 Aug 2023 22:10:03 +1200
 Subject: [PATCH] Deferred cursor support.
@@ -30,7 +30,7 @@ index 5210d3ba..4ae6fe17 100644
  sway_cmd cmd_mode;
  sway_cmd cmd_mouse_warping;
 diff --git a/include/sway/tree/view.h b/include/sway/tree/view.h
-index f6032221..679f0f18 100644
+index 9f084eeb..e48b0311 100644
 --- a/include/sway/tree/view.h
 +++ b/include/sway/tree/view.h
 @@ -114,6 +114,7 @@ struct sway_view {
@@ -92,10 +92,10 @@ index 00000000..12654c1d
 +	return cmd_results_new(CMD_SUCCESS, NULL);
 +}
 diff --git a/sway/desktop/output.c b/sway/desktop/output.c
-index 3a2ae403..dc06c7e3 100644
+index e6fe2ee4..adeb9652 100644
 --- a/sway/desktop/output.c
 +++ b/sway/desktop/output.c
-@@ -261,6 +261,10 @@ static bool output_can_tear(struct sway_output *output) {
+@@ -262,6 +262,10 @@ static bool output_can_tear(struct sway_output *output) {
  
  static int output_repaint_timer_handler(void *data) {
  	struct sway_output *output = data;
@@ -105,8 +105,8 @@ index 3a2ae403..dc06c7e3 100644
 +	wlr_output_cursor_move_any_expired(output->wlr_output, &now);
  
  	output->wlr_output->frame_pending = false;
- 	if (!output->enabled) {
-@@ -280,6 +284,8 @@ static int output_repaint_timer_handler(void *data) {
+ 	if (!output->wlr_output->enabled) {
+@@ -279,6 +283,8 @@ static int output_repaint_timer_handler(void *data) {
  		return 0;
  	}
  
@@ -116,10 +116,10 @@ index 3a2ae403..dc06c7e3 100644
  	wlr_output_state_init(&pending);
  	if (!wlr_scene_output_build_state(output->scene_output, &pending, &opts)) {
 diff --git a/sway/input/seat.c b/sway/input/seat.c
-index 0dd26290..9c04aaa9 100644
+index 1b63f625..ca31681c 100644
 --- a/sway/input/seat.c
 +++ b/sway/input/seat.c
-@@ -1202,9 +1202,11 @@ static void seat_set_workspace_focus(struct sway_seat *seat, struct sway_node *n
+@@ -1198,9 +1198,11 @@ static void seat_set_workspace_focus(struct sway_seat *seat, struct sway_node *n
  		seat_send_focus(&container->node, seat);
  	}
  
@@ -131,7 +131,7 @@ index 0dd26290..9c04aaa9 100644
  		ipc_event_window(container, "focus");
  	}
  
-@@ -1254,6 +1256,9 @@ static void seat_set_workspace_focus(struct sway_seat *seat, struct sway_node *n
+@@ -1250,6 +1252,9 @@ static void seat_set_workspace_focus(struct sway_seat *seat, struct sway_node *n
  		workspace_consider_destroy(last_workspace);
  	}
  
@@ -142,10 +142,10 @@ index 0dd26290..9c04aaa9 100644
  
  	if (config->smart_gaps && new_workspace) {
 diff --git a/sway/ipc-json.c b/sway/ipc-json.c
-index fc1df2ac..ae9a32ab 100644
+index d3adedd4..0e448df2 100644
 --- a/sway/ipc-json.c
 +++ b/sway/ipc-json.c
-@@ -594,6 +594,7 @@ static void ipc_json_describe_view(struct sway_container *c, json_object *object
+@@ -599,6 +599,7 @@ static void ipc_json_describe_view(struct sway_container *c, json_object *object
  	json_object_object_add(object, "geometry", ipc_json_create_rect(&geometry));
  
  	json_object_object_add(object, "max_render_time", json_object_new_int(c->view->max_render_time));
@@ -166,7 +166,7 @@ index 8042c89b..519ff0ea 100644
  	'commands/include.c',
  	'commands/input.c',
 diff --git a/sway/tree/view.c b/sway/tree/view.c
-index ebf98faa..f81895f3 100644
+index 9a5cf06e..75602e72 100644
 --- a/sway/tree/view.c
 +++ b/sway/tree/view.c
 @@ -7,6 +7,7 @@
@@ -175,8 +175,8 @@ index ebf98faa..f81895f3 100644
  #include <wlr/types/wlr_fractional_scale_v1.h>
 +#include <wlr/types/wlr_cursor.h>
  #include <wlr/types/wlr_output_layout.h>
+ #include <wlr/types/wlr_security_context_v1.h>
  #include <wlr/types/wlr_server_decoration.h>
- #include <wlr/types/wlr_subcompositor.h>
 -- 
 2.49.0
 
