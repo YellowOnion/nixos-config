@@ -6,7 +6,7 @@ let
   };
   wlrVersion = "wlroots_0_18";
   overlay = self: super: {
-    sway-untouched = super.sway-unwrapped;
+    #sway-untouched = super.sway-unwrapped;
 
     scenefx = super.scenefx.override { wlroots_0_18 =  self."${wlrVersion}"; };
     swayfx-unwrapped = (super.swayfx-unwrapped.override { wlroots_0_18 = self."${wlrVersion}"; scenefx = self.scenefx; }).overrideAttrs (a: {
@@ -15,12 +15,12 @@ let
         ./sway/0001-Deferred-cursor-support.patch
       ];
     });
-    sway-unwrapped = (super.sway-unwrapped.override { wlroots = self."${wlrVersion}"; }).overrideAttrs (a: {
-      version = "${a.version}-deferred-cursor";
-      patches = a.patches ++ [
-        ./sway/0001-Deferred-cursor-support.patch
-      ];
-    });
+    #sway-unwrapped = (super.sway-unwrapped.override { wlroots = self."${wlrVersion}"; }).overrideAttrs (a: {
+    #  version = "${a.version}-deferred-cursor";
+    #  patches = a.patches ++ [
+    #    ./sway/0001-Deferred-cursor-support.patch
+    #  ];
+    #});
     "${wlrVersion}" = super.${wlrVersion}.overrideAttrs (a: {
       version = "${a.version}-deferred-cursor";
       patches = a.patches ++ [
@@ -149,6 +149,16 @@ in {
       rocmPackages.clr.icd
     ];
   };
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm   -    -    -     -    ${pkgs.symlinkJoin {
+      name = "rocm-combined";
+      paths = with pkgs.rocmPackages; [
+        rocblas
+        hipblas
+        clr
+      ];
+    }}"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
