@@ -4,15 +4,15 @@ let
   audio_env = {
     LADSPA_PATH = "/run/current-system/sw/lib/ladspa";
   };
-  wlrVersion = "wlroots_0_18";
+  wlrVersion = "wlroots_0_19";
   overlay = self: super: {
     #sway-untouched = super.sway-unwrapped;
 
-    scenefx = super.scenefx.override { wlroots_0_18 =  self."${wlrVersion}"; };
-    swayfx-unwrapped = (super.swayfx-unwrapped.override { wlroots_0_18 = self."${wlrVersion}"; scenefx = self.scenefx; }).overrideAttrs (a: {
+    scenefx = super.scenefx.override { wlroots_0_19 =  self."${wlrVersion}"; };
+    swayfx-unwrapped = (super.swayfx-unwrapped.override { wlroots_0_19 = self."${wlrVersion}"; scenefx = self.scenefx; }).overrideAttrs (a: {
 #      version = "${a.version}-deferred-cursor";
       patches = a.patches ++ [
-        ./sway/0001-Deferred-cursor-support.patch
+      #  ./sway/0001-Deferred-cursor-support.patch
       ];
     });
     #sway-unwrapped = (super.sway-unwrapped.override { wlroots = self."${wlrVersion}"; }).overrideAttrs (a: {
@@ -24,10 +24,10 @@ let
     "${wlrVersion}" = super.${wlrVersion}.overrideAttrs (a: {
       version = "${a.version}-deferred-cursor";
       patches = a.patches ++ [
-        ./wlroots/0001-wlr_keyboard_group-fix-leak-of-wlr_keyboard_group-ke.patch
-        ./wlroots/0001-output-cursor-deferred-cursor-move.patch
-        ./wlroots/0002-Set-wlr_output_cursor.max_latency-from-wlr_cursor.patch
-        ./wlroots/0003-deferred-cursors-add-a-max_cursor_latency-for-output.patch
+        # ./wlroots/0001-wlr_keyboard_group-fix-leak-of-wlr_keyboard_group-ke.patch
+        # ./wlroots/0001-output-cursor-deferred-cursor-move.patch
+        # ./wlroots/0002-Set-wlr_output_cursor.max_latency-from-wlr_cursor.patch
+        # ./wlroots/0003-deferred-cursors-add-a-max_cursor_latency-for-output.patch
       ];
     });
   };
