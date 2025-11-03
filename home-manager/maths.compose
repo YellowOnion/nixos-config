@@ -1,0 +1,2078 @@
+## I guess "♫$#" for the mathematical prefix?  Easy enough to type.
+## format specifiers precede the letter or follow?  Try precede, seems to be more
+## common/intuitive.  Specifiers (some may be bad):
+## b	Bold
+## i	Italic
+## I	Bold Italic
+## s    Script
+## S    Bold Script
+## f    Fraktur
+## |    Double-Struck (possibly a special case)
+## F    Bold Fraktur
+## ,,	Sans-serif
+## ,b   Sans-serif Bold
+## ,i	Sans-serif Italic
+## ,I   Sans-serif Bold Italic
+## m	Monospace
+## == BOLD
+#- 1D400;MATHEMATICAL BOLD CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <A> :  "𝐀"   U1D400	# MATHEMATICAL BOLD CAPITAL A
+#- 1D401;MATHEMATICAL BOLD CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <B> :  "𝐁"   U1D401	# MATHEMATICAL BOLD CAPITAL B
+#- 1D402;MATHEMATICAL BOLD CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <C> :  "𝐂"   U1D402	# MATHEMATICAL BOLD CAPITAL C
+#- 1D403;MATHEMATICAL BOLD CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <D> :  "𝐃"   U1D403	# MATHEMATICAL BOLD CAPITAL D
+#- 1D404;MATHEMATICAL BOLD CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <E> :  "𝐄"   U1D404	# MATHEMATICAL BOLD CAPITAL E
+#- 1D405;MATHEMATICAL BOLD CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <F> :  "𝐅"   U1D405	# MATHEMATICAL BOLD CAPITAL F
+#- 1D406;MATHEMATICAL BOLD CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <G> :  "𝐆"   U1D406	# MATHEMATICAL BOLD CAPITAL G
+#- 1D407;MATHEMATICAL BOLD CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <H> :  "𝐇"   U1D407	# MATHEMATICAL BOLD CAPITAL H
+#- 1D408;MATHEMATICAL BOLD CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <I> :  "𝐈"   U1D408	# MATHEMATICAL BOLD CAPITAL I
+#- 1D409;MATHEMATICAL BOLD CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <J> :  "𝐉"   U1D409	# MATHEMATICAL BOLD CAPITAL J
+#- 1D40A;MATHEMATICAL BOLD CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <K> :  "𝐊"   U1D40A	# MATHEMATICAL BOLD CAPITAL K
+#- 1D40B;MATHEMATICAL BOLD CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <L> :  "𝐋"   U1D40B	# MATHEMATICAL BOLD CAPITAL L
+#- 1D40C;MATHEMATICAL BOLD CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <M> :  "𝐌"   U1D40C	# MATHEMATICAL BOLD CAPITAL M
+#- 1D40D;MATHEMATICAL BOLD CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <N> :  "𝐍"   U1D40D	# MATHEMATICAL BOLD CAPITAL N
+#- 1D40E;MATHEMATICAL BOLD CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <O> :  "𝐎"   U1D40E	# MATHEMATICAL BOLD CAPITAL O
+#- 1D40F;MATHEMATICAL BOLD CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <P> :  "𝐏"   U1D40F	# MATHEMATICAL BOLD CAPITAL P
+#- 1D410;MATHEMATICAL BOLD CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <Q> :  "𝐐"   U1D410	# MATHEMATICAL BOLD CAPITAL Q
+#- 1D411;MATHEMATICAL BOLD CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <R> :  "𝐑"   U1D411	# MATHEMATICAL BOLD CAPITAL R
+#- 1D412;MATHEMATICAL BOLD CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <S> :  "𝐒"   U1D412	# MATHEMATICAL BOLD CAPITAL S
+#- 1D413;MATHEMATICAL BOLD CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <T> :  "𝐓"   U1D413	# MATHEMATICAL BOLD CAPITAL T
+#- 1D414;MATHEMATICAL BOLD CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <U> :  "𝐔"   U1D414	# MATHEMATICAL BOLD CAPITAL U
+#- 1D415;MATHEMATICAL BOLD CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <V> :  "𝐕"   U1D415	# MATHEMATICAL BOLD CAPITAL V
+#- 1D416;MATHEMATICAL BOLD CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <W> :  "𝐖"   U1D416	# MATHEMATICAL BOLD CAPITAL W
+#- 1D417;MATHEMATICAL BOLD CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <X> :  "𝐗"   U1D417	# MATHEMATICAL BOLD CAPITAL X
+#- 1D418;MATHEMATICAL BOLD CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <Y> :  "𝐘"   U1D418	# MATHEMATICAL BOLD CAPITAL Y
+#- 1D419;MATHEMATICAL BOLD CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <Z> :  "𝐙"   U1D419	# MATHEMATICAL BOLD CAPITAL Z
+#- 1D41A;MATHEMATICAL BOLD SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <a> :  "𝐚"   U1D41A	# MATHEMATICAL BOLD SMALL A
+#- 1D41B;MATHEMATICAL BOLD SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <b> :  "𝐛"   U1D41B	# MATHEMATICAL BOLD SMALL B
+#- 1D41C;MATHEMATICAL BOLD SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <c> :  "𝐜"   U1D41C	# MATHEMATICAL BOLD SMALL C
+#- 1D41D;MATHEMATICAL BOLD SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <d> :  "𝐝"   U1D41D	# MATHEMATICAL BOLD SMALL D
+#- 1D41E;MATHEMATICAL BOLD SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <e> :  "𝐞"   U1D41E	# MATHEMATICAL BOLD SMALL E
+#- 1D41F;MATHEMATICAL BOLD SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <f> :  "𝐟"   U1D41F	# MATHEMATICAL BOLD SMALL F
+#- 1D420;MATHEMATICAL BOLD SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <g> :  "𝐠"   U1D420	# MATHEMATICAL BOLD SMALL G
+#- 1D421;MATHEMATICAL BOLD SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <h> :  "𝐡"   U1D421	# MATHEMATICAL BOLD SMALL H
+#- 1D422;MATHEMATICAL BOLD SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <i> :  "𝐢"   U1D422	# MATHEMATICAL BOLD SMALL I
+#- 1D423;MATHEMATICAL BOLD SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <j> :  "𝐣"   U1D423	# MATHEMATICAL BOLD SMALL J
+#- 1D424;MATHEMATICAL BOLD SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <k> :  "𝐤"   U1D424	# MATHEMATICAL BOLD SMALL K
+#- 1D425;MATHEMATICAL BOLD SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <l> :  "𝐥"   U1D425	# MATHEMATICAL BOLD SMALL L
+#- 1D426;MATHEMATICAL BOLD SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <m> :  "𝐦"   U1D426	# MATHEMATICAL BOLD SMALL M
+#- 1D427;MATHEMATICAL BOLD SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <n> :  "𝐧"   U1D427	# MATHEMATICAL BOLD SMALL N
+#- 1D428;MATHEMATICAL BOLD SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <o> :  "𝐨"   U1D428	# MATHEMATICAL BOLD SMALL O
+#- 1D429;MATHEMATICAL BOLD SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <p> :  "𝐩"   U1D429	# MATHEMATICAL BOLD SMALL P
+#- 1D42A;MATHEMATICAL BOLD SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <q> :  "𝐪"   U1D42A	# MATHEMATICAL BOLD SMALL Q
+#- 1D42B;MATHEMATICAL BOLD SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <r> :  "𝐫"   U1D42B	# MATHEMATICAL BOLD SMALL R
+#- 1D42C;MATHEMATICAL BOLD SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <s> :  "𝐬"   U1D42C	# MATHEMATICAL BOLD SMALL S
+#- 1D42D;MATHEMATICAL BOLD SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <t> :  "𝐭"   U1D42D	# MATHEMATICAL BOLD SMALL T
+#- 1D42E;MATHEMATICAL BOLD SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <u> :  "𝐮"   U1D42E	# MATHEMATICAL BOLD SMALL U
+#- 1D42F;MATHEMATICAL BOLD SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <v> :  "𝐯"   U1D42F	# MATHEMATICAL BOLD SMALL V
+#- 1D430;MATHEMATICAL BOLD SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <w> :  "𝐰"   U1D430	# MATHEMATICAL BOLD SMALL W
+#- 1D431;MATHEMATICAL BOLD SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <x> :  "𝐱"   U1D431	# MATHEMATICAL BOLD SMALL X
+#- 1D432;MATHEMATICAL BOLD SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <y> :  "𝐲"   U1D432	# MATHEMATICAL BOLD SMALL Y
+#- 1D433;MATHEMATICAL BOLD SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <z> :  "𝐳"   U1D433	# MATHEMATICAL BOLD SMALL Z
+## == ITALIC
+#- 1D434;MATHEMATICAL ITALIC CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <A> :  "𝐴"   U1D434	# MATHEMATICAL ITALIC CAPITAL A
+#- 1D435;MATHEMATICAL ITALIC CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <B> :  "𝐵"   U1D435	# MATHEMATICAL ITALIC CAPITAL B
+#- 1D436;MATHEMATICAL ITALIC CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <C> :  "𝐶"   U1D436	# MATHEMATICAL ITALIC CAPITAL C
+#- 1D437;MATHEMATICAL ITALIC CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <D> :  "𝐷"   U1D437	# MATHEMATICAL ITALIC CAPITAL D
+#- 1D438;MATHEMATICAL ITALIC CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <E> :  "𝐸"   U1D438	# MATHEMATICAL ITALIC CAPITAL E
+#- 1D439;MATHEMATICAL ITALIC CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <F> :  "𝐹"   U1D439	# MATHEMATICAL ITALIC CAPITAL F
+#- 1D43A;MATHEMATICAL ITALIC CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <G> :  "𝐺"   U1D43A	# MATHEMATICAL ITALIC CAPITAL G
+#- 1D43B;MATHEMATICAL ITALIC CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <H> :  "𝐻"   U1D43B	# MATHEMATICAL ITALIC CAPITAL H
+#- 1D43C;MATHEMATICAL ITALIC CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <I> :  "𝐼"   U1D43C	# MATHEMATICAL ITALIC CAPITAL I
+#- 1D43D;MATHEMATICAL ITALIC CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <J> :  "𝐽"   U1D43D	# MATHEMATICAL ITALIC CAPITAL J
+#- 1D43E;MATHEMATICAL ITALIC CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <K> :  "𝐾"   U1D43E	# MATHEMATICAL ITALIC CAPITAL K
+#- 1D43F;MATHEMATICAL ITALIC CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <L> :  "𝐿"   U1D43F	# MATHEMATICAL ITALIC CAPITAL L
+#- 1D440;MATHEMATICAL ITALIC CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <M> :  "𝑀"   U1D440	# MATHEMATICAL ITALIC CAPITAL M
+#- 1D441;MATHEMATICAL ITALIC CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <N> :  "𝑁"   U1D441	# MATHEMATICAL ITALIC CAPITAL N
+#- 1D442;MATHEMATICAL ITALIC CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <O> :  "𝑂"   U1D442	# MATHEMATICAL ITALIC CAPITAL O
+#- 1D443;MATHEMATICAL ITALIC CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <P> :  "𝑃"   U1D443	# MATHEMATICAL ITALIC CAPITAL P
+#- 1D444;MATHEMATICAL ITALIC CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <Q> :  "𝑄"   U1D444	# MATHEMATICAL ITALIC CAPITAL Q
+#- 1D445;MATHEMATICAL ITALIC CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <R> :  "𝑅"   U1D445	# MATHEMATICAL ITALIC CAPITAL R
+#- 1D446;MATHEMATICAL ITALIC CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <S> :  "𝑆"   U1D446	# MATHEMATICAL ITALIC CAPITAL S
+#- 1D447;MATHEMATICAL ITALIC CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <T> :  "𝑇"   U1D447	# MATHEMATICAL ITALIC CAPITAL T
+#- 1D448;MATHEMATICAL ITALIC CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <U> :  "𝑈"   U1D448	# MATHEMATICAL ITALIC CAPITAL U
+#- 1D449;MATHEMATICAL ITALIC CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <V> :  "𝑉"   U1D449	# MATHEMATICAL ITALIC CAPITAL V
+#- 1D44A;MATHEMATICAL ITALIC CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <W> :  "𝑊"   U1D44A	# MATHEMATICAL ITALIC CAPITAL W
+#- 1D44B;MATHEMATICAL ITALIC CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <X> :  "𝑋"   U1D44B	# MATHEMATICAL ITALIC CAPITAL X
+#- 1D44C;MATHEMATICAL ITALIC CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <Y> :  "𝑌"   U1D44C	# MATHEMATICAL ITALIC CAPITAL Y
+#- 1D44D;MATHEMATICAL ITALIC CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <Z> :  "𝑍"   U1D44D	# MATHEMATICAL ITALIC CAPITAL Z
+#- 1D44E;MATHEMATICAL ITALIC SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <a> :  "𝑎"   U1D44E	# MATHEMATICAL ITALIC SMALL A
+#- 1D44F;MATHEMATICAL ITALIC SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <b> :  "𝑏"   U1D44F	# MATHEMATICAL ITALIC SMALL B
+#- 1D450;MATHEMATICAL ITALIC SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <c> :  "𝑐"   U1D450	# MATHEMATICAL ITALIC SMALL C
+#- 1D451;MATHEMATICAL ITALIC SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <d> :  "𝑑"   U1D451	# MATHEMATICAL ITALIC SMALL D
+#- 1D452;MATHEMATICAL ITALIC SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <e> :  "𝑒"   U1D452	# MATHEMATICAL ITALIC SMALL E
+#- 1D453;MATHEMATICAL ITALIC SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <f> :  "𝑓"   U1D453	# MATHEMATICAL ITALIC SMALL F
+#- 1D454;MATHEMATICAL ITALIC SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <g> :  "𝑔"   U1D454	# MATHEMATICAL ITALIC SMALL G
+#- 1D456;MATHEMATICAL ITALIC SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <i> :  "𝑖"   U1D456	# MATHEMATICAL ITALIC SMALL I
+#- 1D457;MATHEMATICAL ITALIC SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <j> :  "𝑗"   U1D457	# MATHEMATICAL ITALIC SMALL J
+#- 1D458;MATHEMATICAL ITALIC SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <k> :  "𝑘"   U1D458	# MATHEMATICAL ITALIC SMALL K
+#- 1D459;MATHEMATICAL ITALIC SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <l> :  "𝑙"   U1D459	# MATHEMATICAL ITALIC SMALL L
+#- 1D45A;MATHEMATICAL ITALIC SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <m> :  "𝑚"   U1D45A	# MATHEMATICAL ITALIC SMALL M
+#- 1D45B;MATHEMATICAL ITALIC SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <n> :  "𝑛"   U1D45B	# MATHEMATICAL ITALIC SMALL N
+#- 1D45C;MATHEMATICAL ITALIC SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <o> :  "𝑜"   U1D45C	# MATHEMATICAL ITALIC SMALL O
+#- 1D45D;MATHEMATICAL ITALIC SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <p> :  "𝑝"   U1D45D	# MATHEMATICAL ITALIC SMALL P
+#- 1D45E;MATHEMATICAL ITALIC SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <q> :  "𝑞"   U1D45E	# MATHEMATICAL ITALIC SMALL Q
+#- 1D45F;MATHEMATICAL ITALIC SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <r> :  "𝑟"   U1D45F	# MATHEMATICAL ITALIC SMALL R
+#- 1D460;MATHEMATICAL ITALIC SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <s> :  "𝑠"   U1D460	# MATHEMATICAL ITALIC SMALL S
+#- 1D461;MATHEMATICAL ITALIC SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <t> :  "𝑡"   U1D461	# MATHEMATICAL ITALIC SMALL T
+#- 1D462;MATHEMATICAL ITALIC SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <u> :  "𝑢"   U1D462	# MATHEMATICAL ITALIC SMALL U
+#- 1D463;MATHEMATICAL ITALIC SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <v> :  "𝑣"   U1D463	# MATHEMATICAL ITALIC SMALL V
+#- 1D464;MATHEMATICAL ITALIC SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <w> :  "𝑤"   U1D464	# MATHEMATICAL ITALIC SMALL W
+#- 1D465;MATHEMATICAL ITALIC SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <x> :  "𝑥"   U1D465	# MATHEMATICAL ITALIC SMALL X
+#- 1D466;MATHEMATICAL ITALIC SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <y> :  "𝑦"   U1D466	# MATHEMATICAL ITALIC SMALL Y
+#- 1D467;MATHEMATICAL ITALIC SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <z> :  "𝑧"   U1D467	# MATHEMATICAL ITALIC SMALL Z
+## == BOLD ITALIC
+#- 1D468;MATHEMATICAL BOLD ITALIC CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <A> :  "𝑨"   U1D468	# MATHEMATICAL BOLD ITALIC CAPITAL A
+#- 1D469;MATHEMATICAL BOLD ITALIC CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <B> :  "𝑩"   U1D469	# MATHEMATICAL BOLD ITALIC CAPITAL B
+#- 1D46A;MATHEMATICAL BOLD ITALIC CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <C> :  "𝑪"   U1D46A	# MATHEMATICAL BOLD ITALIC CAPITAL C
+#- 1D46B;MATHEMATICAL BOLD ITALIC CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <D> :  "𝑫"   U1D46B	# MATHEMATICAL BOLD ITALIC CAPITAL D
+#- 1D46C;MATHEMATICAL BOLD ITALIC CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <E> :  "𝑬"   U1D46C	# MATHEMATICAL BOLD ITALIC CAPITAL E
+#- 1D46D;MATHEMATICAL BOLD ITALIC CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <F> :  "𝑭"   U1D46D	# MATHEMATICAL BOLD ITALIC CAPITAL F
+#- 1D46E;MATHEMATICAL BOLD ITALIC CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <G> :  "𝑮"   U1D46E	# MATHEMATICAL BOLD ITALIC CAPITAL G
+#- 1D46F;MATHEMATICAL BOLD ITALIC CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <H> :  "𝑯"   U1D46F	# MATHEMATICAL BOLD ITALIC CAPITAL H
+#- 1D470;MATHEMATICAL BOLD ITALIC CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <I> :  "𝑰"   U1D470	# MATHEMATICAL BOLD ITALIC CAPITAL I
+#- 1D471;MATHEMATICAL BOLD ITALIC CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <J> :  "𝑱"   U1D471	# MATHEMATICAL BOLD ITALIC CAPITAL J
+#- 1D472;MATHEMATICAL BOLD ITALIC CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <K> :  "𝑲"   U1D472	# MATHEMATICAL BOLD ITALIC CAPITAL K
+#- 1D473;MATHEMATICAL BOLD ITALIC CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <L> :  "𝑳"   U1D473	# MATHEMATICAL BOLD ITALIC CAPITAL L
+#- 1D474;MATHEMATICAL BOLD ITALIC CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <M> :  "𝑴"   U1D474	# MATHEMATICAL BOLD ITALIC CAPITAL M
+#- 1D475;MATHEMATICAL BOLD ITALIC CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <N> :  "𝑵"   U1D475	# MATHEMATICAL BOLD ITALIC CAPITAL N
+#- 1D476;MATHEMATICAL BOLD ITALIC CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <O> :  "𝑶"   U1D476	# MATHEMATICAL BOLD ITALIC CAPITAL O
+#- 1D477;MATHEMATICAL BOLD ITALIC CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <P> :  "𝑷"   U1D477	# MATHEMATICAL BOLD ITALIC CAPITAL P
+#- 1D478;MATHEMATICAL BOLD ITALIC CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <Q> :  "𝑸"   U1D478	# MATHEMATICAL BOLD ITALIC CAPITAL Q
+#- 1D479;MATHEMATICAL BOLD ITALIC CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <R> :  "𝑹"   U1D479	# MATHEMATICAL BOLD ITALIC CAPITAL R
+#- 1D47A;MATHEMATICAL BOLD ITALIC CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <S> :  "𝑺"   U1D47A	# MATHEMATICAL BOLD ITALIC CAPITAL S
+#- 1D47B;MATHEMATICAL BOLD ITALIC CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <T> :  "𝑻"   U1D47B	# MATHEMATICAL BOLD ITALIC CAPITAL T
+#- 1D47C;MATHEMATICAL BOLD ITALIC CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <U> :  "𝑼"   U1D47C	# MATHEMATICAL BOLD ITALIC CAPITAL U
+#- 1D47D;MATHEMATICAL BOLD ITALIC CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <V> :  "𝑽"   U1D47D	# MATHEMATICAL BOLD ITALIC CAPITAL V
+#- 1D47E;MATHEMATICAL BOLD ITALIC CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <W> :  "𝑾"   U1D47E	# MATHEMATICAL BOLD ITALIC CAPITAL W
+#- 1D47F;MATHEMATICAL BOLD ITALIC CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <X> :  "𝑿"   U1D47F	# MATHEMATICAL BOLD ITALIC CAPITAL X
+#- 1D480;MATHEMATICAL BOLD ITALIC CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <Y> :  "𝒀"   U1D480	# MATHEMATICAL BOLD ITALIC CAPITAL Y
+#- 1D481;MATHEMATICAL BOLD ITALIC CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <Z> :  "𝒁"   U1D481	# MATHEMATICAL BOLD ITALIC CAPITAL Z
+#- 1D482;MATHEMATICAL BOLD ITALIC SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <a> :  "𝒂"   U1D482	# MATHEMATICAL BOLD ITALIC SMALL A
+#- 1D483;MATHEMATICAL BOLD ITALIC SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <b> :  "𝒃"   U1D483	# MATHEMATICAL BOLD ITALIC SMALL B
+#- 1D484;MATHEMATICAL BOLD ITALIC SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <c> :  "𝒄"   U1D484	# MATHEMATICAL BOLD ITALIC SMALL C
+#- 1D485;MATHEMATICAL BOLD ITALIC SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <d> :  "𝒅"   U1D485	# MATHEMATICAL BOLD ITALIC SMALL D
+#- 1D486;MATHEMATICAL BOLD ITALIC SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <e> :  "𝒆"   U1D486	# MATHEMATICAL BOLD ITALIC SMALL E
+#- 1D487;MATHEMATICAL BOLD ITALIC SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <f> :  "𝒇"   U1D487	# MATHEMATICAL BOLD ITALIC SMALL F
+#- 1D488;MATHEMATICAL BOLD ITALIC SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <g> :  "𝒈"   U1D488	# MATHEMATICAL BOLD ITALIC SMALL G
+#- 1D489;MATHEMATICAL BOLD ITALIC SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <h> :  "𝒉"   U1D489	# MATHEMATICAL BOLD ITALIC SMALL H
+#- 1D48A;MATHEMATICAL BOLD ITALIC SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <i> :  "𝒊"   U1D48A	# MATHEMATICAL BOLD ITALIC SMALL I
+#- 1D48B;MATHEMATICAL BOLD ITALIC SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <j> :  "𝒋"   U1D48B	# MATHEMATICAL BOLD ITALIC SMALL J
+#- 1D48C;MATHEMATICAL BOLD ITALIC SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <k> :  "𝒌"   U1D48C	# MATHEMATICAL BOLD ITALIC SMALL K
+#- 1D48D;MATHEMATICAL BOLD ITALIC SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <l> :  "𝒍"   U1D48D	# MATHEMATICAL BOLD ITALIC SMALL L
+#- 1D48E;MATHEMATICAL BOLD ITALIC SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <m> :  "𝒎"   U1D48E	# MATHEMATICAL BOLD ITALIC SMALL M
+#- 1D48F;MATHEMATICAL BOLD ITALIC SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <n> :  "𝒏"   U1D48F	# MATHEMATICAL BOLD ITALIC SMALL N
+#- 1D490;MATHEMATICAL BOLD ITALIC SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <o> :  "𝒐"   U1D490	# MATHEMATICAL BOLD ITALIC SMALL O
+#- 1D491;MATHEMATICAL BOLD ITALIC SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <p> :  "𝒑"   U1D491	# MATHEMATICAL BOLD ITALIC SMALL P
+#- 1D492;MATHEMATICAL BOLD ITALIC SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <q> :  "𝒒"   U1D492	# MATHEMATICAL BOLD ITALIC SMALL Q
+#- 1D493;MATHEMATICAL BOLD ITALIC SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <r> :  "𝒓"   U1D493	# MATHEMATICAL BOLD ITALIC SMALL R
+#- 1D494;MATHEMATICAL BOLD ITALIC SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <s> :  "𝒔"   U1D494	# MATHEMATICAL BOLD ITALIC SMALL S
+#- 1D495;MATHEMATICAL BOLD ITALIC SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <t> :  "𝒕"   U1D495	# MATHEMATICAL BOLD ITALIC SMALL T
+#- 1D496;MATHEMATICAL BOLD ITALIC SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <u> :  "𝒖"   U1D496	# MATHEMATICAL BOLD ITALIC SMALL U
+#- 1D497;MATHEMATICAL BOLD ITALIC SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <v> :  "𝒗"   U1D497	# MATHEMATICAL BOLD ITALIC SMALL V
+#- 1D498;MATHEMATICAL BOLD ITALIC SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <w> :  "𝒘"   U1D498	# MATHEMATICAL BOLD ITALIC SMALL W
+#- 1D499;MATHEMATICAL BOLD ITALIC SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <x> :  "𝒙"   U1D499	# MATHEMATICAL BOLD ITALIC SMALL X
+#- 1D49A;MATHEMATICAL BOLD ITALIC SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <y> :  "𝒚"   U1D49A	# MATHEMATICAL BOLD ITALIC SMALL Y
+#- 1D49B;MATHEMATICAL BOLD ITALIC SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <z> :  "𝒛"   U1D49B	# MATHEMATICAL BOLD ITALIC SMALL Z
+## == SCRIPT
+#- 1D49C;MATHEMATICAL SCRIPT CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <A> :  "𝒜"   U1D49C	# MATHEMATICAL SCRIPT CAPITAL A
+#- 212C;SCRIPT CAPITAL B;Lu;0;L;<font> 0042;;;;N;SCRIPT B;;;;
+<Multi_key>  <dollar> <numbersign> <s> <B> :  "ℬ"   U212C	# SCRIPT CAPITAL B
+#- 1D49E;MATHEMATICAL SCRIPT CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <C> :  "𝒞"   U1D49E	# MATHEMATICAL SCRIPT CAPITAL C
+#- 1D49F;MATHEMATICAL SCRIPT CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <D> :  "𝒟"   U1D49F	# MATHEMATICAL SCRIPT CAPITAL D
+#- 2130;SCRIPT CAPITAL E;Lu;0;L;<font> 0045;;;;N;SCRIPT E;;;;
+<Multi_key>  <dollar> <numbersign> <s> <E> :  "ℰ"   U2130	# SCRIPT CAPITAL E
+#- 2131;SCRIPT CAPITAL F;Lu;0;L;<font> 0046;;;;N;SCRIPT F;;;;
+<Multi_key>  <dollar> <numbersign> <s> <F> :  "ℱ"   U2131	# SCRIPT CAPITAL F
+#- 1D4A2;MATHEMATICAL SCRIPT CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <G> :  "𝒢"   U1D4A2	# MATHEMATICAL SCRIPT CAPITAL G
+#- 210B;SCRIPT CAPITAL H;Lu;0;L;<font> 0048;;;;N;SCRIPT H;;;;
+<Multi_key>  <dollar> <numbersign> <s> <H> :  "ℋ"   U210B	# SCRIPT CAPITAL H
+#- 2110;SCRIPT CAPITAL I;Lu;0;L;<font> 0049;;;;N;SCRIPT I;;;;
+<Multi_key>  <dollar> <numbersign> <s> <I> :  "ℐ"   U2110	# SCRIPT CAPITAL I
+#- 1D4A5;MATHEMATICAL SCRIPT CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <J> :  "𝒥"   U1D4A5	# MATHEMATICAL SCRIPT CAPITAL J
+#- 1D4A6;MATHEMATICAL SCRIPT CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <K> :  "𝒦"   U1D4A6	# MATHEMATICAL SCRIPT CAPITAL K
+#- 2112;SCRIPT CAPITAL L;Lu;0;L;<font> 004C;;;;N;SCRIPT L;;;;
+<Multi_key>  <dollar> <numbersign> <s> <L> :  "ℒ"   U2112	# SCRIPT CAPITAL L
+#- 2133;SCRIPT CAPITAL M;Lu;0;L;<font> 004D;;;;N;SCRIPT M;;;;
+<Multi_key>  <dollar> <numbersign> <s> <M> :  "ℳ"   U2133	# SCRIPT CAPITAL M
+#- 1D4A9;MATHEMATICAL SCRIPT CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <N> :  "𝒩"   U1D4A9	# MATHEMATICAL SCRIPT CAPITAL N
+#- 1D4AA;MATHEMATICAL SCRIPT CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <O> :  "𝒪"   U1D4AA	# MATHEMATICAL SCRIPT CAPITAL O
+#- 1D4AB;MATHEMATICAL SCRIPT CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <P> :  "𝒫"   U1D4AB	# MATHEMATICAL SCRIPT CAPITAL P
+#- 1D4AC;MATHEMATICAL SCRIPT CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <Q> :  "𝒬"   U1D4AC	# MATHEMATICAL SCRIPT CAPITAL Q
+#- 211B;SCRIPT CAPITAL R;Lu;0;L;<font> 0052;;;;N;SCRIPT R;;;;
+<Multi_key>  <dollar> <numbersign> <s> <R> :  "ℛ"   U211B	# SCRIPT CAPITAL R
+#- 1D4AE;MATHEMATICAL SCRIPT CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <S> :  "𝒮"   U1D4AE	# MATHEMATICAL SCRIPT CAPITAL S
+#- 1D4AF;MATHEMATICAL SCRIPT CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <T> :  "𝒯"   U1D4AF	# MATHEMATICAL SCRIPT CAPITAL T
+#- 1D4B0;MATHEMATICAL SCRIPT CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <U> :  "𝒰"   U1D4B0	# MATHEMATICAL SCRIPT CAPITAL U
+#- 1D4B1;MATHEMATICAL SCRIPT CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <V> :  "𝒱"   U1D4B1	# MATHEMATICAL SCRIPT CAPITAL V
+#- 1D4B2;MATHEMATICAL SCRIPT CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <W> :  "𝒲"   U1D4B2	# MATHEMATICAL SCRIPT CAPITAL W
+#- 1D4B3;MATHEMATICAL SCRIPT CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <X> :  "𝒳"   U1D4B3	# MATHEMATICAL SCRIPT CAPITAL X
+#- 1D4B4;MATHEMATICAL SCRIPT CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <Y> :  "𝒴"   U1D4B4	# MATHEMATICAL SCRIPT CAPITAL Y
+#- 1D4B5;MATHEMATICAL SCRIPT CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <Z> :  "𝒵"   U1D4B5	# MATHEMATICAL SCRIPT CAPITAL Z
+#- 1D4B6;MATHEMATICAL SCRIPT SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <a> :  "𝒶"   U1D4B6	# MATHEMATICAL SCRIPT SMALL A
+#- 1D4B7;MATHEMATICAL SCRIPT SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <b> :  "𝒷"   U1D4B7	# MATHEMATICAL SCRIPT SMALL B
+#- 1D4B8;MATHEMATICAL SCRIPT SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <c> :  "𝒸"   U1D4B8	# MATHEMATICAL SCRIPT SMALL C
+#- 1D4B9;MATHEMATICAL SCRIPT SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <d> :  "𝒹"   U1D4B9	# MATHEMATICAL SCRIPT SMALL D
+#- 212F;SCRIPT SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <e> :  "ℯ"   U212F	# SCRIPT SMALL E
+#- 1D4BB;MATHEMATICAL SCRIPT SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <f> :  "𝒻"   U1D4BB	# MATHEMATICAL SCRIPT SMALL F
+#- 210A;SCRIPT SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <g> :  "ℊ"   U210A	# SCRIPT SMALL G
+#- 1D4BD;MATHEMATICAL SCRIPT SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <h> :  "𝒽"   U1D4BD	# MATHEMATICAL SCRIPT SMALL H
+#- 1D4BE;MATHEMATICAL SCRIPT SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <i> :  "𝒾"   U1D4BE	# MATHEMATICAL SCRIPT SMALL I
+#- 1D4BF;MATHEMATICAL SCRIPT SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <j> :  "𝒿"   U1D4BF	# MATHEMATICAL SCRIPT SMALL J
+#- 1D4C0;MATHEMATICAL SCRIPT SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <k> :  "𝓀"   U1D4C0	# MATHEMATICAL SCRIPT SMALL K
+#- 1D4C1;MATHEMATICAL SCRIPT SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <l> :  "𝓁"   U1D4C1	# MATHEMATICAL SCRIPT SMALL L
+#- 1D4C2;MATHEMATICAL SCRIPT SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <m> :  "𝓂"   U1D4C2	# MATHEMATICAL SCRIPT SMALL M
+#- 1D4C3;MATHEMATICAL SCRIPT SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <n> :  "𝓃"   U1D4C3	# MATHEMATICAL SCRIPT SMALL N
+#- 2134;SCRIPT SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <o> :  "ℴ"   U2134	# SCRIPT SMALL O
+#- 1D4C5;MATHEMATICAL SCRIPT SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <p> :  "𝓅"   U1D4C5	# MATHEMATICAL SCRIPT SMALL P
+#- 1D4C6;MATHEMATICAL SCRIPT SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <q> :  "𝓆"   U1D4C6	# MATHEMATICAL SCRIPT SMALL Q
+#- 1D4C7;MATHEMATICAL SCRIPT SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <r> :  "𝓇"   U1D4C7	# MATHEMATICAL SCRIPT SMALL R
+#- 1D4C8;MATHEMATICAL SCRIPT SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <s> :  "𝓈"   U1D4C8	# MATHEMATICAL SCRIPT SMALL S
+#- 1D4C9;MATHEMATICAL SCRIPT SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <t> :  "𝓉"   U1D4C9	# MATHEMATICAL SCRIPT SMALL T
+#- 1D4CA;MATHEMATICAL SCRIPT SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <u> :  "𝓊"   U1D4CA	# MATHEMATICAL SCRIPT SMALL U
+#- 1D4CB;MATHEMATICAL SCRIPT SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <v> :  "𝓋"   U1D4CB	# MATHEMATICAL SCRIPT SMALL V
+#- 1D4CC;MATHEMATICAL SCRIPT SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <w> :  "𝓌"   U1D4CC	# MATHEMATICAL SCRIPT SMALL W
+#- 1D4CD;MATHEMATICAL SCRIPT SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <x> :  "𝓍"   U1D4CD	# MATHEMATICAL SCRIPT SMALL X
+#- 1D4CE;MATHEMATICAL SCRIPT SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <y> :  "𝓎"   U1D4CE	# MATHEMATICAL SCRIPT SMALL Y
+#- 1D4CF;MATHEMATICAL SCRIPT SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <s> <z> :  "𝓏"   U1D4CF	# MATHEMATICAL SCRIPT SMALL Z
+## == BOLD SCRIPT
+#- 1D4D0;MATHEMATICAL BOLD SCRIPT CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <A> :  "𝓐"   U1D4D0	# MATHEMATICAL BOLD SCRIPT CAPITAL A
+#- 1D4D1;MATHEMATICAL BOLD SCRIPT CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <B> :  "𝓑"   U1D4D1	# MATHEMATICAL BOLD SCRIPT CAPITAL B
+#- 1D4D2;MATHEMATICAL BOLD SCRIPT CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <C> :  "𝓒"   U1D4D2	# MATHEMATICAL BOLD SCRIPT CAPITAL C
+#- 1D4D3;MATHEMATICAL BOLD SCRIPT CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <D> :  "𝓓"   U1D4D3	# MATHEMATICAL BOLD SCRIPT CAPITAL D
+#- 1D4D4;MATHEMATICAL BOLD SCRIPT CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <E> :  "𝓔"   U1D4D4	# MATHEMATICAL BOLD SCRIPT CAPITAL E
+#- 1D4D5;MATHEMATICAL BOLD SCRIPT CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <F> :  "𝓕"   U1D4D5	# MATHEMATICAL BOLD SCRIPT CAPITAL F
+#- 1D4D6;MATHEMATICAL BOLD SCRIPT CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <G> :  "𝓖"   U1D4D6	# MATHEMATICAL BOLD SCRIPT CAPITAL G
+#- 1D4D7;MATHEMATICAL BOLD SCRIPT CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <H> :  "𝓗"   U1D4D7	# MATHEMATICAL BOLD SCRIPT CAPITAL H
+#- 1D4D8;MATHEMATICAL BOLD SCRIPT CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <I> :  "𝓘"   U1D4D8	# MATHEMATICAL BOLD SCRIPT CAPITAL I
+#- 1D4D9;MATHEMATICAL BOLD SCRIPT CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <J> :  "𝓙"   U1D4D9	# MATHEMATICAL BOLD SCRIPT CAPITAL J
+#- 1D4DA;MATHEMATICAL BOLD SCRIPT CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <K> :  "𝓚"   U1D4DA	# MATHEMATICAL BOLD SCRIPT CAPITAL K
+#- 1D4DB;MATHEMATICAL BOLD SCRIPT CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <L> :  "𝓛"   U1D4DB	# MATHEMATICAL BOLD SCRIPT CAPITAL L
+#- 1D4DC;MATHEMATICAL BOLD SCRIPT CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <M> :  "𝓜"   U1D4DC	# MATHEMATICAL BOLD SCRIPT CAPITAL M
+#- 1D4DD;MATHEMATICAL BOLD SCRIPT CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <N> :  "𝓝"   U1D4DD	# MATHEMATICAL BOLD SCRIPT CAPITAL N
+#- 1D4DE;MATHEMATICAL BOLD SCRIPT CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <O> :  "𝓞"   U1D4DE	# MATHEMATICAL BOLD SCRIPT CAPITAL O
+#- 1D4DF;MATHEMATICAL BOLD SCRIPT CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <P> :  "𝓟"   U1D4DF	# MATHEMATICAL BOLD SCRIPT CAPITAL P
+#- 1D4E0;MATHEMATICAL BOLD SCRIPT CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <Q> :  "𝓠"   U1D4E0	# MATHEMATICAL BOLD SCRIPT CAPITAL Q
+#- 1D4E1;MATHEMATICAL BOLD SCRIPT CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <R> :  "𝓡"   U1D4E1	# MATHEMATICAL BOLD SCRIPT CAPITAL R
+#- 1D4E2;MATHEMATICAL BOLD SCRIPT CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <S> :  "𝓢"   U1D4E2	# MATHEMATICAL BOLD SCRIPT CAPITAL S
+#- 1D4E3;MATHEMATICAL BOLD SCRIPT CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <T> :  "𝓣"   U1D4E3	# MATHEMATICAL BOLD SCRIPT CAPITAL T
+#- 1D4E4;MATHEMATICAL BOLD SCRIPT CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <U> :  "𝓤"   U1D4E4	# MATHEMATICAL BOLD SCRIPT CAPITAL U
+#- 1D4E5;MATHEMATICAL BOLD SCRIPT CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <V> :  "𝓥"   U1D4E5	# MATHEMATICAL BOLD SCRIPT CAPITAL V
+#- 1D4E6;MATHEMATICAL BOLD SCRIPT CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <W> :  "𝓦"   U1D4E6	# MATHEMATICAL BOLD SCRIPT CAPITAL W
+#- 1D4E7;MATHEMATICAL BOLD SCRIPT CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <X> :  "𝓧"   U1D4E7	# MATHEMATICAL BOLD SCRIPT CAPITAL X
+#- 1D4E8;MATHEMATICAL BOLD SCRIPT CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <Y> :  "𝓨"   U1D4E8	# MATHEMATICAL BOLD SCRIPT CAPITAL Y
+#- 1D4E9;MATHEMATICAL BOLD SCRIPT CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <Z> :  "𝓩"   U1D4E9	# MATHEMATICAL BOLD SCRIPT CAPITAL Z
+#- 1D4EA;MATHEMATICAL BOLD SCRIPT SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <a> :  "𝓪"   U1D4EA	# MATHEMATICAL BOLD SCRIPT SMALL A
+#- 1D4EB;MATHEMATICAL BOLD SCRIPT SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <b> :  "𝓫"   U1D4EB	# MATHEMATICAL BOLD SCRIPT SMALL B
+#- 1D4EC;MATHEMATICAL BOLD SCRIPT SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <c> :  "𝓬"   U1D4EC	# MATHEMATICAL BOLD SCRIPT SMALL C
+#- 1D4ED;MATHEMATICAL BOLD SCRIPT SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <d> :  "𝓭"   U1D4ED	# MATHEMATICAL BOLD SCRIPT SMALL D
+#- 1D4EE;MATHEMATICAL BOLD SCRIPT SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <e> :  "𝓮"   U1D4EE	# MATHEMATICAL BOLD SCRIPT SMALL E
+#- 1D4EF;MATHEMATICAL BOLD SCRIPT SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <f> :  "𝓯"   U1D4EF	# MATHEMATICAL BOLD SCRIPT SMALL F
+#- 1D4F0;MATHEMATICAL BOLD SCRIPT SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <g> :  "𝓰"   U1D4F0	# MATHEMATICAL BOLD SCRIPT SMALL G
+#- 1D4F1;MATHEMATICAL BOLD SCRIPT SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <h> :  "𝓱"   U1D4F1	# MATHEMATICAL BOLD SCRIPT SMALL H
+#- 1D4F2;MATHEMATICAL BOLD SCRIPT SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <i> :  "𝓲"   U1D4F2	# MATHEMATICAL BOLD SCRIPT SMALL I
+#- 1D4F3;MATHEMATICAL BOLD SCRIPT SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <j> :  "𝓳"   U1D4F3	# MATHEMATICAL BOLD SCRIPT SMALL J
+#- 1D4F4;MATHEMATICAL BOLD SCRIPT SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <k> :  "𝓴"   U1D4F4	# MATHEMATICAL BOLD SCRIPT SMALL K
+#- 1D4F5;MATHEMATICAL BOLD SCRIPT SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <l> :  "𝓵"   U1D4F5	# MATHEMATICAL BOLD SCRIPT SMALL L
+#- 1D4F6;MATHEMATICAL BOLD SCRIPT SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <m> :  "𝓶"   U1D4F6	# MATHEMATICAL BOLD SCRIPT SMALL M
+#- 1D4F7;MATHEMATICAL BOLD SCRIPT SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <n> :  "𝓷"   U1D4F7	# MATHEMATICAL BOLD SCRIPT SMALL N
+#- 1D4F8;MATHEMATICAL BOLD SCRIPT SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <o> :  "𝓸"   U1D4F8	# MATHEMATICAL BOLD SCRIPT SMALL O
+#- 1D4F9;MATHEMATICAL BOLD SCRIPT SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <p> :  "𝓹"   U1D4F9	# MATHEMATICAL BOLD SCRIPT SMALL P
+#- 1D4FA;MATHEMATICAL BOLD SCRIPT SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <q> :  "𝓺"   U1D4FA	# MATHEMATICAL BOLD SCRIPT SMALL Q
+#- 1D4FB;MATHEMATICAL BOLD SCRIPT SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <r> :  "𝓻"   U1D4FB	# MATHEMATICAL BOLD SCRIPT SMALL R
+#- 1D4FC;MATHEMATICAL BOLD SCRIPT SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <s> :  "𝓼"   U1D4FC	# MATHEMATICAL BOLD SCRIPT SMALL S
+#- 1D4FD;MATHEMATICAL BOLD SCRIPT SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <t> :  "𝓽"   U1D4FD	# MATHEMATICAL BOLD SCRIPT SMALL T
+#- 1D4FE;MATHEMATICAL BOLD SCRIPT SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <u> :  "𝓾"   U1D4FE	# MATHEMATICAL BOLD SCRIPT SMALL U
+#- 1D4FF;MATHEMATICAL BOLD SCRIPT SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <v> :  "𝓿"   U1D4FF	# MATHEMATICAL BOLD SCRIPT SMALL V
+#- 1D500;MATHEMATICAL BOLD SCRIPT SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <w> :  "𝔀"   U1D500	# MATHEMATICAL BOLD SCRIPT SMALL W
+#- 1D501;MATHEMATICAL BOLD SCRIPT SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <x> :  "𝔁"   U1D501	# MATHEMATICAL BOLD SCRIPT SMALL X
+#- 1D502;MATHEMATICAL BOLD SCRIPT SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <y> :  "𝔂"   U1D502	# MATHEMATICAL BOLD SCRIPT SMALL Y
+#- 1D503;MATHEMATICAL BOLD SCRIPT SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <S> <z> :  "𝔃"   U1D503	# MATHEMATICAL BOLD SCRIPT SMALL Z
+## == FRAKTUR
+#- 1D504;MATHEMATICAL FRAKTUR CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <A> :  "𝔄"   U1D504	# MATHEMATICAL FRAKTUR CAPITAL A
+#- 1D505;MATHEMATICAL FRAKTUR CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <B> :  "𝔅"   U1D505	# MATHEMATICAL FRAKTUR CAPITAL B
+#- 212D;BLACK-LETTER CAPITAL C;Lu;0;L;<font> 0043;;;;N;BLACK-LETTER C;;;;
+<Multi_key>  <dollar> <numbersign> <f> <C> :  "ℭ"   U212D	# BLACK-LETTER CAPITAL C
+#- 1D507;MATHEMATICAL FRAKTUR CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <D> :  "𝔇"   U1D507	# MATHEMATICAL FRAKTUR CAPITAL D
+#- 1D508;MATHEMATICAL FRAKTUR CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <E> :  "𝔈"   U1D508	# MATHEMATICAL FRAKTUR CAPITAL E
+#- 1D509;MATHEMATICAL FRAKTUR CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <F> :  "𝔉"   U1D509	# MATHEMATICAL FRAKTUR CAPITAL F
+#- 1D50A;MATHEMATICAL FRAKTUR CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <G> :  "𝔊"   U1D50A	# MATHEMATICAL FRAKTUR CAPITAL G
+<Multi_key>  <dollar> <numbersign> <f> <H> :  "ℌ"   U210C	# BLACK-LETTER CAPITAL H
+#- 2111;BLACK-LETTER CAPITAL I;Lu;0;L;<font> 0049;;;;N;BLACK-LETTER I;;;;
+<Multi_key>  <dollar> <numbersign> <f> <I> :  "ℑ"   U2111	# BLACK-LETTER CAPITAL I
+#- 1D50D;MATHEMATICAL FRAKTUR CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <J> :  "𝔍"   U1D50D	# MATHEMATICAL FRAKTUR CAPITAL J
+#- 1D50E;MATHEMATICAL FRAKTUR CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <K> :  "𝔎"   U1D50E	# MATHEMATICAL FRAKTUR CAPITAL K
+#- 1D50F;MATHEMATICAL FRAKTUR CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <L> :  "𝔏"   U1D50F	# MATHEMATICAL FRAKTUR CAPITAL L
+#- 1D510;MATHEMATICAL FRAKTUR CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <M> :  "𝔐"   U1D510	# MATHEMATICAL FRAKTUR CAPITAL M
+#- 1D511;MATHEMATICAL FRAKTUR CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <N> :  "𝔑"   U1D511	# MATHEMATICAL FRAKTUR CAPITAL N
+#- 1D512;MATHEMATICAL FRAKTUR CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <O> :  "𝔒"   U1D512	# MATHEMATICAL FRAKTUR CAPITAL O
+#- 1D513;MATHEMATICAL FRAKTUR CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <P> :  "𝔓"   U1D513	# MATHEMATICAL FRAKTUR CAPITAL P
+#- 1D514;MATHEMATICAL FRAKTUR CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <Q> :  "𝔔"   U1D514	# MATHEMATICAL FRAKTUR CAPITAL Q
+#- 211C;BLACK-LETTER CAPITAL R;Lu;0;L;<font> 0052;;;;N;BLACK-LETTER R;;;;
+<Multi_key>  <dollar> <numbersign> <f> <R> :  "ℜ"   U211C	# BLACK-LETTER CAPITAL R
+#- 1D516;MATHEMATICAL FRAKTUR CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <S> :  "𝔖"   U1D516	# MATHEMATICAL FRAKTUR CAPITAL S
+#- 1D517;MATHEMATICAL FRAKTUR CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <T> :  "𝔗"   U1D517	# MATHEMATICAL FRAKTUR CAPITAL T
+#- 1D518;MATHEMATICAL FRAKTUR CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <U> :  "𝔘"   U1D518	# MATHEMATICAL FRAKTUR CAPITAL U
+#- 1D519;MATHEMATICAL FRAKTUR CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <V> :  "𝔙"   U1D519	# MATHEMATICAL FRAKTUR CAPITAL V
+#- 1D51A;MATHEMATICAL FRAKTUR CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <W> :  "𝔚"   U1D51A	# MATHEMATICAL FRAKTUR CAPITAL W
+#- 1D51B;MATHEMATICAL FRAKTUR CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <X> :  "𝔛"   U1D51B	# MATHEMATICAL FRAKTUR CAPITAL X
+#- 1D51C;MATHEMATICAL FRAKTUR CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <Y> :  "𝔜"   U1D51C	# MATHEMATICAL FRAKTUR CAPITAL Y
+#- 2128;BLACK-LETTER CAPITAL Z;Lu;0;L;<font> 005A;;;;N;BLACK-LETTER Z;;;;
+<Multi_key>  <dollar> <numbersign> <f> <Z> :  "ℨ"   U2128	# BLACK-LETTER CAPITAL Z
+#- 1D51E;MATHEMATICAL FRAKTUR SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <a> :  "𝔞"   U1D51E	# MATHEMATICAL FRAKTUR SMALL A
+#- 1D51F;MATHEMATICAL FRAKTUR SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <b> :  "𝔟"   U1D51F	# MATHEMATICAL FRAKTUR SMALL B
+#- 1D520;MATHEMATICAL FRAKTUR SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <c> :  "𝔠"   U1D520	# MATHEMATICAL FRAKTUR SMALL C
+#- 1D521;MATHEMATICAL FRAKTUR SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <d> :  "𝔡"   U1D521	# MATHEMATICAL FRAKTUR SMALL D
+#- 1D522;MATHEMATICAL FRAKTUR SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <e> :  "𝔢"   U1D522	# MATHEMATICAL FRAKTUR SMALL E
+#- 1D523;MATHEMATICAL FRAKTUR SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <f> :  "𝔣"   U1D523	# MATHEMATICAL FRAKTUR SMALL F
+#- 1D524;MATHEMATICAL FRAKTUR SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <g> :  "𝔤"   U1D524	# MATHEMATICAL FRAKTUR SMALL G
+#- 1D525;MATHEMATICAL FRAKTUR SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <h> :  "𝔥"   U1D525	# MATHEMATICAL FRAKTUR SMALL H
+#- 1D526;MATHEMATICAL FRAKTUR SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <i> :  "𝔦"   U1D526	# MATHEMATICAL FRAKTUR SMALL I
+#- 1D527;MATHEMATICAL FRAKTUR SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <j> :  "𝔧"   U1D527	# MATHEMATICAL FRAKTUR SMALL J
+#- 1D528;MATHEMATICAL FRAKTUR SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <k> :  "𝔨"   U1D528	# MATHEMATICAL FRAKTUR SMALL K
+#- 1D529;MATHEMATICAL FRAKTUR SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <l> :  "𝔩"   U1D529	# MATHEMATICAL FRAKTUR SMALL L
+#- 1D52A;MATHEMATICAL FRAKTUR SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <m> :  "𝔪"   U1D52A	# MATHEMATICAL FRAKTUR SMALL M
+#- 1D52B;MATHEMATICAL FRAKTUR SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <n> :  "𝔫"   U1D52B	# MATHEMATICAL FRAKTUR SMALL N
+#- 1D52C;MATHEMATICAL FRAKTUR SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <o> :  "𝔬"   U1D52C	# MATHEMATICAL FRAKTUR SMALL O
+#- 1D52D;MATHEMATICAL FRAKTUR SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <p> :  "𝔭"   U1D52D	# MATHEMATICAL FRAKTUR SMALL P
+#- 1D52E;MATHEMATICAL FRAKTUR SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <q> :  "𝔮"   U1D52E	# MATHEMATICAL FRAKTUR SMALL Q
+#- 1D52F;MATHEMATICAL FRAKTUR SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <r> :  "𝔯"   U1D52F	# MATHEMATICAL FRAKTUR SMALL R
+#- 1D530;MATHEMATICAL FRAKTUR SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <s> :  "𝔰"   U1D530	# MATHEMATICAL FRAKTUR SMALL S
+#- 1D531;MATHEMATICAL FRAKTUR SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <t> :  "𝔱"   U1D531	# MATHEMATICAL FRAKTUR SMALL T
+#- 1D532;MATHEMATICAL FRAKTUR SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <u> :  "𝔲"   U1D532	# MATHEMATICAL FRAKTUR SMALL U
+#- 1D533;MATHEMATICAL FRAKTUR SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <v> :  "𝔳"   U1D533	# MATHEMATICAL FRAKTUR SMALL V
+#- 1D534;MATHEMATICAL FRAKTUR SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <w> :  "𝔴"   U1D534	# MATHEMATICAL FRAKTUR SMALL W
+#- 1D535;MATHEMATICAL FRAKTUR SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <x> :  "𝔵"   U1D535	# MATHEMATICAL FRAKTUR SMALL X
+#- 1D536;MATHEMATICAL FRAKTUR SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <y> :  "𝔶"   U1D536	# MATHEMATICAL FRAKTUR SMALL Y
+#- 1D537;MATHEMATICAL FRAKTUR SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <f> <z> :  "𝔷"   U1D537	# MATHEMATICAL FRAKTUR SMALL Z
+## == DOUBLE-STRUCK
+#- 1D538;MATHEMATICAL DOUBLE-STRUCK CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <A> :  "𝔸"   U1D538	# MATHEMATICAL DOUBLE-STRUCK CAPITAL A
+#- 1D539;MATHEMATICAL DOUBLE-STRUCK CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <B> :  "𝔹"   U1D539	# MATHEMATICAL DOUBLE-STRUCK CAPITAL B
+#- 2102;DOUBLE-STRUCK CAPITAL C;Lu;0;L;<font> 0043;;;;N;DOUBLE-STRUCK C;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <C> :  "ℂ"   U2102	# DOUBLE-STRUCK CAPITAL C
+#- 1D53B;MATHEMATICAL DOUBLE-STRUCK CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <D> :  "𝔻"   U1D53B	# MATHEMATICAL DOUBLE-STRUCK CAPITAL D
+#- 1D53C;MATHEMATICAL DOUBLE-STRUCK CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <E> :  "𝔼"   U1D53C	# MATHEMATICAL DOUBLE-STRUCK CAPITAL E
+#- 1D53D;MATHEMATICAL DOUBLE-STRUCK CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <F> :  "𝔽"   U1D53D	# MATHEMATICAL DOUBLE-STRUCK CAPITAL F
+#- 1D53E;MATHEMATICAL DOUBLE-STRUCK CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <G> :  "𝔾"   U1D53E	# MATHEMATICAL DOUBLE-STRUCK CAPITAL G
+#- 210D;DOUBLE-STRUCK CAPITAL H;Lu;0;L;<font> 0048;;;;N;DOUBLE-STRUCK H;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <H> :  "ℍ"   U210D	# DOUBLE-STRUCK CAPITAL H
+#- 1D540;MATHEMATICAL DOUBLE-STRUCK CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <I> :  "𝕀"   U1D540	# MATHEMATICAL DOUBLE-STRUCK CAPITAL I
+#- 1D541;MATHEMATICAL DOUBLE-STRUCK CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <J> :  "𝕁"   U1D541	# MATHEMATICAL DOUBLE-STRUCK CAPITAL J
+#- 1D542;MATHEMATICAL DOUBLE-STRUCK CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <K> :  "𝕂"   U1D542	# MATHEMATICAL DOUBLE-STRUCK CAPITAL K
+#- 1D543;MATHEMATICAL DOUBLE-STRUCK CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <L> :  "𝕃"   U1D543	# MATHEMATICAL DOUBLE-STRUCK CAPITAL L
+#- 1D544;MATHEMATICAL DOUBLE-STRUCK CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <M> :  "𝕄"   U1D544	# MATHEMATICAL DOUBLE-STRUCK CAPITAL M
+#- 2115;DOUBLE-STRUCK CAPITAL N;Lu;0;L;<font> 004E;;;;N;DOUBLE-STRUCK N;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <N> :  "ℕ"   U2115	# DOUBLE-STRUCK CAPITAL N
+#- 1D546;MATHEMATICAL DOUBLE-STRUCK CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <O> :  "𝕆"   U1D546	# MATHEMATICAL DOUBLE-STRUCK CAPITAL O
+#- 2119;DOUBLE-STRUCK CAPITAL P;Lu;0;L;<font> 0050;;;;N;DOUBLE-STRUCK P;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <P> :  "ℙ"   U2119	# DOUBLE-STRUCK CAPITAL P
+#- 211A;DOUBLE-STRUCK CAPITAL Q;Lu;0;L;<font> 0051;;;;N;DOUBLE-STRUCK Q;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <Q> :  "ℚ"   U211A	# DOUBLE-STRUCK CAPITAL Q
+#- 211D;DOUBLE-STRUCK CAPITAL R;Lu;0;L;<font> 0052;;;;N;DOUBLE-STRUCK R;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <R> :  "ℝ"   U211D	# DOUBLE-STRUCK CAPITAL R
+#- 1D54A;MATHEMATICAL DOUBLE-STRUCK CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <S> :  "𝕊"   U1D54A	# MATHEMATICAL DOUBLE-STRUCK CAPITAL S
+#- 1D54B;MATHEMATICAL DOUBLE-STRUCK CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <T> :  "𝕋"   U1D54B	# MATHEMATICAL DOUBLE-STRUCK CAPITAL T
+#- 1D54C;MATHEMATICAL DOUBLE-STRUCK CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <U> :  "𝕌"   U1D54C	# MATHEMATICAL DOUBLE-STRUCK CAPITAL U
+#- 1D54D;MATHEMATICAL DOUBLE-STRUCK CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <V> :  "𝕍"   U1D54D	# MATHEMATICAL DOUBLE-STRUCK CAPITAL V
+#- 1D54E;MATHEMATICAL DOUBLE-STRUCK CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <W> :  "𝕎"   U1D54E	# MATHEMATICAL DOUBLE-STRUCK CAPITAL W
+#- 1D54F;MATHEMATICAL DOUBLE-STRUCK CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <X> :  "𝕏"   U1D54F	# MATHEMATICAL DOUBLE-STRUCK CAPITAL X
+#- 1D550;MATHEMATICAL DOUBLE-STRUCK CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <Y> :  "𝕐"   U1D550	# MATHEMATICAL DOUBLE-STRUCK CAPITAL Y
+#- 2124;DOUBLE-STRUCK CAPITAL Z;Lu;0;L;<font> 005A;;;;N;DOUBLE-STRUCK Z;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <Z> :  "ℤ"   U2124	# DOUBLE-STRUCK CAPITAL Z
+#- 1D552;MATHEMATICAL DOUBLE-STRUCK SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <a> :  "𝕒"   U1D552	# MATHEMATICAL DOUBLE-STRUCK SMALL A
+#- 1D553;MATHEMATICAL DOUBLE-STRUCK SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <b> :  "𝕓"   U1D553	# MATHEMATICAL DOUBLE-STRUCK SMALL B
+#- 1D554;MATHEMATICAL DOUBLE-STRUCK SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <c> :  "𝕔"   U1D554	# MATHEMATICAL DOUBLE-STRUCK SMALL C
+#- 1D555;MATHEMATICAL DOUBLE-STRUCK SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <d> :  "𝕕"   U1D555	# MATHEMATICAL DOUBLE-STRUCK SMALL D
+#- 1D556;MATHEMATICAL DOUBLE-STRUCK SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <e> :  "𝕖"   U1D556	# MATHEMATICAL DOUBLE-STRUCK SMALL E
+#- 1D557;MATHEMATICAL DOUBLE-STRUCK SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <f> :  "𝕗"   U1D557	# MATHEMATICAL DOUBLE-STRUCK SMALL F
+#- 1D558;MATHEMATICAL DOUBLE-STRUCK SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <g> :  "𝕘"   U1D558	# MATHEMATICAL DOUBLE-STRUCK SMALL G
+#- 1D559;MATHEMATICAL DOUBLE-STRUCK SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <h> :  "𝕙"   U1D559	# MATHEMATICAL DOUBLE-STRUCK SMALL H
+#- 1D55A;MATHEMATICAL DOUBLE-STRUCK SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <i> :  "𝕚"   U1D55A	# MATHEMATICAL DOUBLE-STRUCK SMALL I
+#- 1D55B;MATHEMATICAL DOUBLE-STRUCK SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <j> :  "𝕛"   U1D55B	# MATHEMATICAL DOUBLE-STRUCK SMALL J
+#- 1D55C;MATHEMATICAL DOUBLE-STRUCK SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <k> :  "𝕜"   U1D55C	# MATHEMATICAL DOUBLE-STRUCK SMALL K
+#- 1D55D;MATHEMATICAL DOUBLE-STRUCK SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <l> :  "𝕝"   U1D55D	# MATHEMATICAL DOUBLE-STRUCK SMALL L
+#- 1D55E;MATHEMATICAL DOUBLE-STRUCK SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <m> :  "𝕞"   U1D55E	# MATHEMATICAL DOUBLE-STRUCK SMALL M
+#- 1D55F;MATHEMATICAL DOUBLE-STRUCK SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <n> :  "𝕟"   U1D55F	# MATHEMATICAL DOUBLE-STRUCK SMALL N
+#- 1D560;MATHEMATICAL DOUBLE-STRUCK SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <o> :  "𝕠"   U1D560	# MATHEMATICAL DOUBLE-STRUCK SMALL O
+#- 1D561;MATHEMATICAL DOUBLE-STRUCK SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <p> :  "𝕡"   U1D561	# MATHEMATICAL DOUBLE-STRUCK SMALL P
+#- 1D562;MATHEMATICAL DOUBLE-STRUCK SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <q> :  "𝕢"   U1D562	# MATHEMATICAL DOUBLE-STRUCK SMALL Q
+#- 1D563;MATHEMATICAL DOUBLE-STRUCK SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <r> :  "𝕣"   U1D563	# MATHEMATICAL DOUBLE-STRUCK SMALL R
+#- 1D564;MATHEMATICAL DOUBLE-STRUCK SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <s> :  "𝕤"   U1D564	# MATHEMATICAL DOUBLE-STRUCK SMALL S
+#- 1D565;MATHEMATICAL DOUBLE-STRUCK SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <t> :  "𝕥"   U1D565	# MATHEMATICAL DOUBLE-STRUCK SMALL T
+#- 1D566;MATHEMATICAL DOUBLE-STRUCK SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <u> :  "𝕦"   U1D566	# MATHEMATICAL DOUBLE-STRUCK SMALL U
+#- 1D567;MATHEMATICAL DOUBLE-STRUCK SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <v> :  "𝕧"   U1D567	# MATHEMATICAL DOUBLE-STRUCK SMALL V
+#- 1D568;MATHEMATICAL DOUBLE-STRUCK SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <w> :  "𝕨"   U1D568	# MATHEMATICAL DOUBLE-STRUCK SMALL W
+#- 1D569;MATHEMATICAL DOUBLE-STRUCK SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <x> :  "𝕩"   U1D569	# MATHEMATICAL DOUBLE-STRUCK SMALL X
+#- 1D56A;MATHEMATICAL DOUBLE-STRUCK SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <y> :  "𝕪"   U1D56A	# MATHEMATICAL DOUBLE-STRUCK SMALL Y
+#- 1D56B;MATHEMATICAL DOUBLE-STRUCK SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <z> :  "𝕫"   U1D56B	# MATHEMATICAL DOUBLE-STRUCK SMALL Z
+## == BOLD FRAKTUR
+#- 1D56C;MATHEMATICAL BOLD FRAKTUR CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <A> :  "𝕬"   U1D56C	# MATHEMATICAL BOLD FRAKTUR CAPITAL A
+#- 1D56D;MATHEMATICAL BOLD FRAKTUR CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <B> :  "𝕭"   U1D56D	# MATHEMATICAL BOLD FRAKTUR CAPITAL B
+#- 1D56E;MATHEMATICAL BOLD FRAKTUR CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <C> :  "𝕮"   U1D56E	# MATHEMATICAL BOLD FRAKTUR CAPITAL C
+#- 1D56F;MATHEMATICAL BOLD FRAKTUR CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <D> :  "𝕯"   U1D56F	# MATHEMATICAL BOLD FRAKTUR CAPITAL D
+#- 1D570;MATHEMATICAL BOLD FRAKTUR CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <E> :  "𝕰"   U1D570	# MATHEMATICAL BOLD FRAKTUR CAPITAL E
+#- 1D571;MATHEMATICAL BOLD FRAKTUR CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <F> :  "𝕱"   U1D571	# MATHEMATICAL BOLD FRAKTUR CAPITAL F
+#- 1D572;MATHEMATICAL BOLD FRAKTUR CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <G> :  "𝕲"   U1D572	# MATHEMATICAL BOLD FRAKTUR CAPITAL G
+#- 1D573;MATHEMATICAL BOLD FRAKTUR CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <H> :  "𝕳"   U1D573	# MATHEMATICAL BOLD FRAKTUR CAPITAL H
+#- 1D574;MATHEMATICAL BOLD FRAKTUR CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <I> :  "𝕴"   U1D574	# MATHEMATICAL BOLD FRAKTUR CAPITAL I
+#- 1D575;MATHEMATICAL BOLD FRAKTUR CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <J> :  "𝕵"   U1D575	# MATHEMATICAL BOLD FRAKTUR CAPITAL J
+#- 1D576;MATHEMATICAL BOLD FRAKTUR CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <K> :  "𝕶"   U1D576	# MATHEMATICAL BOLD FRAKTUR CAPITAL K
+#- 1D577;MATHEMATICAL BOLD FRAKTUR CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <L> :  "𝕷"   U1D577	# MATHEMATICAL BOLD FRAKTUR CAPITAL L
+#- 1D578;MATHEMATICAL BOLD FRAKTUR CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <M> :  "𝕸"   U1D578	# MATHEMATICAL BOLD FRAKTUR CAPITAL M
+#- 1D579;MATHEMATICAL BOLD FRAKTUR CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <N> :  "𝕹"   U1D579	# MATHEMATICAL BOLD FRAKTUR CAPITAL N
+#- 1D57A;MATHEMATICAL BOLD FRAKTUR CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <O> :  "𝕺"   U1D57A	# MATHEMATICAL BOLD FRAKTUR CAPITAL O
+#- 1D57B;MATHEMATICAL BOLD FRAKTUR CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <P> :  "𝕻"   U1D57B	# MATHEMATICAL BOLD FRAKTUR CAPITAL P
+#- 1D57C;MATHEMATICAL BOLD FRAKTUR CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <Q> :  "𝕼"   U1D57C	# MATHEMATICAL BOLD FRAKTUR CAPITAL Q
+#- 1D57D;MATHEMATICAL BOLD FRAKTUR CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <R> :  "𝕽"   U1D57D	# MATHEMATICAL BOLD FRAKTUR CAPITAL R
+#- 1D57E;MATHEMATICAL BOLD FRAKTUR CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <S> :  "𝕾"   U1D57E	# MATHEMATICAL BOLD FRAKTUR CAPITAL S
+#- 1D57F;MATHEMATICAL BOLD FRAKTUR CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <T> :  "𝕿"   U1D57F	# MATHEMATICAL BOLD FRAKTUR CAPITAL T
+#- 1D580;MATHEMATICAL BOLD FRAKTUR CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <U> :  "𝖀"   U1D580	# MATHEMATICAL BOLD FRAKTUR CAPITAL U
+#- 1D581;MATHEMATICAL BOLD FRAKTUR CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <V> :  "𝖁"   U1D581	# MATHEMATICAL BOLD FRAKTUR CAPITAL V
+#- 1D582;MATHEMATICAL BOLD FRAKTUR CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <W> :  "𝖂"   U1D582	# MATHEMATICAL BOLD FRAKTUR CAPITAL W
+#- 1D583;MATHEMATICAL BOLD FRAKTUR CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <X> :  "𝖃"   U1D583	# MATHEMATICAL BOLD FRAKTUR CAPITAL X
+#- 1D584;MATHEMATICAL BOLD FRAKTUR CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <Y> :  "𝖄"   U1D584	# MATHEMATICAL BOLD FRAKTUR CAPITAL Y
+#- 1D585;MATHEMATICAL BOLD FRAKTUR CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <Z> :  "𝖅"   U1D585	# MATHEMATICAL BOLD FRAKTUR CAPITAL Z
+#- 1D586;MATHEMATICAL BOLD FRAKTUR SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <a> :  "𝖆"   U1D586	# MATHEMATICAL BOLD FRAKTUR SMALL A
+#- 1D587;MATHEMATICAL BOLD FRAKTUR SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <b> :  "𝖇"   U1D587	# MATHEMATICAL BOLD FRAKTUR SMALL B
+#- 1D588;MATHEMATICAL BOLD FRAKTUR SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <c> :  "𝖈"   U1D588	# MATHEMATICAL BOLD FRAKTUR SMALL C
+#- 1D589;MATHEMATICAL BOLD FRAKTUR SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <d> :  "𝖉"   U1D589	# MATHEMATICAL BOLD FRAKTUR SMALL D
+#- 1D58A;MATHEMATICAL BOLD FRAKTUR SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <e> :  "𝖊"   U1D58A	# MATHEMATICAL BOLD FRAKTUR SMALL E
+#- 1D58B;MATHEMATICAL BOLD FRAKTUR SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <f> :  "𝖋"   U1D58B	# MATHEMATICAL BOLD FRAKTUR SMALL F
+#- 1D58C;MATHEMATICAL BOLD FRAKTUR SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <g> :  "𝖌"   U1D58C	# MATHEMATICAL BOLD FRAKTUR SMALL G
+#- 1D58D;MATHEMATICAL BOLD FRAKTUR SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <h> :  "𝖍"   U1D58D	# MATHEMATICAL BOLD FRAKTUR SMALL H
+#- 1D58E;MATHEMATICAL BOLD FRAKTUR SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <i> :  "𝖎"   U1D58E	# MATHEMATICAL BOLD FRAKTUR SMALL I
+#- 1D58F;MATHEMATICAL BOLD FRAKTUR SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <j> :  "𝖏"   U1D58F	# MATHEMATICAL BOLD FRAKTUR SMALL J
+#- 1D590;MATHEMATICAL BOLD FRAKTUR SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <k> :  "𝖐"   U1D590	# MATHEMATICAL BOLD FRAKTUR SMALL K
+#- 1D591;MATHEMATICAL BOLD FRAKTUR SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <l> :  "𝖑"   U1D591	# MATHEMATICAL BOLD FRAKTUR SMALL L
+#- 1D592;MATHEMATICAL BOLD FRAKTUR SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <m> :  "𝖒"   U1D592	# MATHEMATICAL BOLD FRAKTUR SMALL M
+#- 1D593;MATHEMATICAL BOLD FRAKTUR SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <n> :  "𝖓"   U1D593	# MATHEMATICAL BOLD FRAKTUR SMALL N
+#- 1D594;MATHEMATICAL BOLD FRAKTUR SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <o> :  "𝖔"   U1D594	# MATHEMATICAL BOLD FRAKTUR SMALL O
+#- 1D595;MATHEMATICAL BOLD FRAKTUR SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <p> :  "𝖕"   U1D595	# MATHEMATICAL BOLD FRAKTUR SMALL P
+#- 1D596;MATHEMATICAL BOLD FRAKTUR SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <q> :  "𝖖"   U1D596	# MATHEMATICAL BOLD FRAKTUR SMALL Q
+#- 1D597;MATHEMATICAL BOLD FRAKTUR SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <r> :  "𝖗"   U1D597	# MATHEMATICAL BOLD FRAKTUR SMALL R
+#- 1D598;MATHEMATICAL BOLD FRAKTUR SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <s> :  "𝖘"   U1D598	# MATHEMATICAL BOLD FRAKTUR SMALL S
+#- 1D599;MATHEMATICAL BOLD FRAKTUR SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <t> :  "𝖙"   U1D599	# MATHEMATICAL BOLD FRAKTUR SMALL T
+#- 1D59A;MATHEMATICAL BOLD FRAKTUR SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <u> :  "𝖚"   U1D59A	# MATHEMATICAL BOLD FRAKTUR SMALL U
+#- 1D59B;MATHEMATICAL BOLD FRAKTUR SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <v> :  "𝖛"   U1D59B	# MATHEMATICAL BOLD FRAKTUR SMALL V
+#- 1D59C;MATHEMATICAL BOLD FRAKTUR SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <w> :  "𝖜"   U1D59C	# MATHEMATICAL BOLD FRAKTUR SMALL W
+#- 1D59D;MATHEMATICAL BOLD FRAKTUR SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <x> :  "𝖝"   U1D59D	# MATHEMATICAL BOLD FRAKTUR SMALL X
+#- 1D59E;MATHEMATICAL BOLD FRAKTUR SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <y> :  "𝖞"   U1D59E	# MATHEMATICAL BOLD FRAKTUR SMALL Y
+#- 1D59F;MATHEMATICAL BOLD FRAKTUR SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <F> <z> :  "𝖟"   U1D59F	# MATHEMATICAL BOLD FRAKTUR SMALL Z
+## == SANS-SERIF
+#- 1D5A0;MATHEMATICAL SANS-SERIF CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <A> :  "𝖠"   U1D5A0	# MATHEMATICAL SANS-SERIF CAPITAL A
+#- 1D5A1;MATHEMATICAL SANS-SERIF CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <B> :  "𝖡"   U1D5A1	# MATHEMATICAL SANS-SERIF CAPITAL B
+#- 1D5A2;MATHEMATICAL SANS-SERIF CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <C> :  "𝖢"   U1D5A2	# MATHEMATICAL SANS-SERIF CAPITAL C
+#- 1D5A3;MATHEMATICAL SANS-SERIF CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <D> :  "𝖣"   U1D5A3	# MATHEMATICAL SANS-SERIF CAPITAL D
+#- 1D5A4;MATHEMATICAL SANS-SERIF CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <E> :  "𝖤"   U1D5A4	# MATHEMATICAL SANS-SERIF CAPITAL E
+#- 1D5A5;MATHEMATICAL SANS-SERIF CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <F> :  "𝖥"   U1D5A5	# MATHEMATICAL SANS-SERIF CAPITAL F
+#- 1D5A6;MATHEMATICAL SANS-SERIF CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <G> :  "𝖦"   U1D5A6	# MATHEMATICAL SANS-SERIF CAPITAL G
+#- 1D5A7;MATHEMATICAL SANS-SERIF CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <H> :  "𝖧"   U1D5A7	# MATHEMATICAL SANS-SERIF CAPITAL H
+#- 1D5A8;MATHEMATICAL SANS-SERIF CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <I> :  "𝖨"   U1D5A8	# MATHEMATICAL SANS-SERIF CAPITAL I
+#- 1D5A9;MATHEMATICAL SANS-SERIF CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <J> :  "𝖩"   U1D5A9	# MATHEMATICAL SANS-SERIF CAPITAL J
+#- 1D5AA;MATHEMATICAL SANS-SERIF CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <K> :  "𝖪"   U1D5AA	# MATHEMATICAL SANS-SERIF CAPITAL K
+#- 1D5AB;MATHEMATICAL SANS-SERIF CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <L> :  "𝖫"   U1D5AB	# MATHEMATICAL SANS-SERIF CAPITAL L
+#- 1D5AC;MATHEMATICAL SANS-SERIF CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <M> :  "𝖬"   U1D5AC	# MATHEMATICAL SANS-SERIF CAPITAL M
+#- 1D5AD;MATHEMATICAL SANS-SERIF CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <N> :  "𝖭"   U1D5AD	# MATHEMATICAL SANS-SERIF CAPITAL N
+#- 1D5AE;MATHEMATICAL SANS-SERIF CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <O> :  "𝖮"   U1D5AE	# MATHEMATICAL SANS-SERIF CAPITAL O
+#- 1D5AF;MATHEMATICAL SANS-SERIF CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <P> :  "𝖯"   U1D5AF	# MATHEMATICAL SANS-SERIF CAPITAL P
+#- 1D5B0;MATHEMATICAL SANS-SERIF CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <Q> :  "𝖰"   U1D5B0	# MATHEMATICAL SANS-SERIF CAPITAL Q
+#- 1D5B1;MATHEMATICAL SANS-SERIF CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <R> :  "𝖱"   U1D5B1	# MATHEMATICAL SANS-SERIF CAPITAL R
+#- 1D5B2;MATHEMATICAL SANS-SERIF CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <S> :  "𝖲"   U1D5B2	# MATHEMATICAL SANS-SERIF CAPITAL S
+#- 1D5B3;MATHEMATICAL SANS-SERIF CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <T> :  "𝖳"   U1D5B3	# MATHEMATICAL SANS-SERIF CAPITAL T
+#- 1D5B4;MATHEMATICAL SANS-SERIF CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <U> :  "𝖴"   U1D5B4	# MATHEMATICAL SANS-SERIF CAPITAL U
+#- 1D5B5;MATHEMATICAL SANS-SERIF CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <V> :  "𝖵"   U1D5B5	# MATHEMATICAL SANS-SERIF CAPITAL V
+#- 1D5B6;MATHEMATICAL SANS-SERIF CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <W> :  "𝖶"   U1D5B6	# MATHEMATICAL SANS-SERIF CAPITAL W
+#- 1D5B7;MATHEMATICAL SANS-SERIF CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <X> :  "𝖷"   U1D5B7	# MATHEMATICAL SANS-SERIF CAPITAL X
+#- 1D5B8;MATHEMATICAL SANS-SERIF CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <Y> :  "𝖸"   U1D5B8	# MATHEMATICAL SANS-SERIF CAPITAL Y
+#- 1D5B9;MATHEMATICAL SANS-SERIF CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <Z> :  "𝖹"   U1D5B9	# MATHEMATICAL SANS-SERIF CAPITAL Z
+#- 1D5BA;MATHEMATICAL SANS-SERIF SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <a> :  "𝖺"   U1D5BA	# MATHEMATICAL SANS-SERIF SMALL A
+#- 1D5BB;MATHEMATICAL SANS-SERIF SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <b> :  "𝖻"   U1D5BB	# MATHEMATICAL SANS-SERIF SMALL B
+#- 1D5BC;MATHEMATICAL SANS-SERIF SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <c> :  "𝖼"   U1D5BC	# MATHEMATICAL SANS-SERIF SMALL C
+#- 1D5BD;MATHEMATICAL SANS-SERIF SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <d> :  "𝖽"   U1D5BD	# MATHEMATICAL SANS-SERIF SMALL D
+#- 1D5BE;MATHEMATICAL SANS-SERIF SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <e> :  "𝖾"   U1D5BE	# MATHEMATICAL SANS-SERIF SMALL E
+#- 1D5BF;MATHEMATICAL SANS-SERIF SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <f> :  "𝖿"   U1D5BF	# MATHEMATICAL SANS-SERIF SMALL F
+#- 1D5C0;MATHEMATICAL SANS-SERIF SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <g> :  "𝗀"   U1D5C0	# MATHEMATICAL SANS-SERIF SMALL G
+#- 1D5C1;MATHEMATICAL SANS-SERIF SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <h> :  "𝗁"   U1D5C1	# MATHEMATICAL SANS-SERIF SMALL H
+#- 1D5C2;MATHEMATICAL SANS-SERIF SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <i> :  "𝗂"   U1D5C2	# MATHEMATICAL SANS-SERIF SMALL I
+#- 1D5C3;MATHEMATICAL SANS-SERIF SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <j> :  "𝗃"   U1D5C3	# MATHEMATICAL SANS-SERIF SMALL J
+#- 1D5C4;MATHEMATICAL SANS-SERIF SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <k> :  "𝗄"   U1D5C4	# MATHEMATICAL SANS-SERIF SMALL K
+#- 1D5C5;MATHEMATICAL SANS-SERIF SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <l> :  "𝗅"   U1D5C5	# MATHEMATICAL SANS-SERIF SMALL L
+#- 1D5C6;MATHEMATICAL SANS-SERIF SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <m> :  "𝗆"   U1D5C6	# MATHEMATICAL SANS-SERIF SMALL M
+#- 1D5C7;MATHEMATICAL SANS-SERIF SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <n> :  "𝗇"   U1D5C7	# MATHEMATICAL SANS-SERIF SMALL N
+#- 1D5C8;MATHEMATICAL SANS-SERIF SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <o> :  "𝗈"   U1D5C8	# MATHEMATICAL SANS-SERIF SMALL O
+#- 1D5C9;MATHEMATICAL SANS-SERIF SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <p> :  "𝗉"   U1D5C9	# MATHEMATICAL SANS-SERIF SMALL P
+#- 1D5CA;MATHEMATICAL SANS-SERIF SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <q> :  "𝗊"   U1D5CA	# MATHEMATICAL SANS-SERIF SMALL Q
+#- 1D5CB;MATHEMATICAL SANS-SERIF SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <r> :  "𝗋"   U1D5CB	# MATHEMATICAL SANS-SERIF SMALL R
+#- 1D5CC;MATHEMATICAL SANS-SERIF SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <s> :  "𝗌"   U1D5CC	# MATHEMATICAL SANS-SERIF SMALL S
+#- 1D5CD;MATHEMATICAL SANS-SERIF SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <t> :  "𝗍"   U1D5CD	# MATHEMATICAL SANS-SERIF SMALL T
+#- 1D5CE;MATHEMATICAL SANS-SERIF SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <u> :  "𝗎"   U1D5CE	# MATHEMATICAL SANS-SERIF SMALL U
+#- 1D5CF;MATHEMATICAL SANS-SERIF SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <v> :  "𝗏"   U1D5CF	# MATHEMATICAL SANS-SERIF SMALL V
+#- 1D5D0;MATHEMATICAL SANS-SERIF SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <w> :  "𝗐"   U1D5D0	# MATHEMATICAL SANS-SERIF SMALL W
+#- 1D5D1;MATHEMATICAL SANS-SERIF SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <x> :  "𝗑"   U1D5D1	# MATHEMATICAL SANS-SERIF SMALL X
+#- 1D5D2;MATHEMATICAL SANS-SERIF SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <y> :  "𝗒"   U1D5D2	# MATHEMATICAL SANS-SERIF SMALL Y
+#- 1D5D3;MATHEMATICAL SANS-SERIF SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <z> :  "𝗓"   U1D5D3	# MATHEMATICAL SANS-SERIF SMALL Z
+## == BOLD SANS-SERIF
+#- 1D5D4;MATHEMATICAL SANS-SERIF BOLD CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <A> :  "𝗔"   U1D5D4	# MATHEMATICAL SANS-SERIF BOLD CAPITAL A
+#- 1D5D5;MATHEMATICAL SANS-SERIF BOLD CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <B> :  "𝗕"   U1D5D5	# MATHEMATICAL SANS-SERIF BOLD CAPITAL B
+#- 1D5D6;MATHEMATICAL SANS-SERIF BOLD CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <C> :  "𝗖"   U1D5D6	# MATHEMATICAL SANS-SERIF BOLD CAPITAL C
+#- 1D5D7;MATHEMATICAL SANS-SERIF BOLD CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <D> :  "𝗗"   U1D5D7	# MATHEMATICAL SANS-SERIF BOLD CAPITAL D
+#- 1D5D8;MATHEMATICAL SANS-SERIF BOLD CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <E> :  "𝗘"   U1D5D8	# MATHEMATICAL SANS-SERIF BOLD CAPITAL E
+#- 1D5D9;MATHEMATICAL SANS-SERIF BOLD CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <F> :  "𝗙"   U1D5D9	# MATHEMATICAL SANS-SERIF BOLD CAPITAL F
+#- 1D5DA;MATHEMATICAL SANS-SERIF BOLD CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <G> :  "𝗚"   U1D5DA	# MATHEMATICAL SANS-SERIF BOLD CAPITAL G
+#- 1D5DB;MATHEMATICAL SANS-SERIF BOLD CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <H> :  "𝗛"   U1D5DB	# MATHEMATICAL SANS-SERIF BOLD CAPITAL H
+#- 1D5DC;MATHEMATICAL SANS-SERIF BOLD CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <I> :  "𝗜"   U1D5DC	# MATHEMATICAL SANS-SERIF BOLD CAPITAL I
+#- 1D5DD;MATHEMATICAL SANS-SERIF BOLD CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <J> :  "𝗝"   U1D5DD	# MATHEMATICAL SANS-SERIF BOLD CAPITAL J
+#- 1D5DE;MATHEMATICAL SANS-SERIF BOLD CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <K> :  "𝗞"   U1D5DE	# MATHEMATICAL SANS-SERIF BOLD CAPITAL K
+#- 1D5DF;MATHEMATICAL SANS-SERIF BOLD CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <L> :  "𝗟"   U1D5DF	# MATHEMATICAL SANS-SERIF BOLD CAPITAL L
+#- 1D5E0;MATHEMATICAL SANS-SERIF BOLD CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <M> :  "𝗠"   U1D5E0	# MATHEMATICAL SANS-SERIF BOLD CAPITAL M
+#- 1D5E1;MATHEMATICAL SANS-SERIF BOLD CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <N> :  "𝗡"   U1D5E1	# MATHEMATICAL SANS-SERIF BOLD CAPITAL N
+#- 1D5E2;MATHEMATICAL SANS-SERIF BOLD CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <O> :  "𝗢"   U1D5E2	# MATHEMATICAL SANS-SERIF BOLD CAPITAL O
+#- 1D5E3;MATHEMATICAL SANS-SERIF BOLD CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <P> :  "𝗣"   U1D5E3	# MATHEMATICAL SANS-SERIF BOLD CAPITAL P
+#- 1D5E4;MATHEMATICAL SANS-SERIF BOLD CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <Q> :  "𝗤"   U1D5E4	# MATHEMATICAL SANS-SERIF BOLD CAPITAL Q
+#- 1D5E5;MATHEMATICAL SANS-SERIF BOLD CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <R> :  "𝗥"   U1D5E5	# MATHEMATICAL SANS-SERIF BOLD CAPITAL R
+#- 1D5E6;MATHEMATICAL SANS-SERIF BOLD CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <S> :  "𝗦"   U1D5E6	# MATHEMATICAL SANS-SERIF BOLD CAPITAL S
+#- 1D5E7;MATHEMATICAL SANS-SERIF BOLD CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <T> :  "𝗧"   U1D5E7	# MATHEMATICAL SANS-SERIF BOLD CAPITAL T
+#- 1D5E8;MATHEMATICAL SANS-SERIF BOLD CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <U> :  "𝗨"   U1D5E8	# MATHEMATICAL SANS-SERIF BOLD CAPITAL U
+#- 1D5E9;MATHEMATICAL SANS-SERIF BOLD CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <V> :  "𝗩"   U1D5E9	# MATHEMATICAL SANS-SERIF BOLD CAPITAL V
+#- 1D5EA;MATHEMATICAL SANS-SERIF BOLD CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <W> :  "𝗪"   U1D5EA	# MATHEMATICAL SANS-SERIF BOLD CAPITAL W
+#- 1D5EB;MATHEMATICAL SANS-SERIF BOLD CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <X> :  "𝗫"   U1D5EB	# MATHEMATICAL SANS-SERIF BOLD CAPITAL X
+#- 1D5EC;MATHEMATICAL SANS-SERIF BOLD CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <Y> :  "𝗬"   U1D5EC	# MATHEMATICAL SANS-SERIF BOLD CAPITAL Y
+#- 1D5ED;MATHEMATICAL SANS-SERIF BOLD CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <Z> :  "𝗭"   U1D5ED	# MATHEMATICAL SANS-SERIF BOLD CAPITAL Z
+#- 1D5EE;MATHEMATICAL SANS-SERIF BOLD SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <a> :  "𝗮"   U1D5EE	# MATHEMATICAL SANS-SERIF BOLD SMALL A
+#- 1D5EF;MATHEMATICAL SANS-SERIF BOLD SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <b> :  "𝗯"   U1D5EF	# MATHEMATICAL SANS-SERIF BOLD SMALL B
+#- 1D5F0;MATHEMATICAL SANS-SERIF BOLD SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <c> :  "𝗰"   U1D5F0	# MATHEMATICAL SANS-SERIF BOLD SMALL C
+#- 1D5F1;MATHEMATICAL SANS-SERIF BOLD SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <d> :  "𝗱"   U1D5F1	# MATHEMATICAL SANS-SERIF BOLD SMALL D
+#- 1D5F2;MATHEMATICAL SANS-SERIF BOLD SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <e> :  "𝗲"   U1D5F2	# MATHEMATICAL SANS-SERIF BOLD SMALL E
+#- 1D5F3;MATHEMATICAL SANS-SERIF BOLD SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <f> :  "𝗳"   U1D5F3	# MATHEMATICAL SANS-SERIF BOLD SMALL F
+#- 1D5F4;MATHEMATICAL SANS-SERIF BOLD SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <g> :  "𝗴"   U1D5F4	# MATHEMATICAL SANS-SERIF BOLD SMALL G
+#- 1D5F5;MATHEMATICAL SANS-SERIF BOLD SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <h> :  "𝗵"   U1D5F5	# MATHEMATICAL SANS-SERIF BOLD SMALL H
+#- 1D5F6;MATHEMATICAL SANS-SERIF BOLD SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <i> :  "𝗶"   U1D5F6	# MATHEMATICAL SANS-SERIF BOLD SMALL I
+#- 1D5F7;MATHEMATICAL SANS-SERIF BOLD SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <j> :  "𝗷"   U1D5F7	# MATHEMATICAL SANS-SERIF BOLD SMALL J
+#- 1D5F8;MATHEMATICAL SANS-SERIF BOLD SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <k> :  "𝗸"   U1D5F8	# MATHEMATICAL SANS-SERIF BOLD SMALL K
+#- 1D5F9;MATHEMATICAL SANS-SERIF BOLD SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <l> :  "𝗹"   U1D5F9	# MATHEMATICAL SANS-SERIF BOLD SMALL L
+#- 1D5FA;MATHEMATICAL SANS-SERIF BOLD SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <m> :  "𝗺"   U1D5FA	# MATHEMATICAL SANS-SERIF BOLD SMALL M
+#- 1D5FB;MATHEMATICAL SANS-SERIF BOLD SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <n> :  "𝗻"   U1D5FB	# MATHEMATICAL SANS-SERIF BOLD SMALL N
+#- 1D5FC;MATHEMATICAL SANS-SERIF BOLD SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <o> :  "𝗼"   U1D5FC	# MATHEMATICAL SANS-SERIF BOLD SMALL O
+#- 1D5FD;MATHEMATICAL SANS-SERIF BOLD SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <p> :  "𝗽"   U1D5FD	# MATHEMATICAL SANS-SERIF BOLD SMALL P
+#- 1D5FE;MATHEMATICAL SANS-SERIF BOLD SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <q> :  "𝗾"   U1D5FE	# MATHEMATICAL SANS-SERIF BOLD SMALL Q
+#- 1D5FF;MATHEMATICAL SANS-SERIF BOLD SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <r> :  "𝗿"   U1D5FF	# MATHEMATICAL SANS-SERIF BOLD SMALL R
+#- 1D600;MATHEMATICAL SANS-SERIF BOLD SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <s> :  "𝘀"   U1D600	# MATHEMATICAL SANS-SERIF BOLD SMALL S
+#- 1D601;MATHEMATICAL SANS-SERIF BOLD SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <t> :  "𝘁"   U1D601	# MATHEMATICAL SANS-SERIF BOLD SMALL T
+#- 1D602;MATHEMATICAL SANS-SERIF BOLD SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <u> :  "𝘂"   U1D602	# MATHEMATICAL SANS-SERIF BOLD SMALL U
+#- 1D603;MATHEMATICAL SANS-SERIF BOLD SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <v> :  "𝘃"   U1D603	# MATHEMATICAL SANS-SERIF BOLD SMALL V
+#- 1D604;MATHEMATICAL SANS-SERIF BOLD SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <w> :  "𝘄"   U1D604	# MATHEMATICAL SANS-SERIF BOLD SMALL W
+#- 1D605;MATHEMATICAL SANS-SERIF BOLD SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <x> :  "𝘅"   U1D605	# MATHEMATICAL SANS-SERIF BOLD SMALL X
+#- 1D606;MATHEMATICAL SANS-SERIF BOLD SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <y> :  "𝘆"   U1D606	# MATHEMATICAL SANS-SERIF BOLD SMALL Y
+#- 1D607;MATHEMATICAL SANS-SERIF BOLD SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <z> :  "𝘇"   U1D607	# MATHEMATICAL SANS-SERIF BOLD SMALL Z
+## == ITALIC SANS-SERIF
+#- 1D608;MATHEMATICAL SANS-SERIF ITALIC CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <A> :  "𝘈"   U1D608	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL A
+#- 1D609;MATHEMATICAL SANS-SERIF ITALIC CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <B> :  "𝘉"   U1D609	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL B
+#- 1D60A;MATHEMATICAL SANS-SERIF ITALIC CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <C> :  "𝘊"   U1D60A	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL C
+#- 1D60B;MATHEMATICAL SANS-SERIF ITALIC CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <D> :  "𝘋"   U1D60B	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL D
+#- 1D60C;MATHEMATICAL SANS-SERIF ITALIC CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <E> :  "𝘌"   U1D60C	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL E
+#- 1D60D;MATHEMATICAL SANS-SERIF ITALIC CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <F> :  "𝘍"   U1D60D	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL F
+#- 1D60E;MATHEMATICAL SANS-SERIF ITALIC CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <G> :  "𝘎"   U1D60E	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL G
+#- 1D60F;MATHEMATICAL SANS-SERIF ITALIC CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <H> :  "𝘏"   U1D60F	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL H
+#- 1D610;MATHEMATICAL SANS-SERIF ITALIC CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <I> :  "𝘐"   U1D610	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL I
+#- 1D611;MATHEMATICAL SANS-SERIF ITALIC CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <J> :  "𝘑"   U1D611	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL J
+#- 1D612;MATHEMATICAL SANS-SERIF ITALIC CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <K> :  "𝘒"   U1D612	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL K
+#- 1D613;MATHEMATICAL SANS-SERIF ITALIC CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <L> :  "𝘓"   U1D613	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL L
+#- 1D614;MATHEMATICAL SANS-SERIF ITALIC CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <M> :  "𝘔"   U1D614	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL M
+#- 1D615;MATHEMATICAL SANS-SERIF ITALIC CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <N> :  "𝘕"   U1D615	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL N
+#- 1D616;MATHEMATICAL SANS-SERIF ITALIC CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <O> :  "𝘖"   U1D616	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL O
+#- 1D617;MATHEMATICAL SANS-SERIF ITALIC CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <P> :  "𝘗"   U1D617	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL P
+#- 1D618;MATHEMATICAL SANS-SERIF ITALIC CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <Q> :  "𝘘"   U1D618	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL Q
+#- 1D619;MATHEMATICAL SANS-SERIF ITALIC CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <R> :  "𝘙"   U1D619	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL R
+#- 1D61A;MATHEMATICAL SANS-SERIF ITALIC CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <S> :  "𝘚"   U1D61A	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL S
+#- 1D61B;MATHEMATICAL SANS-SERIF ITALIC CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <T> :  "𝘛"   U1D61B	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL T
+#- 1D61C;MATHEMATICAL SANS-SERIF ITALIC CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <U> :  "𝘜"   U1D61C	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL U
+#- 1D61D;MATHEMATICAL SANS-SERIF ITALIC CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <V> :  "𝘝"   U1D61D	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL V
+#- 1D61E;MATHEMATICAL SANS-SERIF ITALIC CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <W> :  "𝘞"   U1D61E	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL W
+#- 1D61F;MATHEMATICAL SANS-SERIF ITALIC CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <X> :  "𝘟"   U1D61F	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL X
+#- 1D620;MATHEMATICAL SANS-SERIF ITALIC CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <Y> :  "𝘠"   U1D620	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL Y
+#- 1D621;MATHEMATICAL SANS-SERIF ITALIC CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <Z> :  "𝘡"   U1D621	# MATHEMATICAL SANS-SERIF ITALIC CAPITAL Z
+#- 1D622;MATHEMATICAL SANS-SERIF ITALIC SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <a> :  "𝘢"   U1D622	# MATHEMATICAL SANS-SERIF ITALIC SMALL A
+#- 1D623;MATHEMATICAL SANS-SERIF ITALIC SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <b> :  "𝘣"   U1D623	# MATHEMATICAL SANS-SERIF ITALIC SMALL B
+#- 1D624;MATHEMATICAL SANS-SERIF ITALIC SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <c> :  "𝘤"   U1D624	# MATHEMATICAL SANS-SERIF ITALIC SMALL C
+#- 1D625;MATHEMATICAL SANS-SERIF ITALIC SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <d> :  "𝘥"   U1D625	# MATHEMATICAL SANS-SERIF ITALIC SMALL D
+#- 1D626;MATHEMATICAL SANS-SERIF ITALIC SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <e> :  "𝘦"   U1D626	# MATHEMATICAL SANS-SERIF ITALIC SMALL E
+#- 1D627;MATHEMATICAL SANS-SERIF ITALIC SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <f> :  "𝘧"   U1D627	# MATHEMATICAL SANS-SERIF ITALIC SMALL F
+#- 1D628;MATHEMATICAL SANS-SERIF ITALIC SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <g> :  "𝘨"   U1D628	# MATHEMATICAL SANS-SERIF ITALIC SMALL G
+#- 1D629;MATHEMATICAL SANS-SERIF ITALIC SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <h> :  "𝘩"   U1D629	# MATHEMATICAL SANS-SERIF ITALIC SMALL H
+#- 1D62A;MATHEMATICAL SANS-SERIF ITALIC SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <i> :  "𝘪"   U1D62A	# MATHEMATICAL SANS-SERIF ITALIC SMALL I
+#- 1D62B;MATHEMATICAL SANS-SERIF ITALIC SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <j> :  "𝘫"   U1D62B	# MATHEMATICAL SANS-SERIF ITALIC SMALL J
+#- 1D62C;MATHEMATICAL SANS-SERIF ITALIC SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <k> :  "𝘬"   U1D62C	# MATHEMATICAL SANS-SERIF ITALIC SMALL K
+#- 1D62D;MATHEMATICAL SANS-SERIF ITALIC SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <l> :  "𝘭"   U1D62D	# MATHEMATICAL SANS-SERIF ITALIC SMALL L
+#- 1D62E;MATHEMATICAL SANS-SERIF ITALIC SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <m> :  "𝘮"   U1D62E	# MATHEMATICAL SANS-SERIF ITALIC SMALL M
+#- 1D62F;MATHEMATICAL SANS-SERIF ITALIC SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <n> :  "𝘯"   U1D62F	# MATHEMATICAL SANS-SERIF ITALIC SMALL N
+#- 1D630;MATHEMATICAL SANS-SERIF ITALIC SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <o> :  "𝘰"   U1D630	# MATHEMATICAL SANS-SERIF ITALIC SMALL O
+#- 1D631;MATHEMATICAL SANS-SERIF ITALIC SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <p> :  "𝘱"   U1D631	# MATHEMATICAL SANS-SERIF ITALIC SMALL P
+#- 1D632;MATHEMATICAL SANS-SERIF ITALIC SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <q> :  "𝘲"   U1D632	# MATHEMATICAL SANS-SERIF ITALIC SMALL Q
+#- 1D633;MATHEMATICAL SANS-SERIF ITALIC SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <r> :  "𝘳"   U1D633	# MATHEMATICAL SANS-SERIF ITALIC SMALL R
+#- 1D634;MATHEMATICAL SANS-SERIF ITALIC SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <s> :  "𝘴"   U1D634	# MATHEMATICAL SANS-SERIF ITALIC SMALL S
+#- 1D635;MATHEMATICAL SANS-SERIF ITALIC SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <t> :  "𝘵"   U1D635	# MATHEMATICAL SANS-SERIF ITALIC SMALL T
+#- 1D636;MATHEMATICAL SANS-SERIF ITALIC SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <u> :  "𝘶"   U1D636	# MATHEMATICAL SANS-SERIF ITALIC SMALL U
+#- 1D637;MATHEMATICAL SANS-SERIF ITALIC SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <v> :  "𝘷"   U1D637	# MATHEMATICAL SANS-SERIF ITALIC SMALL V
+#- 1D638;MATHEMATICAL SANS-SERIF ITALIC SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <w> :  "𝘸"   U1D638	# MATHEMATICAL SANS-SERIF ITALIC SMALL W
+#- 1D639;MATHEMATICAL SANS-SERIF ITALIC SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <x> :  "𝘹"   U1D639	# MATHEMATICAL SANS-SERIF ITALIC SMALL X
+#- 1D63A;MATHEMATICAL SANS-SERIF ITALIC SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <y> :  "𝘺"   U1D63A	# MATHEMATICAL SANS-SERIF ITALIC SMALL Y
+#- 1D63B;MATHEMATICAL SANS-SERIF ITALIC SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <i> <z> :  "𝘻"   U1D63B	# MATHEMATICAL SANS-SERIF ITALIC SMALL Z
+## == BOLD ITALIC SANS-SERIF
+#- 1D63C;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <A> :  "𝘼"   U1D63C	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL A
+#- 1D63D;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <B> :  "𝘽"   U1D63D	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL B
+#- 1D63E;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <C> :  "𝘾"   U1D63E	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL C
+#- 1D63F;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <D> :  "𝘿"   U1D63F	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL D
+#- 1D640;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <E> :  "𝙀"   U1D640	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL E
+#- 1D641;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <F> :  "𝙁"   U1D641	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL F
+#- 1D642;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <G> :  "𝙂"   U1D642	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL G
+#- 1D643;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <H> :  "𝙃"   U1D643	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL H
+#- 1D644;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <I> :  "𝙄"   U1D644	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL I
+#- 1D645;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <J> :  "𝙅"   U1D645	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL J
+#- 1D646;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <K> :  "𝙆"   U1D646	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL K
+#- 1D647;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <L> :  "𝙇"   U1D647	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL L
+#- 1D648;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <M> :  "𝙈"   U1D648	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL M
+#- 1D649;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <N> :  "𝙉"   U1D649	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL N
+#- 1D64A;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <O> :  "𝙊"   U1D64A	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL O
+#- 1D64B;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <P> :  "𝙋"   U1D64B	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL P
+#- 1D64C;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <Q> :  "𝙌"   U1D64C	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Q
+#- 1D64D;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <R> :  "𝙍"   U1D64D	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL R
+#- 1D64E;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <S> :  "𝙎"   U1D64E	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL S
+#- 1D64F;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <T> :  "𝙏"   U1D64F	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL T
+#- 1D650;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <U> :  "𝙐"   U1D650	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL U
+#- 1D651;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <V> :  "𝙑"   U1D651	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL V
+#- 1D652;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <W> :  "𝙒"   U1D652	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL W
+#- 1D653;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <X> :  "𝙓"   U1D653	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL X
+#- 1D654;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <Y> :  "𝙔"   U1D654	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Y
+#- 1D655;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <Z> :  "𝙕"   U1D655	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Z
+#- 1D656;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <a> :  "𝙖"   U1D656	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL A
+#- 1D657;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <b> :  "𝙗"   U1D657	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL B
+#- 1D658;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <c> :  "𝙘"   U1D658	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL C
+#- 1D659;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <d> :  "𝙙"   U1D659	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL D
+#- 1D65A;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <e> :  "𝙚"   U1D65A	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL E
+#- 1D65B;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <f> :  "𝙛"   U1D65B	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL F
+#- 1D65C;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <g> :  "𝙜"   U1D65C	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL G
+#- 1D65D;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <h> :  "𝙝"   U1D65D	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL H
+#- 1D65E;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <i> :  "𝙞"   U1D65E	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL I
+#- 1D65F;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <j> :  "𝙟"   U1D65F	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL J
+#- 1D660;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <k> :  "𝙠"   U1D660	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL K
+#- 1D661;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <l> :  "𝙡"   U1D661	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL L
+#- 1D662;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <m> :  "𝙢"   U1D662	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL M
+#- 1D663;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <n> :  "𝙣"   U1D663	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL N
+#- 1D664;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <o> :  "𝙤"   U1D664	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL O
+#- 1D665;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <p> :  "𝙥"   U1D665	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL P
+#- 1D666;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <q> :  "𝙦"   U1D666	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Q
+#- 1D667;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <r> :  "𝙧"   U1D667	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL R
+#- 1D668;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <s> :  "𝙨"   U1D668	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL S
+#- 1D669;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <t> :  "𝙩"   U1D669	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL T
+#- 1D66A;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <u> :  "𝙪"   U1D66A	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL U
+#- 1D66B;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <v> :  "𝙫"   U1D66B	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL V
+#- 1D66C;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <w> :  "𝙬"   U1D66C	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL W
+#- 1D66D;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <x> :  "𝙭"   U1D66D	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL X
+#- 1D66E;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <y> :  "𝙮"   U1D66E	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Y
+#- 1D66F;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <z> :  "𝙯"   U1D66F	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Z
+## == MONOSPACE
+#- 1D670;MATHEMATICAL MONOSPACE CAPITAL A;Lu;0;L;<font> 0041;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <A> :  "𝙰"   U1D670	# MATHEMATICAL MONOSPACE CAPITAL A
+#- 1D671;MATHEMATICAL MONOSPACE CAPITAL B;Lu;0;L;<font> 0042;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <B> :  "𝙱"   U1D671	# MATHEMATICAL MONOSPACE CAPITAL B
+#- 1D672;MATHEMATICAL MONOSPACE CAPITAL C;Lu;0;L;<font> 0043;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <C> :  "𝙲"   U1D672	# MATHEMATICAL MONOSPACE CAPITAL C
+#- 1D673;MATHEMATICAL MONOSPACE CAPITAL D;Lu;0;L;<font> 0044;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <D> :  "𝙳"   U1D673	# MATHEMATICAL MONOSPACE CAPITAL D
+#- 1D674;MATHEMATICAL MONOSPACE CAPITAL E;Lu;0;L;<font> 0045;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <E> :  "𝙴"   U1D674	# MATHEMATICAL MONOSPACE CAPITAL E
+#- 1D675;MATHEMATICAL MONOSPACE CAPITAL F;Lu;0;L;<font> 0046;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <F> :  "𝙵"   U1D675	# MATHEMATICAL MONOSPACE CAPITAL F
+#- 1D676;MATHEMATICAL MONOSPACE CAPITAL G;Lu;0;L;<font> 0047;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <G> :  "𝙶"   U1D676	# MATHEMATICAL MONOSPACE CAPITAL G
+#- 1D677;MATHEMATICAL MONOSPACE CAPITAL H;Lu;0;L;<font> 0048;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <H> :  "𝙷"   U1D677	# MATHEMATICAL MONOSPACE CAPITAL H
+#- 1D678;MATHEMATICAL MONOSPACE CAPITAL I;Lu;0;L;<font> 0049;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <I> :  "𝙸"   U1D678	# MATHEMATICAL MONOSPACE CAPITAL I
+#- 1D679;MATHEMATICAL MONOSPACE CAPITAL J;Lu;0;L;<font> 004A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <J> :  "𝙹"   U1D679	# MATHEMATICAL MONOSPACE CAPITAL J
+#- 1D67A;MATHEMATICAL MONOSPACE CAPITAL K;Lu;0;L;<font> 004B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <K> :  "𝙺"   U1D67A	# MATHEMATICAL MONOSPACE CAPITAL K
+#- 1D67B;MATHEMATICAL MONOSPACE CAPITAL L;Lu;0;L;<font> 004C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <L> :  "𝙻"   U1D67B	# MATHEMATICAL MONOSPACE CAPITAL L
+#- 1D67C;MATHEMATICAL MONOSPACE CAPITAL M;Lu;0;L;<font> 004D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <M> :  "𝙼"   U1D67C	# MATHEMATICAL MONOSPACE CAPITAL M
+#- 1D67D;MATHEMATICAL MONOSPACE CAPITAL N;Lu;0;L;<font> 004E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <N> :  "𝙽"   U1D67D	# MATHEMATICAL MONOSPACE CAPITAL N
+#- 1D67E;MATHEMATICAL MONOSPACE CAPITAL O;Lu;0;L;<font> 004F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <O> :  "𝙾"   U1D67E	# MATHEMATICAL MONOSPACE CAPITAL O
+#- 1D67F;MATHEMATICAL MONOSPACE CAPITAL P;Lu;0;L;<font> 0050;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <P> :  "𝙿"   U1D67F	# MATHEMATICAL MONOSPACE CAPITAL P
+#- 1D680;MATHEMATICAL MONOSPACE CAPITAL Q;Lu;0;L;<font> 0051;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <Q> :  "𝚀"   U1D680	# MATHEMATICAL MONOSPACE CAPITAL Q
+#- 1D681;MATHEMATICAL MONOSPACE CAPITAL R;Lu;0;L;<font> 0052;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <R> :  "𝚁"   U1D681	# MATHEMATICAL MONOSPACE CAPITAL R
+#- 1D682;MATHEMATICAL MONOSPACE CAPITAL S;Lu;0;L;<font> 0053;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <S> :  "𝚂"   U1D682	# MATHEMATICAL MONOSPACE CAPITAL S
+#- 1D683;MATHEMATICAL MONOSPACE CAPITAL T;Lu;0;L;<font> 0054;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <T> :  "𝚃"   U1D683	# MATHEMATICAL MONOSPACE CAPITAL T
+#- 1D684;MATHEMATICAL MONOSPACE CAPITAL U;Lu;0;L;<font> 0055;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <U> :  "𝚄"   U1D684	# MATHEMATICAL MONOSPACE CAPITAL U
+#- 1D685;MATHEMATICAL MONOSPACE CAPITAL V;Lu;0;L;<font> 0056;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <V> :  "𝚅"   U1D685	# MATHEMATICAL MONOSPACE CAPITAL V
+#- 1D686;MATHEMATICAL MONOSPACE CAPITAL W;Lu;0;L;<font> 0057;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <W> :  "𝚆"   U1D686	# MATHEMATICAL MONOSPACE CAPITAL W
+#- 1D687;MATHEMATICAL MONOSPACE CAPITAL X;Lu;0;L;<font> 0058;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <X> :  "𝚇"   U1D687	# MATHEMATICAL MONOSPACE CAPITAL X
+#- 1D688;MATHEMATICAL MONOSPACE CAPITAL Y;Lu;0;L;<font> 0059;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <Y> :  "𝚈"   U1D688	# MATHEMATICAL MONOSPACE CAPITAL Y
+#- 1D689;MATHEMATICAL MONOSPACE CAPITAL Z;Lu;0;L;<font> 005A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <Z> :  "𝚉"   U1D689	# MATHEMATICAL MONOSPACE CAPITAL Z
+#- 1D68A;MATHEMATICAL MONOSPACE SMALL A;Ll;0;L;<font> 0061;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <a> :  "𝚊"   U1D68A	# MATHEMATICAL MONOSPACE SMALL A
+#- 1D68B;MATHEMATICAL MONOSPACE SMALL B;Ll;0;L;<font> 0062;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <b> :  "𝚋"   U1D68B	# MATHEMATICAL MONOSPACE SMALL B
+#- 1D68C;MATHEMATICAL MONOSPACE SMALL C;Ll;0;L;<font> 0063;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <c> :  "𝚌"   U1D68C	# MATHEMATICAL MONOSPACE SMALL C
+#- 1D68D;MATHEMATICAL MONOSPACE SMALL D;Ll;0;L;<font> 0064;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <d> :  "𝚍"   U1D68D	# MATHEMATICAL MONOSPACE SMALL D
+#- 1D68E;MATHEMATICAL MONOSPACE SMALL E;Ll;0;L;<font> 0065;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <e> :  "𝚎"   U1D68E	# MATHEMATICAL MONOSPACE SMALL E
+#- 1D68F;MATHEMATICAL MONOSPACE SMALL F;Ll;0;L;<font> 0066;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <f> :  "𝚏"   U1D68F	# MATHEMATICAL MONOSPACE SMALL F
+#- 1D690;MATHEMATICAL MONOSPACE SMALL G;Ll;0;L;<font> 0067;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <g> :  "𝚐"   U1D690	# MATHEMATICAL MONOSPACE SMALL G
+#- 1D691;MATHEMATICAL MONOSPACE SMALL H;Ll;0;L;<font> 0068;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <h> :  "𝚑"   U1D691	# MATHEMATICAL MONOSPACE SMALL H
+#- 1D692;MATHEMATICAL MONOSPACE SMALL I;Ll;0;L;<font> 0069;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <i> :  "𝚒"   U1D692	# MATHEMATICAL MONOSPACE SMALL I
+#- 1D693;MATHEMATICAL MONOSPACE SMALL J;Ll;0;L;<font> 006A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <j> :  "𝚓"   U1D693	# MATHEMATICAL MONOSPACE SMALL J
+#- 1D694;MATHEMATICAL MONOSPACE SMALL K;Ll;0;L;<font> 006B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <k> :  "𝚔"   U1D694	# MATHEMATICAL MONOSPACE SMALL K
+#- 1D695;MATHEMATICAL MONOSPACE SMALL L;Ll;0;L;<font> 006C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <l> :  "𝚕"   U1D695	# MATHEMATICAL MONOSPACE SMALL L
+#- 1D696;MATHEMATICAL MONOSPACE SMALL M;Ll;0;L;<font> 006D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <m> :  "𝚖"   U1D696	# MATHEMATICAL MONOSPACE SMALL M
+#- 1D697;MATHEMATICAL MONOSPACE SMALL N;Ll;0;L;<font> 006E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <n> :  "𝚗"   U1D697	# MATHEMATICAL MONOSPACE SMALL N
+#- 1D698;MATHEMATICAL MONOSPACE SMALL O;Ll;0;L;<font> 006F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <o> :  "𝚘"   U1D698	# MATHEMATICAL MONOSPACE SMALL O
+#- 1D699;MATHEMATICAL MONOSPACE SMALL P;Ll;0;L;<font> 0070;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <p> :  "𝚙"   U1D699	# MATHEMATICAL MONOSPACE SMALL P
+#- 1D69A;MATHEMATICAL MONOSPACE SMALL Q;Ll;0;L;<font> 0071;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <q> :  "𝚚"   U1D69A	# MATHEMATICAL MONOSPACE SMALL Q
+#- 1D69B;MATHEMATICAL MONOSPACE SMALL R;Ll;0;L;<font> 0072;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <r> :  "𝚛"   U1D69B	# MATHEMATICAL MONOSPACE SMALL R
+#- 1D69C;MATHEMATICAL MONOSPACE SMALL S;Ll;0;L;<font> 0073;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <s> :  "𝚜"   U1D69C	# MATHEMATICAL MONOSPACE SMALL S
+#- 1D69D;MATHEMATICAL MONOSPACE SMALL T;Ll;0;L;<font> 0074;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <t> :  "𝚝"   U1D69D	# MATHEMATICAL MONOSPACE SMALL T
+#- 1D69E;MATHEMATICAL MONOSPACE SMALL U;Ll;0;L;<font> 0075;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <u> :  "𝚞"   U1D69E	# MATHEMATICAL MONOSPACE SMALL U
+#- 1D69F;MATHEMATICAL MONOSPACE SMALL V;Ll;0;L;<font> 0076;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <v> :  "𝚟"   U1D69F	# MATHEMATICAL MONOSPACE SMALL V
+#- 1D6A0;MATHEMATICAL MONOSPACE SMALL W;Ll;0;L;<font> 0077;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <w> :  "𝚠"   U1D6A0	# MATHEMATICAL MONOSPACE SMALL W
+#- 1D6A1;MATHEMATICAL MONOSPACE SMALL X;Ll;0;L;<font> 0078;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <x> :  "𝚡"   U1D6A1	# MATHEMATICAL MONOSPACE SMALL X
+#- 1D6A2;MATHEMATICAL MONOSPACE SMALL Y;Ll;0;L;<font> 0079;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <y> :  "𝚢"   U1D6A2	# MATHEMATICAL MONOSPACE SMALL Y
+#- 1D6A3;MATHEMATICAL MONOSPACE SMALL Z;Ll;0;L;<font> 007A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <z> :  "𝚣"   U1D6A3	# MATHEMATICAL MONOSPACE SMALL Z
+## == (ITALIC LEFTOVERS)
+#- 1D6A4;MATHEMATICAL ITALIC SMALL DOTLESS I;Ll;0;L;<font> 0131;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <period> <i> :  "𝚤"   U1D6A4	# MATHEMATICAL ITALIC SMALL DOTLESS I
+#- 1D6A5;MATHEMATICAL ITALIC SMALL DOTLESS J;Ll;0;L;<font> 0237;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <period> <j> :  "𝚥"   U1D6A5	# MATHEMATICAL ITALIC SMALL DOTLESS J
+## == BOLD GREEK
+#- 1D6A8;MATHEMATICAL BOLD CAPITAL ALPHA;Lu;0;L;<font> 0391;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <A> :  "𝚨"   U1D6A8	# MATHEMATICAL BOLD CAPITAL ALPHA
+#- 1D6A9;MATHEMATICAL BOLD CAPITAL BETA;Lu;0;L;<font> 0392;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <B> :  "𝚩"   U1D6A9	# MATHEMATICAL BOLD CAPITAL BETA
+#- 1D6AA;MATHEMATICAL BOLD CAPITAL GAMMA;Lu;0;L;<font> 0393;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <G> :  "𝚪"   U1D6AA	# MATHEMATICAL BOLD CAPITAL GAMMA
+#- 1D6AB;MATHEMATICAL BOLD CAPITAL DELTA;Lu;0;L;<font> 0394;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <D> :  "𝚫"   U1D6AB	# MATHEMATICAL BOLD CAPITAL DELTA
+#- 1D6AC;MATHEMATICAL BOLD CAPITAL EPSILON;Lu;0;L;<font> 0395;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <E> :  "𝚬"   U1D6AC	# MATHEMATICAL BOLD CAPITAL EPSILON
+#- 1D6AD;MATHEMATICAL BOLD CAPITAL ZETA;Lu;0;L;<font> 0396;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <Z> :  "𝚭"   U1D6AD	# MATHEMATICAL BOLD CAPITAL ZETA
+#- 1D6AE;MATHEMATICAL BOLD CAPITAL ETA;Lu;0;L;<font> 0397;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <H> :  "𝚮"   U1D6AE	# MATHEMATICAL BOLD CAPITAL ETA
+#- 1D6AF;MATHEMATICAL BOLD CAPITAL THETA;Lu;0;L;<font> 0398;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <U> :  "𝚯"   U1D6AF	# MATHEMATICAL BOLD CAPITAL THETA
+#- 1D6B0;MATHEMATICAL BOLD CAPITAL IOTA;Lu;0;L;<font> 0399;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <I> :  "𝚰"   U1D6B0	# MATHEMATICAL BOLD CAPITAL IOTA
+#- 1D6B1;MATHEMATICAL BOLD CAPITAL KAPPA;Lu;0;L;<font> 039A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <K> :  "𝚱"   U1D6B1	# MATHEMATICAL BOLD CAPITAL KAPPA
+#- 1D6B2;MATHEMATICAL BOLD CAPITAL LAMDA;Lu;0;L;<font> 039B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <L> :  "𝚲"   U1D6B2	# MATHEMATICAL BOLD CAPITAL LAMDA
+#- 1D6B3;MATHEMATICAL BOLD CAPITAL MU;Lu;0;L;<font> 039C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <M> :  "𝚳"   U1D6B3	# MATHEMATICAL BOLD CAPITAL MU
+#- 1D6B4;MATHEMATICAL BOLD CAPITAL NU;Lu;0;L;<font> 039D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <N> :  "𝚴"   U1D6B4	# MATHEMATICAL BOLD CAPITAL NU
+#- 1D6B5;MATHEMATICAL BOLD CAPITAL XI;Lu;0;L;<font> 039E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <J> :  "𝚵"   U1D6B5	# MATHEMATICAL BOLD CAPITAL XI
+#- 1D6B6;MATHEMATICAL BOLD CAPITAL OMICRON;Lu;0;L;<font> 039F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <O> :  "𝚶"   U1D6B6	# MATHEMATICAL BOLD CAPITAL OMICRON
+#- 1D6B7;MATHEMATICAL BOLD CAPITAL PI;Lu;0;L;<font> 03A0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <P> :  "𝚷"   U1D6B7	# MATHEMATICAL BOLD CAPITAL PI
+#- 1D6B8;MATHEMATICAL BOLD CAPITAL RHO;Lu;0;L;<font> 03A1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <R> :  "𝚸"   U1D6B8	# MATHEMATICAL BOLD CAPITAL RHO
+#- 1D6B9;MATHEMATICAL BOLD CAPITAL THETA SYMBOL;Lu;0;L;<font> 03F4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <U> :  "𝚹"   U1D6B9	# MATHEMATICAL BOLD CAPITAL THETA SYMBOL
+#- 1D6BA;MATHEMATICAL BOLD CAPITAL SIGMA;Lu;0;L;<font> 03A3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <S> :  "𝚺"   U1D6BA	# MATHEMATICAL BOLD CAPITAL SIGMA
+#- 1D6BB;MATHEMATICAL BOLD CAPITAL TAU;Lu;0;L;<font> 03A4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <T> :  "𝚻"   U1D6BB	# MATHEMATICAL BOLD CAPITAL TAU
+#- 1D6BC;MATHEMATICAL BOLD CAPITAL UPSILON;Lu;0;L;<font> 03A5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <Y> :  "𝚼"   U1D6BC	# MATHEMATICAL BOLD CAPITAL UPSILON
+#- 1D6BD;MATHEMATICAL BOLD CAPITAL PHI;Lu;0;L;<font> 03A6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <F> :  "𝚽"   U1D6BD	# MATHEMATICAL BOLD CAPITAL PHI
+#- 1D6BE;MATHEMATICAL BOLD CAPITAL CHI;Lu;0;L;<font> 03A7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <X> :  "𝚾"   U1D6BE	# MATHEMATICAL BOLD CAPITAL CHI
+#- 1D6BF;MATHEMATICAL BOLD CAPITAL PSI;Lu;0;L;<font> 03A8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <C> :  "𝚿"   U1D6BF	# MATHEMATICAL BOLD CAPITAL PSI
+#- 1D6C0;MATHEMATICAL BOLD CAPITAL OMEGA;Lu;0;L;<font> 03A9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <V> :  "𝛀"   U1D6C0	# MATHEMATICAL BOLD CAPITAL OMEGA
+#- 1D6C1;MATHEMATICAL BOLD NABLA;Sm;0;L;<font> 2207;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <at> <D> :  "𝛁"   U1D6C1	# MATHEMATICAL BOLD NABLA
+#- 1D6C2;MATHEMATICAL BOLD SMALL ALPHA;Ll;0;L;<font> 03B1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <a> :  "𝛂"   U1D6C2	# MATHEMATICAL BOLD SMALL ALPHA
+#- 1D6C3;MATHEMATICAL BOLD SMALL BETA;Ll;0;L;<font> 03B2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <b> :  "𝛃"   U1D6C3	# MATHEMATICAL BOLD SMALL BETA
+#- 1D6C4;MATHEMATICAL BOLD SMALL GAMMA;Ll;0;L;<font> 03B3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <g> :  "𝛄"   U1D6C4	# MATHEMATICAL BOLD SMALL GAMMA
+#- 1D6C5;MATHEMATICAL BOLD SMALL DELTA;Ll;0;L;<font> 03B4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <d> :  "𝛅"   U1D6C5	# MATHEMATICAL BOLD SMALL DELTA
+#- 1D6C6;MATHEMATICAL BOLD SMALL EPSILON;Ll;0;L;<font> 03B5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <e> :  "𝛆"   U1D6C6	# MATHEMATICAL BOLD SMALL EPSILON
+#- 1D6C7;MATHEMATICAL BOLD SMALL ZETA;Ll;0;L;<font> 03B6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <z> :  "𝛇"   U1D6C7	# MATHEMATICAL BOLD SMALL ZETA
+#- 1D6C8;MATHEMATICAL BOLD SMALL ETA;Ll;0;L;<font> 03B7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <h> :  "𝛈"   U1D6C8	# MATHEMATICAL BOLD SMALL ETA
+#- 1D6C9;MATHEMATICAL BOLD SMALL THETA;Ll;0;L;<font> 03B8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <u> :  "𝛉"   U1D6C9	# MATHEMATICAL BOLD SMALL THETA
+#- 1D6CA;MATHEMATICAL BOLD SMALL IOTA;Ll;0;L;<font> 03B9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <i> :  "𝛊"   U1D6CA	# MATHEMATICAL BOLD SMALL IOTA
+#- 1D6CB;MATHEMATICAL BOLD SMALL KAPPA;Ll;0;L;<font> 03BA;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <k> :  "𝛋"   U1D6CB	# MATHEMATICAL BOLD SMALL KAPPA
+#- 1D6CC;MATHEMATICAL BOLD SMALL LAMDA;Ll;0;L;<font> 03BB;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <l> :  "𝛌"   U1D6CC	# MATHEMATICAL BOLD SMALL LAMDA
+#- 1D6CD;MATHEMATICAL BOLD SMALL MU;Ll;0;L;<font> 03BC;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <m> :  "𝛍"   U1D6CD	# MATHEMATICAL BOLD SMALL MU
+#- 1D6CE;MATHEMATICAL BOLD SMALL NU;Ll;0;L;<font> 03BD;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <n> :  "𝛎"   U1D6CE	# MATHEMATICAL BOLD SMALL NU
+#- 1D6CF;MATHEMATICAL BOLD SMALL XI;Ll;0;L;<font> 03BE;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <j> :  "𝛏"   U1D6CF	# MATHEMATICAL BOLD SMALL XI
+#- 1D6D0;MATHEMATICAL BOLD SMALL OMICRON;Ll;0;L;<font> 03BF;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <o> :  "𝛐"   U1D6D0	# MATHEMATICAL BOLD SMALL OMICRON
+#- 1D6D1;MATHEMATICAL BOLD SMALL PI;Ll;0;L;<font> 03C0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <p> :  "𝛑"   U1D6D1	# MATHEMATICAL BOLD SMALL PI
+#- 1D6D2;MATHEMATICAL BOLD SMALL RHO;Ll;0;L;<font> 03C1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <r> :  "𝛒"   U1D6D2	# MATHEMATICAL BOLD SMALL RHO
+#- 1D6D3;MATHEMATICAL BOLD SMALL FINAL SIGMA;Ll;0;L;<font> 03C2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <w> :  "𝛓"   U1D6D3	# MATHEMATICAL BOLD SMALL FINAL SIGMA
+#- 1D6D4;MATHEMATICAL BOLD SMALL SIGMA;Ll;0;L;<font> 03C3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <s> :  "𝛔"   U1D6D4	# MATHEMATICAL BOLD SMALL SIGMA
+#- 1D6D5;MATHEMATICAL BOLD SMALL TAU;Ll;0;L;<font> 03C4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <t> :  "𝛕"   U1D6D5	# MATHEMATICAL BOLD SMALL TAU
+#- 1D6D6;MATHEMATICAL BOLD SMALL UPSILON;Ll;0;L;<font> 03C5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <y> :  "𝛖"   U1D6D6	# MATHEMATICAL BOLD SMALL UPSILON
+#- 1D6D7;MATHEMATICAL BOLD SMALL PHI;Ll;0;L;<font> 03C6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <f> :  "𝛗"   U1D6D7	# MATHEMATICAL BOLD SMALL PHI
+#- 1D6D8;MATHEMATICAL BOLD SMALL CHI;Ll;0;L;<font> 03C7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <x> :  "𝛘"   U1D6D8	# MATHEMATICAL BOLD SMALL CHI
+#- 1D6D9;MATHEMATICAL BOLD SMALL PSI;Ll;0;L;<font> 03C8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <c> :  "𝛙"   U1D6D9	# MATHEMATICAL BOLD SMALL PSI
+#- 1D6DA;MATHEMATICAL BOLD SMALL OMEGA;Ll;0;L;<font> 03C9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <v> :  "𝛚"   U1D6DA	# MATHEMATICAL BOLD SMALL OMEGA
+#- 1D6DB;MATHEMATICAL BOLD PARTIAL DIFFERENTIAL;Sm;0;ON;<font> 2202;;;;Y;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <d> :  "𝛛"   U1D6DB	# MATHEMATICAL BOLD PARTIAL DIFFERENTIAL
+#- 1D6DC;MATHEMATICAL BOLD EPSILON SYMBOL;Ll;0;L;<font> 03F5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <e> :  "𝛜"   U1D6DC	# MATHEMATICAL BOLD EPSILON SYMBOL
+#- 1D6DD;MATHEMATICAL BOLD THETA SYMBOL;Ll;0;L;<font> 03D1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <u> :  "𝛝"   U1D6DD	# MATHEMATICAL BOLD THETA SYMBOL
+#- 1D6DE;MATHEMATICAL BOLD KAPPA SYMBOL;Ll;0;L;<font> 03F0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <k> :  "𝛞"   U1D6DE	# MATHEMATICAL BOLD KAPPA SYMBOL
+#- 1D6DF;MATHEMATICAL BOLD PHI SYMBOL;Ll;0;L;<font> 03D5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <f> :  "𝛟"   U1D6DF	# MATHEMATICAL BOLD PHI SYMBOL
+#- 1D6E0;MATHEMATICAL BOLD RHO SYMBOL;Ll;0;L;<font> 03F1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <r> :  "𝛠"   U1D6E0	# MATHEMATICAL BOLD RHO SYMBOL
+#- 1D6E1;MATHEMATICAL BOLD PI SYMBOL;Ll;0;L;<font> 03D6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <p> :  "𝛡"   U1D6E1	# MATHEMATICAL BOLD PI SYMBOL
+## == ITALIC GREEK
+#- 1D6E2;MATHEMATICAL ITALIC CAPITAL ALPHA;Lu;0;L;<font> 0391;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <A> :  "𝛢"   U1D6E2	# MATHEMATICAL ITALIC CAPITAL ALPHA
+#- 1D6E3;MATHEMATICAL ITALIC CAPITAL BETA;Lu;0;L;<font> 0392;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <B> :  "𝛣"   U1D6E3	# MATHEMATICAL ITALIC CAPITAL BETA
+#- 1D6E4;MATHEMATICAL ITALIC CAPITAL GAMMA;Lu;0;L;<font> 0393;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <G> :  "𝛤"   U1D6E4	# MATHEMATICAL ITALIC CAPITAL GAMMA
+#- 1D6E5;MATHEMATICAL ITALIC CAPITAL DELTA;Lu;0;L;<font> 0394;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <D> :  "𝛥"   U1D6E5	# MATHEMATICAL ITALIC CAPITAL DELTA
+#- 1D6E6;MATHEMATICAL ITALIC CAPITAL EPSILON;Lu;0;L;<font> 0395;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <E> :  "𝛦"   U1D6E6	# MATHEMATICAL ITALIC CAPITAL EPSILON
+#- 1D6E7;MATHEMATICAL ITALIC CAPITAL ZETA;Lu;0;L;<font> 0396;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <Z> :  "𝛧"   U1D6E7	# MATHEMATICAL ITALIC CAPITAL ZETA
+#- 1D6E8;MATHEMATICAL ITALIC CAPITAL ETA;Lu;0;L;<font> 0397;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <H> :  "𝛨"   U1D6E8	# MATHEMATICAL ITALIC CAPITAL ETA
+#- 1D6E9;MATHEMATICAL ITALIC CAPITAL THETA;Lu;0;L;<font> 0398;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <U> :  "𝛩"   U1D6E9	# MATHEMATICAL ITALIC CAPITAL THETA
+#- 1D6EA;MATHEMATICAL ITALIC CAPITAL IOTA;Lu;0;L;<font> 0399;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <I> :  "𝛪"   U1D6EA	# MATHEMATICAL ITALIC CAPITAL IOTA
+#- 1D6EB;MATHEMATICAL ITALIC CAPITAL KAPPA;Lu;0;L;<font> 039A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <K> :  "𝛫"   U1D6EB	# MATHEMATICAL ITALIC CAPITAL KAPPA
+#- 1D6EC;MATHEMATICAL ITALIC CAPITAL LAMDA;Lu;0;L;<font> 039B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <L> :  "𝛬"   U1D6EC	# MATHEMATICAL ITALIC CAPITAL LAMDA
+#- 1D6ED;MATHEMATICAL ITALIC CAPITAL MU;Lu;0;L;<font> 039C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <M> :  "𝛭"   U1D6ED	# MATHEMATICAL ITALIC CAPITAL MU
+#- 1D6EE;MATHEMATICAL ITALIC CAPITAL NU;Lu;0;L;<font> 039D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <N> :  "𝛮"   U1D6EE	# MATHEMATICAL ITALIC CAPITAL NU
+#- 1D6EF;MATHEMATICAL ITALIC CAPITAL XI;Lu;0;L;<font> 039E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <J> :  "𝛯"   U1D6EF	# MATHEMATICAL ITALIC CAPITAL XI
+#- 1D6F0;MATHEMATICAL ITALIC CAPITAL OMICRON;Lu;0;L;<font> 039F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <O> :  "𝛰"   U1D6F0	# MATHEMATICAL ITALIC CAPITAL OMICRON
+#- 1D6F1;MATHEMATICAL ITALIC CAPITAL PI;Lu;0;L;<font> 03A0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <P> :  "𝛱"   U1D6F1	# MATHEMATICAL ITALIC CAPITAL PI
+#- 1D6F2;MATHEMATICAL ITALIC CAPITAL RHO;Lu;0;L;<font> 03A1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <R> :  "𝛲"   U1D6F2	# MATHEMATICAL ITALIC CAPITAL RHO
+#- 1D6F3;MATHEMATICAL ITALIC CAPITAL THETA SYMBOL;Lu;0;L;<font> 03F4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <period> <U> :  "𝛳"   U1D6F3	# MATHEMATICAL ITALIC CAPITAL THETA SYMBOL
+#- 1D6F4;MATHEMATICAL ITALIC CAPITAL SIGMA;Lu;0;L;<font> 03A3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <S> :  "𝛴"   U1D6F4	# MATHEMATICAL ITALIC CAPITAL SIGMA
+#- 1D6F5;MATHEMATICAL ITALIC CAPITAL TAU;Lu;0;L;<font> 03A4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <T> :  "𝛵"   U1D6F5	# MATHEMATICAL ITALIC CAPITAL TAU
+#- 1D6F6;MATHEMATICAL ITALIC CAPITAL UPSILON;Lu;0;L;<font> 03A5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <Y> :  "𝛶"   U1D6F6	# MATHEMATICAL ITALIC CAPITAL UPSILON
+#- 1D6F7;MATHEMATICAL ITALIC CAPITAL PHI;Lu;0;L;<font> 03A6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <F> :  "𝛷"   U1D6F7	# MATHEMATICAL ITALIC CAPITAL PHI
+#- 1D6F8;MATHEMATICAL ITALIC CAPITAL CHI;Lu;0;L;<font> 03A7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <X> :  "𝛸"   U1D6F8	# MATHEMATICAL ITALIC CAPITAL CHI
+#- 1D6F9;MATHEMATICAL ITALIC CAPITAL PSI;Lu;0;L;<font> 03A8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <C> :  "𝛹"   U1D6F9	# MATHEMATICAL ITALIC CAPITAL PSI
+#- 1D6FA;MATHEMATICAL ITALIC CAPITAL OMEGA;Lu;0;L;<font> 03A9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <V> :  "𝛺"   U1D6FA	# MATHEMATICAL ITALIC CAPITAL OMEGA
+#- 1D6FB;MATHEMATICAL ITALIC NABLA;Sm;0;L;<font> 2207;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <asterisk> <at> <D> :  "𝛻"   U1D6FB	# MATHEMATICAL ITALIC NABLA
+#- 1D6FC;MATHEMATICAL ITALIC SMALL ALPHA;Ll;0;L;<font> 03B1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <a> :  "𝛼"   U1D6FC	# MATHEMATICAL ITALIC SMALL ALPHA
+#- 1D6FD;MATHEMATICAL ITALIC SMALL BETA;Ll;0;L;<font> 03B2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <b> :  "𝛽"   U1D6FD	# MATHEMATICAL ITALIC SMALL BETA
+#- 1D6FE;MATHEMATICAL ITALIC SMALL GAMMA;Ll;0;L;<font> 03B3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <g> :  "𝛾"   U1D6FE	# MATHEMATICAL ITALIC SMALL GAMMA
+#- 1D6FF;MATHEMATICAL ITALIC SMALL DELTA;Ll;0;L;<font> 03B4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <d> :  "𝛿"   U1D6FF	# MATHEMATICAL ITALIC SMALL DELTA
+#- 1D700;MATHEMATICAL ITALIC SMALL EPSILON;Ll;0;L;<font> 03B5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <e> :  "𝜀"   U1D700	# MATHEMATICAL ITALIC SMALL EPSILON
+#- 1D701;MATHEMATICAL ITALIC SMALL ZETA;Ll;0;L;<font> 03B6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <z> :  "𝜁"   U1D701	# MATHEMATICAL ITALIC SMALL ZETA
+#- 1D702;MATHEMATICAL ITALIC SMALL ETA;Ll;0;L;<font> 03B7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <h> :  "𝜂"   U1D702	# MATHEMATICAL ITALIC SMALL ETA
+#- 1D703;MATHEMATICAL ITALIC SMALL THETA;Ll;0;L;<font> 03B8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <u> :  "𝜃"   U1D703	# MATHEMATICAL ITALIC SMALL THETA
+#- 1D704;MATHEMATICAL ITALIC SMALL IOTA;Ll;0;L;<font> 03B9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <i> :  "𝜄"   U1D704	# MATHEMATICAL ITALIC SMALL IOTA
+#- 1D705;MATHEMATICAL ITALIC SMALL KAPPA;Ll;0;L;<font> 03BA;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <k> :  "𝜅"   U1D705	# MATHEMATICAL ITALIC SMALL KAPPA
+#- 1D706;MATHEMATICAL ITALIC SMALL LAMDA;Ll;0;L;<font> 03BB;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <l> :  "𝜆"   U1D706	# MATHEMATICAL ITALIC SMALL LAMDA
+#- 1D707;MATHEMATICAL ITALIC SMALL MU;Ll;0;L;<font> 03BC;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <m> :  "𝜇"   U1D707	# MATHEMATICAL ITALIC SMALL MU
+#- 1D708;MATHEMATICAL ITALIC SMALL NU;Ll;0;L;<font> 03BD;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <n> :  "𝜈"   U1D708	# MATHEMATICAL ITALIC SMALL NU
+#- 1D709;MATHEMATICAL ITALIC SMALL XI;Ll;0;L;<font> 03BE;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <j> :  "𝜉"   U1D709	# MATHEMATICAL ITALIC SMALL XI
+#- 1D70A;MATHEMATICAL ITALIC SMALL OMICRON;Ll;0;L;<font> 03BF;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <o> :  "𝜊"   U1D70A	# MATHEMATICAL ITALIC SMALL OMICRON
+#- 1D70B;MATHEMATICAL ITALIC SMALL PI;Ll;0;L;<font> 03C0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <p> :  "𝜋"   U1D70B	# MATHEMATICAL ITALIC SMALL PI
+#- 1D70C;MATHEMATICAL ITALIC SMALL RHO;Ll;0;L;<font> 03C1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <r> :  "𝜌"   U1D70C	# MATHEMATICAL ITALIC SMALL RHO
+#- 1D70D;MATHEMATICAL ITALIC SMALL FINAL SIGMA;Ll;0;L;<font> 03C2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <w> :  "𝜍"   U1D70D	# MATHEMATICAL ITALIC SMALL FINAL SIGMA
+#- 1D70E;MATHEMATICAL ITALIC SMALL SIGMA;Ll;0;L;<font> 03C3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <s> :  "𝜎"   U1D70E	# MATHEMATICAL ITALIC SMALL SIGMA
+#- 1D70F;MATHEMATICAL ITALIC SMALL TAU;Ll;0;L;<font> 03C4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <t> :  "𝜏"   U1D70F	# MATHEMATICAL ITALIC SMALL TAU
+#- 1D710;MATHEMATICAL ITALIC SMALL UPSILON;Ll;0;L;<font> 03C5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <y> :  "𝜐"   U1D710	# MATHEMATICAL ITALIC SMALL UPSILON
+#- 1D711;MATHEMATICAL ITALIC SMALL PHI;Ll;0;L;<font> 03C6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <f> :  "𝜑"   U1D711	# MATHEMATICAL ITALIC SMALL PHI
+#- 1D712;MATHEMATICAL ITALIC SMALL CHI;Ll;0;L;<font> 03C7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <x> :  "𝜒"   U1D712	# MATHEMATICAL ITALIC SMALL CHI
+#- 1D713;MATHEMATICAL ITALIC SMALL PSI;Ll;0;L;<font> 03C8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <c> :  "𝜓"   U1D713	# MATHEMATICAL ITALIC SMALL PSI
+#- 1D714;MATHEMATICAL ITALIC SMALL OMEGA;Ll;0;L;<font> 03C9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <v> :  "𝜔"   U1D714	# MATHEMATICAL ITALIC SMALL OMEGA
+#- 1D715;MATHEMATICAL ITALIC PARTIAL DIFFERENTIAL;Sm;0;ON;<font> 2202;;;;Y;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <period> <d> :  "𝜕"   U1D715	# MATHEMATICAL ITALIC PARTIAL DIFFERENTIAL
+#- 1D716;MATHEMATICAL ITALIC EPSILON SYMBOL;Ll;0;L;<font> 03F5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <period> <e> :  "𝜖"   U1D716	# MATHEMATICAL ITALIC EPSILON SYMBOL
+#- 1D717;MATHEMATICAL ITALIC THETA SYMBOL;Ll;0;L;<font> 03D1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <i> <asterisk> <period> <u> :  "𝜗"   U1D717	# MATHEMATICAL ITALIC THETA SYMBOL
+#- 1D718;MATHEMATICAL ITALIC KAPPA SYMBOL;Ll;0;L;<font> 03F0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <asterisk> <period> <k> :  "𝜘"   U1D718	# MATHEMATICAL ITALIC KAPPA SYMBOL
+#- 1D719;MATHEMATICAL ITALIC PHI SYMBOL;Ll;0;L;<font> 03D5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <asterisk> <period> <f> :  "𝜙"   U1D719	# MATHEMATICAL ITALIC PHI SYMBOL
+#- 1D71A;MATHEMATICAL ITALIC RHO SYMBOL;Ll;0;L;<font> 03F1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <asterisk> <period> <r> :  "𝜚"   U1D71A	# MATHEMATICAL ITALIC RHO SYMBOL
+#- 1D71B;MATHEMATICAL ITALIC PI SYMBOL;Ll;0;L;<font> 03D6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <asterisk> <period> <p> :  "𝜛"   U1D71B	# MATHEMATICAL ITALIC PI SYMBOL
+## == BOLD ITALIC GREEK
+#- 1D71C;MATHEMATICAL BOLD ITALIC CAPITAL ALPHA;Lu;0;L;<font> 0391;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <A> :  "𝜜"   U1D71C	# MATHEMATICAL BOLD ITALIC CAPITAL ALPHA
+#- 1D71D;MATHEMATICAL BOLD ITALIC CAPITAL BETA;Lu;0;L;<font> 0392;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <B> :  "𝜝"   U1D71D	# MATHEMATICAL BOLD ITALIC CAPITAL BETA
+#- 1D71E;MATHEMATICAL BOLD ITALIC CAPITAL GAMMA;Lu;0;L;<font> 0393;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <G> :  "𝜞"   U1D71E	# MATHEMATICAL BOLD ITALIC CAPITAL GAMMA
+#- 1D71F;MATHEMATICAL BOLD ITALIC CAPITAL DELTA;Lu;0;L;<font> 0394;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <D> :  "𝜟"   U1D71F	# MATHEMATICAL BOLD ITALIC CAPITAL DELTA
+#- 1D720;MATHEMATICAL BOLD ITALIC CAPITAL EPSILON;Lu;0;L;<font> 0395;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <E> :  "𝜠"   U1D720	# MATHEMATICAL BOLD ITALIC CAPITAL EPSILON
+#- 1D721;MATHEMATICAL BOLD ITALIC CAPITAL ZETA;Lu;0;L;<font> 0396;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <Z> :  "𝜡"   U1D721	# MATHEMATICAL BOLD ITALIC CAPITAL ZETA
+#- 1D722;MATHEMATICAL BOLD ITALIC CAPITAL ETA;Lu;0;L;<font> 0397;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <H> :  "𝜢"   U1D722	# MATHEMATICAL BOLD ITALIC CAPITAL ETA
+#- 1D723;MATHEMATICAL BOLD ITALIC CAPITAL THETA;Lu;0;L;<font> 0398;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <U> :  "𝜣"   U1D723	# MATHEMATICAL BOLD ITALIC CAPITAL THETA
+#- 1D724;MATHEMATICAL BOLD ITALIC CAPITAL IOTA;Lu;0;L;<font> 0399;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <I> :  "𝜤"   U1D724	# MATHEMATICAL BOLD ITALIC CAPITAL IOTA
+#- 1D725;MATHEMATICAL BOLD ITALIC CAPITAL KAPPA;Lu;0;L;<font> 039A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <K> :  "𝜥"   U1D725	# MATHEMATICAL BOLD ITALIC CAPITAL KAPPA
+#- 1D726;MATHEMATICAL BOLD ITALIC CAPITAL LAMDA;Lu;0;L;<font> 039B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <L> :  "𝜦"   U1D726	# MATHEMATICAL BOLD ITALIC CAPITAL LAMDA
+#- 1D727;MATHEMATICAL BOLD ITALIC CAPITAL MU;Lu;0;L;<font> 039C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <M> :  "𝜧"   U1D727	# MATHEMATICAL BOLD ITALIC CAPITAL MU
+#- 1D728;MATHEMATICAL BOLD ITALIC CAPITAL NU;Lu;0;L;<font> 039D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <N> :  "𝜨"   U1D728	# MATHEMATICAL BOLD ITALIC CAPITAL NU
+#- 1D729;MATHEMATICAL BOLD ITALIC CAPITAL XI;Lu;0;L;<font> 039E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <J> :  "𝜩"   U1D729	# MATHEMATICAL BOLD ITALIC CAPITAL XI
+#- 1D72A;MATHEMATICAL BOLD ITALIC CAPITAL OMICRON;Lu;0;L;<font> 039F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <O> :  "𝜪"   U1D72A	# MATHEMATICAL BOLD ITALIC CAPITAL OMICRON
+#- 1D72B;MATHEMATICAL BOLD ITALIC CAPITAL PI;Lu;0;L;<font> 03A0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <P> :  "𝜫"   U1D72B	# MATHEMATICAL BOLD ITALIC CAPITAL PI
+#- 1D72C;MATHEMATICAL BOLD ITALIC CAPITAL RHO;Lu;0;L;<font> 03A1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <R> :  "𝜬"   U1D72C	# MATHEMATICAL BOLD ITALIC CAPITAL RHO
+#- 1D72D;MATHEMATICAL BOLD ITALIC CAPITAL THETA SYMBOL;Lu;0;L;<font> 03F4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <period> <U> :  "𝜭"   U1D72D	# MATHEMATICAL BOLD ITALIC CAPITAL THETA SYMBOL
+#- 1D72E;MATHEMATICAL BOLD ITALIC CAPITAL SIGMA;Lu;0;L;<font> 03A3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <S> :  "𝜮"   U1D72E	# MATHEMATICAL BOLD ITALIC CAPITAL SIGMA
+#- 1D72F;MATHEMATICAL BOLD ITALIC CAPITAL TAU;Lu;0;L;<font> 03A4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <T> :  "𝜯"   U1D72F	# MATHEMATICAL BOLD ITALIC CAPITAL TAU
+#- 1D730;MATHEMATICAL BOLD ITALIC CAPITAL UPSILON;Lu;0;L;<font> 03A5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <Y> :  "𝜰"   U1D730	# MATHEMATICAL BOLD ITALIC CAPITAL UPSILON
+#- 1D731;MATHEMATICAL BOLD ITALIC CAPITAL PHI;Lu;0;L;<font> 03A6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <F> :  "𝜱"   U1D731	# MATHEMATICAL BOLD ITALIC CAPITAL PHI
+#- 1D732;MATHEMATICAL BOLD ITALIC CAPITAL CHI;Lu;0;L;<font> 03A7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <X> :  "𝜲"   U1D732	# MATHEMATICAL BOLD ITALIC CAPITAL CHI
+#- 1D733;MATHEMATICAL BOLD ITALIC CAPITAL PSI;Lu;0;L;<font> 03A8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <C> :  "𝜳"   U1D733	# MATHEMATICAL BOLD ITALIC CAPITAL PSI
+#- 1D734;MATHEMATICAL BOLD ITALIC CAPITAL OMEGA;Lu;0;L;<font> 03A9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <V> :  "𝜴"   U1D734	# MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
+#- 1D735;MATHEMATICAL BOLD ITALIC NABLA;Sm;0;L;<font> 2207;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <at> <D> :  "𝜵"   U1D735	# MATHEMATICAL BOLD ITALIC NABLA
+#- 1D736;MATHEMATICAL BOLD ITALIC SMALL ALPHA;Ll;0;L;<font> 03B1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <a> :  "𝜶"   U1D736	# MATHEMATICAL BOLD ITALIC SMALL ALPHA
+#- 1D737;MATHEMATICAL BOLD ITALIC SMALL BETA;Ll;0;L;<font> 03B2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <b> :  "𝜷"   U1D737	# MATHEMATICAL BOLD ITALIC SMALL BETA
+#- 1D738;MATHEMATICAL BOLD ITALIC SMALL GAMMA;Ll;0;L;<font> 03B3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <g> :  "𝜸"   U1D738	# MATHEMATICAL BOLD ITALIC SMALL GAMMA
+#- 1D739;MATHEMATICAL BOLD ITALIC SMALL DELTA;Ll;0;L;<font> 03B4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <d> :  "𝜹"   U1D739	# MATHEMATICAL BOLD ITALIC SMALL DELTA
+#- 1D73A;MATHEMATICAL BOLD ITALIC SMALL EPSILON;Ll;0;L;<font> 03B5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <e> :  "𝜺"   U1D73A	# MATHEMATICAL BOLD ITALIC SMALL EPSILON
+#- 1D73B;MATHEMATICAL BOLD ITALIC SMALL ZETA;Ll;0;L;<font> 03B6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <z> :  "𝜻"   U1D73B	# MATHEMATICAL BOLD ITALIC SMALL ZETA
+#- 1D73C;MATHEMATICAL BOLD ITALIC SMALL ETA;Ll;0;L;<font> 03B7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <h> :  "𝜼"   U1D73C	# MATHEMATICAL BOLD ITALIC SMALL ETA
+#- 1D73D;MATHEMATICAL BOLD ITALIC SMALL THETA;Ll;0;L;<font> 03B8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <u> :  "𝜽"   U1D73D	# MATHEMATICAL BOLD ITALIC SMALL THETA
+#- 1D73E;MATHEMATICAL BOLD ITALIC SMALL IOTA;Ll;0;L;<font> 03B9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <i> :  "𝜾"   U1D73E	# MATHEMATICAL BOLD ITALIC SMALL IOTA
+#- 1D73F;MATHEMATICAL BOLD ITALIC SMALL KAPPA;Ll;0;L;<font> 03BA;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <k> :  "𝜿"   U1D73F	# MATHEMATICAL BOLD ITALIC SMALL KAPPA
+#- 1D740;MATHEMATICAL BOLD ITALIC SMALL LAMDA;Ll;0;L;<font> 03BB;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <l> :  "𝝀"   U1D740	# MATHEMATICAL BOLD ITALIC SMALL LAMDA
+#- 1D741;MATHEMATICAL BOLD ITALIC SMALL MU;Ll;0;L;<font> 03BC;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <m> :  "𝝁"   U1D741	# MATHEMATICAL BOLD ITALIC SMALL MU
+#- 1D742;MATHEMATICAL BOLD ITALIC SMALL NU;Ll;0;L;<font> 03BD;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <n> :  "𝝂"   U1D742	# MATHEMATICAL BOLD ITALIC SMALL NU
+#- 1D743;MATHEMATICAL BOLD ITALIC SMALL XI;Ll;0;L;<font> 03BE;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <j> :  "𝝃"   U1D743	# MATHEMATICAL BOLD ITALIC SMALL XI
+#- 1D744;MATHEMATICAL BOLD ITALIC SMALL OMICRON;Ll;0;L;<font> 03BF;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <o> :  "𝝄"   U1D744	# MATHEMATICAL BOLD ITALIC SMALL OMICRON
+#- 1D745;MATHEMATICAL BOLD ITALIC SMALL PI;Ll;0;L;<font> 03C0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <p> :  "𝝅"   U1D745	# MATHEMATICAL BOLD ITALIC SMALL PI
+#- 1D746;MATHEMATICAL BOLD ITALIC SMALL RHO;Ll;0;L;<font> 03C1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <r> :  "𝝆"   U1D746	# MATHEMATICAL BOLD ITALIC SMALL RHO
+#- 1D747;MATHEMATICAL BOLD ITALIC SMALL FINAL SIGMA;Ll;0;L;<font> 03C2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <w> :  "𝝇"   U1D747	# MATHEMATICAL BOLD ITALIC SMALL FINAL SIGMA
+#- 1D748;MATHEMATICAL BOLD ITALIC SMALL SIGMA;Ll;0;L;<font> 03C3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <s> :  "𝝈"   U1D748	# MATHEMATICAL BOLD ITALIC SMALL SIGMA
+#- 1D749;MATHEMATICAL BOLD ITALIC SMALL TAU;Ll;0;L;<font> 03C4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <t> :  "𝝉"   U1D749	# MATHEMATICAL BOLD ITALIC SMALL TAU
+#- 1D74A;MATHEMATICAL BOLD ITALIC SMALL UPSILON;Ll;0;L;<font> 03C5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <y> :  "𝝊"   U1D74A	# MATHEMATICAL BOLD ITALIC SMALL UPSILON
+#- 1D74B;MATHEMATICAL BOLD ITALIC SMALL PHI;Ll;0;L;<font> 03C6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <f> :  "𝝋"   U1D74B	# MATHEMATICAL BOLD ITALIC SMALL PHI
+#- 1D74C;MATHEMATICAL BOLD ITALIC SMALL CHI;Ll;0;L;<font> 03C7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <x> :  "𝝌"   U1D74C	# MATHEMATICAL BOLD ITALIC SMALL CHI
+#- 1D74D;MATHEMATICAL BOLD ITALIC SMALL PSI;Ll;0;L;<font> 03C8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <c> :  "𝝍"   U1D74D	# MATHEMATICAL BOLD ITALIC SMALL PSI
+#- 1D74E;MATHEMATICAL BOLD ITALIC SMALL OMEGA;Ll;0;L;<font> 03C9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <v> :  "𝝎"   U1D74E	# MATHEMATICAL BOLD ITALIC SMALL OMEGA
+#- 1D74F;MATHEMATICAL BOLD ITALIC PARTIAL DIFFERENTIAL;Sm;0;ON;<font> 2202;;;;Y;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <period> <d> :  "𝝏"   U1D74F	# MATHEMATICAL BOLD ITALIC PARTIAL DIFFERENTIAL
+#- 1D750;MATHEMATICAL BOLD ITALIC EPSILON SYMBOL;Ll;0;L;<font> 03F5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <period> <e> :  "𝝐"   U1D750	# MATHEMATICAL BOLD ITALIC EPSILON SYMBOL
+#- 1D751;MATHEMATICAL BOLD ITALIC THETA SYMBOL;Ll;0;L;<font> 03D1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <period> <u> :  "𝝑"   U1D751	# MATHEMATICAL BOLD ITALIC THETA SYMBOL
+#- 1D752;MATHEMATICAL BOLD ITALIC KAPPA SYMBOL;Ll;0;L;<font> 03F0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <period> <k> :  "𝝒"   U1D752	# MATHEMATICAL BOLD ITALIC KAPPA SYMBOL
+#- 1D753;MATHEMATICAL BOLD ITALIC PHI SYMBOL;Ll;0;L;<font> 03D5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <period> <f> :  "𝝓"   U1D753	# MATHEMATICAL BOLD ITALIC PHI SYMBOL
+#- 1D754;MATHEMATICAL BOLD ITALIC RHO SYMBOL;Ll;0;L;<font> 03F1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <period> <r> :  "𝝔"   U1D754	# MATHEMATICAL BOLD ITALIC RHO SYMBOL
+#- 1D755;MATHEMATICAL BOLD ITALIC PI SYMBOL;Ll;0;L;<font> 03D6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <I> <asterisk> <period> <p> :  "𝝕"   U1D755	# MATHEMATICAL BOLD ITALIC PI SYMBOL
+## == BOLD SANS-SERIF GREEK
+#- 1D756;MATHEMATICAL SANS-SERIF BOLD CAPITAL ALPHA;Lu;0;L;<font> 0391;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <A> :  "𝝖"   U1D756	# MATHEMATICAL SANS-SERIF BOLD CAPITAL ALPHA
+#- 1D757;MATHEMATICAL SANS-SERIF BOLD CAPITAL BETA;Lu;0;L;<font> 0392;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <B> :  "𝝗"   U1D757	# MATHEMATICAL SANS-SERIF BOLD CAPITAL BETA
+#- 1D758;MATHEMATICAL SANS-SERIF BOLD CAPITAL GAMMA;Lu;0;L;<font> 0393;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <G> :  "𝝘"   U1D758	# MATHEMATICAL SANS-SERIF BOLD CAPITAL GAMMA
+#- 1D759;MATHEMATICAL SANS-SERIF BOLD CAPITAL DELTA;Lu;0;L;<font> 0394;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <D> :  "𝝙"   U1D759	# MATHEMATICAL SANS-SERIF BOLD CAPITAL DELTA
+#- 1D75A;MATHEMATICAL SANS-SERIF BOLD CAPITAL EPSILON;Lu;0;L;<font> 0395;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <E> :  "𝝚"   U1D75A	# MATHEMATICAL SANS-SERIF BOLD CAPITAL EPSILON
+#- 1D75B;MATHEMATICAL SANS-SERIF BOLD CAPITAL ZETA;Lu;0;L;<font> 0396;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <Z> :  "𝝛"   U1D75B	# MATHEMATICAL SANS-SERIF BOLD CAPITAL ZETA
+#- 1D75C;MATHEMATICAL SANS-SERIF BOLD CAPITAL ETA;Lu;0;L;<font> 0397;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <H> :  "𝝜"   U1D75C	# MATHEMATICAL SANS-SERIF BOLD CAPITAL ETA
+#- 1D75D;MATHEMATICAL SANS-SERIF BOLD CAPITAL THETA;Lu;0;L;<font> 0398;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <U> :  "𝝝"   U1D75D	# MATHEMATICAL SANS-SERIF BOLD CAPITAL THETA
+#- 1D75E;MATHEMATICAL SANS-SERIF BOLD CAPITAL IOTA;Lu;0;L;<font> 0399;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <I> :  "𝝞"   U1D75E	# MATHEMATICAL SANS-SERIF BOLD CAPITAL IOTA
+#- 1D75F;MATHEMATICAL SANS-SERIF BOLD CAPITAL KAPPA;Lu;0;L;<font> 039A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <K> :  "𝝟"   U1D75F	# MATHEMATICAL SANS-SERIF BOLD CAPITAL KAPPA
+#- 1D760;MATHEMATICAL SANS-SERIF BOLD CAPITAL LAMDA;Lu;0;L;<font> 039B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <L> :  "𝝠"   U1D760	# MATHEMATICAL SANS-SERIF BOLD CAPITAL LAMDA
+#- 1D761;MATHEMATICAL SANS-SERIF BOLD CAPITAL MU;Lu;0;L;<font> 039C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <M> :  "𝝡"   U1D761	# MATHEMATICAL SANS-SERIF BOLD CAPITAL MU
+#- 1D762;MATHEMATICAL SANS-SERIF BOLD CAPITAL NU;Lu;0;L;<font> 039D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <N> :  "𝝢"   U1D762	# MATHEMATICAL SANS-SERIF BOLD CAPITAL NU
+#- 1D763;MATHEMATICAL SANS-SERIF BOLD CAPITAL XI;Lu;0;L;<font> 039E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <J> :  "𝝣"   U1D763	# MATHEMATICAL SANS-SERIF BOLD CAPITAL XI
+#- 1D764;MATHEMATICAL SANS-SERIF BOLD CAPITAL OMICRON;Lu;0;L;<font> 039F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <O> :  "𝝤"   U1D764	# MATHEMATICAL SANS-SERIF BOLD CAPITAL OMICRON
+#- 1D765;MATHEMATICAL SANS-SERIF BOLD CAPITAL PI;Lu;0;L;<font> 03A0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <P> :  "𝝥"   U1D765	# MATHEMATICAL SANS-SERIF BOLD CAPITAL PI
+#- 1D766;MATHEMATICAL SANS-SERIF BOLD CAPITAL RHO;Lu;0;L;<font> 03A1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <R> :  "𝝦"   U1D766	# MATHEMATICAL SANS-SERIF BOLD CAPITAL RHO
+#- 1D767;MATHEMATICAL SANS-SERIF BOLD CAPITAL THETA SYMBOL;Lu;0;L;<font> 03F4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <period> <U> :  "𝝧"   U1D767	# MATHEMATICAL SANS-SERIF BOLD CAPITAL THETA SYMBOL
+#- 1D768;MATHEMATICAL SANS-SERIF BOLD CAPITAL SIGMA;Lu;0;L;<font> 03A3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <S> :  "𝝨"   U1D768	# MATHEMATICAL SANS-SERIF BOLD CAPITAL SIGMA
+#- 1D769;MATHEMATICAL SANS-SERIF BOLD CAPITAL TAU;Lu;0;L;<font> 03A4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <T> :  "𝝩"   U1D769	# MATHEMATICAL SANS-SERIF BOLD CAPITAL TAU
+#- 1D76A;MATHEMATICAL SANS-SERIF BOLD CAPITAL UPSILON;Lu;0;L;<font> 03A5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <Y> :  "𝝪"   U1D76A	# MATHEMATICAL SANS-SERIF BOLD CAPITAL UPSILON
+#- 1D76B;MATHEMATICAL SANS-SERIF BOLD CAPITAL PHI;Lu;0;L;<font> 03A6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <F> :  "𝝫"   U1D76B	# MATHEMATICAL SANS-SERIF BOLD CAPITAL PHI
+#- 1D76C;MATHEMATICAL SANS-SERIF BOLD CAPITAL CHI;Lu;0;L;<font> 03A7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <X> :  "𝝬"   U1D76C	# MATHEMATICAL SANS-SERIF BOLD CAPITAL CHI
+#- 1D76D;MATHEMATICAL SANS-SERIF BOLD CAPITAL PSI;Lu;0;L;<font> 03A8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <C> :  "𝝭"   U1D76D	# MATHEMATICAL SANS-SERIF BOLD CAPITAL PSI
+#- 1D76E;MATHEMATICAL SANS-SERIF BOLD CAPITAL OMEGA;Lu;0;L;<font> 03A9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <V> :  "𝝮"   U1D76E	# MATHEMATICAL SANS-SERIF BOLD CAPITAL OMEGA
+#- 1D76F;MATHEMATICAL SANS-SERIF BOLD NABLA;Sm;0;L;<font> 2207;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <at> <D> :  "𝝯"   U1D76F	# MATHEMATICAL SANS-SERIF BOLD NABLA
+#- 1D770;MATHEMATICAL SANS-SERIF BOLD SMALL ALPHA;Ll;0;L;<font> 03B1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <a> :  "𝝰"   U1D770	# MATHEMATICAL SANS-SERIF BOLD SMALL ALPHA
+#- 1D771;MATHEMATICAL SANS-SERIF BOLD SMALL BETA;Ll;0;L;<font> 03B2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <b> :  "𝝱"   U1D771	# MATHEMATICAL SANS-SERIF BOLD SMALL BETA
+#- 1D772;MATHEMATICAL SANS-SERIF BOLD SMALL GAMMA;Ll;0;L;<font> 03B3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <g> :  "𝝲"   U1D772	# MATHEMATICAL SANS-SERIF BOLD SMALL GAMMA
+#- 1D773;MATHEMATICAL SANS-SERIF BOLD SMALL DELTA;Ll;0;L;<font> 03B4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <d> :  "𝝳"   U1D773	# MATHEMATICAL SANS-SERIF BOLD SMALL DELTA
+#- 1D774;MATHEMATICAL SANS-SERIF BOLD SMALL EPSILON;Ll;0;L;<font> 03B5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <e> :  "𝝴"   U1D774	# MATHEMATICAL SANS-SERIF BOLD SMALL EPSILON
+#- 1D775;MATHEMATICAL SANS-SERIF BOLD SMALL ZETA;Ll;0;L;<font> 03B6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <z> :  "𝝵"   U1D775	# MATHEMATICAL SANS-SERIF BOLD SMALL ZETA
+#- 1D776;MATHEMATICAL SANS-SERIF BOLD SMALL ETA;Ll;0;L;<font> 03B7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <h> :  "𝝶"   U1D776	# MATHEMATICAL SANS-SERIF BOLD SMALL ETA
+#- 1D777;MATHEMATICAL SANS-SERIF BOLD SMALL THETA;Ll;0;L;<font> 03B8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <u> :  "𝝷"   U1D777	# MATHEMATICAL SANS-SERIF BOLD SMALL THETA
+#- 1D778;MATHEMATICAL SANS-SERIF BOLD SMALL IOTA;Ll;0;L;<font> 03B9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <i> :  "𝝸"   U1D778	# MATHEMATICAL SANS-SERIF BOLD SMALL IOTA
+#- 1D779;MATHEMATICAL SANS-SERIF BOLD SMALL KAPPA;Ll;0;L;<font> 03BA;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <k> :  "𝝹"   U1D779	# MATHEMATICAL SANS-SERIF BOLD SMALL KAPPA
+#- 1D77A;MATHEMATICAL SANS-SERIF BOLD SMALL LAMDA;Ll;0;L;<font> 03BB;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <l> :  "𝝺"   U1D77A	# MATHEMATICAL SANS-SERIF BOLD SMALL LAMDA
+#- 1D77B;MATHEMATICAL SANS-SERIF BOLD SMALL MU;Ll;0;L;<font> 03BC;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <m> :  "𝝻"   U1D77B	# MATHEMATICAL SANS-SERIF BOLD SMALL MU
+#- 1D77C;MATHEMATICAL SANS-SERIF BOLD SMALL NU;Ll;0;L;<font> 03BD;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <n> :  "𝝼"   U1D77C	# MATHEMATICAL SANS-SERIF BOLD SMALL NU
+#- 1D77D;MATHEMATICAL SANS-SERIF BOLD SMALL XI;Ll;0;L;<font> 03BE;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <j> :  "𝝽"   U1D77D	# MATHEMATICAL SANS-SERIF BOLD SMALL XI
+#- 1D77E;MATHEMATICAL SANS-SERIF BOLD SMALL OMICRON;Ll;0;L;<font> 03BF;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <o> :  "𝝾"   U1D77E	# MATHEMATICAL SANS-SERIF BOLD SMALL OMICRON
+#- 1D77F;MATHEMATICAL SANS-SERIF BOLD SMALL PI;Ll;0;L;<font> 03C0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <p> :  "𝝿"   U1D77F	# MATHEMATICAL SANS-SERIF BOLD SMALL PI
+#- 1D780;MATHEMATICAL SANS-SERIF BOLD SMALL RHO;Ll;0;L;<font> 03C1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <r> :  "𝞀"   U1D780	# MATHEMATICAL SANS-SERIF BOLD SMALL RHO
+#- 1D781;MATHEMATICAL SANS-SERIF BOLD SMALL FINAL SIGMA;Ll;0;L;<font> 03C2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <w> :  "𝞁"   U1D781	# MATHEMATICAL SANS-SERIF BOLD SMALL FINAL SIGMA
+#- 1D782;MATHEMATICAL SANS-SERIF BOLD SMALL SIGMA;Ll;0;L;<font> 03C3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <s> :  "𝞂"   U1D782	# MATHEMATICAL SANS-SERIF BOLD SMALL SIGMA
+#- 1D783;MATHEMATICAL SANS-SERIF BOLD SMALL TAU;Ll;0;L;<font> 03C4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <t> :  "𝞃"   U1D783	# MATHEMATICAL SANS-SERIF BOLD SMALL TAU
+#- 1D784;MATHEMATICAL SANS-SERIF BOLD SMALL UPSILON;Ll;0;L;<font> 03C5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <y> :  "𝞄"   U1D784	# MATHEMATICAL SANS-SERIF BOLD SMALL UPSILON
+#- 1D785;MATHEMATICAL SANS-SERIF BOLD SMALL PHI;Ll;0;L;<font> 03C6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <f> :  "𝞅"   U1D785	# MATHEMATICAL SANS-SERIF BOLD SMALL PHI
+#- 1D786;MATHEMATICAL SANS-SERIF BOLD SMALL CHI;Ll;0;L;<font> 03C7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <x> :  "𝞆"   U1D786	# MATHEMATICAL SANS-SERIF BOLD SMALL CHI
+#- 1D787;MATHEMATICAL SANS-SERIF BOLD SMALL PSI;Ll;0;L;<font> 03C8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <c> :  "𝞇"   U1D787	# MATHEMATICAL SANS-SERIF BOLD SMALL PSI
+#- 1D788;MATHEMATICAL SANS-SERIF BOLD SMALL OMEGA;Ll;0;L;<font> 03C9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <v> :  "𝞈"   U1D788	# MATHEMATICAL SANS-SERIF BOLD SMALL OMEGA
+#- 1D789;MATHEMATICAL SANS-SERIF BOLD PARTIAL DIFFERENTIAL;Sm;0;ON;<font> 2202;;;;Y;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <period> <d> :  "𝞉"   U1D789	# MATHEMATICAL SANS-SERIF BOLD PARTIAL DIFFERENTIAL
+#- 1D78A;MATHEMATICAL SANS-SERIF BOLD EPSILON SYMBOL;Ll;0;L;<font> 03F5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <period> <e> :  "𝞊"   U1D78A	# MATHEMATICAL SANS-SERIF BOLD EPSILON SYMBOL
+#- 1D78B;MATHEMATICAL SANS-SERIF BOLD THETA SYMBOL;Ll;0;L;<font> 03D1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <period> <u> :  "𝞋"   U1D78B	# MATHEMATICAL SANS-SERIF BOLD THETA SYMBOL
+#- 1D78C;MATHEMATICAL SANS-SERIF BOLD KAPPA SYMBOL;Ll;0;L;<font> 03F0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <period> <k> :  "𝞌"   U1D78C	# MATHEMATICAL SANS-SERIF BOLD KAPPA SYMBOL
+#- 1D78D;MATHEMATICAL SANS-SERIF BOLD PHI SYMBOL;Ll;0;L;<font> 03D5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <period> <f> :  "𝞍"   U1D78D	# MATHEMATICAL SANS-SERIF BOLD PHI SYMBOL
+#- 1D78E;MATHEMATICAL SANS-SERIF BOLD RHO SYMBOL;Ll;0;L;<font> 03F1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <period> <r> :  "𝞎"   U1D78E	# MATHEMATICAL SANS-SERIF BOLD RHO SYMBOL
+#- 1D78F;MATHEMATICAL SANS-SERIF BOLD PI SYMBOL;Ll;0;L;<font> 03D6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <asterisk> <period> <p> :  "𝞏"   U1D78F	# MATHEMATICAL SANS-SERIF BOLD PI SYMBOL
+## == BOLD ITALIC SANS-SERIF GREEK
+#- 1D790;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ALPHA;Lu;0;L;<font> 0391;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <A> :  "𝞐"   U1D790	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ALPHA
+#- 1D791;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL BETA;Lu;0;L;<font> 0392;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <B> :  "𝞑"   U1D791	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL BETA
+#- 1D792;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL GAMMA;Lu;0;L;<font> 0393;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <G> :  "𝞒"   U1D792	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL GAMMA
+#- 1D793;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL DELTA;Lu;0;L;<font> 0394;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <D> :  "𝞓"   U1D793	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL DELTA
+#- 1D794;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL EPSILON;Lu;0;L;<font> 0395;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <E> :  "𝞔"   U1D794	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL EPSILON
+#- 1D795;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ZETA;Lu;0;L;<font> 0396;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <Z> :  "𝞕"   U1D795	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ZETA
+#- 1D796;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ETA;Lu;0;L;<font> 0397;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <H> :  "𝞖"   U1D796	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ETA
+#- 1D797;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL THETA;Lu;0;L;<font> 0398;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <U> :  "𝞗"   U1D797	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL THETA
+#- 1D798;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL IOTA;Lu;0;L;<font> 0399;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <I> :  "𝞘"   U1D798	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL IOTA
+#- 1D799;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL KAPPA;Lu;0;L;<font> 039A;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <K> :  "𝞙"   U1D799	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL KAPPA
+#- 1D79A;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL LAMDA;Lu;0;L;<font> 039B;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <L> :  "𝞚"   U1D79A	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL LAMDA
+#- 1D79B;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL MU;Lu;0;L;<font> 039C;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <M> :  "𝞛"   U1D79B	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL MU
+#- 1D79C;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL NU;Lu;0;L;<font> 039D;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <N> :  "𝞜"   U1D79C	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL NU
+#- 1D79D;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL XI;Lu;0;L;<font> 039E;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <J> :  "𝞝"   U1D79D	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL XI
+#- 1D79E;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMICRON;Lu;0;L;<font> 039F;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <O> :  "𝞞"   U1D79E	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMICRON
+#- 1D79F;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PI;Lu;0;L;<font> 03A0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <P> :  "𝞟"   U1D79F	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PI
+#- 1D7A0;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL RHO;Lu;0;L;<font> 03A1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <R> :  "𝞠"   U1D7A0	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL RHO
+#- 1D7A1;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL THETA SYMBOL;Lu;0;L;<font> 03F4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <period> <U> :  "𝞡"   U1D7A1	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL THETA SYMBOL
+#- 1D7A2;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL SIGMA;Lu;0;L;<font> 03A3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <S> :  "𝞢"   U1D7A2	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL SIGMA
+#- 1D7A3;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL TAU;Lu;0;L;<font> 03A4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <T> :  "𝞣"   U1D7A3	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL TAU
+#- 1D7A4;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL UPSILON;Lu;0;L;<font> 03A5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <Y> :  "𝞤"   U1D7A4	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL UPSILON
+#- 1D7A5;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PHI;Lu;0;L;<font> 03A6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <F> :  "𝞥"   U1D7A5	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PHI
+#- 1D7A6;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL CHI;Lu;0;L;<font> 03A7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <X> :  "𝞦"   U1D7A6	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL CHI
+#- 1D7A7;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PSI;Lu;0;L;<font> 03A8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <C> :  "𝞧"   U1D7A7	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PSI
+#- 1D7A8;MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMEGA;Lu;0;L;<font> 03A9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <V> :  "𝞨"   U1D7A8	# MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMEGA
+#- 1D7A9;MATHEMATICAL SANS-SERIF BOLD ITALIC NABLA;Sm;0;L;<font> 2207;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <at> <D> :  "𝞩"   U1D7A9	# MATHEMATICAL SANS-SERIF BOLD ITALIC NABLA
+#- 1D7AA;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ALPHA;Ll;0;L;<font> 03B1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <a> :  "𝞪"   U1D7AA	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ALPHA
+#- 1D7AB;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL BETA;Ll;0;L;<font> 03B2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <b> :  "𝞫"   U1D7AB	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL BETA
+#- 1D7AC;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL GAMMA;Ll;0;L;<font> 03B3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <g> :  "𝞬"   U1D7AC	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL GAMMA
+#- 1D7AD;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL DELTA;Ll;0;L;<font> 03B4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <d> :  "𝞭"   U1D7AD	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL DELTA
+#- 1D7AE;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL EPSILON;Ll;0;L;<font> 03B5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <e> :  "𝞮"   U1D7AE	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL EPSILON
+#- 1D7AF;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ZETA;Ll;0;L;<font> 03B6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <z> :  "𝞯"   U1D7AF	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ZETA
+#- 1D7B0;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ETA;Ll;0;L;<font> 03B7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <h> :  "𝞰"   U1D7B0	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ETA
+#- 1D7B1;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL THETA;Ll;0;L;<font> 03B8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <u> :  "𝞱"   U1D7B1	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL THETA
+#- 1D7B2;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL IOTA;Ll;0;L;<font> 03B9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <i> :  "𝞲"   U1D7B2	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL IOTA
+#- 1D7B3;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL KAPPA;Ll;0;L;<font> 03BA;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <k> :  "𝞳"   U1D7B3	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL KAPPA
+#- 1D7B4;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL LAMDA;Ll;0;L;<font> 03BB;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <l> :  "𝞴"   U1D7B4	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL LAMDA
+#- 1D7B5;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL MU;Ll;0;L;<font> 03BC;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <m> :  "𝞵"   U1D7B5	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL MU
+#- 1D7B6;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL NU;Ll;0;L;<font> 03BD;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <n> :  "𝞶"   U1D7B6	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL NU
+#- 1D7B7;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL XI;Ll;0;L;<font> 03BE;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <j> :  "𝞷"   U1D7B7	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL XI
+#- 1D7B8;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL OMICRON;Ll;0;L;<font> 03BF;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <o> :  "𝞸"   U1D7B8	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL OMICRON
+#- 1D7B9;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PI;Ll;0;L;<font> 03C0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <p> :  "𝞹"   U1D7B9	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PI
+#- 1D7BA;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL RHO;Ll;0;L;<font> 03C1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <r> :  "𝞺"   U1D7BA	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL RHO
+#- 1D7BB;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL FINAL SIGMA;Ll;0;L;<font> 03C2;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <w> :  "𝞻"   U1D7BB	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL FINAL SIGMA
+#- 1D7BC;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL SIGMA;Ll;0;L;<font> 03C3;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <s> :  "𝞼"   U1D7BC	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL SIGMA
+#- 1D7BD;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL TAU;Ll;0;L;<font> 03C4;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <t> :  "𝞽"   U1D7BD	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL TAU
+#- 1D7BE;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL UPSILON;Ll;0;L;<font> 03C5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <y> :  "𝞾"   U1D7BE	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL UPSILON
+#- 1D7BF;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PHI;Ll;0;L;<font> 03C6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <f> :  "𝞿"   U1D7BF	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PHI
+#- 1D7C0;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL CHI;Ll;0;L;<font> 03C7;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <x> :  "𝟀"   U1D7C0	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL CHI
+#- 1D7C1;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PSI;Ll;0;L;<font> 03C8;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <c> :  "𝟁"   U1D7C1	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PSI
+#- 1D7C2;MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL OMEGA;Ll;0;L;<font> 03C9;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <v> :  "𝟂"   U1D7C2	# MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL OMEGA
+#- 1D7C3;MATHEMATICAL SANS-SERIF BOLD ITALIC PARTIAL DIFFERENTIAL;Sm;0;ON;<font> 2202;;;;Y;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <period> <d> :  "𝟃"   U1D7C3	# MATHEMATICAL SANS-SERIF BOLD ITALIC PARTIAL DIFFERENTIAL
+#- 1D7C4;MATHEMATICAL SANS-SERIF BOLD ITALIC EPSILON SYMBOL;Ll;0;L;<font> 03F5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <period> <e> :  "𝟄"   U1D7C4	# MATHEMATICAL SANS-SERIF BOLD ITALIC EPSILON SYMBOL
+#- 1D7C5;MATHEMATICAL SANS-SERIF BOLD ITALIC THETA SYMBOL;Ll;0;L;<font> 03D1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <period> <u> :  "𝟅"   U1D7C5	# MATHEMATICAL SANS-SERIF BOLD ITALIC THETA SYMBOL
+#- 1D7C6;MATHEMATICAL SANS-SERIF BOLD ITALIC KAPPA SYMBOL;Ll;0;L;<font> 03F0;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <period> <k> :  "𝟆"   U1D7C6	# MATHEMATICAL SANS-SERIF BOLD ITALIC KAPPA SYMBOL
+#- 1D7C7;MATHEMATICAL SANS-SERIF BOLD ITALIC PHI SYMBOL;Ll;0;L;<font> 03D5;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <period> <f> :  "𝟇"   U1D7C7	# MATHEMATICAL SANS-SERIF BOLD ITALIC PHI SYMBOL
+#- 1D7C8;MATHEMATICAL SANS-SERIF BOLD ITALIC RHO SYMBOL;Ll;0;L;<font> 03F1;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <period> <r> :  "𝟈"   U1D7C8	# MATHEMATICAL SANS-SERIF BOLD ITALIC RHO SYMBOL
+#- 1D7C9;MATHEMATICAL SANS-SERIF BOLD ITALIC PI SYMBOL;Ll;0;L;<font> 03D6;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <I> <asterisk> <period> <p> :  "𝟉"   U1D7C9	# MATHEMATICAL SANS-SERIF BOLD ITALIC PI SYMBOL
+## == (BOLD GREEK LEFTOVERS)
+#- 1D7CA;MATHEMATICAL BOLD CAPITAL DIGAMMA;Lu;0;L;<font> 03DC;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <W> :  "𝟊"   U1D7CA	# MATHEMATICAL BOLD CAPITAL DIGAMMA
+#- 1D7CB;MATHEMATICAL BOLD SMALL DIGAMMA;Ll;0;L;<font> 03DD;;;;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <asterisk> <period> <w> :  "𝟋"   U1D7CB	# MATHEMATICAL BOLD SMALL DIGAMMA
+## == BOLD DIGITS
+#- 1D7CE;MATHEMATICAL BOLD DIGIT ZERO;Nd;0;EN;<font> 0030;0;0;0;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <0> :  "𝟎"   U1D7CE	# MATHEMATICAL BOLD DIGIT ZERO
+#- 1D7CF;MATHEMATICAL BOLD DIGIT ONE;Nd;0;EN;<font> 0031;1;1;1;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <1> :  "𝟏"   U1D7CF	# MATHEMATICAL BOLD DIGIT ONE
+#- 1D7D0;MATHEMATICAL BOLD DIGIT TWO;Nd;0;EN;<font> 0032;2;2;2;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <2> :  "𝟐"   U1D7D0	# MATHEMATICAL BOLD DIGIT TWO
+#- 1D7D1;MATHEMATICAL BOLD DIGIT THREE;Nd;0;EN;<font> 0033;3;3;3;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <3> :  "𝟑"   U1D7D1	# MATHEMATICAL BOLD DIGIT THREE
+#- 1D7D2;MATHEMATICAL BOLD DIGIT FOUR;Nd;0;EN;<font> 0034;4;4;4;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <4> :  "𝟒"   U1D7D2	# MATHEMATICAL BOLD DIGIT FOUR
+#- 1D7D3;MATHEMATICAL BOLD DIGIT FIVE;Nd;0;EN;<font> 0035;5;5;5;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <5> :  "𝟓"   U1D7D3	# MATHEMATICAL BOLD DIGIT FIVE
+#- 1D7D4;MATHEMATICAL BOLD DIGIT SIX;Nd;0;EN;<font> 0036;6;6;6;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <6> :  "𝟔"   U1D7D4	# MATHEMATICAL BOLD DIGIT SIX
+#- 1D7D5;MATHEMATICAL BOLD DIGIT SEVEN;Nd;0;EN;<font> 0037;7;7;7;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <7> :  "𝟕"   U1D7D5	# MATHEMATICAL BOLD DIGIT SEVEN
+#- 1D7D6;MATHEMATICAL BOLD DIGIT EIGHT;Nd;0;EN;<font> 0038;8;8;8;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <8> :  "𝟖"   U1D7D6	# MATHEMATICAL BOLD DIGIT EIGHT
+#- 1D7D7;MATHEMATICAL BOLD DIGIT NINE;Nd;0;EN;<font> 0039;9;9;9;N;;;;;
+<Multi_key>  <dollar> <numbersign> <b> <9> :  "𝟗"   U1D7D7	# MATHEMATICAL BOLD DIGIT NINE
+## == DOUBLE-STRUCK DIGITS
+#- 1D7D8;MATHEMATICAL DOUBLE-STRUCK DIGIT ZERO;Nd;0;EN;<font> 0030;0;0;0;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <0> :  "𝟘"   U1D7D8	# MATHEMATICAL DOUBLE-STRUCK DIGIT ZERO
+#- 1D7D9;MATHEMATICAL DOUBLE-STRUCK DIGIT ONE;Nd;0;EN;<font> 0031;1;1;1;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <1> :  "𝟙"   U1D7D9	# MATHEMATICAL DOUBLE-STRUCK DIGIT ONE
+#- 1D7DA;MATHEMATICAL DOUBLE-STRUCK DIGIT TWO;Nd;0;EN;<font> 0032;2;2;2;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <2> :  "𝟚"   U1D7DA	# MATHEMATICAL DOUBLE-STRUCK DIGIT TWO
+#- 1D7DB;MATHEMATICAL DOUBLE-STRUCK DIGIT THREE;Nd;0;EN;<font> 0033;3;3;3;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <3> :  "𝟛"   U1D7DB	# MATHEMATICAL DOUBLE-STRUCK DIGIT THREE
+#- 1D7DC;MATHEMATICAL DOUBLE-STRUCK DIGIT FOUR;Nd;0;EN;<font> 0034;4;4;4;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <4> :  "𝟜"   U1D7DC	# MATHEMATICAL DOUBLE-STRUCK DIGIT FOUR
+#- 1D7DD;MATHEMATICAL DOUBLE-STRUCK DIGIT FIVE;Nd;0;EN;<font> 0035;5;5;5;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <5> :  "𝟝"   U1D7DD	# MATHEMATICAL DOUBLE-STRUCK DIGIT FIVE
+#- 1D7DE;MATHEMATICAL DOUBLE-STRUCK DIGIT SIX;Nd;0;EN;<font> 0036;6;6;6;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <6> :  "𝟞"   U1D7DE	# MATHEMATICAL DOUBLE-STRUCK DIGIT SIX
+#- 1D7DF;MATHEMATICAL DOUBLE-STRUCK DIGIT SEVEN;Nd;0;EN;<font> 0037;7;7;7;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <7> :  "𝟟"   U1D7DF	# MATHEMATICAL DOUBLE-STRUCK DIGIT SEVEN
+#- 1D7E0;MATHEMATICAL DOUBLE-STRUCK DIGIT EIGHT;Nd;0;EN;<font> 0038;8;8;8;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <8> :  "𝟠"   U1D7E0	# MATHEMATICAL DOUBLE-STRUCK DIGIT EIGHT
+#- 1D7E1;MATHEMATICAL DOUBLE-STRUCK DIGIT NINE;Nd;0;EN;<font> 0039;9;9;9;N;;;;;
+<Multi_key>  <dollar> <numbersign> <bar> <9> :  "𝟡"   U1D7E1	# MATHEMATICAL DOUBLE-STRUCK DIGIT NINE
+## == SANS-SERIF DIGITS
+#- 1D7E2;MATHEMATICAL SANS-SERIF DIGIT ZERO;Nd;0;EN;<font> 0030;0;0;0;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <0> :  "𝟢"   U1D7E2	# MATHEMATICAL SANS-SERIF DIGIT ZERO
+#- 1D7E3;MATHEMATICAL SANS-SERIF DIGIT ONE;Nd;0;EN;<font> 0031;1;1;1;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <1> :  "𝟣"   U1D7E3	# MATHEMATICAL SANS-SERIF DIGIT ONE
+#- 1D7E4;MATHEMATICAL SANS-SERIF DIGIT TWO;Nd;0;EN;<font> 0032;2;2;2;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <2> :  "𝟤"   U1D7E4	# MATHEMATICAL SANS-SERIF DIGIT TWO
+#- 1D7E5;MATHEMATICAL SANS-SERIF DIGIT THREE;Nd;0;EN;<font> 0033;3;3;3;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <3> :  "𝟥"   U1D7E5	# MATHEMATICAL SANS-SERIF DIGIT THREE
+#- 1D7E6;MATHEMATICAL SANS-SERIF DIGIT FOUR;Nd;0;EN;<font> 0034;4;4;4;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <4> :  "𝟦"   U1D7E6	# MATHEMATICAL SANS-SERIF DIGIT FOUR
+#- 1D7E7;MATHEMATICAL SANS-SERIF DIGIT FIVE;Nd;0;EN;<font> 0035;5;5;5;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <5> :  "𝟧"   U1D7E7	# MATHEMATICAL SANS-SERIF DIGIT FIVE
+#- 1D7E8;MATHEMATICAL SANS-SERIF DIGIT SIX;Nd;0;EN;<font> 0036;6;6;6;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <6> :  "𝟨"   U1D7E8	# MATHEMATICAL SANS-SERIF DIGIT SIX
+#- 1D7E9;MATHEMATICAL SANS-SERIF DIGIT SEVEN;Nd;0;EN;<font> 0037;7;7;7;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <7> :  "𝟩"   U1D7E9	# MATHEMATICAL SANS-SERIF DIGIT SEVEN
+#- 1D7EA;MATHEMATICAL SANS-SERIF DIGIT EIGHT;Nd;0;EN;<font> 0038;8;8;8;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <8> :  "𝟪"   U1D7EA	# MATHEMATICAL SANS-SERIF DIGIT EIGHT
+#- 1D7EB;MATHEMATICAL SANS-SERIF DIGIT NINE;Nd;0;EN;<font> 0039;9;9;9;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <comma> <9> :  "𝟫"   U1D7EB	# MATHEMATICAL SANS-SERIF DIGIT NINE
+## == SANS-SERIF BOLD DIGITS
+#- 1D7EC;MATHEMATICAL SANS-SERIF BOLD DIGIT ZERO;Nd;0;EN;<font> 0030;0;0;0;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <0> :  "𝟬"   U1D7EC	# MATHEMATICAL SANS-SERIF BOLD DIGIT ZERO
+#- 1D7ED;MATHEMATICAL SANS-SERIF BOLD DIGIT ONE;Nd;0;EN;<font> 0031;1;1;1;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <1> :  "𝟭"   U1D7ED	# MATHEMATICAL SANS-SERIF BOLD DIGIT ONE
+#- 1D7EE;MATHEMATICAL SANS-SERIF BOLD DIGIT TWO;Nd;0;EN;<font> 0032;2;2;2;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <2> :  "𝟮"   U1D7EE	# MATHEMATICAL SANS-SERIF BOLD DIGIT TWO
+#- 1D7EF;MATHEMATICAL SANS-SERIF BOLD DIGIT THREE;Nd;0;EN;<font> 0033;3;3;3;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <3> :  "𝟯"   U1D7EF	# MATHEMATICAL SANS-SERIF BOLD DIGIT THREE
+#- 1D7F0;MATHEMATICAL SANS-SERIF BOLD DIGIT FOUR;Nd;0;EN;<font> 0034;4;4;4;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <4> :  "𝟰"   U1D7F0	# MATHEMATICAL SANS-SERIF BOLD DIGIT FOUR
+#- 1D7F1;MATHEMATICAL SANS-SERIF BOLD DIGIT FIVE;Nd;0;EN;<font> 0035;5;5;5;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <5> :  "𝟱"   U1D7F1	# MATHEMATICAL SANS-SERIF BOLD DIGIT FIVE
+#- 1D7F2;MATHEMATICAL SANS-SERIF BOLD DIGIT SIX;Nd;0;EN;<font> 0036;6;6;6;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <6> :  "𝟲"   U1D7F2	# MATHEMATICAL SANS-SERIF BOLD DIGIT SIX
+#- 1D7F3;MATHEMATICAL SANS-SERIF BOLD DIGIT SEVEN;Nd;0;EN;<font> 0037;7;7;7;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <7> :  "𝟳"   U1D7F3	# MATHEMATICAL SANS-SERIF BOLD DIGIT SEVEN
+#- 1D7F4;MATHEMATICAL SANS-SERIF BOLD DIGIT EIGHT;Nd;0;EN;<font> 0038;8;8;8;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <8> :  "𝟴"   U1D7F4	# MATHEMATICAL SANS-SERIF BOLD DIGIT EIGHT
+#- 1D7F5;MATHEMATICAL SANS-SERIF BOLD DIGIT NINE;Nd;0;EN;<font> 0039;9;9;9;N;;;;;
+<Multi_key>  <dollar> <numbersign> <comma> <b> <9> :  "𝟵"   U1D7F5	# MATHEMATICAL SANS-SERIF BOLD DIGIT NINE
+## == MONOSPACE DIGITS
+#- 1D7F6;MATHEMATICAL MONOSPACE DIGIT ZERO;Nd;0;EN;<font> 0030;0;0;0;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <0> :  "𝟶"   U1D7F6	# MATHEMATICAL MONOSPACE DIGIT ZERO
+#- 1D7F7;MATHEMATICAL MONOSPACE DIGIT ONE;Nd;0;EN;<font> 0031;1;1;1;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <1> :  "𝟷"   U1D7F7	# MATHEMATICAL MONOSPACE DIGIT ONE
+#- 1D7F8;MATHEMATICAL MONOSPACE DIGIT TWO;Nd;0;EN;<font> 0032;2;2;2;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <2> :  "𝟸"   U1D7F8	# MATHEMATICAL MONOSPACE DIGIT TWO
+#- 1D7F9;MATHEMATICAL MONOSPACE DIGIT THREE;Nd;0;EN;<font> 0033;3;3;3;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <3> :  "𝟹"   U1D7F9	# MATHEMATICAL MONOSPACE DIGIT THREE
+#- 1D7FA;MATHEMATICAL MONOSPACE DIGIT FOUR;Nd;0;EN;<font> 0034;4;4;4;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <4> :  "𝟺"   U1D7FA	# MATHEMATICAL MONOSPACE DIGIT FOUR
+#- 1D7FB;MATHEMATICAL MONOSPACE DIGIT FIVE;Nd;0;EN;<font> 0035;5;5;5;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <5> :  "𝟻"   U1D7FB	# MATHEMATICAL MONOSPACE DIGIT FIVE
+#- 1D7FC;MATHEMATICAL MONOSPACE DIGIT SIX;Nd;0;EN;<font> 0036;6;6;6;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <6> :  "𝟼"   U1D7FC	# MATHEMATICAL MONOSPACE DIGIT SIX
+#- 1D7FD;MATHEMATICAL MONOSPACE DIGIT SEVEN;Nd;0;EN;<font> 0037;7;7;7;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <7> :  "𝟽"   U1D7FD	# MATHEMATICAL MONOSPACE DIGIT SEVEN
+#- 1D7FE;MATHEMATICAL MONOSPACE DIGIT EIGHT;Nd;0;EN;<font> 0038;8;8;8;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <8> :  "𝟾"   U1D7FE	# MATHEMATICAL MONOSPACE DIGIT EIGHT
+#- 1D7FF;MATHEMATICAL MONOSPACE DIGIT NINE;Nd;0;EN;<font> 0039;9;9;9;N;;;;;
+<Multi_key>  <dollar> <numbersign> <m> <9> :  "𝟿"   U1D7FF	# MATHEMATICAL MONOSPACE DIGIT NINE
