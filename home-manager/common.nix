@@ -37,16 +37,18 @@ in
       wlsunset
       eww
       renderdoc
-      blender
+      blender-hip
       pureref
       wtype
-      (wev.overrideAttrs (attrs: { src = fetchgit {
-                                     rev = "2a46014ec5e375139f91aed456d5f01065964f86";
-                                     url = "https://git.sr.ht/~sircmpwn/wev";
-                                     hash = "sha256-0ZA44dMDuVYfplfutOfI2EdPNakE9KnOuRfk+CEDCRk=";
-                                   };
-                                 }))
+      (wev.overrideAttrs
+        (attrs: { src = fetchgit {
+          rev = "2a46014ec5e375139f91aed456d5f01065964f86";
+          url = "https://git.sr.ht/~sircmpwn/wev";
+          hash = "sha256-0ZA44dMDuVYfplfutOfI2EdPNakE9KnOuRfk+CEDCRk=";
+          };
+      }))
       anki-bin
+      android-tools
       element-desktop
       wasistlos
       mesa-demos

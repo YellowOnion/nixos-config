@@ -35,7 +35,7 @@
   outputs = {self, nixpkgs-stable, nixpkgs-unstable, auth-server, typed-systems, home-manager, openttd, ... }@inputs:
     let
       inherit (import typed-systems) genAttrsMapBy systems' id;
-
+      ottpkgs = openttd.packages;
       systems = import ./systems { inherit systems' nixpkgs-stable; };
 
       mkSystem = { nixpkgs ? nixpkgs-unstable, name, system, modules }:
@@ -82,12 +82,13 @@
           in
             home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
-              extraSpecialArgs = { openttd = openttd.packages.${system}; };
+              extraSpecialArgs = { openttd = ottpkgs.${system}; };
               modules = modules;
             };
       in
         {
           nixosConfigurations = genAttrsMapBy (a: a.name) mkSystem systems id;
           homeConfigurations = genAttrsMapBy (a: a.name) mkHmConfig hmConfigs id;
+          packages.${systems'.x86_64-linux}.openttd = ottpkgs.${systems'.x86_64-linux}.launcher;
         };
 }
