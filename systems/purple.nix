@@ -58,8 +58,8 @@ in
       # config.boot.kernelPackages.perf
    ];
 
-  hardware.cpu.amd.ryzen-smu.enable = true;
-  programs.ryzen-monitor-ng.enable = true;
+  # hardware.cpu.amd.ryzen-smu.enable = true;
+
   # KVM stuff
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
   #boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];
