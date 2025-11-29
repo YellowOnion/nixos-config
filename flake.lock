@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "arkenfox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762131136,
+        "narHash": "sha256-LPDiiEPOZu5Ah5vCLyCMT3w1uoBhUjyqoPWCOiLVLnw=",
+        "owner": "arkenfox",
+        "repo": "user.js",
+        "rev": "0f14e030b3a9391e761c03ce3c260730a78a4db6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arkenfox",
+        "repo": "user.js",
+        "type": "github"
+      }
+    },
     "attic": {
       "inputs": {
         "crane": "crane",
@@ -111,11 +127,11 @@
         "typed-systems": "typed-systems"
       },
       "locked": {
-        "lastModified": 1762095696,
-        "narHash": "sha256-M5Rxn7WH9Xm0/D8iIbJdvmO//n17raEBKcWzFXizQS8=",
+        "lastModified": 1764342052,
+        "narHash": "sha256-Axv0eI0SuwQzOcAi/Ih4p2gQIiZp2r3D1me6kco3ml8=",
         "owner": "YellowOnion",
         "repo": "factorio-mods-nix",
-        "rev": "1d61b347bdbf9638ffbb76d257dc48af18eb4604",
+        "rev": "77c3a0113399862ba738af1b708efd273a723a46",
         "type": "github"
       },
       "original": {
@@ -257,11 +273,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762144868,
-        "narHash": "sha256-kdcgFSAo728/PQ9Wn9RVtD2IwZCXjwH4yIk2jTGqeLY=",
+        "lastModified": 1764361670,
+        "narHash": "sha256-jgWzgpIaHbL3USIq0gihZeuy1lLf2YSfwvWEwnfAJUw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d9cd40d2daf03350b61f853653afb53625e01a80",
+        "rev": "780be8ef503a28939cf9dc7996b48ffb1a3e04c6",
         "type": "github"
       },
       "original": {
@@ -341,11 +357,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1761999846,
-        "narHash": "sha256-IYlYnp4O4dzEpL77BD/lj5NnJy2J8qbHkNSFiPBCbqo=",
+        "lastModified": 1764316264,
+        "narHash": "sha256-82L+EJU+40+FIdeG4gmUlOF1jeSwlf2AwMarrpdHF6o=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3de8f8d73e35724bf9abef41f1bdbedda1e14a31",
+        "rev": "9a7b80b6f82a71ea04270d7ba11b48855681c4b0",
         "type": "github"
       },
       "original": {
@@ -357,16 +373,16 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1761907660,
-        "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
+        "lastModified": 1764290847,
+        "narHash": "sha256-VwPgoDgnd628GdE3KyLqTyPF1WWh0VwT5UoKygoi8sg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2fb006b87f04c4d3bdf08cfdbc7fab9c13d94a15",
+        "rev": "cd5fedfc384cb98d9fd3827b55f4522f49efda42",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -409,6 +425,7 @@
     },
     "root": {
       "inputs": {
+        "arkenfox": "arkenfox",
         "auth-server": "auth-server",
         "conduit": "conduit",
         "factorio-mods": "factorio-mods",
