@@ -64,7 +64,9 @@ in
   # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
   #boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];
   #boot.initrd.kernelModules = [ vfio-pci ];
-  #boot.kernelParams = [
+  boot.kernelParams = [
+    "amdgpu.ppfeaturemask=0xfff7ffff"
+  ];
   #  "amd_iommu=on"
   #  "vfio_virqfd"
   #  "vfio_pci"
