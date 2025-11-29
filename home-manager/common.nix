@@ -34,38 +34,33 @@ in
   fonts.fontconfig.enable = true;
   home.packages = with pkgs;
     [
-      (pkgs.google-fonts.override { fonts = [ "Kode Mono" "EB Garamond" ]; })
-      wlsunset
-      eww
-      renderdoc
-      blender-hip
-      pureref
-      wtype
-      (wev.overrideAttrs
-        (attrs: { src = fetchgit {
-          rev = "2a46014ec5e375139f91aed456d5f01065964f86";
-          url = "https://git.sr.ht/~sircmpwn/wev";
-          hash = "sha256-0ZA44dMDuVYfplfutOfI2EdPNakE9KnOuRfk+CEDCRk=";
-          };
-      }))
-      anki-bin
       android-tools
-      element-desktop
-      wasistlos
-      mesa-demos
-      clinfo
-      vulkan-tools
-      hexchat
-      nil
-      steamcmd
-      rustc
-      cargo
+      anki-bin
+      blender-hip
       cachix
       calibre
+      cargo
+      clinfo
+      element-desktop
+      eww
       ffmpeg-full
+      (ghc.withPackages (p: with p; []))
+      hexchat
       imv
-      unzip
+      mesa-demos
+      nil
+      nix-tree
+      openttd.launcher
       p7zip
+      pureref
+      renderdoc
+      rustc
+      steamcmd
+      unzip
+      vulkan-tools
+      wasistlos
+      wlsunset
+      wtype
       #musescore
       #muse-sounds-manager
       # obs-cmd
@@ -75,8 +70,15 @@ in
       (writeShellScriptBin "discordToggleMute"
         ''
           xdotool key Control_R+backslash
-        '')
-      openttd.launcher
+      '')
+      (wev.overrideAttrs
+        (attrs: { src = fetchgit {
+          rev = "2a46014ec5e375139f91aed456d5f01065964f86";
+          url = "https://git.sr.ht/~sircmpwn/wev";
+          hash = "sha256-0ZA44dMDuVYfplfutOfI2EdPNakE9KnOuRfk+CEDCRk=";
+          };
+      }))
+      (pkgs.google-fonts.override { fonts = [ "Kode Mono" "EB Garamond" ]; })
     ];
 
   home.pointerCursor = {
