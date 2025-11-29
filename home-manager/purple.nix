@@ -29,8 +29,9 @@ in
   home.packages = with pkgs; [
     swayResume
     setDefaultMonitor
-    davinci-resolve
     zynaddsubfx
+    # takes ages to compile, has bugs for some reason?
+    #davinci-resolve
   ];
 
   games.extraGameScripts = [
