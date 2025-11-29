@@ -1,14 +1,14 @@
 {
-  GE-Proton10-1 = {
-    url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-1/GE-Proton10-1.tar.gz";
-    hash = "sha256-sGKmfdxZK2quI7QamIGRaW1/ElwS/gJPeE4Tvh6icUo=";
+  GE-Proton10-23 = {
+    url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-23/GE-Proton10-23.tar.gz";
+    hash = "sha256-cOjrP9Nh4cPcX3uwYF25z2QHnNDNb83FPa4O0zdENeg=";
   };
-  GE-Proton10-2 = {
-    url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-2/GE-Proton10-2.tar.gz";
-    hash = "sha256-fCxiwATohvdpfxXkHY1ty5WHS0phARrDszGmwNRmVQE=";
+  GE-Proton10-24 = {
+    url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-24/GE-Proton10-24.tar.gz";
+    hash = "sha256-QZBu2C4JrsETY+EV0zs4e921qOxYT9lk0EYXXpOCKLs=";
   };
-  GE-Proton10-3 = {
-    url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-3/GE-Proton10-3.tar.gz";
-    hash = "sha256-V4znOni53KMZ0rs7O7TuBst5kDSaEOyWUGgL7EESVAU=";
+  GE-Proton10-25 = {
+    url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-25/GE-Proton10-25.tar.gz";
+    hash = "sha256-RKko4QMxtnuC1SAHTSEQGBzVyl3ywnirFSYJ1WKSY0k=";
   };
 }
