@@ -1,4 +1,4 @@
-{ config, pkgs, openttd, ... }:
+{ config, pkgs, openttd, arkenfox, ... }:
 
 let bgLockImg = pkgs.runCommand "bg_locked.png" {} ''
     export HOME=./
@@ -6,6 +6,7 @@ let bgLockImg = pkgs.runCommand "bg_locked.png" {} ''
     export TMP=./tmp
     ${pkgs.gmic}/bin/gmic ${./bg.png} blur 5 rgb2hsv split c "${./bg_noise.png}" mul[-2,-1] sub[-2] 10% add[-1] 10% append[-3--1] c hsv2rgb output[-1] "$out"
 '';
+    lib = pkgs.lib;
 in
 {
   manual.manpages.enable = false;
@@ -101,19 +102,23 @@ in
 
   programs.firefox = {
     enable = true;
-    profiles."default".userChrome =
-    ''#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
-        opacity: 0;
-        pointer-events: none;
-      }
-      #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-          visibility: collapse !important;
-      }'';
+    profiles."default" =
+      { userChrome =
+          ''#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+              opacity: 0;
+              pointer-events: none;
+            }
+            #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+                visibility: collapse !important;
+            }
+          '';
+        extraConfig = lib.readFile "${arkenfox}/user.js";
+      };
   };
   #home.service.emacs = {
   #  enabled = true;
   #  package = doom-emacs; };
-  xdg.configFile = with pkgs; {
+  xdg.configFile = {
     "tmux/tmux.conf".text = lib.readFile ./tmux.conf;
     "sway/config".text = lib.readFile ./sway.conf;
     "sway/config.d/theme.conf".text = lib.readFile ./sway-theme.conf;

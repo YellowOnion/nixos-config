@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    arkenfox = {
+      url = "github:arkenfox/user.js";
+      flake = false;
+    };
+
     openttd = {
       url = "github:YellowOnion/nix-openttd-jgrpp";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -82,7 +87,10 @@
           in
             home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
-              extraSpecialArgs = { openttd = ottpkgs.${system}; };
+              extraSpecialArgs = {
+                openttd = ottpkgs.${system};
+                arkenfox = inputs.arkenfox;
+              };
               modules = modules;
             };
       in
