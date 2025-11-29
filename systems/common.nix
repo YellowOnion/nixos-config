@@ -17,10 +17,15 @@ in {
   '';
 
   # Use the systemd-boot EFI boot loader.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "hid_apple.fnmode=0" ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "hid_apple.fnmode=0" ];
+    loader = {
+      systemd-boot.enable = true;
+      systemd-boot.memtest86.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
   # Set your time zone.
   time.timeZone = "Pacific/Auckland";
 
