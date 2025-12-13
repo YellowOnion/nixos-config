@@ -72,6 +72,7 @@
                           nixpkgs.overlays = [ factorioOverlay ];
                           nixpkgs.config.allowUnfree = true;
                           nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ];
+                          nix.channel.enable = false;
                         }) ];
           };
 
