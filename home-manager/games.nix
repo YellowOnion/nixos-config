@@ -11,10 +11,10 @@ let
         '');
 
   gameEnv = ''
-    export MANGOHUD_CONFIG=''${MANGOHUD_CONFIG:=gpu_temp,fps_limit=180+120+90+0}
+    export MANGOHUD_CONFIG=''${MANGOHUD_CONFIG:=gpu_temp,vram}
     export PIPEWIRE_NODE=''${PIPEWIRE_NODE:=input.game}
     export PULSE_SINK=''${PULSE_SINK:=input.game}
-    export WINE_CPU_TOPOLOGY=''${WINE_CPU_TOPOLOGY:=12:0,1,2,3,4,5,6,7,8,9,10,11}
+    export WINE_CPU_TOPOLOGY=''${WINE_CPU_TOPOLOGY:=6:12,13,14,15,16,17}
   '';
   gameScripts = withExtraGameScripts cfg.extraGameScripts;
 
@@ -24,14 +24,14 @@ let
     export OBS_VKCAPTURE=''${OBS_VKCAPTURE:=1}
     export MANGOHUD=''${MANGOHUD:=1}
 
-    systemd-inhibit ${gameScripts}/bin/run.sh taskset -ac 0-11 "$@"
+    systemd-inhibit ${gameScripts}/bin/run.sh "$@"
     '');
 
   runOGLGame = (pkgs.writeShellScriptBin "runOGLGame"
     ''
     ${gameEnv}
 
-    systemd-inhibit ${pkgs.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh taskset -ac 0-11 "$@"
+    systemd-inhibit ${pkgs.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh "$@"
     '');
 
   runOGL32Game = (pkgs.writeShellScriptBin "runOGL32Game"
@@ -39,7 +39,7 @@ let
     ''
     ${gameEnv}
 
-    systemd-inhibit ${pkgs32.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs32.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh taskset -ac 0-11 "$@"
+    systemd-inhibit ${pkgs32.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs32.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh "$@"
     ''));
 
   withSwayFloating = (pkgs.writeShellScriptBin "withSwayFloating"

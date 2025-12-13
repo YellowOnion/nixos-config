@@ -44,7 +44,7 @@ in
       element-desktop
       eww
       ffmpeg-full
-      (ghc.withPackages (p: with p; []))
+      (ghc.withPackages (p: with p; [ hlint ]))
       hexchat
       imv
       mesa-demos

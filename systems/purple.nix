@@ -21,12 +21,13 @@ in
     tmpfsSize = "50%";
   };
 
+  nixpkgs.overlays = [ overlay ];
   hardware.cpu.amd.updateMicrocode = true;
   boot.extraModulePackages = [ ];
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
   # networking.interfaces.br0.useDHCP = true;
 
-  programs.corectrl.enable = true;
+  #programs.corectrl.enable = true;
   security.polkit.enable = true;
   boot.kernel.sysctl = {
     "sched_latency_ns" = "1000000";

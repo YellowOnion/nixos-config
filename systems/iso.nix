@@ -4,9 +4,6 @@ with lib;
   imports = [
    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
    "${modulesPath}/installer/cd-dvd/channel.nix"
-   ./bcachefs.nix
-   ./common.nix
-   ./common-gui.nix
   ];
 
   isoImage.edition = lib.mkOverride 40 "bchfs-minimal";

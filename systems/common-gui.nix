@@ -33,8 +33,8 @@ let
   };
 in {
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-  boot.kernelModules = [ "v4l2loopback" ];
-  nixpkgs.overlays = [ overlay ];
+  boot.kernelModules = [ "v4l2loopback" "ntsync" ];
+  #nixpkgs.overlays = [ overlay ];
   programs.sway = {
     enable = true;
     package = pkgs.swayfx;
@@ -64,14 +64,13 @@ in {
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       export _JAVA_AWT_WM_NONREPARENTING=1
       export MOZ_ENABLE_WAYLAND=1
-      export OBS_USE_EGL=1
       export XDG_DATA_DIRS=${schema}/share/gsettings-schemas/${schema.name}:$XDG_DATA_DIRS
       export GTK_USE_PORTAL=1
       ${gsettings} set ${gschema} icon-theme 'Papirus'
       ${gsettings} set ${gschema} gtk-theme 'Materia-Dark'
     '';
   };
-
+  services.speechd.enable = false;
   ## Why do I need this again???
   #security.wrappers.sway = {
   #          owner = "root";
@@ -103,6 +102,10 @@ in {
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.variant = "dvorak";
+
+  # the VPS doesn't have a real hard drive so just put this here for now
+  services.smartd.enable = true;
+  services.smartd.defaults.autodetected = "-a -o off -s (O/../.././(01|07|13|19)|S/../.././04|L/../../0/05)";
 
   services.libinput.mouse.middleEmulation = false;
   services.ratbagd = {

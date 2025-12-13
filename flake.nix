@@ -1,7 +1,7 @@
 {
   description = "Woobilicious' NixOS configuration";
   inputs = {
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     #factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
 #    sway-nix = {

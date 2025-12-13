@@ -5,17 +5,17 @@
 { config, pkgs, lib, factorio-nixpkgs, factorio-mods, auth-server, conduit, ... }:
 let
   icecastSSLPort = 8443;
-  secrets = import ./secrets;
+  secrets = import ../secrets;
 
 in
 {
-  disabledModules = [ "services/games/factorio.nix" ];
+  #disabledModules = [ "services/games/factorio.nix" ];
   imports =
     [ # Include the results of the hardware scan.
       ./selene-hw.nix
       ./common.nix
       ./common-server.nix
-      factorio-mods.nixosModules.default
+      #factorio-mods.nixosModules.default
     ];
 
   # Use the GRUB 2 boot loader.
@@ -41,7 +41,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    factorio-mods.overlays.default
+    #factorio-mods.overlays.default
   ];
 
   users.users.andrew = {
@@ -51,65 +51,65 @@ in
     openssh.authorizedKeys.keys = [ secrets.andrew.sshKey ];
   };
 
-  services.factorio = secrets.factorio // {
-    enable = true;
-    game-name = "Gluo NZ: Vanilla+" ;
-    admins = [ "woobilicious" ];
-    lan = true;
-    mods = builtins.attrValues {
-      inherit (factorio-mods.packages.${pkgs.system})
-          # QOL
-          "GUI_Unifyer"
-          "BottleneckLite"
-          "BetterAlertArrows"
-          "calculator-ui"
-          "ColorCodedPlanners"
-          "CursorEnhancements"
-          "even-distribution"
-          "informatron"
-          "ModuleInserter"
-          "PipeVisualizer"
-          "PlacementGuide"
-          "QuickbarTemplates"
-          "QuickItemSearch"
-          "RateCalculator"
-          "RecipeBook"
-          "StatsGui"
-          "Tapeline"
-          "TaskList"
-          "UltimateResearchQueue"
-          "TintedGhosts"
-          "VehicleSnap"
-          "YARM"
-          "pushbutton"
-          "SantasNixieTubeDisplay"
-          "Milestones"
-          "helmod"
-
-          # gameplay addons
-          "ArmouredBiters"
-          "compaktcircuit"
-          "equipment-gantry"
-          "grappling-gun"
-          "jetpack"
-          "bobwarfare"
-          "LogisticTrainNetwork"
-          "rso-mod"
-
-          # costemics / flare
-          "CleanedConcrete"
-          "textplates"
-          "DiscoScience"
-          "DisplayPlates"
-          "visual_tracers"
-          "light-overhaul"
-          "alien-biomes"
-          "alien-biomes-hr-terrain"
-      ;
-    };
-    mods-dat = ./mod-settings.dat ;
-    requireUserVerification = false ;
-  };
+#  services.factorio = secrets.factorio // {
+#    enable = false;
+#    game-name = "Gluo NZ: Vanilla+" ;
+#    admins = [ "woobilicious" ];
+#    lan = true;
+#    mods = builtins.attrValues {
+#      inherit (factorio-mods.packages.${pkgs.system})
+#          # QOL
+#          "GUI_Unifyer"
+#          "BottleneckLite"
+#          "BetterAlertArrows"
+#          "calculator-ui"
+#          "ColorCodedPlanners"
+#          "CursorEnhancements"
+#          "even-distribution"
+#          "informatron"
+#          "ModuleInserter"
+#          "PipeVisualizer"
+#          "PlacementGuide"
+#          "QuickbarTemplates"
+#          "QuickItemSearch"
+#          "RateCalculator"
+#          "RecipeBook"
+#          "StatsGui"
+#          "Tapeline"
+#          "TaskList"
+#          "UltimateResearchQueue"
+#          "TintedGhosts"
+#          "VehicleSnap"
+#          "YARM"
+#          "pushbutton"
+#          "SantasNixieTubeDisplay"
+#          "Milestones"
+#          "helmod"
+#
+#          # gameplay addons
+#          "ArmouredBiters"
+#          "compaktcircuit"
+#          "equipment-gantry"
+#          "grappling-gun"
+#          "jetpack"
+#          "bobwarfare"
+#          "LogisticTrainNetwork"
+#          "rso-mod"
+#
+#          # costemics / flare
+#          "CleanedConcrete"
+#          "textplates"
+#          "DiscoScience"
+#          "DisplayPlates"
+#          "visual_tracers"
+#          "light-overhaul"
+#          "alien-biomes"
+#          "alien-biomes-hr-terrain"
+#      ;
+#    };
+#    mods-dat = ./mod-settings.dat ;
+#    requireUserVerification = false ;
+#  };
 
 #  services.matrix-conduit = {
 #    enable = true;
@@ -257,17 +257,17 @@ in
       virtualHosts."factorio.${config.networking.domain}" = {
         forceSSL = true;
         enableACME = true;
-        root = lib.strings.storeDir;
-        locations =
-          let zipFile = lib.strings.removePrefix lib.strings.storeDir config.services.factorio.modsZipPackage;
-          in {
-            "=/ModPack" = {
-              extraConfig = ''
-              rewrite ^/ModPack$ ${zipFile} redirect;
-              '';
-            };
-            "/" = { tryFiles = "${zipFile} =404"; };
-        };
+        #root = lib.strings.storeDir;
+        #locations =
+        #  let zipFile = lib.strings.removePrefix lib.strings.storeDir config.services.factorio.modsZipPackage;
+        #  in {
+        #    "=/ModPack" = {
+        #      extraConfig = ''
+        #      rewrite ^/ModPack$ ${zipFile} redirect;
+        #      '';
+        #    };
+        #    "/" = { tryFiles = "${zipFile} =404"; };
+        #};
       };
       virtualHosts."ice.${config.networking.domain}" = {
         forceSSL = true;
