@@ -45,6 +45,8 @@ in
   ];
   xdg.dataFile = protons;
 
+  xdg.configFile."pipewire".source = ./pipewire.purple;
+
   xdg.configFile."sway/config.d/this"
     .text =
     ''
