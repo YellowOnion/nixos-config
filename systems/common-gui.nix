@@ -98,6 +98,7 @@ in {
   # Configure wacom tablet
   services.udev.packages = [ pkgs.libwacom ];
   services.xserver.wacom.enable = true;
+  services.udisks2.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";

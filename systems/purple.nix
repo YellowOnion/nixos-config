@@ -21,7 +21,7 @@ in
     tmpfsSize = "50%";
   };
 
-  nixpkgs.overlays = [ overlay ];
+  nixpkgs.overlays = [];
   hardware.cpu.amd.updateMicrocode = true;
   boot.extraModulePackages = [ ];
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
