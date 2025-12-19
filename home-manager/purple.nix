@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, privPkgs, ... }:
 
 let
   setDefaultMonitor = (pkgs.writeShellScriptBin
@@ -19,9 +19,6 @@ let
         eww reload
         ${setDefaultMonitor}/bin/setDefaultMonitor
       '');
-  protons = pkgs.lib.concatMapAttrs (name: value: {
-    "Steam/compatibilitytools.d/${name}".source = pkgs.fetchzip (value // {inherit name;});
-  }) (import ./proton.nix) ;
 in
 {
   imports = [ ./common.nix ];
@@ -43,7 +40,17 @@ in
       ''
     )
   ];
-  xdg.dataFile = protons;
+  # Install proton versions
+  xdg.dataFile =
+    let v = { inherit (privPkgs.proton)
+      GE-Proton10-26
+      GE-Proton10-25
+      GE-Proton10-24
+      ;};
+    in
+    pkgs.lib.concatMapAttrs (name: value: {
+    "Steam/compatibilitytools.d/${name}".source = value;
+  }) v;
 
   xdg.configFile."pipewire".source = ./pipewire.purple;
 

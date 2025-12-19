@@ -3,7 +3,6 @@
   inputs = {
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    #factorio-nixpkgs.url = "github:YellowOnion/nixpkgs/factorio-patch2";
 #    sway-nix = {
 #      url = "github:YellowOnion/sway-nix";
 #      inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -43,23 +42,24 @@
       ottpkgs = openttd.packages;
       systems = import ./systems { inherit systems' nixpkgs-stable; };
 
+      mkPrivPkgs = pkgs: import ./packages { inherit pkgs; lib = pkgs.lib;};
+
+      mkNixpkgs = np: system: import np {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgs = mkNixpkgs nixpkgs-unstable systems'.x86_64-linux;
+      privPkgs = mkPrivPkgs pkgs;
+
       mkSystem = { nixpkgs ? nixpkgs-unstable, name, system, modules }:
         let
-          factorioOverlay = self: super: { factorio = super.factorio.override ({ versionsJson = "${inputs.factorio-mods}/versions.json" ;}); };
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [ factorioOverlay ];
-          };
-          factorio-nixpkgs  = (import inputs.factorio-nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          });
+          pkgs = mkNixpkgs nixpkgs system;
+          privPkgs = mkPrivPkgs pkgs;
         in
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit factorio-nixpkgs nixpkgs nixpkgs-unstable;
+              inherit nixpkgs nixpkgs-unstable privPkgs;
               inherit (inputs) factorio-mods;
               auth-server = pkgs.haskellPackages.callPackage auth-server {};
               conduit = inputs.conduit.packages.${system};
@@ -69,7 +69,7 @@
                           networking.hostName = name;
                           nix.registry.nixpkgs.flake = nixpkgs;
                           nix.registry.self.flake = self;
-                          nixpkgs.overlays = [ factorioOverlay ];
+                          nixpkgs.overlays = [];
                           nixpkgs.config.allowUnfree = true;
                           nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ];
                           nix.channel.enable = false;
@@ -80,15 +80,13 @@
 
       mkHmConfig = { nixpkgs ? nixpkgs-unstable, name, system, modules }:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [];
-          };
+          pkgs = mkNixpkgs nixpkgs system;
+          privPkgs = mkPrivPkgs pkgs;
           in
             home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               extraSpecialArgs = {
+                inherit privPkgs;
                 openttd = ottpkgs.${system};
                 arkenfox = inputs.arkenfox;
               };
@@ -98,6 +96,8 @@
         {
           nixosConfigurations = genAttrsMapBy (a: a.name) mkSystem systems id;
           homeConfigurations = genAttrsMapBy (a: a.name) mkHmConfig hmConfigs id;
-          packages.${systems'.x86_64-linux}.openttd = ottpkgs.${systems'.x86_64-linux}.launcher;
+          packages.${systems'.x86_64-linux} = {
+            openttd = ottpkgs.${systems'.x86_64-linux}.launcher;
+          } // privPkgs;
         };
 }

@@ -44,7 +44,7 @@ in
       element-desktop
       eww
       ffmpeg-full
-      (ghc.withPackages (p: with p; [ hlint ]))
+      (ghc.withPackages (p: with p; [ hlint haskell-language-server stylish-haskell ]))
       hexchat
       imv
       mesa-demos
