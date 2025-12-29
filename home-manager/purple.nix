@@ -43,6 +43,7 @@ in
   # Install proton versions
   xdg.dataFile =
     let v = { inherit (privPkgs.proton)
+      GE-Proton10-27
       GE-Proton10-26
       GE-Proton10-25
       GE-Proton10-24
