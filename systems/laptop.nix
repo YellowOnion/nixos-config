@@ -2,24 +2,30 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let secrets = import ./secrets;
+let
+  secrets = import ./secrets;
   latest = import <nixpkgs-master> { config.allowUnfree = true; };
   unstable = import <nixos-unstable> { config.allowUnfree = true; };
-#  my-nur     = import ../../home/daniel/nur-bcachefs {pkgs = pkgs;};
+  #  my-nur     = import ../../home/daniel/nur-bcachefs {pkgs = pkgs;};
   nixos-hardware = builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; };
 in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      "${nixos-hardware}/common/cpu/amd/default.nix"
-      "${nixos-hardware}/common/cpu/amd/pstate.nix"
-      "${nixos-hardware}/common/gpu/amd/default.nix"
-      ./common.nix
-      ./common-gui.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    "${nixos-hardware}/common/cpu/amd/default.nix"
+    "${nixos-hardware}/common/cpu/amd/pstate.nix"
+    "${nixos-hardware}/common/gpu/amd/default.nix"
+    ./common.nix
+    ./common-gui.nix
+  ];
 
   networking.hostName = "Kawasaki-Lemon"; # Define your hostname.
 
@@ -29,18 +35,17 @@ in
   # networking.useDHCP = false;
   # networking.interfaces.enp0s25.useDHCP = true;
 
-
   boot.kernel.sysctl = {
     "sched_latency_ns" = "1000000";
     "sched_min_granularity_ns" = "100000";
-    "sched_migration_cost_ns"  = "7000000";
+    "sched_migration_cost_ns" = "7000000";
   };
 
-
- # Enable CUPS to print documents.
+  # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = with pkgs; [ 
-    hplip ] ;
+  services.printing.drivers = with pkgs; [
+    hplip
+  ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -61,14 +66,14 @@ in
       MINSTOP=hwmon0/pwm1=10
       MINPWM=hwmon0/pwm1=0
       MAXPWM=hwmon0/pwm1=128
-      '';
+    '';
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-   ];
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 22 ];
@@ -85,4 +90,3 @@ in
   system.stateVersion = "21.03"; # Did you read the comment?
 
 }
-

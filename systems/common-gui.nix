@@ -8,13 +8,18 @@ let
   overlay = self: super: {
     #sway-untouched = super.sway-unwrapped;
 
-    scenefx = super.scenefx.override { wlroots_0_19 =  self."${wlrVersion}"; };
-    swayfx-unwrapped = (super.swayfx-unwrapped.override { wlroots_0_19 = self."${wlrVersion}"; scenefx = self.scenefx; }).overrideAttrs (a: {
-#      version = "${a.version}-deferred-cursor";
-      patches = a.patches ++ [
-      #  ./sway/0001-Deferred-cursor-support.patch
-      ];
-    });
+    scenefx = super.scenefx.override { wlroots_0_19 = self."${wlrVersion}"; };
+    swayfx-unwrapped =
+      (super.swayfx-unwrapped.override {
+        wlroots_0_19 = self."${wlrVersion}";
+        scenefx = self.scenefx;
+      }).overrideAttrs
+        (a: {
+          #      version = "${a.version}-deferred-cursor";
+          patches = a.patches ++ [
+            #  ./sway/0001-Deferred-cursor-support.patch
+          ];
+        });
     #sway-unwrapped = (super.sway-unwrapped.override { wlroots = self."${wlrVersion}"; }).overrideAttrs (a: {
     #  version = "${a.version}-deferred-cursor";
     #  patches = a.patches ++ [
@@ -31,9 +36,13 @@ let
       ];
     });
   };
-in {
+in
+{
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-  boot.kernelModules = [ "v4l2loopback" "ntsync" ];
+  boot.kernelModules = [
+    "v4l2loopback"
+    "ntsync"
+  ];
   #nixpkgs.overlays = [ overlay ];
   programs.sway = {
     enable = true;
@@ -55,20 +64,22 @@ in {
       dmenu
       xdotool
     ];
-    extraSessionCommands = let
-      gsettings = "${pkgs.glib}/bin/gsettings";
-      schema = pkgs.gsettings-desktop-schemas;
-      gschema = "org.gnome.desktop.interface";
-    in ''
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export MOZ_ENABLE_WAYLAND=1
-      export XDG_DATA_DIRS=${schema}/share/gsettings-schemas/${schema.name}:$XDG_DATA_DIRS
-      export GTK_USE_PORTAL=1
-      ${gsettings} set ${gschema} icon-theme 'Papirus'
-      ${gsettings} set ${gschema} gtk-theme 'Materia-Dark'
-    '';
+    extraSessionCommands =
+      let
+        gsettings = "${pkgs.glib}/bin/gsettings";
+        schema = pkgs.gsettings-desktop-schemas;
+        gschema = "org.gnome.desktop.interface";
+      in
+      ''
+        export QT_QPA_PLATFORM=wayland
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+        export _JAVA_AWT_WM_NONREPARENTING=1
+        export MOZ_ENABLE_WAYLAND=1
+        export XDG_DATA_DIRS=${schema}/share/gsettings-schemas/${schema.name}:$XDG_DATA_DIRS
+        export GTK_USE_PORTAL=1
+        ${gsettings} set ${gschema} icon-theme 'Papirus'
+        ${gsettings} set ${gschema} gtk-theme 'Materia-Dark'
+      '';
   };
   services.speechd.enable = false;
   ## Why do I need this again???
@@ -79,11 +90,11 @@ in {
   #          capabilities = "cap_sys_nice+ep";
   #};
 
-#  nixpkgs.overlays = [ (self: super : {
-#    sway-unwrapped = super.sway-unwrapped.overrideAttrs (attrs :{
-#      patches = attrs.patches ++ [ ./0001-Lower-CAP_SYS_NICE-from-ambient-set.patch ];
-#    });
-#  })];
+  #  nixpkgs.overlays = [ (self: super : {
+  #    sway-unwrapped = super.sway-unwrapped.overrideAttrs (attrs :{
+  #      patches = attrs.patches ++ [ ./0001-Lower-CAP_SYS_NICE-from-ambient-set.patch ];
+  #    });
+  #  })];
 
   xdg = {
     portal = {
@@ -112,15 +123,19 @@ in {
   services.libinput.mouse.middleEmulation = false;
   services.ratbagd = {
     enable = true;
-    package = let
-      v = {  owner = "libratbag";
-             repo = "libratbag";
-             rev  = "1c9662043f4a11af26537e394bbd90e38994066a";
-             hash = "sha256-IpN97PPn9p1y+cAh9qJAi5f4zzOlm6bjCxRrUTSXNqM=";};
-    in pkgs.libratbag.overrideAttrs (a: {
-      version = "unstable-git-${builtins.substring 0 7 (v.rev)}";
-      src = pkgs.fetchFromGitHub v;
-    });
+    package =
+      let
+        v = {
+          owner = "libratbag";
+          repo = "libratbag";
+          rev = "1c9662043f4a11af26537e394bbd90e38994066a";
+          hash = "sha256-IpN97PPn9p1y+cAh9qJAi5f4zzOlm6bjCxRrUTSXNqM=";
+        };
+      in
+      pkgs.libratbag.overrideAttrs (a: {
+        version = "unstable-git-${builtins.substring 0 7 (v.rev)}";
+        src = pkgs.fetchFromGitHub v;
+      });
   };
 
   hardware.bluetooth.enable = true;
@@ -147,7 +162,6 @@ in {
   # help pulse audio use realtime scheduling
   security.rtkit.enable = true;
 
-
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -155,14 +169,16 @@ in {
     ];
   };
   systemd.tmpfiles.rules = [
-    "L+    /opt/rocm   -    -    -     -    ${pkgs.symlinkJoin {
-      name = "rocm-combined";
-      paths = with pkgs.rocmPackages; [
-        rocblas
-        hipblas
-        clr
-      ];
-    }}"
+    "L+    /opt/rocm   -    -    -     -    ${
+      pkgs.symlinkJoin {
+        name = "rocm-combined";
+        paths = with pkgs.rocmPackages; [
+          rocblas
+          hipblas
+          clr
+        ];
+      }
+    }"
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -225,43 +241,51 @@ in {
   programs.gamescope.enable = true;
   #programs.gamemode.enable = true;
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    fira-code
-    corefonts
-    vista-fonts
-    monaspace
-    commit-mono
-    (let font = google-fonts.override { fonts = [ "Kode Mono" ] ; };
-     in stdenv.mkDerivation {
-      name = "KodeMono-nerd-font-patched";
-      src = font;
-      nativeBuildInputs = [ nerd-font-patcher ];
-      buildPhase = ''
-        find \( -name \*.ttf -o -name \*.otf \) -execdir nerd-font-patcher -c {} \;
-      '';
-      installPhase = "cp -a . $out";
-    })
-    (google-fonts.override {
-      fonts = [ "EB Garamond"
-                "Titillium Web"
-                "Cutive Mono"
-                "Orbit"
-                "Varela Round"
-                "Zilla Slab"
-                "Montserrat"
-                "IBM Plex Sans"
-                "IBM Plex Mono"
-              ];
-    })
-  ] ++ builtins.attrValues {
-    inherit (pkgs.nerd-fonts)
-      monoid
+  fonts.packages =
+    with pkgs;
+    [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
       fira-code
-      caskaydia-cove
-      symbols-only
-      ;
-  };
+      corefonts
+      vista-fonts
+      monaspace
+      commit-mono
+      (
+        let
+          font = google-fonts.override { fonts = [ "Kode Mono" ]; };
+        in
+        stdenv.mkDerivation {
+          name = "KodeMono-nerd-font-patched";
+          src = font;
+          nativeBuildInputs = [ nerd-font-patcher ];
+          buildPhase = ''
+            find \( -name \*.ttf -o -name \*.otf \) -execdir nerd-font-patcher -c {} \;
+          '';
+          installPhase = "cp -a . $out";
+        }
+      )
+      (google-fonts.override {
+        fonts = [
+          "EB Garamond"
+          "Titillium Web"
+          "Cutive Mono"
+          "Orbit"
+          "Varela Round"
+          "Zilla Slab"
+          "Montserrat"
+          "IBM Plex Sans"
+          "IBM Plex Mono"
+        ];
+      })
+    ]
+    ++ builtins.attrValues {
+      inherit (pkgs.nerd-fonts)
+        monoid
+        fira-code
+        caskaydia-cove
+        symbols-only
+        ;
+    };
 }

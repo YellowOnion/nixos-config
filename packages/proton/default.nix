@@ -1,26 +1,29 @@
 { lib, pkgs, ... }:
 
 let
-  protons = lib.concatMapAttrs (name: info:
+  protons = lib.concatMapAttrs (
+    name: info:
     let
       nameLess = lib.removeSuffix ".tar.zst" name;
-    in {
-    ${nameLess} =
-      (pkgs.stdenvNoCC.mkDerivation {
-        name = nameLess;
-        src = pkgs.fetchurl ({inherit name;} // info);
+    in
+    {
+      ${nameLess} = (
+        pkgs.stdenvNoCC.mkDerivation {
+          name = nameLess;
+          src = pkgs.fetchurl ({ inherit name; } // info);
 
-        nativeBuildInputs = [ pkgs.zstd ];
+          nativeBuildInputs = [ pkgs.zstd ];
 
-        dontFixup = true;
+          dontFixup = true;
 
-        installPhase = ''
-        mkdir -p $out
-        mv * $out
-        '';
+          installPhase = ''
+            mkdir -p $out
+            mv * $out
+          '';
 
-    });
-  })
-  (lib.importJSON ./versions.json);
+        }
+      );
+    }
+  ) (lib.importJSON ./versions.json);
 in
 protons

@@ -2,26 +2,31 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }@args:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}@args:
 
 let
   secrets = import ./secrets;
 in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./common.nix
-      ./common-gui.nix
-      # broken in kernel v6.9-rc2
-      ./zen.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./common.nix
+    ./common-gui.nix
+    # broken in kernel v6.9-rc2
+    ./zen.nix
+  ];
 
   boot.tmp = {
     useTmpfs = true;
     tmpfsSize = "50%";
   };
 
-  nixpkgs.overlays = [];
+  nixpkgs.overlays = [ ];
   hardware.cpu.amd.updateMicrocode = true;
   boot.extraModulePackages = [ ];
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
@@ -32,7 +37,7 @@ in
   boot.kernel.sysctl = {
     "sched_latency_ns" = "1000000";
     "sched_min_granularity_ns" = "100000";
-    "sched_migration_cost_ns"  = "7000000";
+    "sched_migration_cost_ns" = "7000000";
   };
 
   #environment.variables = {
@@ -41,23 +46,21 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = [ pkgs.hplip ] ;
-
+  services.printing.drivers = [ pkgs.hplip ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     rtorrent
-      # broken in kernel v6.9-rc2
-      # config.boot.kernelPackages.perf
-   ];
+    # broken in kernel v6.9-rc2
+    # config.boot.kernelPackages.perf
+  ];
 
   # hardware.cpu.amd.ryzen-smu.enable = true;
 
@@ -77,7 +80,7 @@ in
   #  "trace_buf_size=128M"
   #  ];
   #boot.extraModprobeConfig = ''
-#    softdep amdgpu pre: vfio-pci
+  #    softdep amdgpu pre: vfio-pci
   #  options vfio-pci ids=1002:67df,1002:aaf0
   #'';
 
@@ -87,11 +90,11 @@ in
   virtualisation = {
     libvirtd = {
       enable = true;
-  #    qemu.ovmf.enable = true;
-  #    onBoot = "ignore";
-  #    qemu.verbatimConfig = ''
-  #    user = "daniel"
-  #    '';
+      #    qemu.ovmf.enable = true;
+      #    onBoot = "ignore";
+      #    qemu.verbatimConfig = ''
+      #    user = "daniel"
+      #    '';
     };
   };
 
@@ -153,4 +156,3 @@ in
   system.stateVersion = "21.03"; # Did you read the comment?
 
 }
-

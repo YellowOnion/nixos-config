@@ -1,19 +1,21 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   secrets = import ../secrets;
   ms2ns = a: a * 1000 * 1000;
 
-in {
+in
+{
   # use bfq on all spinning disks
   # TODO: add rules for Sata SSDs (mq-deadline or "none")
   services.udev.extraRules = ''
-    ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="kyber", ATTR{queue/iosched/write_lat_nsec}="${
-      toString (ms2ns 400)
-    }", ATTR{queue/iosched/read_lat_nsec}="${toString (ms2ns 100)}"
-    ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="kyber", ATTR{queue/iosched/write_lat_nsec}="${
-      toString (ms2ns 40)
-    }", ATTR{queue/iosched/read_lat_nsec}="${toString (ms2ns 10)}"
+    ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="kyber", ATTR{queue/iosched/write_lat_nsec}="${toString (ms2ns 400)}", ATTR{queue/iosched/read_lat_nsec}="${toString (ms2ns 100)}"
+    ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="kyber", ATTR{queue/iosched/write_lat_nsec}="${toString (ms2ns 40)}", ATTR{queue/iosched/read_lat_nsec}="${toString (ms2ns 10)}"
   '';
 
   # Use the systemd-boot EFI boot loader.
@@ -41,8 +43,12 @@ in {
   users.users.daniel = {
     isNormalUser = true;
     initialPassword = secrets.daniel.initialPass;
-    extraGroups =
-      [ "wheel" "audio" "networkmanager" "libvirtd" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "audio"
+      "networkmanager"
+      "libvirtd"
+    ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [ secrets.daniel.sshKey ];
   };
 
@@ -68,7 +74,11 @@ in {
 
     cachix
 
-    (aspellWithDicts (d: [ d.en d.en-computers d.en-science ]))
+    (aspellWithDicts (d: [
+      d.en
+      d.en-computers
+      d.en-science
+    ]))
 
     screen
     weechat
@@ -113,7 +123,11 @@ in {
   '';
   services.fail2ban = {
     enable = false;
-    ignoreIP = [ "127.0.0.0/8" "::1" "home.gluo.nz" ];
+    ignoreIP = [
+      "127.0.0.0/8"
+      "::1"
+      "home.gluo.nz"
+    ];
     #    jails.DEFAULT = lib.mkAfter ''
     #      bantime = 3mo
     #    '';
@@ -145,7 +159,7 @@ in {
         "https://yo-nur.cachix.org"
         "https://nix-community.cachix.org"
         "https://nix-gaming.cachix.org"
-#        "https://cache.garnix.io"
+        #        "https://cache.garnix.io"
       ];
       trusted-public-keys = [
         "yo-nur.cachix.org-1:E/RHfQMAZ90mPhvsaqo/GrQ3M1xzXf5Ztt0o+1X3+Bs="

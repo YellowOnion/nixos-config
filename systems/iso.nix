@@ -1,9 +1,15 @@
-{ modulesPath, config, lib, pkgs, ... }:
+{
+  modulesPath,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 {
   imports = [
-   "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
-   "${modulesPath}/installer/cd-dvd/channel.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    "${modulesPath}/installer/cd-dvd/channel.nix"
   ];
 
   isoImage.edition = lib.mkOverride 40 "bchfs-minimal";
@@ -11,7 +17,15 @@ with lib;
   isoImage.makeEfiBootable = true;
   isoImage.squashfsCompression = "zstd -Xcompression-level 18";
 
-  boot.supportedFilesystems = pkgs.lib.mkForce [ "bcachefs" "btrfs" "vfat" "ext4" "xfs" "ntfs" "exfat" ];
+  boot.supportedFilesystems = pkgs.lib.mkForce [
+    "bcachefs"
+    "btrfs"
+    "vfat"
+    "ext4"
+    "xfs"
+    "ntfs"
+    "exfat"
+  ];
   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [ "multi-user.target" ];
 
   fileSystems = {

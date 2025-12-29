@@ -1,14 +1,23 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.games;
 
-  withExtraGameScripts = scripts:
-    (pkgs.writeShellScriptBin "run.sh"
-      ''${
-          let f = a: b: "exec ${a}/bin/run.sh " + b; in lib.foldr f ''"$@"'' scripts
-        }
-        '');
+  withExtraGameScripts =
+    scripts:
+    (pkgs.writeShellScriptBin "run.sh" ''
+      ${
+        let
+          f = a: b: "exec ${a}/bin/run.sh " + b;
+        in
+        lib.foldr f ''"$@"'' scripts
+      }
+    '');
 
   gameEnv = ''
     export MANGOHUD_CONFIG=''${MANGOHUD_CONFIG:=gpu_temp,vram}
@@ -18,32 +27,39 @@ let
   '';
   gameScripts = withExtraGameScripts cfg.extraGameScripts;
 
-  runVKGame = (pkgs.writeShellScriptBin "runVKGame"
+  runVKGame = (
+    pkgs.writeShellScriptBin "runVKGame" ''
+      ${gameEnv}
+      export OBS_VKCAPTURE=''${OBS_VKCAPTURE:=1}
+      export MANGOHUD=''${MANGOHUD:=1}
+
+      systemd-inhibit ${gameScripts}/bin/run.sh "$@"
     ''
-    ${gameEnv}
-    export OBS_VKCAPTURE=''${OBS_VKCAPTURE:=1}
-    export MANGOHUD=''${MANGOHUD:=1}
+  );
 
-    systemd-inhibit ${gameScripts}/bin/run.sh "$@"
-    '');
+  runOGLGame = (
+    pkgs.writeShellScriptBin "runOGLGame" ''
+      ${gameEnv}
 
-  runOGLGame = (pkgs.writeShellScriptBin "runOGLGame"
+      systemd-inhibit ${pkgs.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh "$@"
     ''
-    ${gameEnv}
+  );
 
-    systemd-inhibit ${pkgs.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh "$@"
-    '');
+  runOGL32Game = (
+    pkgs.writeShellScriptBin "runOGL32Game" (
+      let
+        pkgs32 = pkgs.pkgsi686Linux;
+      in
+      ''
+        ${gameEnv}
 
-  runOGL32Game = (pkgs.writeShellScriptBin "runOGL32Game"
-    (let pkgs32 = pkgs.pkgsi686Linux; in
-    ''
-    ${gameEnv}
+        systemd-inhibit ${pkgs32.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs32.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh "$@"
+      ''
+    )
+  );
 
-    systemd-inhibit ${pkgs32.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs32.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh "$@"
-    ''));
-
-  withSwayFloating = (pkgs.writeShellScriptBin "withSwayFloating"
-    ''
+  withSwayFloating = (
+    pkgs.writeShellScriptBin "withSwayFloating" ''
       ID=$(base64 /dev/urandom | head -c 8)
       ( kill -SIGSTOP $BASHPID; exec "$@" ) &
       PID=$!
@@ -51,12 +67,13 @@ let
       swaymsg "for_window [ pid = $PID ] mark --replace \"game:$GAME_NAME\""
       kill -SIGCONT $PID
       wait $PID
-    '');
+    ''
+  );
 in
 {
   options = {
     games = {
-        extraGameScripts = lib.mkOption {
+      extraGameScripts = lib.mkOption {
         type = lib.types.listOf lib.types.package;
         default = [ ];
         description = lib.mdDoc "a list of extra scripts to run with a game";
@@ -64,20 +81,20 @@ in
     };
   };
   config = lib.mkMerge [
-    (
-      {
-        home.stateVersion = "24.05";
-        home.packages = [
-          pkgs.mangohud
-          pkgs.obs-studio-plugins.obs-vkcapture
-          pkgs.jq
-          runVKGame
-          runOGLGame
-          runOGL32Game
-          withSwayFloating
-        ];
-        xdg.dataFile = {
-          "vulkan/explicit_layer.d/".source = (pkgs.symlinkJoin {
+    ({
+      home.stateVersion = "24.05";
+      home.packages = [
+        pkgs.mangohud
+        pkgs.obs-studio-plugins.obs-vkcapture
+        pkgs.jq
+        runVKGame
+        runOGLGame
+        runOGL32Game
+        withSwayFloating
+      ];
+      xdg.dataFile = {
+        "vulkan/explicit_layer.d/".source = (
+          pkgs.symlinkJoin {
             name = "explicit_layers";
             paths = [
               "${pkgs.mangohud}/share/vulkan/implicit_layer.d/"
@@ -88,12 +105,10 @@ in
               #ln -s ../implicit_layer.d/steamoverlay_x86_64.json steamoverlay_x86_64.json
               #'')
             ];
-          });
-        };
-      }
-    )
+          }
+        );
+      };
+    })
   ];
 }
-/*
-PROTON_LOG=1  VK_LOADER_DEBUG=layer VK_LOADER_LAYERS_ENABLE=VK_LAYER_MANGOHUD_overlay_64_x86_64,VK_LAYER_OBS_vkcapture_64,VK_LAYER_VALVE_steam_overlay_64 VK_INSTANCE_LAYERS=VK_LAYER_MANGOHUD_overlay_64_x86_64:VK_LAYER_OBS_vkcapture_64:VK_LAYER_VALVE_steam_overlay_64 %command%
-*/
+# PROTON_LOG=1  VK_LOADER_DEBUG=layer VK_LOADER_LAYERS_ENABLE=VK_LAYER_MANGOHUD_overlay_64_x86_64,VK_LAYER_OBS_vkcapture_64,VK_LAYER_VALVE_steam_overlay_64 VK_INSTANCE_LAYERS=VK_LAYER_MANGOHUD_overlay_64_x86_64:VK_LAYER_OBS_vkcapture_64:VK_LAYER_VALVE_steam_overlay_64 %command%
