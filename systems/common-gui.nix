@@ -49,20 +49,6 @@ in
     package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
-      xdg-utils
-      nautilus
-      evince
-      # basic sway stuff
-      swaylock
-      sway-contrib.grimshot
-      pulseaudio # pipewire is still heavily controlled via pulseaudio apps.
-      grim
-      slurp
-      swayidle
-      wl-clipboard
-      brightnessctl
-      dmenu
-      xdotool
     ];
     extraSessionCommands =
       let
@@ -236,6 +222,21 @@ in
     #  export PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0"
     #  "$@"
     #'')
+      xdg-utils
+      nautilus
+    file-roller
+      evince
+      # basic sway stuff
+      swaylock
+      sway-contrib.grimshot
+      pulseaudio # pipewire is still heavily controlled via pulseaudio apps.
+      grim
+      slurp
+      swayidle
+      wl-clipboard
+      brightnessctl
+      dmenu
+      xdotool
   ];
   programs.steam.enable = true;
   programs.gamescope.enable = true;
