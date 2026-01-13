@@ -53,43 +53,37 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    lm_sensors
-    pciutils
-    killall
-    file
-    schedtool
-    nix-prefetch-github
-    usbutils
-    lsof
-    smem
-    sysstat
-    wget
-    gnupg
-
-    direnv
-    starship
-    tmux
-    gist
-    home-manager
-
-    cachix
-
     (aspellWithDicts (d: [
       d.en
       d.en-computers
       d.en-science
     ]))
-
-    screen
-    weechat
-    irssi
-    vim
-    htop
-    rclone
-    git
     age
+    direnv
+    file
+    gist
+    git
     git-crypt
+    gnupg
+    home-manager
+    htop
+    jujutsu
+    killall
+    lm_sensors
+    lsof
+    nix-prefetch-github
+    pciutils
+    rclone
+    schedtool
+    screen
+    smem
+    starship
     syncthing
+    sysstat
+    tmux
+    usbutils
+    vim
+    wget
   ];
 
   systemd.network.enable = true;
