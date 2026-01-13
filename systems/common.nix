@@ -12,7 +12,6 @@ let
 in
 {
   # use bfq on all spinning disks
-  # TODO: add rules for Sata SSDs (mq-deadline or "none")
   services.udev.extraRules = ''
     ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="kyber", ATTR{queue/iosched/write_lat_nsec}="${toString (ms2ns 400)}", ATTR{queue/iosched/read_lat_nsec}="${toString (ms2ns 100)}"
     ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="kyber", ATTR{queue/iosched/write_lat_nsec}="${toString (ms2ns 40)}", ATTR{queue/iosched/read_lat_nsec}="${toString (ms2ns 10)}"
