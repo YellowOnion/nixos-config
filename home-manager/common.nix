@@ -42,7 +42,7 @@ in
   home.packages = with pkgs; [
     android-tools
     anki-bin
-    blender-hip
+    pkgsRocm.blender
     cachix
     calibre
     cargo
@@ -55,16 +55,20 @@ in
         hlint
         haskell-language-server
         stylish-haskell
+        cabal-install
+        linear
       ]
     ))
     hexchat
     imv
     mesa-demos
+    mumble
     nil
     nix-tree
-    openttd.launcher
+    #openttd.launcher
     p7zip
     pureref
+    qalculate-gtk
     renderdoc
     rustc
     steamcmd

@@ -24,6 +24,7 @@ in
   boot.tmp = {
     useTmpfs = true;
     tmpfsSize = "50%";
+    tmpfsHugeMemoryPages = "within_size";
   };
 
   nixpkgs.overlays = [ ];
@@ -35,11 +36,19 @@ in
   #programs.corectrl.enable = true;
   security.polkit.enable = true;
   boot.kernel.sysctl = {
-    "sched_latency_ns" = "1000000";
-    "sched_min_granularity_ns" = "100000";
-    "sched_migration_cost_ns" = "7000000";
+    "vm.min_free_kbytes" = 112640;
+    "vm.oom_kill_allocating_task" = 1;
+    "vm.overcommit_memory" = 1;
   };
 
+  boot.kernel.sysfs = {
+      kernel.mm.transparent_hugepage = {
+        enabled = "always";
+        defrag = "defer+madvise";
+        shmem_enabled = "within_size";
+  };
+
+  };
   #environment.variables = {
   #  __GL_SYNC_DISPLAY_DEVICE = "DisplayPort-0";
   #};
@@ -70,6 +79,7 @@ in
   #boot.initrd.kernelModules = [ vfio-pci ];
   boot.kernelParams = [
     "amdgpu.ppfeaturemask=0xfffffffb"
+    "default_hugepagesz=1G" "hugepagesz=1G"
   ];
   #  "amd_iommu=on"
   #  "vfio_virqfd"

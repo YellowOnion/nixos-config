@@ -152,20 +152,21 @@ in
     enable = true;
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
+      rocmPackages.clr
     ];
   };
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm   -    -    -     -    ${
-      pkgs.symlinkJoin {
-        name = "rocm-combined";
-        paths = with pkgs.rocmPackages; [
-          rocblas
-          hipblas
-          clr
-        ];
-      }
-    }"
-  ];
+#  systemd.tmpfiles.rules = [
+#    "L+    /opt/rocm   -    -    -     -    ${
+#      pkgs.symlinkJoin {
+#        name = "rocm-combined";
+#        paths = with pkgs.rocmPackages; [
+#          rocblas
+#          hipblas
+#          clr
+#        ];
+#      }
+#    }"
+#  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -248,11 +249,8 @@ in
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
-      fira-code
       corefonts
       vista-fonts
-      monaspace
-      commit-mono
       (
         let
           font = google-fonts.override { fonts = [ "Kode Mono" ]; };
@@ -271,13 +269,10 @@ in
         fonts = [
           "EB Garamond"
           "Titillium Web"
-          "Cutive Mono"
           "Orbit"
           "Varela Round"
           "Zilla Slab"
           "Montserrat"
-          "IBM Plex Sans"
-          "IBM Plex Mono"
         ];
       })
     ]
@@ -287,6 +282,9 @@ in
         fira-code
         caskaydia-cove
         symbols-only
+        blex-mono
+        monaspace
+        jetbrains-mono
         ;
     };
 }

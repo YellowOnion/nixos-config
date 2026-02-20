@@ -48,6 +48,7 @@ in
     let
       v = {
         inherit (privPkgs.proton)
+          GE-Proton10-28
           GE-Proton10-27
           GE-Proton10-26
           GE-Proton10-25

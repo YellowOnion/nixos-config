@@ -15,7 +15,9 @@
 let
   icecastSSLPort = 8443;
   secrets = import ../secrets;
-
+  cfg = config;
+  domain = cfg.networking.domain;
+  acmeCerts = name : file : cfg.security.acme.certs."${if name == "" then "" else "${name}."}${domain}".directory + "/${file}.pem";
 in
 {
   #disabledModules = [ "services/games/factorio.nix" ];
@@ -124,7 +126,7 @@ in
   #    enable = true;
   #    package = conduit.default;
   #    settings.global = {
-  #      server_name = "matrix.${config.networking.domain}";
+  #      server_name = "matrix.${domain}";
   #      allow_registration = false;
   #    };
   #  };
@@ -132,21 +134,23 @@ in
   #  services.heisenbridge = {
   #    enable = true;
   #    owner = secrets.matrix;
-  #    homeserver = "http://[::1]:${toString config.services.matrix-conduit.settings.global.port}/";
+  #    homeserver = "http://[::1]:${toString cfg.services.matrix-conduit.settings.global.port}/";
   #  };
 
-  services.stunnel =
-    let
-      CAdir = config.security.acme.certs."${config.networking.domain}".directory;
-    in
-    {
-      enable = true;
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = secrets.email;
+  };
+  users.groups.acme = { };
+
+  services.stunnel = {
+      enable = false;
       user = "nginx";
       group = "nginx";
       servers.rtmps-relay = {
         accept = 1935;
         connect = 1936;
-        cert = "${CAdir}/full.pem";
+        cert = acmeCerts "" "full";
       };
       clients."yt-live" = {
         accept = "localhost:19350";
@@ -159,15 +163,25 @@ in
     rtmp-port = 1937;
   };
 
-  services.icecast =
-    let
-      CADir = config.security.acme.certs."ice.${config.networking.domain}".directory;
-    in
-    {
-      enable = true;
+  services.murmur = {
+    enable = true;
+    sslCert = acmeCerts "" "cert";
+    sslKey = acmeCerts "" "key";
+  };
+
+  systemd.services.murmur = {
+    after = [ "acme-${domain}.service" ];
+    serviceConfig.Group = lib.mkForce "acme";
+  };
+
+  security.acme.certs.${domain}.reloadServices = [ "murmur.service" ];
+
+
+  services.icecast = {
+      enable = false;
       listen.port = 64419;
       group = "nginx";
-      hostname = "ice.${config.networking.domain}";
+      hostname = "ice.${domain}";
       admin = {
         password = secrets.icecast.password;
       };
@@ -180,15 +194,10 @@ in
           <ssl>1</ssl>
         </listen-socket>
         <paths>
-          <ssl-certificate>${CADir}/full.pem</ssl-certificate>
+          <ssl-certificate>${acmeCerts "ice" "full"}</ssl-certificate>
         </paths>
       '';
     };
-
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = secrets.email;
-  };
 
   services.nginx =
     let
@@ -207,28 +216,34 @@ in
       appendConfig = ''
         include /etc/nginx-rtmp/rtmp.conf;
       '';
-      recommendedGzipSettings = true;
-      recommendedOptimisation = true;
-      recommendedTlsSettings = true;
 
-      virtualHosts."${config.networking.domain}" = {
+        recommendedOptimisation = true;
+        recommendedTlsSettings = true;
+        recommendedGzipSettings = true;
+        recommendedBrotliSettings = true;
+        recommendedProxySettings = true;
+
+        # give Nginx access to our certs
+        group = "acme";
+
+      virtualHosts."${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
           root = "/var/www/";
         };
       };
-      virtualHosts."owncast.${config.networking.domain}" = {
+      virtualHosts."owncast.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString config.services.owncast.port}/";
+          proxyPass = "http://127.0.0.1:${toString cfg.services.owncast.port}/";
           proxyWebsockets = true;
           priority = 1150;
           extraConfig = proxySetHeaders;
         };
       };
-      virtualHosts."matrix.${config.networking.domain}" = {
+      virtualHosts."matrix.${domain}" = {
         forceSSL = true;
         enableACME = true;
         listen = [
@@ -254,13 +269,13 @@ in
           }
         ];
         locations."/_matrix/" = {
-          proxyPass = "http://[::1]:${toString config.services.matrix-conduit.settings.global.port}$request_uri";
+          proxyPass = "http://[::1]:${toString cfg.services.matrix-conduit.settings.global.port}$request_uri";
           proxyWebsockets = true;
           priority = 1150;
           extraConfig = proxySetHeaders;
         };
       };
-      virtualHosts."dead-suns.${config.networking.domain}" = {
+      virtualHosts."dead-suns.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -270,12 +285,12 @@ in
           extraConfig = proxySetHeaders;
         };
       };
-      virtualHosts."factorio.${config.networking.domain}" = {
+      virtualHosts."factorio.${domain}" = {
         forceSSL = true;
         enableACME = true;
         #root = lib.strings.storeDir;
         #locations =
-        #  let zipFile = lib.strings.removePrefix lib.strings.storeDir config.services.factorio.modsZipPackage;
+        #  let zipFile = lib.strings.removePrefix lib.strings.storeDir cfg.services.factorio.modsZipPackage;
         #  in {
         #    "=/ModPack" = {
         #      extraConfig = ''
@@ -285,15 +300,15 @@ in
         #    "/" = { tryFiles = "${zipFile} =404"; };
         #};
       };
-      virtualHosts."ice.${config.networking.domain}" = {
+      virtualHosts."ice.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          return = "302 https://ice.${config.networking.domain}:${toString icecastSSLPort}$request_uri";
+          return = "302 https://ice.${domain}:${toString icecastSSLPort}$request_uri";
           priority = 1150;
         };
       };
-      virtualHosts."share.${config.networking.domain}" = {
+      virtualHosts."share.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
