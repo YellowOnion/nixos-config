@@ -11,10 +11,13 @@ let
 
 in
 {
-  # use bfq on all spinning disks
+  hardware.block = {
+    defaultSchedulerRotational = "kyber";
+    scheduler = { "nvme[0-9]*" = "none"; };
+  };
+
   services.udev.extraRules = ''
-    ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="kyber", ATTR{queue/iosched/write_lat_nsec}="${toString (ms2ns 400)}", ATTR{queue/iosched/read_lat_nsec}="${toString (ms2ns 100)}"
-    ACTION=="add|change", KERNEL=="[sv]d[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="kyber", ATTR{queue/iosched/write_lat_nsec}="${toString (ms2ns 40)}", ATTR{queue/iosched/read_lat_nsec}="${toString (ms2ns 10)}"
+  ACTION=="add|change", SUBSYSTEM=="block", ENV{DEVTYPE}=="disk", KERNEL=="sd*", ATTRS{queue/rotational}=="1", RUN+="${pkgs.hdparm}/bin/hdparm -W 1 $env{DEVNAME}"
   '';
 
   # Use the systemd-boot EFI boot loader.
@@ -71,6 +74,7 @@ in
     lm_sensors
     lsof
     nix-prefetch-github
+    p7zip
     pciutils
     rclone
     schedtool
@@ -80,6 +84,7 @@ in
     syncthing
     sysstat
     tmux
+    unzip
     usbutils
     vim
     wget
@@ -100,15 +105,18 @@ in
     linkConfig.RequiredForOnline = "routable";
   };
 
-  programs.zsh = with pkgs; {
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
-    promptInit = ''
-      eval "$(${direnv}/bin/direnv hook zsh)"
-      eval "$(${starship}/bin/starship init zsh)"
-    '';
   };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.starship.enable = true;
 
   services.openssh.enable = true;
   services.openssh.extraConfig = ''

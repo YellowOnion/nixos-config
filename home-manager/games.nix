@@ -82,7 +82,6 @@ in
   };
   config = lib.mkMerge [
     ({
-      home.stateVersion = "24.05";
       home.packages = [
         pkgs.mangohud
         pkgs.obs-studio-plugins.obs-vkcapture

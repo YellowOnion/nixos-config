@@ -4,7 +4,7 @@ let
   protons = lib.concatMapAttrs (
     name: info:
     let
-      nameLess = lib.removeSuffix ".tar.zst" name;
+      nameLess = lib.removeSuffix ".tar.gz" name;
     in
     {
       ${nameLess} = (

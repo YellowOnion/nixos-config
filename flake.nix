@@ -26,6 +26,7 @@
     factorio-mods = {
       url = "github:YellowOnion/factorio-mods-nix";
     };
+    
     auth-server = {
       url = "github:YellowOnion/auth-server";
       flake = false;
@@ -86,10 +87,12 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit nixpkgs nixpkgs-unstable privPkgs;
+            inherit privPkgs;
             inherit (inputs) factorio-mods;
             auth-server = pkgs.haskellPackages.callPackage auth-server { };
             conduit = inputs.conduit.packages.${system};
+            pkgs-stable   = nixpkgs-stable.legacyPackages.${system};
+            pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
           };
           modules = modules ++ [
             (

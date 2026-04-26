@@ -11,6 +11,17 @@
 
 let
   secrets = import ./secrets;
+  zfsCompatibleKernelPackages = lib.filterAttrs (
+    name: kernelPackages:
+    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+    && (builtins.tryEval kernelPackages).success
+    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+  ) pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
 in
 {
   imports = [
@@ -21,25 +32,21 @@ in
     ./zen.nix
   ];
 
-  boot.tmp = {
-    useTmpfs = true;
-    tmpfsSize = "50%";
-    tmpfsHugeMemoryPages = "within_size";
-  };
+  boot.kernelPackages = lib.mkForce latestKernelPackage;
+
+#  boot.tmp = {
+#    useTmpfs = true;
+#    tmpfsSize = "50%";
+#    tmpfsHugeMemoryPages = "within_size";
+#  };
 
   nixpkgs.overlays = [ ];
   hardware.cpu.amd.updateMicrocode = true;
-  boot.extraModulePackages = [ ];
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
   # networking.interfaces.br0.useDHCP = true;
 
   #programs.corectrl.enable = true;
   security.polkit.enable = true;
-  boot.kernel.sysctl = {
-    "vm.min_free_kbytes" = 112640;
-    "vm.oom_kill_allocating_task" = 1;
-    "vm.overcommit_memory" = 1;
-  };
 
   boot.kernel.sysfs = {
       kernel.mm.transparent_hugepage = {
@@ -57,31 +64,24 @@ in
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     rtorrent
-    # broken in kernel v6.9-rc2
-    # config.boot.kernelPackages.perf
   ];
 
   # hardware.cpu.amd.ryzen-smu.enable = true;
 
-  # KVM stuff
-  # boot.blacklistedKernelModules = ["amdgpu" "radeon" ];
-  #boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];
-  #boot.initrd.kernelModules = [ vfio-pci ];
   boot.kernelParams = [
     "amdgpu.ppfeaturemask=0xfffffffb"
     "default_hugepagesz=1G" "hugepagesz=1G"
     "amd_pstate=active"
   ];
+  # KVM stuff
+  #boot.extraModulePackages = [ config.boot.kernelPackages.vendor-reset config.boot.kernelPackages.v4l2loopback ];
+  #boot.initrd.kernelModules = [ vfio-pci ];
+
   #  "amd_iommu=on"
   #  "vfio_virqfd"
   #  "vfio_pci"
@@ -132,26 +132,6 @@ in
       };
     };
   };
-  #services.samba = {
-  #  enable = true;
-  #  securityType = "user";
-  #  shares = {
-  #    oldMedia = {
-  #      "guest okay" = "yes";
-  #      path = "/media/old";
-  #      browseable = "yes";
-  #      "valid users" = "daniel";
-  #    };
-  #  };
-  #};
-
-  #environment.variables = {
-  #  VST_PATH    = "/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst";
-  #  LXVST_PATH  = "/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst";
-  #  LADSPA_PATH = "/nix/var/nix/profiles/default/lib/ladspa:/var/run/current-system/sw/lib/ladspa:~/.ladspa";
-  #  LV2_PATH    = "/nix/var/nix/profiles/default/lib/lv2:/var/run/current-system/sw/lib/lv2:~/.lv2";
-  #  DSSI_PATH   = "/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi";
-  #};
 
   # Open ports in the firewall.
   # Or disable the firewall altogether.
@@ -164,6 +144,6 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.03"; # Did you read the comment?
+  system.stateVersion = "26.06"; # Did you read the comment?
 
 }

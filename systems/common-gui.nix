@@ -104,7 +104,7 @@ in
 
   # the VPS doesn't have a real hard drive so just put this here for now
   services.smartd.enable = true;
-  services.smartd.defaults.autodetected = "-a -o off -s (O/../.././(01|07|13|19)|S/../.././04|L/../../0/05)";
+  services.smartd.defaults.autodetected = "-a -o off -s (S/../.././07)";
 
   services.libinput.mouse.middleEmulation = false;
   services.ratbagd = {
@@ -129,8 +129,6 @@ in
 
   # Enable sound.
   services.pulseaudio.enable = false;
-  systemd.user.services.pipewire.environment = audio_env;
-  systemd.services.pipewire.environment = audio_env;
   services.pipewire = {
     enable = true;
     wireplumber = {
@@ -175,44 +173,12 @@ in
     xsel
     alacritty
 
-    keepassxc
-    firefox
-    discord
 
-    mpv
-    #anki-bin
-
-    # These are needed system-wide for editing root files with doom emacs
-    nil
-    ripgrep
-    fd
-    nixfmt-rfc-style
-
-    #onlykey
-    #onlykey-cli
-
-    mpd
-    cantata
-    pavucontrol
-    vlc
-    spotify
-    qjackctl
-
-    signal-desktop
 
     papirus-icon-theme
     adwaita-icon-theme
     # Fails to build check in a few weeks
     #materia-theme
-
-    libwacom
-    krita
-    xournalpp
-    inkscape
-
-    yquake2
-
-    heroic
 
     rnnoise-plugin
     lsp-plugins

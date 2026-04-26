@@ -6,16 +6,17 @@
 }:
 
 let
+
   setDefaultMonitor = (
     pkgs.writeShellScriptBin "setDefaultMonitor" ''
-      ${pkgs.xorg.xrandr}/bin/xrandr --output $( ${pkgs.xorg.xrandr}/bin/xrandr --listmonitors | grep "2560.*1440" | awk "{ print \$4 ; }" ) --primary
+      ${pkgs.xrandr}/bin/xrandr --output $( ${pkgs.xrandr}/bin/xrandr --listmonitors | grep "2560.*1440" | awk "{ print \$4 ; }" ) --primary
     ''
   );
   swayResume = (
     pkgs.writeShellScriptBin "swayResume" ''
       swaymsg 'output * dpms on'
       I=0
-      while [[ $(${pkgs.xorg.xrandr}/bin/xrandr --listactivemonitors | head -1 | awk '{ print $2;}') != 2 || $I == 30 ]]; do
+      while [[ $(${pkgs.xrandr}/bin/xrandr --listactivemonitors | head -1 | awk '{ print $2;}') != 2 || $I == 30 ]]; do
         sleep 1
         I=$(($I+1))
       done
@@ -35,7 +36,7 @@ in
     # takes ages to compile, has bugs for some reason?
     #davinci-resolve
   ];
-
+ 
   games.extraGameScripts = [
     (pkgs.writeShellScriptBin "run.sh" ''
       ${setDefaultMonitor}/bin/setDefaultMonitor
@@ -48,11 +49,7 @@ in
     let
       v = {
         inherit (privPkgs.proton)
-          GE-Proton10-28
-          GE-Proton10-27
-          GE-Proton10-26
-          GE-Proton10-25
-          GE-Proton10-24
+          GE-Proton10-34
           ;
       };
     in
@@ -114,5 +111,5 @@ in
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
 }

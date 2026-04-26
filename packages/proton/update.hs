@@ -119,7 +119,7 @@ processRelease (Release'{..}) = do
              hash'
 
 comparing p x y = compare (p x) (p y)
-
+matchExtension f = T.isSuffixOf ".tar.gz" f
 main = do
   req       <- setRequestHeaders hEADERS <$> parseRequest rELEASE_URL
   response  <- getResponseBody           <$> httpLBS req
@@ -127,7 +127,7 @@ main = do
              -- | Concat all "assets" lists together
              & toListOf (values % key "assets" % _Array % traversed)
              -- | Drop files that are probably not what we want
-             & filter (T.isSuffixOf ".tar.zst" . (^?! key "name" % _String))
+             & filter (matchExtension . (^?! key "name" % _String))
              -- | sort them
              & (sortBy . comparing) (^?! key "name" % _String)
       toRelease =

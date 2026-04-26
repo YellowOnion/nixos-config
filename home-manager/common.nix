@@ -17,13 +17,55 @@ let
 in
 {
   manual.manpages.enable = false;
-  # Let Home Manager install and manage itself.
-  # programs.home-manager.enable = true;
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
   };
-  programs.emacs.enable = true;
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs-pgtk;
+    extraPackages = p : with p; [
+    company
+    consult
+    consult-lsp
+    counsel
+    doom-modeline
+    doom-themes
+    editorconfig
+    eglot
+    envrc
+    evil
+    evil-collection
+    evil-surround
+    evil-tutor
+    flycheck
+    flycheck-aspell
+    flycheck-haskell
+    general
+    haskell-mode
+    ivy
+    ivy-rich
+    ligature
+    lsp-haskell
+    lsp-ivy
+    lsp-mode
+    lsp-treemacs
+    lsp-ui
+    magit
+    marginalia
+    nix-mode
+    orderless
+    rainbow-delimiters
+    rg
+    smartparens
+    tree-sitter
+    treemacs
+    treemacs-evil
+    undo-fu
+    undo-fu-session
+    vertico
+    ];
+  };
 
   home.file.".doom.d".source = ./doom.d;
 
@@ -61,6 +103,7 @@ in
     ))
     hexchat
     imv
+    libreoffice
     mesa-demos
     mumble
     nil
@@ -77,6 +120,36 @@ in
     wasistlos
     wlsunset
     wtype
+    keepassxc
+    vesktop
+
+    mpv
+    #anki-bin
+
+    # These are needed system-wide for editing root files with doom emacs
+    nil
+
+    ripgrep
+    fd
+    nixfmt
+
+    #onlykey
+    #onlykey-cli
+    libwacom
+    krita
+    xournalpp
+    inkscape
+
+    heroic
+
+    mpd
+    cantata
+    pavucontrol
+    vlc
+    spotify
+    qjackctl
+
+    signal-desktop
     #musescore
     #muse-sounds-manager
     # obs-cmd
@@ -171,5 +244,4 @@ in
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "24.05";
 }

@@ -6,10 +6,10 @@
   config,
   pkgs,
   lib,
-  factorio-nixpkgs,
   factorio-mods,
   auth-server,
   conduit,
+  pkgs-unstable,
   ...
 }:
 let
@@ -53,19 +53,34 @@ in
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     #factorio-mods.overlays.default
+    (self: super: { owncast = pkgs-unstable.owncast ;})
   ];
+
 
   users.users.andrew = {
     isNormalUser = true;
     initialPassword = secrets.andrew.initialPass;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "vtt" ];
     openssh.authorizedKeys.keys = [ secrets.andrew.sshKey ];
   };
 
-  #  services.factorio = secrets.factorio // {
-  #    enable = false;
-  #    game-name = "Gluo NZ: Vanilla+" ;
-  #    admins = [ "woobilicious" ];
+  users.users.daniel.extraGroups = [ "vtt" ];
+
+  # VTT management
+  users = {
+    #users.vtt = {
+    #isSystemUser = true;
+    #group = "vtt";
+    #};
+    #groups.vtt = { };
+  };
+
+  boot.extraSystemdUnitPaths = [ "/etc/systemd-mutable/system" ];
+
+  services.factorio = secrets.factorio // {
+      enable = true;
+      game-name = "Woobs Factory" ;
+      admins = [ "woobilicious" ];
   #    lan = true;
   #    mods = builtins.attrValues {
   #      inherit (factorio-mods.packages.${pkgs.system})
@@ -120,7 +135,7 @@ in
   #    };
   #    mods-dat = ./mod-settings.dat ;
   #    requireUserVerification = false ;
-  #  };
+  };
 
   #  services.matrix-conduit = {
   #    enable = true;
@@ -200,16 +215,6 @@ in
     };
 
   services.nginx =
-    let
-      proxySetHeaders = ''
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-Host $host;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      '';
-    in
     {
       enable = true;
       additionalModules = builtins.attrValues { inherit (pkgs.nginxModules) rtmp; };
@@ -240,7 +245,6 @@ in
           proxyPass = "http://127.0.0.1:${toString cfg.services.owncast.port}/";
           proxyWebsockets = true;
           priority = 1150;
-          extraConfig = proxySetHeaders;
         };
       };
       virtualHosts."matrix.${domain}" = {
@@ -272,7 +276,6 @@ in
           proxyPass = "http://[::1]:${toString cfg.services.matrix-conduit.settings.global.port}$request_uri";
           proxyWebsockets = true;
           priority = 1150;
-          extraConfig = proxySetHeaders;
         };
       };
       virtualHosts."dead-suns.${domain}" = {
@@ -282,7 +285,6 @@ in
           proxyPass = "http://127.0.0.1:30000/";
           proxyWebsockets = true;
           priority = 1150;
-          extraConfig = proxySetHeaders;
         };
       };
       virtualHosts."factorio.${domain}" = {
@@ -315,7 +317,6 @@ in
           proxyPass = "http://purple-sunrise.tail31b4f8.ts.net:9999/";
           proxyWebsockets = true;
           priority = 1150;
-          extraConfig = proxySetHeaders;
         };
       };
     };

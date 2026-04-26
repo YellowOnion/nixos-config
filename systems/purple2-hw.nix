@@ -23,6 +23,10 @@
     "sdhci_pci"
     "bcache"
   ];
+  boot.supportedFilesystems = [
+    "bcachefs"
+  ];
+ 
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
     "kvm-intel"
