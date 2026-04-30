@@ -24,6 +24,9 @@ in
 
   programs.emacs = {
     enable = true;
+    extraConfig = ''
+    (load` "${./emacs.el}")
+    '';
     package = pkgs.emacs-pgtk;
     extraPackages = p : with p; [
     company
@@ -68,7 +71,6 @@ in
     ];
   };
 
-  home.file.".doom.d".source = ./doom.d;
 
   imports = [
     ./games.nix
