@@ -21,6 +21,7 @@ in
     enable = true;
     nix-direnv.enable = true;
   };
+
   programs.emacs = {
     enable = true;
     package = pkgs.emacs-pgtk;
@@ -82,6 +83,23 @@ in
   };
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
+    xdg-utils
+    nautilus
+    file-roller
+    evince
+    swaylock
+    swayidle
+    sway-contrib.grimshot
+    pulseaudio
+    grim
+    slurp
+    
+    wl-clipboard
+    brightnessctl
+    dmenu
+    xdotool
+    
+    alacritty
     android-tools
     anki-bin
     pkgsRocm.blender
@@ -113,28 +131,28 @@ in
     pureref
     qalculate-gtk
     renderdoc
-    rustc
     steamcmd
     unzip
     vulkan-tools
+    # what's app
     wasistlos
     wlsunset
     wtype
     keepassxc
+
+    # discord
     vesktop
 
+    zellij
     mpv
     #anki-bin
 
-    # These are needed system-wide for editing root files with doom emacs
+    # add to flake dev shell
     nil
-
     ripgrep
     fd
     nixfmt
 
-    #onlykey
-    #onlykey-cli
     libwacom
     krita
     xournalpp
@@ -150,8 +168,6 @@ in
     qjackctl
 
     signal-desktop
-    #musescore
-    #muse-sounds-manager
     # obs-cmd
     (wrapOBS {
       plugins = [
@@ -159,6 +175,7 @@ in
         obs-studio-plugins.wlrobs
       ];
     })
+
     (writeShellScriptBin "discordToggleMute" ''
       xdotool key Control_R+backslash
     '')
@@ -177,6 +194,37 @@ in
     })
   ];
 
+  wayland.windowManager.sway = {
+    enable = true;
+    package = pkgs.swayfx;
+    config = {};
+    #extraConfig = lib.readFile ./sway.conf;
+    checkConfig = true;
+    wrapperFeatures.gtk = true;
+    systemd.dbusImplementation = "broker";
+  };
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config.common.default = [ "gtk" ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
+
+  gtk = {
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name    = "Papirus";
+    };
+    theme = {
+      package = pkgs.gnome-themes-extra;
+      name    = "Materia-Dark";
+    };
+  };
+  
   home.pointerCursor = {
     x11.enable = true;
     gtk.enable = true;
@@ -184,11 +232,17 @@ in
     name = "Bibata-Original-Classic";
   };
 
-  home.file.".XCompose".text = ''
+  # include "${./emoji.compose}"
+
+  home.file = {
+    ".XCompose".text = ''
     include "${./dotXCompose}"
-    include "${./emoji.compose}"
     include "${./maths.compose}"
   '';
+
+    ".zshrc".source = ./.zshrc;
+  };
+
   programs.git = {
     enable = true;
     settings.user = {
@@ -201,24 +255,12 @@ in
   programs.firefox = {
     enable = true;
     profiles."default" = {
-      userChrome = ''
-        #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
-                      opacity: 0;
-                      pointer-events: none;
-                    }
-                    #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-                        visibility: collapse !important;
-                    }
-      '';
       extraConfig = lib.readFile "${arkenfox}/user.js";
     };
   };
-  #home.service.emacs = {
-  #  enabled = true;
-  #  package = doom-emacs; };
-  xdg.configFile = {
-    "tmux/tmux.conf".text = lib.readFile ./tmux.conf;
-    "sway/config".text = lib.readFile ./sway.conf;
+
+  xdg.configFile = { 
+    "sway/config".source = lib.mkForce ./sway.conf;
     "sway/config.d/theme.conf".text = lib.readFile ./sway-theme.conf;
     "sway/config.d/home-manager".text = ''
       # TODO  $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
@@ -235,13 +277,4 @@ in
       image=${./bg_lock.png}
     '';
   };
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
 }

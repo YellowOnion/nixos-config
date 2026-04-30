@@ -44,63 +44,16 @@ in
     "ntsync"
   ];
   #nixpkgs.overlays = [ overlay ];
-  programs.sway = {
-    enable = true;
-    package = pkgs.swayfx;
-    wrapperFeatures.gtk = true;
-    extraPackages = with pkgs; [
-    ];
-    extraSessionCommands =
-      let
-        gsettings = "${pkgs.glib}/bin/gsettings";
-        schema = pkgs.gsettings-desktop-schemas;
-        gschema = "org.gnome.desktop.interface";
-      in
-      ''
-        export QT_QPA_PLATFORM=wayland
-        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-        export _JAVA_AWT_WM_NONREPARENTING=1
-        export MOZ_ENABLE_WAYLAND=1
-        export XDG_DATA_DIRS=${schema}/share/gsettings-schemas/${schema.name}:$XDG_DATA_DIRS
-        export GTK_USE_PORTAL=1
-        ${gsettings} set ${gschema} icon-theme 'Papirus'
-        ${gsettings} set ${gschema} gtk-theme 'Materia-Dark'
-      '';
-  };
   services.speechd.enable = false;
-  ## Why do I need this again???
-  #security.wrappers.sway = {
-  #          owner = "root";
-  #          group = "root";
-  #          source = "${pkgs.sway}/bin/sway";
-  #          capabilities = "cap_sys_nice+ep";
-  #};
-
-  #  nixpkgs.overlays = [ (self: super : {
-  #    sway-unwrapped = super.sway-unwrapped.overrideAttrs (attrs :{
-  #      patches = attrs.patches ++ [ ./0001-Lower-CAP_SYS_NICE-from-ambient-set.patch ];
-  #    });
-  #  })];
-
-  xdg = {
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    };
-  };
-
-  #services.packagekit.enable = false;
 
   # Configure wacom tablet
   services.udev.packages = [ pkgs.libwacom ];
-  services.xserver.wacom.enable = true;
   services.udisks2.enable = true;
   services.gvfs.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.variant = "dvorak";
+  # services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.variant = "dvorak";
 
   # the VPS doesn't have a real hard drive so just put this here for now
   services.smartd.enable = true;
@@ -153,35 +106,17 @@ in
       rocmPackages.clr
     ];
   };
-#  systemd.tmpfiles.rules = [
-#    "L+    /opt/rocm   -    -    -     -    ${
-#      pkgs.symlinkJoin {
-#        name = "rocm-combined";
-#        paths = with pkgs.rocmPackages; [
-#          rocblas
-#          hipblas
-#          clr
-#        ];
-#      }
-#    }"
-#  ];
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     # TODO, migrate to home-manager, not needed system wide.
     xsel
-    alacritty
 
-
-
-    papirus-icon-theme
     adwaita-icon-theme
     # Fails to build check in a few weeks
     #materia-theme
 
-    rnnoise-plugin
-    lsp-plugins
     # TODO move to home manager
     # TODO is a windows package, figure out how to build/include on linux
     # (pkgs.writeShellScriptBin "runWithDiscordBridge" ''
@@ -189,21 +124,7 @@ in
     #  export PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0"
     #  "$@"
     #'')
-      xdg-utils
-      nautilus
-    file-roller
-      evince
       # basic sway stuff
-      swaylock
-      sway-contrib.grimshot
-      pulseaudio # pipewire is still heavily controlled via pulseaudio apps.
-      grim
-      slurp
-      swayidle
-      wl-clipboard
-      brightnessctl
-      dmenu
-      xdotool
   ];
   programs.steam.enable = true;
   programs.gamescope.enable = true;
