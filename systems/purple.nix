@@ -112,12 +112,19 @@ in
   services.nginx = {
     enable = true;
     recommendedOptimisation = true;
+    recommendedProxySettings = true;
     defaultHTTPListenPort = 9999;
     virtualHosts."home.gluo.nz" = {
       serverAliases = [ "share.gluo.nz" ];
       extraConfig = ''
         autoindex on;
       '';
+      locations."/zellij/" = {
+        proxyPass = "http://127.0.0.1:43629/";
+        proxyWebsockets = true;
+        priority = 1150;
+      };
+
       locations."/xml/" = {
         alias = "/var/www/";
         extraConfig = ''

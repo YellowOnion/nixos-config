@@ -18,11 +18,6 @@
       flake = false;
     };
 
-    openttd = {
-      url = "github:YellowOnion/nix-openttd-jgrpp";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     factorio-mods = {
       url = "github:YellowOnion/factorio-mods-nix";
     };
@@ -49,12 +44,10 @@
       auth-server,
       typed-systems,
       home-manager,
-      openttd,
       ...
     }@inputs:
     let
       inherit (import typed-systems) genAttrsMapBy systems' id;
-      ottpkgs = openttd.packages;
       systems = import ./systems { inherit systems' nixpkgs-stable; };
 
       mkPrivPkgs =
@@ -127,7 +120,6 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit privPkgs;
-            openttd = ottpkgs.${system};
             arkenfox = inputs.arkenfox;
           };
           modules = modules;
@@ -136,10 +128,7 @@
     {
       nixosConfigurations = genAttrsMapBy (a: a.name) mkSystem systems id;
       homeConfigurations = genAttrsMapBy (a: a.name) mkHmConfig hmConfigs id;
-      packages.${systems'.x86_64-linux} = {
-        openttd = ottpkgs.${systems'.x86_64-linux}.launcher;
-      }
-      // privPkgs;
-      formatter.${systems'.x86_64-linux} = pkgs.nixfmt-rfc-style;
+      packages.${systems'.x86_64-linux} = privPkgs;
+      formatter.${systems'.x86_64-linux} = pkgs.nixfmt;
     };
 }

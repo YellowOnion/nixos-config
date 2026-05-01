@@ -50,7 +50,7 @@ in
   services.udev.packages = [ pkgs.libwacom ];
   services.udisks2.enable = true;
   services.gvfs.enable = true;
-
+  security.pam.services.swaylock = {};
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.variant = "dvorak";

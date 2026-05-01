@@ -3,6 +3,7 @@
   pkgs,
   openttd,
   arkenfox,
+  privPkgs,
   ...
 }:
 
@@ -75,6 +76,7 @@ in
   imports = [
     ./games.nix
   ];
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "daniel";
@@ -128,7 +130,6 @@ in
     mumble
     nil
     nix-tree
-    #openttd.launcher
     p7zip
     pureref
     qalculate-gtk
@@ -194,6 +195,11 @@ in
         "EB Garamond"
       ];
     })
+
+    # games
+
+    privPkgs.rimworld
+    privPkgs.openttd-launcher
   ];
 
   wayland.windowManager.sway = {

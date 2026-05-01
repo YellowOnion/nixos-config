@@ -13,7 +13,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-
 zellij_update_env_outside () {
     [[ -z "$1" ]] && printf "need session name\n" && return 1
 
@@ -64,11 +63,10 @@ if [[ -n "$ZELLIJ_SESSION_NAME"
    && -w  "$XDG_RUNTIME_DIR/zellij/session.$ZELLIJ_SESSION_NAME.env"
    ]]; then
     ZELLIJ_ENV_FILE="$XDG_RUNTIME_DIR/zellij/session.$ZELLIJ_SESSION_NAME.env"
-    export ZELLIJ_ENV_FILE_MODTIME=$(stat -c %Y "$ZELLIJ_ENV_FILE")
 
     zellij_update_env_inside () {
     local modtime=$(stat -c %Y "$ZELLIJ_ENV_FILE")
-    if [[ $modtime > $ZELLIJ_ENV_FILE_MODTIME ]]; then
+    if [[ -z "$ZELLIJ_ENV_FILE_MODTIME" || $modtime > $ZELLIJ_ENV_FILE_MODTIME ]]; then
         source "$ZELLIJ_ENV_FILE"
         export ZELLIJ_ENV_FILE_MODTIME="$modtime"
         fi

@@ -63,7 +63,6 @@ in
       exec ${setDefaultMonitor}/bin/setDefaultMonitor
 
       exec_always {
-           pkill eww
            eww open bar --id primary  --screen DP-1 --arg showbattery="" --arg orientation=v
            eww open bar --id secondary --screen DP-2 --arg showbattery="" --arg orientation=h
       }
