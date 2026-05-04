@@ -18,6 +18,7 @@ in
     ./common.nix
     ./common-gui.nix
     ./zen.nix
+    ./tune.nix
   ];
 
   networking.hostName = "Kawasaki-Lemon"; # Define your hostname.
@@ -33,7 +34,7 @@ in
   };
 
   boot.kernelParams = [
-    "amd_pstate=passive"
+    "amd_pstate=active"
   ];
 
   hardware.cpu.amd.ryzen-smu.enable = true;

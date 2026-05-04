@@ -195,7 +195,10 @@ in
         "EB Garamond"
       ];
     })
-
+    # themes
+    materia-theme
+    gnome-themes-extra
+    papirus-icon-theme
     # games
 
     privPkgs.rimworld
@@ -228,8 +231,8 @@ in
       name    = "Papirus";
     };
     theme = {
-      package = pkgs.gnome-themes-extra;
-      name    = "Materia-Dark";
+      package = pkgs.materia-theme;
+      name    = "Materia-dark-compact";
     };
   };
   
