@@ -18,20 +18,19 @@
         (require 'use-package))
 
 (set-face-attribute 'default nil
-                    :font "MonaspiceKr NF"
-                    :height 120
-                    :weight 'medium)
+                    :font "0xProto"
+                    :height 110)
 
 (set-face-attribute 'variable-pitch nil
                     :font "EB Garamond"
                     :height 156)
 
 (set-face-attribute 'fixed-pitch nil
-                    :font "FiraCode Nerd Font"
+                    :font "0xProto"
                     :height 110)
 
 (set-face-attribute 'font-lock-comment-face nil
-                    :font "FiraCode Nerd Font"
+                    :font "0xProto Italic"
                     :slant 'italic)
 
 (set-face-attribute 'font-lock-string-face nil)
@@ -260,7 +259,7 @@
   :config
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'modus-vivendi-tritanopia t))
+  (load-theme 'doom-one t))
 
 (use-package doom-modeline
   :demand t
@@ -538,10 +537,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

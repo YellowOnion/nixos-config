@@ -157,9 +157,9 @@ in
       auto-optimise-store = true;
       trusted-users = [ "@wheel" ];
       substituters = [
-        "https://yo-nur.cachix.org"
-        "https://nix-community.cachix.org"
-        "https://nix-gaming.cachix.org"
+        #"https://yo-nur.cachix.org"
+        #"https://nix-community.cachix.org"
+        #"https://nix-gaming.cachix.org"
         #        "https://cache.garnix.io"
       ];
       trusted-public-keys = [

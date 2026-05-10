@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  openttd,
   arkenfox,
   privPkgs,
   ...
@@ -79,135 +78,160 @@ in
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "daniel";
-  home.homeDirectory = "/home/daniel";
   i18n.inputMethod = {
     # enabled = "fcitx5";
     #fcitx5.addons = [ pkgs.fcitx5-mozc ];
   };
-  fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
-    xdg-utils
-    nautilus
-    file-roller
-    evince
-    swaylock
-    swayidle
-    sway-contrib.grimshot
-    pulseaudio
-    grim
-    slurp
-    
-    wl-clipboard
-    brightnessctl
-    dmenu
-    xdotool
-    
-    alacritty
-    android-tools
-    anki-bin
-    pkgsRocm.blender
-    cachix
-    calibre
-    cargo
-    clinfo
-    element-desktop
-    eww
-    ffmpeg-full
-    (ghc.withPackages (
+  home = {
+    username = "daniel";
+    homeDirectory = "/home/daniel";
+
+    sessionVariables = {
+      EDITOR="emacs";
+    };
+
+    packages = with pkgs; [
+      xdg-utils
+      nautilus
+      file-roller
+      evince
+      swaylock
+      swayidle
+      sway-contrib.grimshot
+      pulseaudio
+      grim
+      slurp
+
+      wl-clipboard
+      brightnessctl
+      dmenu
+      xdotool
+
+      alacritty
+      android-tools
+      anki-bin
+      pkgsRocm.blender
+      cachix
+      calibre
+      cargo
+      clinfo
+      element-desktop
+      eww
+      ffmpeg-full
+      (ghc.withPackages (
       p: with p; [
-        hlint
-        haskell-language-server
-        stylish-haskell
-        cabal-install
-        linear
+          hlint
+          haskell-language-server
+          stylish-haskell
+          cabal-install
+          linear
       ]
-    ))
-    hexchat
-    imv
-    libreoffice
-    mesa-demos
-    mumble
-    nil
-    nix-tree
-    p7zip
-    pureref
-    qalculate-gtk
-    renderdoc
-    steamcmd
-    unzip
-    vulkan-tools
-    # what's app
-    wasistlos
-    wlsunset
-    wtype
-    keepassxc
+      ))
+      hexchat
+      imv
+      libreoffice
+      mesa-demos
+      mumble
+      nil
+      nix-tree
+      p7zip
+      pureref
+      qalculate-gtk
+      renderdoc
+      steamcmd
+      unzip
+      vulkan-tools
+      # what's app
+      wasistlos
+      wlsunset
+      wtype
+      keepassxc
 
-    # discord
-    vesktop
+      # discord
+      vesktop
 
-    zellij
-    mpv
-    #anki-bin
+      zellij
+      mpv
+      #anki-bin
 
-    # add to flake dev shell
-    nil
-    ripgrep
-    fd
-    nixfmt
+      # add to flake dev shell
+      nil
+      ripgrep
+      fd
+      nixfmt
 
-    libwacom
-    krita
-    xournalpp
-    inkscape
+      libwacom
+      krita
+      xournalpp
+      inkscape
 
-    heroic
+      heroic
 
-    mpd
-    cantata
-    pavucontrol
-    vlc
-    spotify
-    qjackctl
+      mpd
+      cantata
+      pavucontrol
+      vlc
+      spotify
+      qjackctl
 
-    signal-desktop
-    # obs-cmd
-    (wrapOBS {
+      signal-desktop
+      # obs-cmd
+      (wrapOBS {
       plugins = [
-        obs-studio-plugins.obs-vkcapture
-        obs-studio-plugins.wlrobs
+          obs-studio-plugins.obs-vkcapture
+          obs-studio-plugins.wlrobs
       ];
-    })
+      })
 
-    (writeShellScriptBin "discordToggleMute" ''
+      (writeShellScriptBin "discordToggleMute" ''
       xdotool key Control_R+backslash
-    '')
-    (wev.overrideAttrs (attrs: {
+      '')
+      (wev.overrideAttrs (attrs: {
       src = fetchgit {
-        rev = "2a46014ec5e375139f91aed456d5f01065964f86";
-        url = "https://git.sr.ht/~sircmpwn/wev";
-        hash = "sha256-0ZA44dMDuVYfplfutOfI2EdPNakE9KnOuRfk+CEDCRk=";
+          rev = "2a46014ec5e375139f91aed456d5f01065964f86";
+          url = "https://git.sr.ht/~sircmpwn/wev";
+          hash = "sha256-0ZA44dMDuVYfplfutOfI2EdPNakE9KnOuRfk+CEDCRk=";
       };
-    }))
-    (pkgs.google-fonts.override {
-      fonts = [
-        "Kode Mono"
-        "EB Garamond"
-      ];
-    })
-    # themes
-    materia-theme
-    gnome-themes-extra
-    papirus-icon-theme
-    # games
+      }))
 
-    privPkgs.rimworld
-    privPkgs.openttd-launcher
-  ];
+      #fonts
+      _0xproto
+      profont
+      gyre-fonts 
+      (pkgs.google-fonts.override {
+      fonts = [
+          "Kode Mono"
+          "EB Garamond"
+          "Courier Prime"
+          "Victor Mono"
+          "Bytesized"
+          "VT323"
+          "Nanum Gothic Coding"
+          "DM Mono"
+          "Source Code Pro"
+          "M PLUS 1 Code"
+      ];
+      })
+
+      #themes 
+      adwaita-qt # for Cantata
+      adwaita-qt6 # for Cantata
+      materia-theme
+      gnome-themes-extra
+      papirus-icon-theme
+      nordic
+      graphite-gtk-theme
+
+      # games
+
+      privPkgs.rimworld
+      privPkgs.openttd-launcher
+    ];
+  };
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.swayfx;
+    #package = pkgs.swayfx;
     config = {};
     #extraConfig = lib.readFile ./sway.conf;
     checkConfig = true;
@@ -218,29 +242,56 @@ in
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    config.common.default = [ "gtk" ];
+    config.sway = {
+      default = [ "gtk" ];
+      "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+      "org.freedesktop.impl.portal.Screenshot" = "wlr";
+      "org.freedesktop.impl.portal.Inhibit" = "none";
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
     ];
   };
 
+  fonts.fontconfig = {
+    enable = true;
+    antialiasing = true;
+    hinting = "slight";
+    defaultFonts = {
+      monospace = [ "0xProto NL" ];
+      sansSerif = [ "Noto Sans"  ];
+      serif     = [ "Noto Serif" ];
+    };
+  };
+
   gtk = {
+    enable = true;
+    colorScheme = "dark";
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name    = "Bibata-Modern-Classic";
+    };
     iconTheme = {
       package = pkgs.papirus-icon-theme;
       name    = "Papirus";
     };
     theme = {
       package = pkgs.materia-theme;
-      name    = "Materia-dark-compact";
+      name    = "Graphite";
     };
   };
-  
+
+  qt = {
+    platformTheme.name = "gtk3";
+    #style.name = "adwaita-dark";
+  };
+
   home.pointerCursor = {
     x11.enable = true;
     gtk.enable = true;
     package = pkgs.bibata-cursors;
-    name = "Bibata-Original-Classic";
+    name = "Bibata-Modern-Classic";
   };
 
   # include "${./emoji.compose}"
@@ -252,6 +303,16 @@ in
   '';
 
     ".zshrc".source = ./.zshrc;
+  };
+
+  services = {
+    mako.enable = true;
+    wlsunset = {
+      enable = true;
+      latitude  = -43.9;
+      longitude = 172.6;
+      temperature.night = 3200;
+    };
   };
 
   programs.git = {
@@ -268,6 +329,27 @@ in
     profiles."default" = {
       extraConfig = lib.readFile "${arkenfox}/user.js";
     };
+  };
+
+  programs.wofi = {
+    enable = true;
+    settings = {
+      allow_images = true;
+      allow_markup = true;
+      width = 450;
+    };
+
+    style = ''
+    window {
+        border-radius: 8px;
+        font-family: "0xProto NL";
+        background-color: #3A424F; // charcoal; sway-theme
+    }
+
+    #entry:selected {
+        background-color: #9C3922; // chestnut; sway-theme
+    }
+    '';
   };
 
   xdg.configFile = { 
