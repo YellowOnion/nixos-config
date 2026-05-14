@@ -240,11 +240,13 @@ in
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    config.sway = {
-      default = [ "gtk" ];
+    config = {
+    common = { default = [ "gtk" ]; };
+    sway = {
       "org.freedesktop.impl.portal.ScreenCast" = "wlr";
       "org.freedesktop.impl.portal.Screenshot" = "wlr";
       "org.freedesktop.impl.portal.Inhibit" = "none";
+    };
     };
     extraPortals = [
       pkgs.xdg-desktop-portal-wlr
@@ -254,8 +256,8 @@ in
 
   fonts.fontconfig = {
     enable = true;
-    antialiasing = true;
-    hinting = "slight";
+    #antialiasing = true;
+    #hinting = "slight";
     defaultFonts = {
       monospace = [ "0xProto NL" ];
       sansSerif = [ "Noto Sans"  ];
@@ -356,6 +358,7 @@ in
     "sway/config.d/home-manager".text = ''
       # TODO  $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
        seat seat0 xcursor_theme ${config.home.pointerCursor.name}
+
     '';
 
     "sway/config.d/bg_image".text = ''
