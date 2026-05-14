@@ -1,0 +1,66 @@
+cabal-version:      3.4
+name:               auth-server
+version:            0.2.0.0
+
+-- A short (one-line) description of the package.
+-- synopsis:
+
+-- A longer description of the package.
+-- description:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+
+-- The license under which the package is released.
+-- license:
+author:             Daniel Hill
+maintainer:         daniel@gluo.nz
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files: CHANGELOG.md
+
+
+common shared
+    build-depends: base
+                  , servant
+                  , servant-server
+                 , servant-auth
+                 , servant-auth-server
+                  , crypton
+                  , bytestring
+                  , ram
+                  , wai
+                  , wai-extra
+                  , warp
+                  , http-api-data
+                  , stm
+                  , transformers
+                  , containers
+                  , mtl
+                  , aeson
+                  , text
+                  , blaze-html
+                  , blaze-markup
+                  , servant-blaze
+                  , time
+    default-language: Haskell2010
+        
+
+library
+    import: shared
+    exposed-modules: API, Util, Secrets
+    hs-source-dirs: src
+
+executable auth-server
+    import: shared 
+    build-depends: auth-server
+    hs-source-dirs:   app
+    main-is:          Main.hs
+
+executable generate-token
+    import: shared
+    build-depends: auth-server
+    hs-source-dirs:   app
+    main-is: GenerateToken.hs

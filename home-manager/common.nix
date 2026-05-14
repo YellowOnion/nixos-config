@@ -24,9 +24,9 @@ in
 
   programs.emacs = {
     enable = true;
-    extraConfig = ''
-    (load` "${./emacs.el}")
-    '';
+    #extraConfig = ''
+    #(load` "${./emacs.el}")
+    #'';
     package = pkgs.emacs-pgtk;
     extraPackages = p : with p; [
     company
@@ -141,8 +141,6 @@ in
       steamcmd
       unzip
       vulkan-tools
-      # what's app
-      wasistlos
       wlsunset
       wtype
       keepassxc

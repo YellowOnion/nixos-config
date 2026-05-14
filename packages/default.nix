@@ -8,5 +8,6 @@ let
   openttd-jgr = openttd.jgr;
   openttd     = openttd.vanilla;
   openttd-launcher = openttd.launcher;
+  auth-server = pkgs.callPackage ./auth-server/package.nix {};
 }
 

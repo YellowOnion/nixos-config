@@ -39,6 +39,9 @@
 (tool-bar-mode   -1)
 (scroll-bar-mode -1)
 
+(indent-tabs-mode nil)
+(setq tab-stop-list '(4 8))
+
 (global-display-line-numbers-mode 1)
 (global-visual-line-mode t)
 (delete-selection-mode t)
@@ -462,6 +465,7 @@
   ;; `variable-pitch' face supports it
   (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
   ;; Enable all Cascadia and Fira Code ligatures in programming modes
+  ;; :<|>
   (ligature-set-ligatures 'prog-mode
                         '(;; == === ==== => =| =>>=>=|=>==>> ==< =/=//=// =~
                           ;; =:= =!=
@@ -485,8 +489,6 @@
                           ("\\" (rx (or "/" (+ "\\"))))
                           ;; ++ +++ ++++ +>
                           ("+" (rx (or ">" (+ "+"))))
-                          ;; :: ::: :::: :> :< := :// ::=
-                          (":" (rx (or ">" "<" "=" "//" ":=" (+ ":"))))
                           ;; // /// //// /\ /* /> /===:===!=//===>>==>==/
                           ("/" (rx (+ (or ">"  "<" "|" "/" "\\" "\*" ":" "!"
                                           "="))))
@@ -504,6 +506,8 @@
                           ;; << <<< <<<<
                           ("<" (rx (+ (or "\+" "\*" "\$" "<" ">" ":" "~"  "!"
                                           "-"  "/" "|" "="))))
+                          ;; :: ::: :::: :> :< := :// ::= :<|>
+                          (":" (rx (or "<|>" ">" "<" "=" "//" ":=" (+ ":"))))
                           ;; >: >- >>- >--|-> >>-|-> >= >== >>== >=|=:=>>
                           ;; >> >>> >>>>
                           (">" (rx (+ (or ">" "<" "|" "/" ":" "=" "-"))))

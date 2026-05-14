@@ -22,10 +22,10 @@
       url = "github:YellowOnion/factorio-mods-nix";
     };
     
-    auth-server = {
-      url = "github:YellowOnion/auth-server";
-      flake = false;
-    };
+    #auth-server = {
+    #  url = "github:YellowOnion/auth-server";
+    #  flake = false;
+    #};
     conduit = {
       url = "gitlab:famedly/conduit";
       inputs.nixpkgs.follows = "nixpkgs-stable";
@@ -36,12 +36,10 @@
       flake = false;
     };
   };
-  outputs =
-    {
+  outputs = {
       self,
       nixpkgs-stable,
       nixpkgs-unstable,
-      auth-server,
       typed-systems,
       home-manager,
       ...
@@ -75,17 +73,19 @@
         }:
         let
           pkgs = mkNixpkgs nixpkgs system;
+          pkgs-unstable = mkNixpkgs nixpkgs-unstable system;
           privPkgs = mkPrivPkgs pkgs;
+          privPkgs-unstable = mkPrivPkgs pkgs-unstable;
         in
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit privPkgs;
+            inherit privPkgs-unstable;
             inherit (inputs) factorio-mods;
-            auth-server = pkgs.haskellPackages.callPackage auth-server { };
             conduit = inputs.conduit.packages.${system};
             pkgs-stable   = nixpkgs-stable.legacyPackages.${system};
-            pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+            pkgs-unstable = pkgs-unstable;
           };
           modules = modules ++ [
             (

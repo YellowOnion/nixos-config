@@ -5,14 +5,15 @@
 {
   config,
   pkgs,
+  privPkgs-unstable,
   lib,
   factorio-mods,
-  auth-server,
   conduit,
   pkgs-unstable,
   ...
 }:
 let
+  inherit (privPkgs-unstable) auth-server;
   icecastSSLPort = 8443;
   secrets = import ../secrets;
   cfg = config;
@@ -48,6 +49,7 @@ in
   # networking.interfaces.ens3.useDHCP = true;
 
   environment.systemPackages = [
+    auth-server
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -214,31 +216,60 @@ in
       '';
     };
 
-  services.nginx =
-    {
-      enable = true;
-      additionalModules = builtins.attrValues { inherit (pkgs.nginxModules) rtmp; };
-      appendConfig = ''
+  services.nginx = let
+    authConfig = ''
+    auth_request /auth;
+
+    error_page 401 = @error401;
+    location @error401 {
+      return 302 https://auth.${domain}/login?returnTo=$scheme://$host$request_uri;
+    }
+
+    location = /auth {
+      internal;
+      proxy_pass              http://localhost:8081/auth;
+      proxy_pass_request_body off;
+      proxy_set_header        Content-Length "";
+      proxy_set_header        X-Original-URI $request_uri;
+    }
+  ''; in {
+    enable = true;
+    additionalModules = builtins.attrValues { inherit (pkgs.nginxModules) rtmp; };
+    appendConfig = ''
         include /etc/nginx-rtmp/rtmp.conf;
       '';
 
-        recommendedOptimisation = true;
-        recommendedTlsSettings = true;
-        recommendedGzipSettings = true;
-        recommendedBrotliSettings = true;
-        recommendedProxySettings = true;
+    recommendedOptimisation = true;
+    recommendedTlsSettings = true;
+    recommendedGzipSettings = true;
+    recommendedBrotliSettings = true;
+    recommendedProxySettings = true;
 
-        # give Nginx access to our certs
-        group = "acme";
+    # give Nginx access to our certs
+    group = "acme";
 
-      virtualHosts."${domain}" = {
+    virtualHosts = {
+      "${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
           root = "/var/www/";
         };
       };
-      virtualHosts."owncast.${domain}" = {
+      
+      "auth.${domain}" = {
+        forceSSL = true;
+        enableACME = true;
+        locations = {
+          "/" = {
+            return = "301 /login";
+          };
+          "/login" = {
+            proxyPass = "http://localhost:8081/login" ;
+          };
+        };
+      };
+      "owncast.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -247,30 +278,22 @@ in
           priority = 1150;
         };
       };
-      virtualHosts."matrix.${domain}" = {
+      "matrix.${domain}" = {
         forceSSL = true;
         enableACME = true;
         listen = [
-          {
-            addr = "0.0.0.0";
+          { addr = "0.0.0.0";
             port = 443;
-            ssl = true;
-          }
-          {
-            addr = "[::]";
+            ssl = true; }
+          { addr = "[::]";
             port = 443;
-            ssl = true;
-          }
-          {
-            addr = "0.0.0.0";
+            ssl = true; }
+          { addr = "0.0.0.0";
             port = 8448;
-            ssl = true;
-          }
-          {
-            addr = "[::]";
+            ssl = true; }
+          { addr = "[::]";
             port = 8448;
-            ssl = true;
-          }
+            ssl = true; }
         ];
         locations."/_matrix/" = {
           proxyPass = "http://[::1]:${toString cfg.services.matrix-conduit.settings.global.port}$request_uri";
@@ -278,7 +301,7 @@ in
           priority = 1150;
         };
       };
-      virtualHosts."dead-suns.${domain}" = {
+      "dead-suns.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -287,7 +310,7 @@ in
           priority = 1150;
         };
       };
-      virtualHosts."factorio.${domain}" = {
+      "factorio.${domain}" = {
         forceSSL = true;
         enableACME = true;
         #root = lib.strings.storeDir;
@@ -302,7 +325,7 @@ in
         #    "/" = { tryFiles = "${zipFile} =404"; };
         #};
       };
-      virtualHosts."ice.${domain}" = {
+      "ice.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -310,7 +333,7 @@ in
           priority = 1150;
         };
       };
-      virtualHosts."share.${domain}" = {
+      "share.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
@@ -318,8 +341,10 @@ in
           proxyWebsockets = true;
           priority = 1150;
         };
+        extraConfig = authConfig;
       };
     };
+  };
 
   systemd.services.auth-server = {
     wantedBy = [ "multi-user.target" ];

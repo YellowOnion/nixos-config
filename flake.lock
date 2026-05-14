@@ -40,22 +40,6 @@
         "type": "github"
       }
     },
-    "auth-server": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1682923146,
-        "narHash": "sha256-IekIi4kifOwVon+MEcPyT2UGxGcP7uycXNne5fHMuW8=",
-        "owner": "YellowOnion",
-        "repo": "auth-server",
-        "rev": "95dd32713e63322c75154bcf320319d9538a668a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "YellowOnion",
-        "repo": "auth-server",
-        "type": "github"
-      }
-    },
     "conduit": {
       "inputs": {
         "attic": "attic",
@@ -339,11 +323,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1771419570,
-        "narHash": "sha256-bxAlQgre3pcQcaRUm/8A0v/X8d2nhfraWSFqVmMcBcU=",
+        "lastModified": 1778430510,
+        "narHash": "sha256-Ti+ZBvW6yrWWAg2szExVTwCd4qOJ3KlVr1tFHfyfi8Q=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6d41bc27aaf7b6a3ba6b169db3bd5d6159cfaa47",
+        "rev": "8fd9daa3db09ced9700431c5b7ad0e8ba199b575",
         "type": "github"
       },
       "original": {
@@ -387,7 +371,6 @@
     "root": {
       "inputs": {
         "arkenfox": "arkenfox",
-        "auth-server": "auth-server",
         "conduit": "conduit",
         "factorio-mods": "factorio-mods",
         "home-manager": "home-manager",

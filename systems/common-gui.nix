@@ -51,6 +51,7 @@ in
   services.udisks2.enable = true;
   services.gvfs.enable = true;
   security.pam.services.swaylock = {};
+  programs.dconf.enable = true;
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.variant = "dvorak";
