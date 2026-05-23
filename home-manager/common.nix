@@ -343,11 +343,11 @@ in
     window {
         border-radius: 8px;
         font-family: "0xProto NL";
-        background-color: #3A424F; // charcoal; sway-theme
+        background-color: #3A424F; /* charcoal; sway-theme */
     }
 
     #entry:selected {
-        background-color: #9C3922; // chestnut; sway-theme
+        background-color: #9C3922; /* chestnut; sway-theme */
     }
     '';
   };
