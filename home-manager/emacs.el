@@ -49,25 +49,6 @@
 ;; TODO Figure out why this feature breaks
 (setq shift-select-mode t)
 
-;; Stolen from doom
-(defun doom/escape (&optional interactive)
-  "Run `doom-escape-hook'."
-  (interactive (list 'interactive))
-  (let ((inhibit-quit t))
-    (cond ((minibuffer-window-active-p (minibuffer-window))
-           ;; quit the minibuffer if open.
-           (when interactive
-             (setq this-command 'abort-recursive-edit))
-           (abort-recursive-edit))
-          ;; Run all escape hooks. If any returns non-nil, then stop there.
-          ((run-hook-with-args-until-success 'doom-escape-hook))
-          ;; don't abort macros
-          ((or defining-kbd-macro executing-kbd-macro) nil)
-          ;; Back to the default
-          ((unwind-protect (keyboard-quit)
-             (when interactive
-               (setq this-command 'keyboard-quit)))))))
-
 (with-eval-after-load 'eldoc
   (eldoc-add-command 'doom/escape))
 
@@ -94,7 +75,9 @@
         evil-vsplit-window-right t
         evil-want-fine-undo      t
         evil-want-integration    t
-        evil-want-keybinding     nil)
+        evil-want-keybinding     nil
+	evil-want-minibuffer     t
+	)
   (evil-mode ))
 
 (use-package evil-collection
@@ -122,7 +105,7 @@
 (defun open-config ()
   "Open Configuration (init.el) file."
   (interactive)
-  (find-file "~/.config/emacs/init.el"))
+  (find-file (file-truename "~/.config/emacs/init.el")))
 
 (defun reload-config ()
   "Reload Configuration (init.el) file."
@@ -154,11 +137,10 @@
     :non-normal-prefix "C-SPC")
 
   (tyrant-def
-    "SPC" '(counsel-M-x       :wk "M-x")
-    "."   '(find-file         :wk "Find file")
-    ","   '(switch-to-buffer  :wk "Switch buffer")
-    "/"   '(consult-rg :wk "Search project")
-    ":"   '(counsel-M-x :wk "M-x")
+    "SPC" '(project-find-file        :wk "Find file")
+    ","   '(switch-to-buffer         :wk "Switch buffer")
+    "/"   '(consult-ripgrep          :wk "Search project")
+    ":"   '(execute-extended-command :wk "M-x")
 
     "h"   '(:ignore t         :wk "Help")
     "h f" '(describe-function :wk "Describe function")
@@ -173,8 +155,8 @@
     "b b" '(switch-to-buffer    :wk "Switch buffer")
     "b i" '(ibuffer             :wk "Use ibuffer")
     "b d" '(kill-current-buffer :wk "Kill buffer")
-    "b n" '(next-buffer         :wk "Next buffer")
-    "b p" '(previous-buffer     :wk "Previous buffer")
+    "b [" '(next-buffer         :wk "Next buffer")
+    "b ]" '(previous-buffer     :wk "Previous buffer")
     "b r" '(revert-buffer       :wk "Reload buffer")
     "b e" '(eval-buffer         :wk "Evaluate buffer")
 
@@ -196,21 +178,21 @@
     "g b" '(magit-blame           :wk "Magit blame")
     "g l" '(magit-log-buffer-file :wk "Magit log (current file)")
     "g d" '(magit-diff-unstaged   :wk "Magit diff")
-    "g r"   (cons "Git" 'magit-mode-map)
+    "g r" (cons "Git" 'magit-mode-map)
 
     "p"   (cons "Projects" project-prefix-map)
 
     ;; The Search menu
     "s"   '(:ignore t :wk "Search")
     "s b" '(swiper :wk "Search buffer") 
-    "s d" '(counsel-rg :wk "Search directory")
+    "s d" '(consult-ripgrep :wk "Search directory")
     "s p" '(rg-project :wk "Search project (rg package)")
-    "s i" '(counsel-imenu :wk "Search symbols (imenu)")
-    "s s" '(counsel-grep-or-swiper :wk "Search buffer (grep)")
+    "s i" '(consult-imenu :wk "Search symbols (imenu)")
 
     "v" '(:ignore t                   :wk "Change viewing details")
     "v l" '(display-line-numbers-mode :wk "Toggle line numbers")
     "v t" '(visual-line-mode          :wk "Toggle trucated lines")
+    "v z" '(global-text-scale-adjust  :wk "Zoom")
 
     "w"         '(:ignore t          :wk "Window Operations")
     "w o"       '(evil-window-down   :wk "Navi down")
@@ -226,7 +208,15 @@
     "w d"       '(evil-window-delete :wk "exit window")
 
     "q"         '(:ignore t  :wk "Emacs Menu")
-    "q q"       '(kill-emacs :wk "Quit")))
+    "q q"       '(kill-emacs :wk "Quit")
+
+    "o"    '(:ignore t           :wk "Org Mode")
+    "o o"  '(org-open-at-point   :wk "Open here")
+    "o a"  '(org-agenda          :wk "Org Agenda")
+    "o l"  '(org-store-link      :wk "Org store link")
+    "o c"  '(org-capture         :wk "Org capture")
+    "o r"   '(org-roam-node-find :wk "Org Roam Find")
+    ))
 
 (use-package which-key
   :demand t
@@ -250,7 +240,7 @@
  :config
   (setq project-switch-commands
         '((magit-project-status "Git status" "g")
-          (project-dired "Choose File" "f")))) 
+          (project-find-file "Choose File" "f")))) 
 
 (use-package magit
   :demand t
@@ -282,33 +272,12 @@
   "TAB"
   "C-g")
   (general-define-key
-  :keymaps     'company-active-map
-  "S-<return>" '(company-complete-selection :wk "company complete")
-  "S-TAB"      '(company-complete-common-or-cycle)
+   :keymaps     'company-active-map
+   "S-<return>" '(company-complete-selection :wk "company complete")
+   "S-TAB"      '(company-complete-common-or-cycle)
   )
   :config
   (global-company-mode))
-
-;(use-package ivy
-;  :config
-;  (setq ivy-use-virtual-buffers t
-;        ivy-count-format "(%d/%d) "
-;        enable-recursive-minibuffers t)
-;  (ivy-mode 1))
-
-;(use-package ivy-rich
-;  :after ivy
-;  :init
-;  (ivy-rich-mode t)
-;  :config
-;  (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
-;  (setq ivy-rich-path-style 'abbrev)
-;  (ivy-rich-project-root-cache-mode t))
-
-;(use-package counsel
-;  :after ivy
-;  :config
-;  (counsel-mode t))
 
 (use-package emacs
   :custom
@@ -325,10 +294,18 @@
   (savehist-mode))
 
 (use-package vertico
-	     :custom
-	     (vertico-cycle t)
-	     :init
-	     (vertico-mode))
+  :demand t
+  :custom
+    (vertico-cycle t)
+  :init
+    (vertico-mode))
+
+(use-package vertico-directory
+  :demand t
+  :after vertico
+  :bind (:map vertico-map
+	      ("RET" . vertico-directory-enter))
+  :hook (rfn-eshadow-update-overlay . vertico-diretory-tidy))
 
 (use-package orderless
   :demand t
@@ -353,6 +330,7 @@
   )
 
 (use-package marginalia
+  :demand t
   ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
   ;; available in the *Completions* buffer, add it to the
   ;; `completion-list-mode-map'.
@@ -449,6 +427,18 @@
 
 (use-package tramp
   :demand t)
+
+(use-package org
+  :init
+  (setq org-agenda-files '("~/Sync/Org/agenda.org"))
+  :demand t)
+
+(use-package org-roam
+  :demand t
+  :init
+  (setq org-roam-directory (file-truename "~/Sync/Org/roam"))
+  (org-roam-db-autosync-mode)
+  )
 
 (use-package evil-surround
   :demand t

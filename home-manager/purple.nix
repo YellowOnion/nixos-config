@@ -15,14 +15,21 @@ let
   swayResume = (
     pkgs.writeShellScriptBin "swayResume" ''
       swaymsg 'output * dpms on'
-      I=0
-      while [[ $(${pkgs.xrandr}/bin/xrandr --listactivemonitors | head -1 | awk '{ print $2;}') != 2 || $I == 30 ]]; do
-        sleep 1
-        I=$(($I+1))
-      done
-      swaymsg 'output $lg mode 2560x1440@180hz'
+    ''
+  );
 
-      ${setDefaultMonitor}/bin/setDefaultMonitor
+  ewwStart = (
+    pkgs.writeShellScriptBin "ewwStart" ''
+       eww open bar --id primary  --screen DP-1 --arg showbattery="" --arg orientation=v
+       eww open bar --id secondary --screen DP-2 --arg showbattery="" --arg orientation=h
+    ''
+  );
+  swayMonitor = (
+    pkgs.writeShellScriptBin "swayMonitor" ''
+    swaymsg -mt subscribe '["output"]' |  while read -r LINE; do
+        swaymsg 'output $lg mode 2560x1440@180hz'
+        ${setDefaultMonitor}/bin/setDefaultMonitor
+    done
     ''
   );
 in
@@ -33,6 +40,8 @@ in
     swayResume
     setDefaultMonitor
     zynaddsubfx
+    swayMonitor
+    ewwStart
     # takes ages to compile, has bugs for some reason?
     #davinci-resolve
   ];
@@ -59,19 +68,28 @@ in
 
   xdg.configFile."pipewire".source = ./pipewire.purple;
 
+  services.swayidle = let
+    swaylock = "${pkgs.swaylock}/bin/swaylock -f -c 000000";
+    resume   = "${pkgs.sway}/bin/swaymsg 'output * dpms on'";
+    in {
+    enable = true;
+    timeouts = [
+      { timeout = 600; command = "${pkgs.sway}/bin/swaymsg 'output * dpms off'"; resumeCommand = resume; }
+      { timeout = 630; command = swaylock; }
+    ];
+    events = {
+      "after-resume" = resume;
+      "before-sleep" = swaylock;
+      "lock"         = swaylock;
+      "unlock"       = "pkill --signal SIGUSR1 swaylock";
+    };
+  };
+
   xdg.configFile."sway/config.d/this".text = ''
-      exec ${setDefaultMonitor}/bin/setDefaultMonitor
-
-      exec_always {
-           eww open bar --id primary  --screen DP-1 --arg showbattery="" --arg orientation=v
-           eww open bar --id secondary --screen DP-2 --arg showbattery="" --arg orientation=h
+      exec {
+           ${setDefaultMonitor}/bin/setDefaultMonitor
+           ${ewwStart}/bin/ewwStart
       }
-
-      exec_always swayidle -w \
-          timeout 630 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' \
-          resume ${swayResume}/bin/swayResume \
-          before-sleep 'swaylock -f -c 000000'
 
       set $dell "Dell Inc. DELL P2314H D59H247SAGRL"
       set $lg   "LG Electronics LG ULTRAGEAR 203NTDV9B106"

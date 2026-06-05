@@ -59,6 +59,7 @@ in
     marginalia
     nix-mode
     orderless
+    org-roam
     rainbow-delimiters
     rg
     smartparens
@@ -306,7 +307,15 @@ in
   };
 
   services = {
-    mako.enable = true;
+    mako = {
+      enable = true;
+      settings = {
+        default-timeout = 10000;
+        "mode=do-not-disturb" = {
+          invisible = true;
+        };
+      };
+    };
     wlsunset = {
       enable = true;
       latitude  = -43.9;

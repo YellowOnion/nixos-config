@@ -136,7 +136,7 @@ in
   #      ;
   #    };
   #    mods-dat = ./mod-settings.dat ;
-  #    requireUserVerification = false ;
+      requireUserVerification = false ;
   };
 
   #  services.matrix-conduit = {

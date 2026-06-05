@@ -94,6 +94,7 @@ in
     jack.enable = true;
     extraLv2Packages = with pkgs; [
       lsp-plugins
+      rnnoise-plugin
     ];
   };
 
