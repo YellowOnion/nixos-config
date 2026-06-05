@@ -322,6 +322,7 @@ in
       longitude = 172.6;
       temperature.night = 3200;
     };
+    syncthing.enable = true;
   };
 
   programs.git = {

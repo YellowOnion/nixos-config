@@ -81,7 +81,6 @@ in
     screen
     smem
     starship
-    syncthing
     sysstat
     tmux
     unzip
