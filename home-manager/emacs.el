@@ -112,6 +112,12 @@
   (interactive)
   (load-file "~/.config/emacs/init.el"))
 
+(defun org-capture-inbox ()
+  "Org capture to inbox."
+  (interactive)
+  (call-interactively 'org-store-link)
+  (org-capture nil "i"))
+
 (use-package general
   :demand t
   :after (evil evil-collection)
@@ -215,7 +221,8 @@
     "o a"  '(org-agenda          :wk "Org Agenda")
     "o l"  '(org-store-link      :wk "Org store link")
     "o c"  '(org-capture         :wk "Org capture")
-    "o r"   '(org-roam-node-find :wk "Org Roam Find")
+    "o i"  '(org-capture-inbox   :wk "Org capture inbox")
+    "o r"  '(org-roam-node-find  :wk "Org Roam Find")
     ))
 
 (use-package which-key
@@ -430,7 +437,14 @@
 
 (use-package org
   :init
-  (setq org-agenda-files '("~/Sync/Org/agenda.org"))
+  (setq org-directory "~/Sync/Org/"
+        org-agenda-files '("inbox.org" "agenda.org")
+	org-capture-templates `(("i" "Inbox" entry (file "inbox.org")
+				 ,(concat "* TODO %?\n"
+					  "/Entered on/ %U"))
+				("m" "Meeting" entry (file+headline "agenda.org" "Future")
+				 ,(concat "*%? :meeting:\n"
+					  "<%<%Y-%m-%d %a %H:00>>"))))
   :demand t)
 
 (use-package org-roam
