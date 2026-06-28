@@ -443,7 +443,7 @@
 				 ,(concat "* TODO %?\n"
 					  "/Entered on/ %U"))
 				("m" "Meeting" entry (file+headline "agenda.org" "Future")
-				 ,(concat "*%? :meeting:\n"
+				 ,(concat "* %? :meeting:\n"
 					  "<%<%Y-%m-%d %a %H:00>>"))))
   :demand t)
 

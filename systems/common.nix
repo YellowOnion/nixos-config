@@ -117,10 +117,13 @@ in
 
   programs.starship.enable = true;
 
-  services.openssh.enable = true;
-  services.openssh.extraConfig = ''
+  services.openssh = {
+    enable = true;
+    extraConfig = ''
+    PerSourceMaxStartups=1
     TrustedUserCAKeys ${secrets.userCA}
   '';
+  };
   services.fail2ban = {
     enable = false;
     ignoreIP = [

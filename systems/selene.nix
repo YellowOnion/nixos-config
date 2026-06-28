@@ -83,6 +83,9 @@ in
       enable = true;
       game-name = "Woobs Factory" ;
       admins = [ "woobilicious" ];
+      package = pkgs.factorio-headless.override ({versionsJson = ./factorio-versions.json;});
+      nonBlockingSaving = true;
+      requireUserVerification = false;
   #    lan = true;
   #    mods = builtins.attrValues {
   #      inherit (factorio-mods.packages.${pkgs.system})
@@ -136,7 +139,6 @@ in
   #      ;
   #    };
   #    mods-dat = ./mod-settings.dat ;
-      requireUserVerification = false ;
   };
 
   #  services.matrix-conduit = {

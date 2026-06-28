@@ -11,4 +11,9 @@
     steamcmd
     steam-run
   ];
+
+  services.tailscale.enable = lib.mkForce true;
+  networking.nftables = {
+    enable = true;
+  };
 }
