@@ -24,20 +24,21 @@ in
   #disabledModules = [ "services/games/factorio.nix" ];
   imports = [
     # Include the results of the hardware scan.
-    ./selene-hw.nix
+    ./selene-hw2.nix
     ./common.nix
     ./common-server.nix
+    ./zfs.nix
     #factorio-mods.nixosModules.default
   ];
 
   # Use the GRUB 2 boot loader.
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.loader.grub.enable = true;
+  #boot.loader.systemd-boot.enable = lib.mkForce false;
+  #boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
+  # boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
 
   networking.hostName = "Selene"; # Define your hostname.
   networking.domain = secrets.domain;
@@ -199,7 +200,7 @@ in
   services.icecast = {
       enable = false;
       listen.port = 64419;
-      group = "nginx";
+      #group = "nginx";
       hostname = "ice.${domain}";
       admin = {
         password = secrets.icecast.password;

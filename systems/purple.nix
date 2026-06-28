@@ -11,17 +11,6 @@
 
 let
   secrets = import ./secrets;
-  zfsCompatibleKernelPackages = lib.filterAttrs (
-    name: kernelPackages:
-    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
-    && (builtins.tryEval kernelPackages).success
-    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
-  ) pkgs.linuxKernel.packages;
-  latestKernelPackage = lib.last (
-    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
-      builtins.attrValues zfsCompatibleKernelPackages
-    )
-  );
 in
 {
   imports = [
@@ -30,10 +19,8 @@ in
     ./common-gui.nix
     # broken in kernel v6.9-rc2
     ./zen.nix
+    ./zfs.nix
   ];
-
-  boot.kernelPackages = lib.mkForce latestKernelPackage;
-
 #  boot.tmp = {
 #    useTmpfs = true;
 #    tmpfsSize = "50%";
