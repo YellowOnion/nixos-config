@@ -13,9 +13,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-
-  boot.zfs.extraPools = [ "tank" ];
-
   fileSystems."/" =
     { device = "tank/ROOT/nixos";
       fsType = "zfs";

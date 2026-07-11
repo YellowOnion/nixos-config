@@ -26,16 +26,22 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/E717-B5ED";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [
+        "noatime"
+        "nodiratime"
+        "flush"
+        "fmask=0077" "dmask=0077"
+      ];
     };
 
   swapDevices =
-    [ { device = "/dev/sda2"; }
-      { device = "/dev/sdb2"; }
+    [ { device = "/dev/disk/by-uuid/2bbb625a-6a54-418f-86b7-c73b1d583ba0"; }
+      { device = "/dev/disk/by-uuid/85a8a5ee-13f6-4b87-b6cb-5c59e47ebebb"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   networking.hostId = "c7a8f482";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  boot.swraid.enable = true;
+  # can't swraid /boot
+  # boot.swraid.enable = true;
 }

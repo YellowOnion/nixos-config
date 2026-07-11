@@ -9,5 +9,8 @@ let
   openttd     = openttd.vanilla;
   openttd-launcher = openttd.launcher;
   auth-server = pkgs.callPackage ./auth-server/package.nix {};
+  dufs = pkgs.callPackage ./dufs/package.nix {};
+  noisetorch-ladspa = pkgs.callPackage ./noisetorch-ladspa/package.nix {};
+  bitwig-studio6    = pkgs.callPackage ./bitwig/package.nix {};
 }
 

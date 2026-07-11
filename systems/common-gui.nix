@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, privPkgs, ... }:
 
 let
   audio_env = {
@@ -92,6 +92,10 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    extraLadspaPackages = [
+      pkgs.rnnoise-plugin
+      privPkgs.noisetorch-ladspa
+    ];
     extraLv2Packages = with pkgs; [
       lsp-plugins
       rnnoise-plugin
@@ -126,9 +130,12 @@ in
     #  export PRESSURE_VESSEL_FILESYSTEMS_RW="/run/user/$UID/discord-ipc-0"
     #  "$@"
     #'')
-      # basic sway stuff
   ];
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
+  };
+  
   programs.gamescope.enable = true;
   #programs.gamemode.enable = true;
 

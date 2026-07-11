@@ -138,9 +138,6 @@ in
 
   services.tailscale.enable = true;
 
-  #services.zerotierone.enable = true;
-  #services.zerotierone.joinNetworks = lib.attrValues secrets.zt;
-
   services.journald.extraConfig = ''
     MaxRetentionSec=90day
   '';

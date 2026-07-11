@@ -21,7 +21,12 @@
     factorio-mods = {
       url = "github:YellowOnion/factorio-mods-nix";
     };
-    
+
+    foundryvtt = {
+      url = "github:reckenrode/nix-foundryvtt";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+
     #auth-server = {
     #  url = "github:YellowOnion/auth-server";
     #  flake = false;
@@ -82,7 +87,7 @@
           specialArgs = {
             inherit privPkgs;
             inherit privPkgs-unstable;
-            inherit (inputs) factorio-mods;
+            inherit (inputs) factorio-mods foundryvtt;
             conduit = inputs.conduit.packages.${system};
             pkgs-stable   = nixpkgs-stable.legacyPackages.${system};
             pkgs-unstable = pkgs-unstable;

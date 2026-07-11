@@ -232,6 +232,26 @@
         "type": "github"
       }
     },
+    "foundryvtt": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-stable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782645112,
+        "narHash": "sha256-y+HZBu/+rJSvyRUytE5nFbdkwD8wMVSu02nV2I9RpE4=",
+        "owner": "reckenrode",
+        "repo": "nix-foundryvtt",
+        "rev": "5f39c5cac7baa2ebfaf8960a85985919d202e86f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "reckenrode",
+        "repo": "nix-foundryvtt",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -373,6 +393,7 @@
         "arkenfox": "arkenfox",
         "conduit": "conduit",
         "factorio-mods": "factorio-mods",
+        "foundryvtt": "foundryvtt",
         "home-manager": "home-manager",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-unstable": "nixpkgs-unstable",

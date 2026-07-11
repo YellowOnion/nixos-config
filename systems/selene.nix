@@ -5,11 +5,14 @@
 {
   config,
   pkgs,
-  privPkgs-unstable,
   lib,
-  factorio-mods,
+
+  # non-common
   conduit,
+  factorio-mods,
+  foundryvtt,
   pkgs-unstable,
+  privPkgs-unstable,
   ...
 }:
 let
@@ -23,25 +26,53 @@ in
 {
   #disabledModules = [ "services/games/factorio.nix" ];
   imports = [
-    # Include the results of the hardware scan.
     ./selene-hw2.nix
     ./common.nix
     ./common-server.nix
     ./zfs.nix
     #factorio-mods.nixosModules.default
+    foundryvtt.nixosModules.foundryvtt
   ];
 
-  # Use the GRUB 2 boot loader.
-  #boot.loader.systemd-boot.enable = lib.mkForce false;
-  #boot.loader.grub.enable = true;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  # boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
+  networking = {
+    hostName = "Selene"; # Define your hostname.
+    domain = secrets.domain;
 
-  networking.hostName = "Selene"; # Define your hostname.
-  networking.domain = secrets.domain;
+    nftables.enable = true;
+    firewall.allowedTCPPorts = [
+      22 # hard code SSH for safety
+      80 # HTTP
+      443 # HTTPS
+      1935 # rtmps
+    ];
+  # firewall.allowedUDPPorts = [ ... ];
+  };
+  services.tailscale.openFirewall = true;
+  ## TODO BONDING
+#  systemd.network = {
+#    netdevs.bonded = {
+#      netdevConfig = {
+#        Kind = "bond";
+#        Name = "bond0";
+#      };
+#      bondConfig = {
+#        Mode = "";
+#      };
+#    };
+#    networks = lib.mkForce {
+#      "wired" = {
+#        enable = true;
+#        name  = "en*";
+#        bond = "bond0";
+#        dhcp = "yes";
+#        networkConfig = {
+#          IPvAcceptRA = false;
+#        };
+#      };
+#    };
+#  };
+  
+  boot.zfs.forceImportRoot = false;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -59,7 +90,7 @@ in
     (self: super: { owncast = pkgs-unstable.owncast ;})
   ];
 
-
+  # VTT management
   users.users.andrew = {
     isNormalUser = true;
     initialPassword = secrets.andrew.initialPass;
@@ -69,16 +100,19 @@ in
 
   users.users.daniel.extraGroups = [ "vtt" ];
 
-  # VTT management
-  users = {
-    #users.vtt = {
-    #isSystemUser = true;
-    #group = "vtt";
-    #};
-    #groups.vtt = { };
+  # the service is setup to wait till we're online,
+  # but this fails for our secondary interface.
+  systemd.network.wait-online.anyInterface = true;
+  services.foundryvtt = {
+    enable = true;
+    hostName = "dead-suns.${domain}";
+    world = "dead-suns";
+    package = foundryvtt.packages.${pkgs.stdenv.hostPlatform.system}.foundryvtt_13;
+    minifyStaticFiles = true;
+    proxyPort = 443;
+    proxySSL = true;
+    upnp = false;
   };
-
-  boot.extraSystemdUnitPaths = [ "/etc/systemd-mutable/system" ];
 
   services.factorio = secrets.factorio // {
       enable = true;
@@ -87,6 +121,7 @@ in
       package = pkgs.factorio-headless.override ({versionsJson = ./factorio-versions.json;});
       nonBlockingSaving = true;
       requireUserVerification = false;
+      openFirewall = true;
   #    lan = true;
   #    mods = builtins.attrValues {
   #      inherit (factorio-mods.packages.${pkgs.system})
@@ -163,30 +198,39 @@ in
   };
   users.groups.acme = { };
 
+  # TODO
   services.stunnel = {
-      enable = false;
-      user = "nginx";
-      group = "nginx";
-      servers.rtmps-relay = {
-        accept = 1935;
-        connect = 1936;
-        cert = acmeCerts "" "full";
+    enable = true;
+    user = "nginx";
+    group = "acme";
+    servers.rtmps-relay = {
+      accept = ":::1935"; # IPv6
+      connect = ":::1936";
+      #connect = "/run/nginx/rtmp.sock"; doesn't work ;-(
+      cert = acmeCerts "" "cert";
+      key  = acmeCerts "" "key";
       };
-      clients."yt-live" = {
-        accept = "localhost:19350";
-        connect = "a.rtmp.youtube.com:443";
-      };
+#      clients."yt-live" = {
+#        accept = "localhost:19350";
+#        connect = "a.rtmp.youtube.com:443";
+#      };
     };
 
   services.owncast = {
     enable = true;
+    listen = "[::1]";
+    # TODO STUNNEL
     rtmp-port = 1937;
+    openFirewall = true;
   };
 
   services.murmur = {
     enable = true;
-    sslCert = acmeCerts "" "cert";
-    sslKey = acmeCerts "" "key";
+    tls = {
+      certPath = acmeCerts "" "cert";
+      keyPath = acmeCerts "" "key";
+    };
+    openFirewall = true;
   };
 
   systemd.services.murmur = {
@@ -205,7 +249,7 @@ in
       admin = {
         password = secrets.icecast.password;
       };
-      extraConf = ''
+      extraConfig = ''
         <authentication>
           <source-password>${secrets.icecast.source-password}</source-password>
         </authentication>
@@ -237,7 +281,9 @@ in
     }
   ''; in {
     enable = true;
-    additionalModules = builtins.attrValues { inherit (pkgs.nginxModules) rtmp; };
+    additionalModules = builtins.attrValues { inherit (pkgs.nginxModules) rtmp zstd; };
+    # secrets for upstream (i.e. YY/Twitch) are included
+    # TODO stunnel
     appendConfig = ''
         include /etc/nginx-rtmp/rtmp.conf;
       '';
@@ -268,7 +314,7 @@ in
             return = "301 /login";
           };
           "/login" = {
-            proxyPass = "http://localhost:8081/login" ;
+            proxyPass = "http://[::1]:8081/login";
           };
         };
       };
@@ -276,7 +322,8 @@ in
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString cfg.services.owncast.port}/";
+          # we force IPv6 to avoid connecting to v4 issues spamming logs
+          proxyPass = "http://[::1]:${toString cfg.services.owncast.port}/";
           proxyWebsockets = true;
           priority = 1150;
         };
@@ -284,6 +331,7 @@ in
       "matrix.${domain}" = {
         forceSSL = true;
         enableACME = true;
+        # TODO firewall this properly
         listen = [
           { addr = "0.0.0.0";
             port = 443;
@@ -304,15 +352,17 @@ in
           priority = 1150;
         };
       };
+
       "dead-suns.${domain}" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://127.0.0.1:30000/";
+          proxyPass = "http://[::1]:${toString cfg.services.foundryvtt.port}/";
           proxyWebsockets = true;
           priority = 1150;
         };
       };
+
       "factorio.${domain}" = {
         forceSSL = true;
         enableACME = true;
@@ -351,7 +401,6 @@ in
 
   systemd.services.auth-server = {
     wantedBy = [ "multi-user.target" ];
-
     serviceConfig =
       let
         dir = "/var/lib/auth-server";
@@ -373,11 +422,6 @@ in
 
   users.groups.auth-server = { };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -385,5 +429,5 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 }

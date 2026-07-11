@@ -17,6 +17,7 @@ let
 in
 {
   manual.manpages.enable = false;
+  sshAuthSock.enable = true;
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -323,6 +324,8 @@ in
       temperature.night = 3200;
     };
     syncthing.enable = true;
+
+    ssh-agent.enable = true;
   };
 
   programs.git = {

@@ -62,7 +62,7 @@ in
 
   boot.kernelParams = [
     "amdgpu.ppfeaturemask=0xfffffffb"
-    "default_hugepagesz=1G" "hugepagesz=1G"
+    # "default_hugepagesz=1G" "hugepagesz=1G"
     "amd_pstate=active"
   ];
   # KVM stuff

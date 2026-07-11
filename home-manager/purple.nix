@@ -42,6 +42,7 @@ in
     zynaddsubfx
     swayMonitor
     ewwStart
+    privPkgs.bitwig-studio6
     # takes ages to compile, has bugs for some reason?
     #davinci-resolve
   ];
@@ -53,18 +54,6 @@ in
       exec "$@"
     '')
   ];
-  # Install proton versions
-  xdg.dataFile =
-    let
-      v = {
-        inherit (privPkgs.proton)
-          GE-Proton10-34
-          ;
-      };
-    in
-    pkgs.lib.concatMapAttrs (name: value: {
-      "Steam/compatibilitytools.d/${name}".source = value;
-    }) v;
 
   xdg.configFile."pipewire".source = ./pipewire.purple;
 
