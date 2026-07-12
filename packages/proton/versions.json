@@ -99,10 +99,6 @@
         "hash": "sha256-UcWAtmqDPHOZj+APBxfurFcZdlQECi8u1RiePuaNdz0=",
         "url": "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-34/GE-Proton10-34.tar.gz"
     },
-    "GE-Proton10-4.tar.gz": {
-        "hash": "sha256-E8vC08GLPBF9Q5kR2xDl2dD/svX9KMJ84M2fpc1NJ4o=",
-        "url": "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-4/GE-Proton10-4.tar.gz"
-    },
     "GE-Proton10-6.tar.gz": {
         "hash": "sha256-yRtJUDM4vDrOwrIc+PhP/MCVjZyYSvFlT8xF2Z3zPzE=",
         "url": "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-6/GE-Proton10-6.tar.gz"
@@ -118,5 +114,13 @@
     "GE-Proton10-9.tar.gz": {
         "hash": "sha256-sc+m/9yUYb+aYH07GyOMevkXikT6eFdNvfBu2CZ4trE=",
         "url": "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-9/GE-Proton10-9.tar.gz"
+    },
+    "GE-Proton11-1-aarch64.tar.gz": {
+        "hash": "sha256-zjG3PtAIcfQlcKjnITNsKtPRKiRduLZSgdMl7ww8+W0=",
+        "url": "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton11-1/GE-Proton11-1-aarch64.tar.gz"
+    },
+    "GE-Proton11-1.tar.gz": {
+        "hash": "sha256-zm3WY+oBcloxgF7VwWVyOiU83wlFpmQpBzMHQq4t5eQ=",
+        "url": "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton11-1/GE-Proton11-1.tar.gz"
     }
 }

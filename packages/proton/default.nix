@@ -8,22 +8,34 @@ let
     in
     {
       ${nameLess} = (
-        pkgs.stdenvNoCC.mkDerivation {
+        pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
           name = nameLess;
           src = pkgs.fetchurl ({ inherit name; } // info);
 
-          nativeBuildInputs = [ pkgs.zstd ];
+          dontConfigure = true;
+          dontBuild     = true;
+          dontFixup     = true;
 
-          dontFixup = true;
+          outputs = [
+            "out"
+            "steamcompattool"
+          ];
 
           installPhase = ''
-            mkdir -p $out
-            mv * $out
+            runHook preInstall
+
+            echo "${finalAttrs.pname} should not be installed into environments. Please use programs.steam.extraCompatPackages instead." > $out
+
+            mkdir $steamcompattool
+            ln -s $src/* $steamcompattool
+            rm $steamcompattool/compatibilitytool.vdf
+            cp $src/compatibilitytool.vdf $steamcompattool
+
+            runHook postInstall
           '';
 
-        }
-      );
+        }));
     }
-  ) (lib.importJSON ./versions.json);
+    ) (lib.importJSON ./versions.json);
 in
 protons

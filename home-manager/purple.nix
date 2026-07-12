@@ -54,6 +54,15 @@ in
       exec "$@"
     '')
   ];
+  # Install proton versions
+  xdg.dataFile = let v = {
+        # inherit (privPkgs.proton)
+        #  GE-Proton10-34;
+        inherit (pkgs)
+          proton-ge-bin;
+      }; in pkgs.lib.concatMapAttrs (name: value: {
+      "Steam/compatibilitytools.d/${name}".source = value.steamcompattool;
+    }) v;
 
   xdg.configFile."pipewire".source = ./pipewire.purple;
 
