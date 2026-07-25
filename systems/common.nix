@@ -48,6 +48,7 @@ in
     extraGroups = [
       "wheel"
       "audio"
+      "pipewire"
       "networkmanager"
       "libvirtd"
     ]; # Enable ‘sudo’ for the user.

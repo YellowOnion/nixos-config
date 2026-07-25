@@ -131,23 +131,57 @@ in
     #  "$@"
     #'')
   ];
+  hardware.steam-hardware.enable = true;
   programs.steam = {
     enable = true;
+    extest.enable = true;
     # extraCompatPackages = [ pkgs.proton-ge-bin ];
-    # symlinking
   };
   
   programs.gamescope.enable = true;
   #programs.gamemode.enable = true;
 
+  fonts.fontconfig = {
+    enable = true;
+    hinting.enable = true;
+    #subpixel.rgba = "rgb";
+    defaultFonts = {
+      monospace = [ "0xProto NL" ];
+      sansSerif = [ "Noto Sans"  ];
+      serif     = [ "Noto Serif" ];
+    };
+  };
+  
   fonts.packages =
     with pkgs;
     [
-      noto-fonts
+      # Qt5 apps need non-variable fonts
+#      noto-fonts
+      (noto-fonts.overrideAttrs (oldAttrs : {
+        outputs = [
+          "out"
+        ];
+        installPhase = ''
+          local out_font=$out/share/fonts/noto
+          for folder in $(ls -d fonts/*/); do
+            if [[ -d "$folder"unhinted/variable-ttf ]]; then
+              install -m444 -Dt $out_font "$folder"unhinted/variable-ttf/*.ttf
+            fi
+
+            if [[ -d "$folder"hinted/ttf ]]; then
+              install -m444 -Dt $out_font "$folder"hinted/ttf/*.ttf
+            fi
+          done
+          rename 's/\[.*\]//' $out/share/fonts/noto/*
+        '';
+      }))
       noto-fonts-cjk-sans
+      noto-fonts-cjk-sans-static
       noto-fonts-color-emoji
       corefonts
       vista-fonts
+      dejavu_fonts
+      ibm-plex
       (
         let
           font = google-fonts.override { fonts = [ "Kode Mono" ]; };

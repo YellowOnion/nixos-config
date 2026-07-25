@@ -59,6 +59,7 @@ in
     magit
     marginalia
     nix-mode
+    no-littering
     orderless
     org-roam
     rainbow-delimiters
@@ -81,8 +82,9 @@ in
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   i18n.inputMethod = {
-    # enabled = "fcitx5";
-    #fcitx5.addons = [ pkgs.fcitx5-mozc ];
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = [ pkgs.fcitx5-mozc ];
   };
   home = {
     username = "daniel";
@@ -175,6 +177,7 @@ in
       qjackctl
 
       signal-desktop
+      qbittorrent
       # obs-cmd
       (wrapOBS {
       plugins = [
@@ -222,10 +225,20 @@ in
       nordic
       graphite-gtk-theme
 
+      #random qt crap becasue shit don't render correctly
+
+      adwaita-qt
+      adwaita-qt6
+      kdePackages.breeze
+      kdePackages.breeze.qt5
+      libsForQt5.qtstyleplugins
+      qt6Packages.qt6gtk2
+
       # games
 
       privPkgs.rimworld
       privPkgs.openttd-launcher
+
     ];
   };
 
@@ -257,9 +270,10 @@ in
   };
 
   fonts.fontconfig = {
-    enable = true;
+    #enable = true;
     #antialiasing = true;
     #hinting = "slight";
+    #subpixelRendering = "rgb";
     defaultFonts = {
       monospace = [ "0xProto NL" ];
       sansSerif = [ "Noto Sans"  ];
@@ -285,7 +299,8 @@ in
   };
 
   qt = {
-    platformTheme.name = "gtk3";
+    enable = true;
+    platformTheme.name = "adwaita";
     #style.name = "adwaita-dark";
   };
 

@@ -17,6 +17,17 @@
 (eval-when-compile
         (require 'use-package))
 
+;; NOTE: If you want to move everything out of the ~/.emacs.d folder
+;; reliably, set `user-emacs-directory` before loading no-littering!
+(setq user-emacs-directory "~/.cache/emacs")
+
+(use-package no-littering)
+
+;; no-littering doesn't set this by default so we must place
+;; auto save files in the same path as it uses for sessions
+(setq auto-save-file-name-transforms
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
 (set-face-attribute 'default nil
                     :font "0xProto"
                     :height 110)
@@ -49,8 +60,8 @@
 ;; TODO Figure out why this feature breaks
 (setq shift-select-mode t)
 
-(with-eval-after-load 'eldoc
-  (eldoc-add-command 'doom/escape))
+;; Make ESC quit prompts probably should use general
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (use-package undo-fu
   :demand t
@@ -64,6 +75,8 @@
   :config
   (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
   (undo-fu-session-global-mode))
+
+(use-package no-littering)
 
 (use-package evil
   :demand t
@@ -84,7 +97,8 @@
   :demand t
   :after evil
   :config
-  (setq evil-collection-mode-list '(company
+  (setq evil-collection-mode-list '(
+				    company
 	  consult
 	  dashboard
 	  dired
@@ -99,8 +113,6 @@
 	  which-key
 	  xref))
   (evil-collection-init))
-
-(use-package evil-tutor)
 
 (defun open-config ()
   "Open Configuration (init.el) file."
@@ -130,9 +142,11 @@
                   visual
                   motion
                   operator
-                  replace))
+                  replace
+		  vertico))
   :config
-  (general-override-mode)
+  ;; IDK what this does, or where I got this from
+  ;;(general-override-mode)
   (general-evil-setup)
   
 

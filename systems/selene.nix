@@ -17,7 +17,7 @@
 }:
 let
   inherit (privPkgs-unstable) auth-server;
-  icecastSSLPort = 8443;
+  icecastTLSPort = 8443;
   secrets = import ../secrets;
   cfg = config;
   domain = cfg.networking.domain;
@@ -44,6 +44,7 @@ in
       80 # HTTP
       443 # HTTPS
       1935 # rtmps
+      icecastTLSPort
     ];
   # firewall.allowedUDPPorts = [ ... ];
   };
@@ -88,6 +89,13 @@ in
   nixpkgs.overlays = [
     #factorio-mods.overlays.default
     (self: super: { owncast = pkgs-unstable.owncast ;})
+    (self: super: {
+      icecast = pkgs-unstable.icecast.overrideAttrs (oldAttrs: {
+        patches = pkgs.fetchpatch {
+          url = "https://gitlab.xiph.org/-/project/2/uploads/d2f8d747ee35cd1a3cd7b3f647d28c53/check-null.patch";
+          hash = "sha256-mFezlxcT6G27jiR3ZAPNMPMMquUjKo8ZPIRfEz4jA54=";
+        };
+      });})
   ];
 
   # VTT management
@@ -242,9 +250,8 @@ in
 
 
   services.icecast = {
-      enable = false;
+      enable = true;
       listen.port = 64419;
-      #group = "nginx";
       hostname = "ice.${domain}";
       admin = {
         password = secrets.icecast.password;
@@ -254,14 +261,16 @@ in
           <source-password>${secrets.icecast.source-password}</source-password>
         </authentication>
         <listen-socket>
-          <port>${toString icecastSSLPort}</port>
-          <ssl>1</ssl>
+          <port>${toString icecastTLSPort}</port>
+          <tls>1</tls>
         </listen-socket>
         <paths>
-          <ssl-certificate>${acmeCerts "ice" "full"}</ssl-certificate>
+          <tls-certificate>${acmeCerts "ice" "full"}</tls-certificate>
         </paths>
       '';
     };
+
+  systemd.services.icecast.serviceConfig.Group = "acme";
 
   services.nginx = let
     authConfig = ''
@@ -382,7 +391,7 @@ in
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          return = "302 https://ice.${domain}:${toString icecastSSLPort}$request_uri";
+          return = "302 https://ice.${domain}:${toString icecastTLSPort}$request_uri";
           priority = 1150;
         };
       };

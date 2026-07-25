@@ -82,6 +82,10 @@ in
   #  options vfio-pci ids=1002:67df,1002:aaf0
   #'';
 
+  boot.extraModprobeConfig = ''
+    options zfs zfs_txg_timeout=120
+  '';
+
   programs.virt-manager.enable = true;
 
   virtualisation.spiceUSBRedirection.enable = true;

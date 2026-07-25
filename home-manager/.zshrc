@@ -47,15 +47,16 @@ zellij_update_env_outside () {
     done
 }
 
-if [[ $(tty) != "/dev/tty6" # backdoor just incase something goes wrong
-   && -n "$PS1"             # maybe useless?
+if [[ -n "$PS1"             # maybe useless?
    && ! "$TERM" =~ screen   # lets not make this modifier hell 
    && ! "$TERM" =~ tmux 
    && -z "$TMUX"
    && -z "$ZELLIJ"
    ]] ; then
     zellij_update_env_outside main
-    exec zellij attach -c main
+    if [[ $(tty) != "/dev/tty6" ]]; then # backdoor / sway
+        exec zellij attach -c main
+    fi
 fi
 
 
