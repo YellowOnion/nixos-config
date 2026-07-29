@@ -5,6 +5,7 @@ let
 {
   proton = import ./proton args;
   rimworld = pkgs.callPackage ./rimworld/package.nix {};
+  stardewvalley = pkgs.callPackage ./stardewvalley/package.nix {};
   openttd-jgr = openttd.jgr;
   openttd     = openttd.vanilla;
   openttd-launcher = openttd.launcher;

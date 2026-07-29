@@ -238,8 +238,12 @@ in
 
       privPkgs.rimworld
       privPkgs.openttd-launcher
-
+      privPkgs.stardewvalley
     ];
+    # prevent GC for private deps
+    extraDependencies =
+        privPkgs.rimworld.passthru.gc-pins
+      ++ privPkgs.stardewvalley.passthru.gc-pins;
   };
 
   wayland.windowManager.sway = {

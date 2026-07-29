@@ -99,6 +99,15 @@ pkgs.stdenv.mkDerivation {
 
   buildInputs = neededLibraries;
 
+  passthru.gc-pins = [
+    rimworld-core
+    rimworld-anomaly
+    rimworld-biotech
+    rimworld-ideology
+    rimworld-odyssey
+    rimworld-royalty
+  ];
+
   run = ''
     #!${pkgs.runtimeShell}
                                  

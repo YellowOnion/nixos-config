@@ -20,6 +20,9 @@ let
 in
 (bitwig-studio6.overrideAttrs (attrs: {
   inherit version src;
+
+  passthru.gc-pins = [ replacementJar ];
+
   postInstall = ''
     cd $out/libexec/bin/
     mv bitwig.jar bitwig.jar.backup
