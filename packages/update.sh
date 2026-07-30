@@ -3,10 +3,8 @@
 set -eo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-# openttd
-cd openttd
-./update.sh
-cd ..
+./openttd-jgr/update.sh
 
-cd ./proton/
-./update.hs
+./openttd/update.sh
+
+./proton/update.sh

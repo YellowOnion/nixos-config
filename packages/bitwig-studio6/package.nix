@@ -1,6 +1,6 @@
 {
   lib,
-  bitwig-studio6,
+  oldScope,
   requireFile,
   fetchurl,
   ...
@@ -18,7 +18,7 @@ let
     hash = "sha256-jrCTgaxfeWhfKwLeKLmqTQWS7RVbVnHqJ0InCipmm8k=";
   };
 in
-(bitwig-studio6.overrideAttrs (attrs: {
+(oldScope.bitwig-studio6.overrideAttrs (attrs: {
   inherit version src;
 
   passthru.gc-pins = [ replacementJar ];

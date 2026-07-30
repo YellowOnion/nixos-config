@@ -1,7 +1,7 @@
 {
-  config,
   lib,
   pkgs,
+  gogextract,
   ...
 }:
 
@@ -30,30 +30,6 @@ let
     libxxf86vm
     libpulseaudio
   ];
-
-  gogextract = pkgs.stdenvNoCC.mkDerivation {
-    pname = "gogextract";
-    version = "6601b32";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "Yepoleb";
-      repo = "gogextract";
-      rev = "6601b32feacecd18bc12f0a4c23a063c3545a095";
-      hash = "sha256-BTtm3Tn2hFS512w+IcJQfGKSgi2dpYLg1VxNXRODBEI=";
-    };
-
-    buildInputs = [ pkgs.python3 ];
-
-    dontBuild = true;
-
-    installPhase = ''
-      mkdir -p $out/bin
-      mkdir -p $out/share
-      install  $src/gogextract.py $out/bin/gogextract
-      
-      cp $src/LICENSE $out/share/
-    '';
-  };
 
   rimworld-data =
     pname: reqArgs:
@@ -118,12 +94,12 @@ pkgs.stdenv.mkDerivation {
     TMPDIR=$(${pkgs.mktemp}/bin/mktemp --directory)
 
 
-    ${pkgs.bubblewrap}/bin/bwrap \
-                                 --bind / / \
-                                 --overlay-src "$STOREPATH/opt" \
-                                 --overlay "$STATEDIR" "$TMPDIR" "$STATEDIR" \
-                                 --chdir "$STATEDIR" \
-                                 "$STATEDIR/RimWorldLinux" "$@"
+    ${pkgs.bubblewrap}/bin/bwrap                                          \
+        --bind / /                                                        \
+        --overlay-src "$STOREPATH/opt"                                    \
+        --overlay "$STATEDIR" "$TMPDIR" "$STATEDIR"                       \
+        --chdir "$STATEDIR"                                               \
+        "$STATEDIR/RimWorldLinux" "$@"
   '';
 
   installPhase = ''

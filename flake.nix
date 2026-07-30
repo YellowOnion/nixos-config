@@ -41,7 +41,8 @@
       flake = false;
     };
   };
-  outputs = {
+  outputs =
+    {
       self,
       nixpkgs-stable,
       nixpkgs-unstable,
@@ -55,11 +56,14 @@
 
       mkPrivPkgs =
         pkgs:
-        import ./packages {
-          inherit pkgs;
-          lib = pkgs.lib;
-        };
-
+        let
+          inherit (pkgs) lib;
+        in
+          lib.filesystem.packagesFromDirectoryRecursive {
+            inherit (pkgs) callPackage;
+            newScope = attrs: pkgs.newScope (attrs // { oldScope = pkgs; });
+            directory = ./packages;
+          };
       mkNixpkgs =
         np: system:
         import np {
@@ -89,7 +93,7 @@
             inherit privPkgs-unstable;
             inherit (inputs) factorio-mods foundryvtt;
             conduit = inputs.conduit.packages.${system};
-            pkgs-stable   = nixpkgs-stable.legacyPackages.${system};
+            pkgs-stable = nixpkgs-stable.legacyPackages.${system};
             pkgs-unstable = pkgs-unstable;
           };
           modules = modules ++ [
