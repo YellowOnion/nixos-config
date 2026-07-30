@@ -28,6 +28,9 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
+;;this is just annoying
+(setq make-backup-files nil)
+
 (set-face-attribute 'default nil
                     :font "0xProto"
                     :height 110)
