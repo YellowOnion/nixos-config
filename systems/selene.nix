@@ -26,6 +26,7 @@ in
 {
   #disabledModules = [ "services/games/factorio.nix" ];
   imports = [
+    ../modules/projectzomboid.nix
     ./selene-hw2.nix
     ./common.nix
     ./common-server.nix
@@ -104,6 +105,11 @@ in
     initialPassword = secrets.andrew.initialPass;
     extraGroups = [ "wheel" "vtt" ];
     openssh.authorizedKeys.keys = [ secrets.andrew.sshKey ];
+  };
+
+  users.users.wanabe = {
+    isNormalUser = true;
+    initialPassword = secrets.wanabe.initialPass;
   };
 
   users.users.daniel.extraGroups = [ "vtt" ];

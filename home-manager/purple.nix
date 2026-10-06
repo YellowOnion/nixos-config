@@ -42,7 +42,7 @@ in
     zynaddsubfx
     swayMonitor
     ewwStart
-    privPkgs.bitwig-studio6
+    #privPkgs.bitwig-studio6
     # takes ages to compile, has bugs for some reason?
     #davinci-resolve
   ];

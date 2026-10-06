@@ -71,6 +71,7 @@ in
     undo-fu
     undo-fu-session
     vertico
+    yasnippet
     ];
   };
 
@@ -131,7 +132,8 @@ in
           linear
       ]
       ))
-      hexchat
+      # TODO replace
+      #hexchat
       imv
       libreoffice
       mesa-demos
@@ -150,7 +152,8 @@ in
       keepassxc
 
       # discord
-      vesktop
+      (discord.override { withEquicord = true; withOpenASAR = true; })
+      # vesktop
 
       zellij
       mpv
@@ -219,11 +222,8 @@ in
       #themes 
       adwaita-qt # for Cantata
       adwaita-qt6 # for Cantata
-      materia-theme
       gnome-themes-extra
       papirus-icon-theme
-      nordic
-      graphite-gtk-theme
 
       #random qt crap becasue shit don't render correctly
 
@@ -236,14 +236,14 @@ in
 
       # games
 
-      privPkgs.rimworld
-      privPkgs.openttd-launcher
-      privPkgs.stardewvalley
+      #privPkgs.rimworld
+      #privPkgs.openttd-launcher
+      #privPkgs.stardewvalley
     ];
     # prevent GC for private deps
-    extraDependencies =
-        privPkgs.rimworld.passthru.gc-pins
-      ++ privPkgs.stardewvalley.passthru.gc-pins;
+    #extraDependencies =
+    #    privPkgs.rimworld.passthru.gc-pins
+    #  ++ privPkgs.stardewvalley.passthru.gc-pins;
   };
 
   wayland.windowManager.sway = {
@@ -296,10 +296,10 @@ in
       package = pkgs.papirus-icon-theme;
       name    = "Papirus";
     };
-    theme = {
-      package = pkgs.materia-theme;
-      name    = "Graphite";
-    };
+    #theme = {
+      #package = pkgs.materia-theme;
+      #name    = "Graphite";
+    #};
   };
 
   qt = {

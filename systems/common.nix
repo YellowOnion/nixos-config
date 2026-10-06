@@ -8,7 +8,6 @@
 let
   secrets = import ../secrets;
   ms2ns = a: a * 1000 * 1000;
-
 in
 {
   hardware.block = {
@@ -51,6 +50,8 @@ in
       "pipewire"
       "networkmanager"
       "libvirtd"
+      "scanner"
+      "lp"
     ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [ secrets.daniel.sshKey ];
   };
@@ -138,10 +139,9 @@ in
   };
 
   services.tailscale.enable = true;
-
-  services.journald.extraConfig = ''
-    MaxRetentionSec=90day
-  '';
+  services.journald.settings.Journal = {
+    MaxRetentionSec="90day";
+  };
   nix = {
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";

@@ -84,6 +84,9 @@
 (use-package evil
   :demand t
   :init
+  ; workaround for issue #2034
+  (put 'evil-default-state 'permanent-local t)
+  (put 'evil-echo-state 'permanent-local t)
   (setq
         evil-search-module       'evil-search
         evil-split-window-below  t
@@ -94,14 +97,14 @@
         evil-want-keybinding     nil
 	evil-want-minibuffer     t
 	)
-  (evil-mode ))
+  (evil-mode t))
 
 (use-package evil-collection
   :demand t
   :after evil
   :config
-  (setq evil-collection-mode-list '(
-				    company
+  (setq evil-collection-mode-list
+	'(company
 	  consult
 	  dashboard
 	  dired
@@ -152,9 +155,8 @@
   ;;(general-override-mode)
   (general-evil-setup)
   
-
   (general-create-definer tyrant-def
-    :states '(normal visual motion emacs)
+    :states '(normal visual motion)
     :keymaps 'override
     :prefix "SPC"
     :non-normal-prefix "C-SPC")
@@ -303,14 +305,15 @@
   :config
   (global-company-mode))
 
-(use-package emacs
-  :custom
-  (context-menu-mode t)
-  (enable-recursive-minibuffer t)
-  (read-extended-command-predicate
-    #'command-completion-default-include-p)
-  (minibuffer-prompt-properties
-    '(read-only t cursor-intangible t face minibuffer-prompt)))
+;(use-package emacs
+;  :custom
+;  (context-menu-mode t)
+;  (enable-recursive-minibuffer t)
+;  (read-extended-command-predicate
+;    #'command-completion-default-include-p)
+;  (minibuffer-prompt-properties
+;    '(read-only t cursor-intangible t face minibuffer-prompt)))
+
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
@@ -350,7 +353,6 @@
    consult-source-recent-file consult-source-project-recent-file
    ;; :preview-key "M-."
    :preview-key '(:debounce 0.4 any))
-
   )
 
 (use-package marginalia
@@ -414,6 +416,7 @@
 (use-package lsp-nix
   :demand t
   :defer t)
+
 (use-package lsp-haskell
   :demand t
   :defer t)
@@ -421,7 +424,13 @@
 (use-package lsp-mode
   :demand t
   :after (which-key)
-  :hook ((haskell-mode . lsp-deferred)
+  :config
+  (defun lsp-no-hsc-deferred ()
+    (unless (string-match-p ".*\.hsc$" buffer-file-name)
+      (lsp-deferred))) 
+
+  :hook ((haskell-mode . lsp-no-hsc-deferred)
+	 (haskell-literate-mode . lsp-deferred)
 	 (cc-mode      . lsp-deferred)
 	 (nix-mode     . lsp-deferred)
          (lsp-mode     . lsp-enable-which-key-integration))

@@ -17,4 +17,16 @@ let
       builtins.attrValues zfsCompatibleKernelPackages
     )
   );
-in { boot.kernelPackages = lib.mkForce latestZfsKernelPackage; }
+in {
+  boot.kernelPackages = lib.mkForce latestZfsKernelPackage;
+  services.zfs.autoScrub = {
+    enable = true;
+    interval = "*-*-01 04:00:00"; # monthly 4am
+    randomizedDelaySec = "1h";
+  };
+  services.fstrim.enable = false;
+  services.zfs.trim = {
+    interval = "Mon *-*-* 04:00:00";
+    randomizedDelaySec = "1h";
+  };
+}

@@ -41,7 +41,7 @@ let
     pkgs.writeShellScriptBin "runOGLGame" ''
       ${gameEnv}
 
-      systemd-inhibit ${pkgs.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${pkgs.mangohud}/bin/mangohud ${gameScripts}/bin/run.sh "$@"
+      systemd-inhibit ${pkgs.mangohud}/bin/mangohud ${pkgs.obs-studio-plugins.obs-vkcapture}/bin/obs-gamecapture ${gameScripts}/bin/run.sh "$@"
     ''
   );
 

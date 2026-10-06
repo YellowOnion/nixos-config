@@ -13,9 +13,14 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
+  fileSystems."/old-root" =
     { device = "tank/ROOT/nixos";
       fsType = "zfs";
+    };
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/548c3890-e867-4abb-b09a-d308dc54f909";
+      fsType = "xfs";
     };
 
   fileSystems."/media" =

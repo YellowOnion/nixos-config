@@ -135,6 +135,7 @@ in
   programs.steam = {
     enable = true;
     extest.enable = true;
+    extraPackages = [ pkgs.libSM ];
     # extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
   

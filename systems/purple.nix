@@ -21,12 +21,16 @@ in
     ./zen.nix
     ./zfs.nix
   ];
-#  boot.tmp = {
-#    useTmpfs = true;
-#    tmpfsSize = "50%";
-#    tmpfsHugeMemoryPages = "within_size";
-#  };
 
+  fileSystems."/var/build" = {
+    fsType = "tmpfs";
+    device = "tmpfs";
+    options = [
+      "mode=755"
+      "huge=within_size"
+    ];
+  };
+  
   nixpkgs.overlays = [ ];
   hardware.cpu.amd.updateMicrocode = true;
   # networking.bridges.br0.interfaces = [ "enp6s0" ];
@@ -50,6 +54,15 @@ in
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
+
+  hardware.sane.enable = true;
+  
+  
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;  # for IPv4
+  # nssmdns6 = true;  # for IPv6
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -82,8 +95,10 @@ in
   #  options vfio-pci ids=1002:67df,1002:aaf0
   #'';
 
-  boot.extraModprobeConfig = ''
-    options zfs zfs_txg_timeout=120
+  boot.extraModprobeConfig = let
+    pow = lib.fix (f: b: a: if a == 1 then b else b * f b (a - 1));
+    in ''
+    options zfs zfs_txg_timeout=120  l2arc_write_max=${toString (pow 1024 3)}
   '';
 
   programs.virt-manager.enable = true;
