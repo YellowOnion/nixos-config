@@ -2,7 +2,7 @@
   description = "Woobilicious' NixOS configuration";
   inputs = {
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/085af13c1607f4f73ab1e7a51071faf6577a7e87";
     #    sway-nix = {
     #      url = "github:YellowOnion/sway-nix";
     #      inputs.nixpkgs.follows = "nixpkgs-unstable";

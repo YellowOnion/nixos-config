@@ -45,6 +45,7 @@ in
         defrag = "defer+madvise";
         shmem_enabled = "within_size";
   };
+  boot.zfs.forceImportRoot = false;
 
   };
   #environment.variables = {

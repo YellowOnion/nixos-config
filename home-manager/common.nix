@@ -152,7 +152,7 @@ in
       keepassxc
 
       # discord
-      (discord.override { withEquicord = true; withOpenASAR = true; })
+      (discord.override { withOpenASAR = true; })
       # vesktop
 
       zellij
@@ -232,10 +232,10 @@ in
       kdePackages.breeze
       kdePackages.breeze.qt5
       libsForQt5.qtstyleplugins
-      qt6Packages.qt6gtk2
 
       # games
-
+      zeroad
+      uzdoom
       #privPkgs.rimworld
       #privPkgs.openttd-launcher
       #privPkgs.stardewvalley
@@ -305,7 +305,7 @@ in
   qt = {
     enable = true;
     platformTheme.name = "adwaita";
-    #style.name = "adwaita-dark";
+    style.name = "adwaita-dark";
   };
 
   home.pointerCursor = {

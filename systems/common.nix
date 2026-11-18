@@ -59,8 +59,6 @@ in
   environment.systemPackages = with pkgs; [
     (aspellWithDicts (d: [
       d.en
-      d.en-computers
-      d.en-science
     ]))
     age
     direnv

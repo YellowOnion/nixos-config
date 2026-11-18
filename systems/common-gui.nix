@@ -94,7 +94,7 @@ in
     jack.enable = true;
     extraLadspaPackages = [
       pkgs.rnnoise-plugin
-      privPkgs.noisetorch-ladspa
+      #privPkgs.noisetorch-ladspa
     ];
     extraLv2Packages = with pkgs; [
       lsp-plugins
